@@ -63,12 +63,12 @@ bool Ray::intersect (const BoundingBox & bbox, Vec3Df & intersectionPoint) const
 }
 
 bool Ray::intersection(Vec3Df v0, Vec3Df v1, Vec3Df v2){
-	//on doit normaliser la normale!
+        /*//on doit normaliser la normale!
 	Vec3Df n = Vec3Df::crossProduct(v1-v0,v2-v0);
 	n.normalize();
 	//on projete (is =  intersection)
-	Vec3Df oproj = o.projectOn(n,v0);
-	Vec3Df dproj = d.projectOn(n,v0);
+        Vec3Df oproj = o.projectOn(n,v0);
+        Vec3Df dproj = d.projectOn(n,v0);
 
         float dprojoproj = Vec3Df::distance(dproj,oproj);
         float ooproj = Vec3Df::distance(o,oproj);
@@ -79,6 +79,7 @@ bool Ray::intersection(Vec3Df v0, Vec3Df v1, Vec3Df v2){
 	if(Vec3Df::dotProduct(v0-is,v0-(v1+v2)*0.5)<0)		return false;
 	else if(Vec3Df::dotProduct(v1-is,v0-(v0+v2)*0.5)<0)	return false;
 	else if(Vec3Df::dotProduct(v2-is,v0-(v0+v1)*0.5)<0)	return false;
-	return true;
+    */
+return true;
 }
 

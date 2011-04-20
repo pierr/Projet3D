@@ -20,7 +20,7 @@ public:
     inline Ray () {}
     inline Ray (const Vec3Df & origin, const Vec3Df & direction)
         : origin (origin), direction (direction) {
-			this.direction.normalize();
+//			this.direction.normalize();
 }
     inline virtual ~Ray () {}
 
@@ -30,7 +30,7 @@ public:
     inline Vec3Df & getDirection () { return direction; }
 
     bool intersect (const BoundingBox & bbox, Vec3Df & intersectionPoint) const;
-	bool Ray::intersection(Vec3Df v0, Vec3Df v1, Vec3Df v2);
+    bool intersection(Vec3Df v0, Vec3Df v1, Vec3Df v2);
 private:
     Vec3Df origin;
     Vec3Df direction;

@@ -66,6 +66,9 @@ QImage RayTracer::render (const Vec3Df & camPos,
             image.setPixel (i, ((screenHeight-1)-j), qRgb (clamp (c[0], 0, 255),
                                                        clamp (c[1], 0, 255),
                                                        clamp (c[2], 0, 255)));
-        }
+			std::vector<Object> objects = scene->get
+												for(unsigned int i=0; i<)
+								
+}
     return image;
 }

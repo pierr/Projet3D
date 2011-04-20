@@ -62,10 +62,16 @@ QImage RayTracer::render (const Vec3Df & camPos,
             bool hasIntersection = ray.intersect (bbox, intersectionPoint);
             Vec3Df c (backgroundColor);
             if (hasIntersection)
+               // std::cout << "Intersection"<< std::endl;
                 c = 255.f * ((intersectionPoint - minBb) / rangeBb);
-            image.setPixel (i, ((screenHeight-1)-j), qRgb (clamp (c[0], 0, 255),
-                                                       clamp (c[1], 0, 255),
-                                                       clamp (c[2], 0, 255)));								
+                float col = ray.intersectScene();
+                image.setPixel (i, ((screenHeight-1)-j), qRgb (clamp (col, 0, 255),
+                                                           clamp (col, 0, 255),
+                                                           clamp (col, 0, 255)));
+//            image.setPixel (i, ((screenHeight-1)-j), qRgb (clamp (c[0], 0, 255),
+//                                                       clamp (c[1], 0, 255),
+//                                                       clamp (c[2], 0, 255)));
+
 }
     return image;
 }

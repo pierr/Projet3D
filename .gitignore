@@ -1,0 +1,5 @@
+#on ne commit pas le makefile
+raymini/Makefile
+#on ne commit pas les fichiers compilés
+raymini/raymini.app
+raymini/.*

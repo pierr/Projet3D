@@ -14,7 +14,9 @@
 #include "Vec3D.h"
 #include "BoundingBox.h"
 #include "Triangle.h"
-
+#include "Material.h"
+#include "Scene.h"
+#include "Light.h"
 class Ray {
 public:
     inline Ray () {}
@@ -30,7 +32,19 @@ public:
     inline Vec3Df & getDirection () { return direction; }
 
     bool intersect (const BoundingBox & bbox, Vec3Df & intersectionPoint) const;
-    bool intersection(Vec3Df v0, Vec3Df v1, Vec3Df v2);
+    bool intersect ( const Triangle & tri, std::vector<Vertex> & verteces) const;
+    bool intersection(Vec3Df v0, Vec3Df v1, Vec3Df v2) const;
+    /**
+      Le but de cette fonction est de calculer la brdf pour chacun des triangles pour chacun des rayons qui sont tracés.
+    @param v est le barycentre du triangle
+    @param m est le material du triangle
+    @param radiance est la radiance qu'on va modifier.
+    */
+    void calcBRDF(Vertex & v,  Material & m,  float & radiance);
+    /**
+      Le but de cette méthode est de calculer pour chaque rayon les triangles qui intersectent ce rayon , les triangles sont issus des objets qui composent la scène.
+    */
+    float intersectScene();
 private:
     Vec3Df origin;
     Vec3Df direction;

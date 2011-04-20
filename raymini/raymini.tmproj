@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>currentDocument</key>
-	<string>RayTracer.cpp</string>
+	<string>Object.h</string>
 	<key>documents</key>
 	<array>
 		<dict>
@@ -77,6 +77,20 @@
 			<key>firstVisibleLine</key>
 			<integer>0</integer>
 		</dict>
+		<key>Object.h</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>14</integer>
+				<key>line</key>
+				<integer>17</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>1</integer>
+		</dict>
 		<key>QTUtils.cpp</key>
 		<dict>
 			<key>caret</key>
@@ -96,30 +110,14 @@
 			<key>caret</key>
 			<dict>
 				<key>column</key>
-				<integer>55</integer>
+				<integer>56</integer>
 				<key>line</key>
 				<integer>64</integer>
 			</dict>
-			<key>columnSelection</key>
-			<false/>
 			<key>firstVisibleColumn</key>
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>47</integer>
-			<key>selectFrom</key>
-			<dict>
-				<key>column</key>
-				<integer>0</integer>
-				<key>line</key>
-				<integer>64</integer>
-			</dict>
-			<key>selectTo</key>
-			<dict>
-				<key>column</key>
-				<integer>55</integer>
-				<key>line</key>
-				<integer>64</integer>
-			</dict>
 		</dict>
 		<key>Ray.h</key>
 		<dict>
@@ -162,6 +160,34 @@
 			<integer>0</integer>
 			<key>firstVisibleLine</key>
 			<integer>9</integer>
+		</dict>
+		<key>Scene.cpp</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>0</integer>
+				<key>line</key>
+				<integer>0</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>22</integer>
+		</dict>
+		<key>Scene.h</key>
+		<dict>
+			<key>caret</key>
+			<dict>
+				<key>column</key>
+				<integer>30</integer>
+				<key>line</key>
+				<integer>29</integer>
+			</dict>
+			<key>firstVisibleColumn</key>
+			<integer>0</integer>
+			<key>firstVisibleLine</key>
+			<integer>10</integer>
 		</dict>
 		<key>Triangle.cpp</key>
 		<dict>
@@ -252,14 +278,17 @@
 	<array>
 		<string>Makefile</string>
 		<string>Object.cpp</string>
+		<string>Object.h</string>
 		<string>BoundingBox.cpp</string>
 		<string>raymini.pro</string>
 		<string>RayTracer.h</string>
 		<string>RayTracer.cpp</string>
+		<string>Scene.cpp</string>
 		<string>Vertex.cpp</string>
 		<string>Triangle.h</string>
 		<string>Triangle.cpp</string>
 		<string>Ray.h</string>
+		<string>Scene.h</string>
 		<string>rayminiPierre.pro</string>
 		<string>readme.txt</string>
 		<string>Ray.cpp</string>

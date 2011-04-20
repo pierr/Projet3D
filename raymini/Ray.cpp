@@ -62,11 +62,13 @@ bool Ray::intersect (const BoundingBox & bbox, Vec3Df & intersectionPoint) const
     return (true);			
 }
 
-bool Ray::intersection(Vec3Df v0, Vec3Df v1, Vec3Df v2){
-        /*//on doit normaliser la normale!
+bool Ray::intersection(Vec3Df v0, Vec3Df v1, Vec3Df v2) const{
+        //on doit normaliser la normale!
 	Vec3Df n = Vec3Df::crossProduct(v1-v0,v2-v0);
 	n.normalize();
 	//on projete (is =  intersection)
+        Vec3Df o = this->getOrigin();
+        Vec3Df d = this->getDirection();
         Vec3Df oproj = o.projectOn(n,v0);
         Vec3Df dproj = d.projectOn(n,v0);
 
@@ -79,7 +81,60 @@ bool Ray::intersection(Vec3Df v0, Vec3Df v1, Vec3Df v2){
 	if(Vec3Df::dotProduct(v0-is,v0-(v1+v2)*0.5)<0)		return false;
 	else if(Vec3Df::dotProduct(v1-is,v0-(v0+v2)*0.5)<0)	return false;
 	else if(Vec3Df::dotProduct(v2-is,v0-(v0+v1)*0.5)<0)	return false;
-    */
 return true;
+}
+
+bool Ray::intersect(const Triangle &tri , vector<Vertex> & verteces) const{
+    return intersection(verteces.at(tri.getVertex(0)).getPos(), verteces.at(tri.getVertex(1)).getPos(), verteces.at(tri.getVertex(0)).getPos());
+}
+void Ray::calcBRDF(Vertex & bary,  Material & m, float& radiance){
+    Scene* scene = Scene::getInstance();
+    std::vector<Light> lights = scene->getLights();
+    //Pour cacune des lumières on va chercher pour le triangle sa brdf
+   Vec3Df wi,wo,wn,wp, r;
+   Light light;
+   float brillance = 1;
+   for(unsigned int i = 0; i<lights.size(); i++){
+       light = lights.at(i);
+      // brillance = light.getIntensity(); //on récupère la brillance depuis la lumière.
+        wi = Vec3Df(light.getPos() - bary.getPos());
+        //wi = Vec3Df(lights[i]. - mesh.V[mesh.T[i].v[j]].p);
+        wi.normalize();
+        wo = Vec3Df(getOrigin() - bary.getPos());
+        wo.normalize();
+        wn = bary.getNormal();
+        wp = bary.getPos();
+        r = wn*Vec3Df::dotProduct(wi,wn)*2-wi;
+        radiance += m.getDiffuse()*Vec3Df::dotProduct(wn,wi)+m.getSpecular()*pow(Vec3Df::dotProduct(r,wo),brillance);
+    }
+}
+float Ray::intersectScene(){
+    Scene* scene = Scene::getInstance();
+    std::vector<Object> objects = scene->getObjects();
+    float radiance = 0.;
+    for(unsigned int i = 0; i<objects.size(); i++){
+        //On récupère l'objet i
+        Object obj = objects.at(i);
+        //On récupère l'ensemble des triangles qui composent cet objet
+        vector<Triangle> triangles = obj.getMesh().getTriangles();
+        //On récupère l'ensemble des verteces
+        vector<Vertex> verteces = obj.getMesh().getVertices();
+        for(unsigned int j = 0; j< triangles.size(); j++){
+             Triangle tri = triangles.at(j);
+            //Appeler la fonction qui vérifie l'intersection avec un triangle triangles.at(j)
+            bool hasIntersection = intersect(tri, verteces);
+            //Si il y a une intersection avec le triangle alors on appelle
+            if(hasIntersection){
+                //On calcule le barycentre de
+                Vec3Df pos = (verteces.at(tri.getVertex(0)).getPos() + verteces.at(tri.getVertex(1)).getPos() + verteces.at(tri.getVertex(2)).getPos())/3;
+                Vec3Df norm = (verteces.at(tri.getVertex(0)).getNormal() + verteces.at(tri.getVertex(1)).getNormal() + verteces.at(tri.getVertex(2)).getNormal())/3;
+                Vertex bary(pos, norm);
+                this->calcBRDF(bary, obj.getMaterial(), radiance);
+            }
+
+        }
+
+    }
+    return radiance;
 }
 

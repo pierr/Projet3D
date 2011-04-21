@@ -62,28 +62,6 @@ bool Ray::intersect (const BoundingBox & bbox, Vec3Df & intersectionPoint) const
     return (true);			
 }
 
-bool Ray::intersection(Vec3Df v0, Vec3Df v1, Vec3Df v2) const{
-        //on doit normaliser la normale!
-	Vec3Df n = Vec3Df::crossProduct(v1-v0,v2-v0);
-	n.normalize();
-	//on projete (is =  intersection)
-        Vec3Df o = this->getOrigin();
-        Vec3Df d = this->getDirection();
-        Vec3Df oproj = o.projectOn(n,v0);
-        Vec3Df dproj = d.projectOn(n,v0);
-
-        float dprojoproj = Vec3Df::distance(dproj,oproj);
-        float ooproj = Vec3Df::distance(o,oproj);
-        float oprojis = dprojoproj*ooproj/sqrt(1-pow(dprojoproj,2));
-
-        Vec3Df is = oproj+dproj*oprojis/dproj.getLength();
-	//on regarde si la projection "is" est dans le triangle
-	if(Vec3Df::dotProduct(v0-is,v0-(v1+v2)*0.5)<0)		return false;
-	else if(Vec3Df::dotProduct(v1-is,v0-(v0+v2)*0.5)<0)	return false;
-	else if(Vec3Df::dotProduct(v2-is,v0-(v0+v1)*0.5)<0)	return false;
-return true;
-}
-
 bool Ray::intersect(const Triangle &tri , vector<Vertex> & verteces, Vec3Df & intersectionPoint) const{
   const float epsilon = 0.00000001; //Un epsilon pour éviter de faire des comparaisons a zero
     //Des vecteurs pour faire des calculs sur le triangle (arrêtes, normales)

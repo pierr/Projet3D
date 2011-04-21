@@ -173,17 +173,17 @@ float Ray::intersectScene(){
              bool hasIntersection = intersect(tri, verteces, intersectPt);
             //Si il y a une intersection avec le triangle alors on appelle
             if(hasIntersection){
-                   return 0.25;
+                   //return 0.25;
                 //On calcule le barycentre de
                 Vec3Df pos = (verteces.at(tri.getVertex(0)).getPos() + verteces.at(tri.getVertex(1)).getPos() + verteces.at(tri.getVertex(2)).getPos())/3;
                 Vec3Df norm = (verteces.at(tri.getVertex(0)).getNormal() + verteces.at(tri.getVertex(1)).getNormal() + verteces.at(tri.getVertex(2)).getNormal())/3;
-                Vertex bary(pos, norm);
+                Vertex bary(intersectPt, norm);
                 this->calcBRDF(bary, obj.getMaterial(), radiance);
             }
 
         }
 
-    }return 0.75;
+    }
     return radiance;
 }
 

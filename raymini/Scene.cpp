@@ -25,7 +25,7 @@ void Scene::destroyInstance () {
 }
 
 Scene::Scene () {
-    buildDefaultScene (true);
+    buildDefaultScene (false);
     updateBoundingBox ();
 }
 
@@ -45,7 +45,7 @@ void Scene::updateBoundingBox () {
 // Changer ce code pour créer des scènes originales
 void Scene::buildDefaultScene (bool HD) {
     Mesh groundMesh;
-    bool debug = true;
+    bool debug = false;
     if (debug){
         groundMesh.loadOFF ("models/sphere.off");
         Material groundMat;

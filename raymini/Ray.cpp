@@ -134,7 +134,7 @@ float r = a/b;
 
     //return intersection(verteces.at(tri.getVertex(0)).getPos(), verteces.at(tri.getVertex(1)).getPos(), verteces.at(tri.getVertex(0)).getPos());
 }
-void Ray::calcBRDF(Vertex & bary,  Material & m, float& radiance){
+void Ray::calcBRDF(Vertex & bary,  Material & m, Vec3Df& color){
     Scene* scene = Scene::getInstance();
     std::vector<Light> lights = scene->getLights();
     //Pour cacune des lumières on va chercher pour le triangle sa brdf
@@ -152,13 +152,13 @@ void Ray::calcBRDF(Vertex & bary,  Material & m, float& radiance){
         wn = bary.getNormal();
         wp = bary.getPos();
         r = wn*Vec3Df::dotProduct(wi,wn)*2-wi;
-        radiance += m.getDiffuse()*Vec3Df::dotProduct(wn,wi)+m.getSpecular()*pow(Vec3Df::dotProduct(r,wo),brillance);
+        color += m.getColor()*(m.getDiffuse()*Vec3Df::dotProduct(wn,wi)+m.getSpecular()*pow(Vec3Df::dotProduct(r,wo),brillance));
     }
 }
-float Ray::intersectScene(){
+Vec3Df Ray::intersectScene(){
     Scene* scene = Scene::getInstance();
     std::vector<Object> objects = scene->getObjects();
-    float radiance = 0.;
+    Vec3Df radiance;
     for(unsigned int i = 0; i<objects.size(); i++){
         //On récupère l'objet i
         Object obj = objects.at(i);

@@ -45,11 +45,18 @@ void Scene::updateBoundingBox () {
 // Changer ce code pour créer des scènes originales
 void Scene::buildDefaultScene (bool HD) {
     Mesh groundMesh;
+    bool debug = true;
+    if (debug){
+        groundMesh.loadOFF ("models/sphere.off");
+        Material groundMat;
+    Object ground (groundMesh, groundMat);
+    objects.push_back (ground);
+    }else{
     if (HD)
         groundMesh.loadOFF ("models/ground_HD.off");
     else
         groundMesh.loadOFF ("models/ground.off");
-    Material groundMat;
+        Material groundMat;
     Object ground (groundMesh, groundMat);    
     objects.push_back (ground);
     Mesh ramMesh;
@@ -60,6 +67,7 @@ void Scene::buildDefaultScene (bool HD) {
     Material ramMat (1.f, 1.f, Vec3Df (1.f, .6f, .2f));
     Object ram (ramMesh, ramMat);    
     objects.push_back (ram);
+    }
     Light l (Vec3Df (3.0f, 3.0f, 3.0f), Vec3Df (1.0f, 1.0f, 1.0f), 1.0f);
     lights.push_back (l);
 }

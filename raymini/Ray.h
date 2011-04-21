@@ -32,7 +32,7 @@ public:
     inline Vec3Df & getDirection () { return direction; }
 
     bool intersect (const BoundingBox & bbox, Vec3Df & intersectionPoint) const;
-    bool intersect ( const Triangle & tri, std::vector<Vertex> & verteces) const;
+    bool intersect ( const Triangle & tri, std::vector<Vertex> & verteces, Vec3Df & intersectionPoint) const;
     bool intersection(Vec3Df v0, Vec3Df v1, Vec3Df v2) const;
     /**
       Le but de cette fonction est de calculer la brdf pour chacun des triangles pour chacun des rayons qui sont tracés.

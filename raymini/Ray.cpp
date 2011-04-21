@@ -84,8 +84,55 @@ bool Ray::intersection(Vec3Df v0, Vec3Df v1, Vec3Df v2) const{
 return true;
 }
 
-bool Ray::intersect(const Triangle &tri , vector<Vertex> & verteces) const{
-    return intersection(verteces.at(tri.getVertex(0)).getPos(), verteces.at(tri.getVertex(1)).getPos(), verteces.at(tri.getVertex(0)).getPos());
+bool Ray::intersect(const Triangle &tri , vector<Vertex> & verteces, Vec3Df & intersectionPoint) const{
+  const float epsilon = 0.00000001; //Un epsilon pour éviter de faire des comparaisons a zero
+    //Des vecteurs pour faire des calculs sur le triangle (arrêtes, normales)
+  Vec3Df u = verteces.at(tri.getVertex(1)).getPos() - verteces.at(tri.getVertex(0)).getPos();
+  Vec3Df v = verteces.at(tri.getVertex(2)).getPos() - verteces.at(tri.getVertex(0)).getPos();
+  Vec3Df n = Vec3Df::crossProduct(u,v);
+  //Si n est le vecteur null alors ce triangle n'en est pas un.
+  if( n == Vec3Df()){
+    return false;
+  }
+  //Vecteur intermédiaire pour calculer la projection sur le plan
+  Vec3Df w0 = getOrigin() - verteces.at(tri.getVertex(0)).getPos();
+  float a = - Vec3Df::dotProduct(n,w0);
+  float b = Vec3Df::dotProduct(n,getDirection());
+
+  if(fabs(b) < epsilon){
+    if(a ==  0){
+        return true; //Mais le triangle est dans le plan du triaangle
+    } return false;
+  }
+float r = a/b;
+
+  if( r < 0){ //Le rayon ne va pas dans la direction du plan
+    return false;
+  }
+
+  intersectionPoint = getOrigin() + r*getDirection();
+
+  //Il faut maintenant déterminer si le point est dans le triangle
+  //getDirection()
+   float uu = u.getSquaredLength();
+   float uv = Vec3Df::dotProduct(u,v);
+   float vv = v.getSquaredLength();
+   Vec3Df w = intersectionPoint - verteces.at(tri.getVertex(0)).getPos();
+   float wu = Vec3Df::dotProduct(w,u);
+   float wv = Vec3Df::dotProduct(w,v);
+   float D = uv * uv - uu * vv;
+
+   float s = (uv * wv - vv * wu) / D;
+   if(s < 0.0 || s > 1.0){
+        return false;
+   }
+
+   float t = (uv * wu - uu * wv) / D;
+   if(t < 0.0 || (s + t) > 1.0){
+        return false;
+   } return true;
+
+    //return intersection(verteces.at(tri.getVertex(0)).getPos(), verteces.at(tri.getVertex(1)).getPos(), verteces.at(tri.getVertex(0)).getPos());
 }
 void Ray::calcBRDF(Vertex & bary,  Material & m, float& radiance){
     Scene* scene = Scene::getInstance();
@@ -122,9 +169,11 @@ float Ray::intersectScene(){
         for(unsigned int j = 0; j< triangles.size(); j++){
              Triangle tri = triangles.at(j);
             //Appeler la fonction qui vérifie l'intersection avec un triangle triangles.at(j)
-            bool hasIntersection = intersect(tri, verteces);
+            Vec3Df intersectPt;
+             bool hasIntersection = intersect(tri, verteces, intersectPt);
             //Si il y a une intersection avec le triangle alors on appelle
             if(hasIntersection){
+                   return 0.25;
                 //On calcule le barycentre de
                 Vec3Df pos = (verteces.at(tri.getVertex(0)).getPos() + verteces.at(tri.getVertex(1)).getPos() + verteces.at(tri.getVertex(2)).getPos())/3;
                 Vec3Df norm = (verteces.at(tri.getVertex(0)).getNormal() + verteces.at(tri.getVertex(1)).getNormal() + verteces.at(tri.getVertex(2)).getNormal())/3;
@@ -134,7 +183,7 @@ float Ray::intersectScene(){
 
         }
 
-    }
+    }return 0.75;
     return radiance;
 }
 

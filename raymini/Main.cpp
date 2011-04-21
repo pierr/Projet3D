@@ -14,8 +14,7 @@ using namespace std;
 
 int main (int argc, char **argv)
 {
-  cout << "On lance l'application Raymini" << endl;
-    QApplication raymini (argc, argv);
+  QApplication raymini (argc, argv);
   setBoubekQTStyle (raymini);
   QApplication::setStyle (new QPlastiqueStyle);
   Window * window = new Window ();

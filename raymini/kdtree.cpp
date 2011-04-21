@@ -33,3 +33,10 @@ void kdtree::sort()
     //on ordonne le kdtree et on garde le resultat
     this->leafs = root.sort();
 }
+
+void kdtree::print(){
+    for(unsigned int i=0; i<leafs.size(); i++){
+        kdleaf tmp = leafs.at(i);
+        cout << tmp.get_distance() << endl;
+    }
+}

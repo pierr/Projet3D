@@ -11,6 +11,7 @@ public:
     inline kdtree(std::vector<Object> objects, Vec3Df camPos) : objects(objects), camPos(camPos) {}
     void sort();
     inline const std::vector<kdleaf> get_leafs() const { return leafs; }
+    void print();
 
 private:
     std::vector<Object> objects;

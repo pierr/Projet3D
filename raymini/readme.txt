@@ -11,3 +11,8 @@ The enter:
  qmake raymini.pro
  make
  ./raymini
+
+
+To compile on mac 
+qmake -spec macx-g++ file.pro
+to execute open exec

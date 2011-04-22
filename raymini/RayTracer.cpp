@@ -5,13 +5,7 @@
 // All rights reserved.
 // *********************************************************
 
-#include <vector>
-
 #include "RayTracer.h"
-#include "Ray.h"
-#include "Scene.h"
-#include "sorttree.h"
-#include "kdtree.h"
 
 using namespace std;
 
@@ -54,18 +48,11 @@ QImage RayTracer::render (const Vec3Df & camPos,
     const Vec3Df & maxBb = bbox.getMax ();
     const Vec3Df rangeBb = maxBb-minBb;
 
-    //ordonner les triangles selon distance avec un sorttree
-    sorttree* sortt = new sorttree(scene->getObjects(),camPos);
-    sdt->sort();
-    std::vector<sortleaf> sortleafs = sortt->get_leafs();
-    delete sortt;
-    sortt = 0;
-
-
-    //ordonner les triangles selon pixels
-    kdtree* kdt = new kdtree(sortleafs,screenHeight,screenWidth,fieldOfView,aspectRatio,rightVector,upVector);
-    kdtree->sort();
-    std::vector<kdleaf> kdleafs = kdt->get_leafs();
+    //splitter l'espace en boundingbox a travers un kdtree..
+    int kddeep = 20;
+    kdtree * kdt = new kdtree(kddeep, scene->getObjects(), scene->getBoundingBox());
+    kdt->split();
+    std::vector<kdnode> kdboxes = kdt->get_boxes();
     delete kdt;
     kdt = 0;
 
@@ -81,7 +68,7 @@ QImage RayTracer::render (const Vec3Df & camPos,
             Vec3Df dir = direction + step;
             dir.normalize ();
             Ray ray (camPos, dir);
-            Vec3Df col = 255.f*ray.intersectkdScene(kdleafs);
+            Vec3Df col = 255.f*ray.intersectkdScene(kdboxes);
             image.setPixel (i, ((screenHeight-1)-j), qRgb (clamp (col[0], 0, 255),
                                                            clamp (col[1], 0, 255),
                                                            clamp (col[2], 0, 255)));

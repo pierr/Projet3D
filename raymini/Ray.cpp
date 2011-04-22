@@ -132,87 +132,44 @@ void Ray::calcBRDF(Vertex & bary,  Material & m, Vec3Df& color){
         wn = bary.getNormal();
         wp = bary.getPos();
         r = wn*Vec3Df::dotProduct(wi,wn)*2-wi;
-        color = m.getColor()*(m.getDiffuse()*Vec3Df::dotProduct(wn,wi)+m.getSpecular()*pow(Vec3Df::dotProduct(r,wo),brillance));
+        color += m.getColor()*(m.getDiffuse()*Vec3Df::dotProduct(wn,wi)+m.getSpecular()*pow(Vec3Df::dotProduct(r,wo),brillance));
     }
 }
-Vec3Df Ray::intersectScene(Vec3Df camPos){
+
+//reimplementation avec kdtree
+Vec3Df Ray::intersectkdScene(std::vector<kdnode> kdboxes){
     Scene* scene = Scene::getInstance();
     std::vector<Object> objects = scene->getObjects();
 
-    float mindist = FLT_MAX;
-    Vec3Df pos;
-    Object is_obj;
-    Vertex is_bary;
+    Vertex bary;
 
     Vec3Df radiance;
-    for(unsigned int i = 0; i<objects.size(); i++){
-        //On récupère l'objet i
-        Object obj = objects.at(i);
-        //On récupère l'ensemble des triangles qui composent cet objet
-        vector<Triangle> triangles = obj.getMesh().getTriangles();
-        //On récupère l'ensemble des verteces
-        vector<Vertex> verteces = obj.getMesh().getVertices();
-        for(unsigned int j = 0; j< triangles.size(); j++){
-             Triangle tri = triangles.at(j);
-            //Appeler la fonction qui vérifie l'intersection avec un triangle triangles.at(j)
-            Vec3Df intersectPt;
-             bool hasIntersection = intersect(tri, verteces, intersectPt);
-            //Si il y a une intersection avec le triangle alors on appelle
-            if(hasIntersection){
-                //On calcule le barycentre de
-                pos = Vec3Df(verteces.at(tri.getVertex(0)).getPos() + verteces.at(tri.getVertex(1)).getPos() + verteces.at(tri.getVertex(2)).getPos())/3;
-                float dist = Vec3Df::distance(camPos,pos);
-                if(dist < mindist){
-                    //valeurs du triangle de l'intersection(is) necessaires pour la BRDF
-                    mindist = dist;
-                    is_obj = obj;
-                    Vec3Df is_norm = Vec3Df(verteces.at(tri.getVertex(0)).getNormal() + verteces.at(tri.getVertex(1)).getNormal() + verteces.at(tri.getVertex(2)).getNormal())/3;
-                    is_bary = Vertex(intersectPt, is_norm);
+
+    for(unsigned int ib = 0; ib<kdboxes.size(); ib++){
+        //s'il y a intersection avec la boite, on regarde les triangles
+        kdnode kdbox = kdboxes[ib];
+        Vec3Df tmp;
+        if(intersect(kdbox.get_box(),tmp)){
+            kdnode kdbox = kdboxes[ib];
+            std::vector<kdleaf> leafs = kdbox.get_leafs();
+            //triangle par triangle..
+            for(unsigned int i = 0; i<leafs.size(); i++){
+                kdleaf leaf = leafs[i];
+                //On récupère l'ensemble des verteces
+                vector<Vertex> verteces = objects[leaf.get_object()].getMesh().getVertices();
+                Triangle tri = objects[leaf.get_object()].getMesh().getTriangles()[leaf.get_triangle()];
+                //Appeler la fonction qui vérifie l'intersection avec un triangle
+                Vec3Df intersectPt;
+                bool hasIntersection = intersect(tri, verteces, intersectPt);
+                //Si il y a une intersection avec le triangle alors on appelle
+                if(hasIntersection){
+                    Vec3Df is_norm = Vec3Df(verteces[tri.getVertex(0)].getNormal() + verteces[tri.getVertex(1)].getNormal() + verteces[tri.getVertex(2)].getNormal())/3;
+                    bary = Vertex(intersectPt, is_norm);
+                    this->calcBRDF(bary, objects[leaf.get_object()].getMaterial(), radiance);
+                    return radiance;
                 }
             }
-
         }
-
-    }
-
-    this->calcBRDF(is_bary, is_obj.getMaterial(), radiance);
-    return radiance;
-}
-//reimplementation avec kdtree
-Vec3Df Ray::intersectkdScene(std::vector<kdleaf> leafs){
-    Scene* scene = Scene::getInstance();
-    std::vector<Object> objects = scene->getObjects();
-
-    Vec3Df pos;
-    Object is_obj;
-    Vertex is_bary;
-
-    Vec3Df radiance;
-
-
-    for(unsigned int i = 0; i<leafs.size(); i++){
-        kdleaf leaf = leafs.at(i);
-        //On récupère l'objet i
-        Object obj = objects.at(leaf.get_object());
-        //On récupère l'ensemble des triangles qui composent cet objet
-        vector<Triangle> triangles = obj.getMesh().getTriangles();
-        //On récupère l'ensemble des verteces
-        vector<Vertex> verteces = obj.getMesh().getVertices();
-        Triangle tri = triangles.at(leaf.get_triangle());
-        //Appeler la fonction qui vérifie l'intersection avec un triangle
-        Vec3Df intersectPt;
-        bool hasIntersection = intersect(tri, verteces, intersectPt);
-        //Si il y a une intersection avec le triangle alors on appelle
-        if(hasIntersection){
-            //On calcule le barycentre de
-            pos = Vec3Df(verteces.at(tri.getVertex(0)).getPos() + verteces.at(tri.getVertex(1)).getPos() + verteces.at(tri.getVertex(2)).getPos())/3;
-            is_obj = obj;
-            Vec3Df is_norm = Vec3Df(verteces.at(tri.getVertex(0)).getNormal() + verteces.at(tri.getVertex(1)).getNormal() + verteces.at(tri.getVertex(2)).getNormal())/3;
-            is_bary = Vertex(intersectPt, is_norm);
-            this->calcBRDF(is_bary, is_obj.getMaterial(), radiance);
-            return radiance;
-        }
-    }
-
+    } 
     return radiance;
 }

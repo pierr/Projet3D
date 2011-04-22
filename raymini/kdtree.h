@@ -2,21 +2,24 @@
 #define KDTREE_H
 
 #include <vector>
-#include "kdleaf.h"
 #include "Object.h"
+#include "BoundingBox.h"
+#include "Triangle.h"
+#include "kdnode.h"
+#include "kdleaf.h"
 
 class kdtree
 {
 public:
-    inline kdtree(std::vector<Object> objects, Vec3Df camPos) : objects(objects), camPos(camPos) {}
-    void sort();
-    inline const std::vector<kdleaf> get_leafs() const { return leafs; }
-    void print();
+    inline kdtree(int max_deep, std::vector<Object> objects, BoundingBox scenebox) : max_deep(max_deep), objects(objects), scenebox(scenebox) {}
+    void split();
+    inline std::vector<kdnode> & get_boxes() { return boxes; }
 
 private:
+    int max_deep;
     std::vector<Object> objects;
-    Vec3Df camPos;
-    std::vector<kdleaf> leafs;
+    BoundingBox scenebox;
+    std::vector<kdnode> boxes;
 };
 
 #endif // KDTREE_H

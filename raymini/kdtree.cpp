@@ -1,42 +1,26 @@
 #include "kdtree.h"
 
-#include <vector>
-
-#include "kdnode.h"
-#include "kdleaf.h"
-
 using namespace std;
 
-Object object;
-Triangle triangle;
-
-void kdtree::sort()
+void kdtree::split()
 {
     //on melange les triangles de tous les objets dans le meme vecteur<kdleaf>
     std::vector<kdleaf> leafs;
     for(unsigned int io=0; io<objects.size(); io++)
     {
-        object = objects.at(io);
+        Object object = objects.at(io);
         for(unsigned int it=0; it<object.getMesh().getTriangles().size(); it++){
-            triangle = object.getMesh().getTriangles().at(it);
+            Triangle triangle = object.getMesh().getTriangles().at(it);
             //on push l'objet, le triangle et la distance(camPos, barycentre du triangle)
-            Vec3Df barycentre;
-            barycentre += object.getMesh().getVertices().at(triangle.getVertex(0)).getPos();
-            barycentre += object.getMesh().getVertices().at(triangle.getVertex(1)).getPos();
-            barycentre += object.getMesh().getVertices().at(triangle.getVertex(2)).getPos();
-            barycentre = barycentre/3;
-            leafs.push_back(kdleaf(io,it,Vec3Df::distance(camPos,barycentre)));
+            Vec3Df v0 = object.getMesh().getVertices().at(triangle.getVertex(0)).getPos();
+            Vec3Df v1 = object.getMesh().getVertices().at(triangle.getVertex(1)).getPos();
+            Vec3Df v2 = object.getMesh().getVertices().at(triangle.getVertex(2)).getPos();
+            leafs.push_back(kdleaf(io,it,v0,v1,v2));
         }
     }
     //on definit le premier node du kdtree
-    kdnode root(leafs);
+    kdnode root(1,leafs,scenebox);
     //on ordonne le kdtree et on garde le resultat
-    this->leafs = root.sort();
+    root.split(max_deep, boxes);
 }
 
-void kdtree::print(){
-    for(unsigned int i=0; i<leafs.size(); i++){
-        kdleaf tmp = leafs.at(i);
-        cout << tmp.get_distance() << endl;
-    }
-}

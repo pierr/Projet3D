@@ -17,7 +17,7 @@
 #include "Material.h"
 #include "Scene.h"
 #include "Light.h"
-#include "kdleaf.h"
+#include "kdnode.h"
 class Ray {
 public:
     inline Ray () {}
@@ -45,8 +45,7 @@ public:
     /**
       Le but de cette méthode est de calculer pour chaque rayon les triangles qui intersectent ce rayon , les triangles sont issus des objets qui composent la scène.
     */
-    Vec3Df intersectScene(Vec3Df camPos);
-    Vec3Df intersectkdScene(std::vector<kdleaf> leafs);
+    Vec3Df intersectkdScene(std::vector<kdnode> kdboxes);
 private:
     Vec3Df origin;
     Vec3Df direction;

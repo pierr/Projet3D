@@ -1,5 +1,10 @@
 #on ne commit pas le makefile
+*.[oa]
+*~
 raymini/Makefile
 #on ne commit pas les fichiers compilés
-raymini/raymini.app
-raymini/.*
+raymini/raymini.app/*
+raymini/.moc/*
+raymini/.obj/*
+rayminiPierre-build-desktop/*
+raymini/rayminiPierre.pro.user

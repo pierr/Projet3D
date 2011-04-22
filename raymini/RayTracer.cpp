@@ -5,9 +5,14 @@
 // All rights reserved.
 // *********************************************************
 
+#include <vector>
+
 #include "RayTracer.h"
 #include "Ray.h"
 #include "Scene.h"
+#include "kdtree.h"
+
+using namespace std;
 
 static RayTracer * instance = NULL;
 
@@ -47,8 +52,19 @@ QImage RayTracer::render (const Vec3Df & camPos,
     const Vec3Df & minBb = bbox.getMin ();
     const Vec3Df & maxBb = bbox.getMax ();
     const Vec3Df rangeBb = maxBb-minBb;
-    
-    for (unsigned int i = 0; i < screenWidth; i++)
+
+
+
+    //ordonner les triangles selon distance avec un kdtree
+    kdtree* kdt = new kdtree(scene->getObjects(),camPos);
+    kdt->sort();
+    std::vector<kdleaf> leafs = kdt->get_leafs();
+    delete kdt;
+    kdt = 0;
+
+    //on calcule pixel par pixel
+    cout << "npixel = " << screenHeight*screenWidth << endl;
+    for (unsigned int i = 0; i < screenWidth; i++){
         for (unsigned int j = 0; j < screenHeight; j++) {
             float tanX = tan (fieldOfView);
             float tanY = tanX/aspectRatio;
@@ -58,10 +74,12 @@ QImage RayTracer::render (const Vec3Df & camPos,
             Vec3Df dir = direction + step;
             dir.normalize ();
             Ray ray (camPos, dir);
-            Vec3Df col = 255.f*ray.intersectScene();
+            Vec3Df col = 255.f*ray.intersectkdScene(leafs);
             image.setPixel (i, ((screenHeight-1)-j), qRgb (clamp (col[0], 0, 255),
                                                            clamp (col[1], 0, 255),
                                                            clamp (col[2], 0, 255)));
+            cout << (float)(i*screenHeight+j)/(screenHeight*screenWidth) << endl;
         }
+    }
     return image;
 }

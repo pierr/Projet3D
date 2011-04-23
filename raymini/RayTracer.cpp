@@ -96,13 +96,13 @@ QImage RayTracer::render (const Vec3Df & camPos,
                                                            clamp (col[2], 0, 255)));
             if((float)(i*screenHeight+j)/(screenHeight*screenWidth) > pct){
                 pct += pctstep;
-                cout << pct << endl;
+                cout << pct << "\r";
             }
         }
     }
     
     tstop = time (NULL);
-    cout << "time " << tstop-tstart << "\r";
+    cout << "time " << tstop-tstart << endl;
 
     return image;
 }

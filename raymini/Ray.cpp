@@ -205,7 +205,7 @@ Vec3Df Ray::intersectkdScene(Vec3Df camPos, BoundingBox & scenebox, std::vector<
 
     float mindist = FLT_MAX;
     bool isbool = false;
-    Vec3Df isp, isn;
+    Vec3Df isn;
     Material ism;
     Vertex isv;
 
@@ -223,16 +223,15 @@ Vec3Df Ray::intersectkdScene(Vec3Df camPos, BoundingBox & scenebox, std::vector<
                     kdleaf leaf = leafs[i];
                     //Appeler la fonction qui vérifie l'intersection avec un triangle
                     Vec3Df intersectPt;
-                    bool hasIntersection = intersect(leaf.get_v0(),leaf.get_v1(),leaf.get_v2(),leaf.get_normal(), intersectPt);
+                    bool hasIntersection = intersect(leaf.get_p0(),leaf.get_p1(),leaf.get_p2(),leaf.get_normal(), intersectPt);
                     //Si il y a une intersection avec le triangle alors on appelle
                     if(hasIntersection){
                         float dist = Vec3Df::distance(camPos,intersectPt);
                         if(dist < mindist){
                             mindist = dist;
                             isbool = true;
-                            isp = intersectPt;
-                            isn = leaf.get_normal();
                             ism = leaf.get_Material();
+                            isn = leaf.get_normal();
                             isv = Vertex(intersectPt, isn);
                         }
                     }
@@ -243,7 +242,6 @@ Vec3Df Ray::intersectkdScene(Vec3Df camPos, BoundingBox & scenebox, std::vector<
     if(isbool){
         Vec3Df radiance;
         this->calcBRDF(isv, ism, radiance);
-//      this->calcBRDF(isp,isn,ism,radiance);
         return radiance;
     } else {
         return Vec3Df();

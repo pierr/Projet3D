@@ -42,14 +42,14 @@ void kdnode::split(int max_deep, std::vector<kdnode> & deepnodes)
         std::vector<kdleaf> infleafs;
         for(unsigned int i=0; i<leafs.size(); i++){
             kdleaf ileaf = leafs[i];
-            Vec3Df iv0 = ileaf.get_v0();
-            Vec3Df iv1 = ileaf.get_v1();
-            Vec3Df iv2 = ileaf.get_v2();
+            Vec3Df ip0 = ileaf.get_p0();
+            Vec3Df ip1 = ileaf.get_p1();
+            Vec3Df ip2 = ileaf.get_p2();
             //il n'intersecte pas avec le plan de division
 //            cout << iv0[axis] << " " << iv1[axis] << " " << iv2[axis] << endl;
-            if(iv0[axis]<median && iv1[axis]<median && iv2[axis]<median)
+            if(ip0[axis]<median && ip1[axis]<median && ip2[axis]<median)
                 infleafs.push_back(leafs[i]);
-            else if(iv0[axis]>median && iv1[axis]>median && iv2[axis]>median)
+            else if(ip0[axis]>median && ip1[axis]>median && ip2[axis]>median)
                 supleafs.push_back(leafs[i]);
             //il intersecte avec le plan de division
             else {

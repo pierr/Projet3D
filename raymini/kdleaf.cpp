@@ -1,6 +1,6 @@
 #include "kdleaf.h"
 
-kdleaf::kdleaf(int object, int triangle, Material material, Vertex vertex0, Vertex vertex1, Vertex vertex2, Vec3Df v0, Vec3Df v1, Vec3Df v2, Vec3Df n0, Vec3Df n1, Vec3Df n2, Vec3Df camPos)
+kdleaf::kdleaf(int object, int triangle, Material material, Vertex vertex0, Vertex vertex1, Vertex vertex2, Vec3Df p0, Vec3Df p1, Vec3Df p2, Vec3Df n0, Vec3Df n1, Vec3Df n2, Vec3Df camPos)
 {
     this->object = object;
     this->triangle = triangle;
@@ -8,10 +8,10 @@ kdleaf::kdleaf(int object, int triangle, Material material, Vertex vertex0, Vert
     this->vertex0 = vertex0;
     this->vertex1 = vertex1;
     this->vertex2 = vertex2;
-    this->v0 = v0;
-    this->v1 = v1;
-    this->v2 = v2;
-    this->barycentre = (v0+v1+v2)/3;
+    this->p0 = p0;
+    this->p1 = p1;
+    this->p2 = p2;
+    this->barycentre = (p0+p1+p2)/3;
     this->n0 = n0;
     this->n1 = n1;
     this->n2 = n2;

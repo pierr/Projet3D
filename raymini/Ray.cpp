@@ -216,3 +216,13 @@ Vec3Df Ray::intersectkdScene(std::vector<kdleaf> leafs){
 
     return radiance;
 }
+
+void Ray::calcBRDF(Vec3Df & color){
+    Material mat;
+    for(unsigned int i = 0; i< triIndex.size(); i++){
+        Triangle t = Scene::getInstance()->getTriangles().at(triIndex.at(i));
+        Vec3Df n = Vec3Df((Scene::getInstance()->getVerteces().at(t.getVertex(0)).getNormal () +Scene::getInstance()->getVerteces().at(t.getVertex(1)).getNormal () + Scene::getInstance()->getVerteces().at(t.getVertex(2)).getNormal ())/3);
+        Vertex ver(intersectPts.at(i), n);
+        calcBRDF(ver,mat,color);
+    }
+}

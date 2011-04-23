@@ -70,4 +70,37 @@ void Scene::buildDefaultScene (bool HD) {
     }
     Light l (Vec3Df (3.0f, 3.0f, 3.0f), Vec3Df (1.0f, 1.0f, 1.0f), 1.0f);
     lights.push_back (l);
+    //Faire une méthode qui construit un triangles avec tous les index
+    //Ainsi que tous les vertex dans un vecteur
+    //Peut être faut il le mettre dans le kd tree et pour le kdtree avoir une instance
+
+   buildTriangles();
+/*   vector<unsigned int> indextri;
+   for(unsigned int i =0; i< triangles.size(); i++){
+    indextri.push_back(i);
+   }
+   //this->kdTree = new KDTreeXYZ(indextri,bbox,0,0);*/
+}
+
+void Scene::buildTriangles(){
+  for(unsigned int i =0;i<getObjects().size() ; i++){
+    Mesh m = getObjects().at(i).getMesh();
+   std::vector<Triangle> triMesh = m.getTriangles();
+    std::vector<Vertex> vertexMesh = m.getVertices();
+    for( unsigned int j = 0;j <m.getTriangles().size(); j++){
+        //On récupère la taille du vecteur car ce sera plus facile pour créer un nouveau triangle
+        unsigned int size = verteces.size();
+
+        //On ajoute tous les vertex du triangle à la grande liste de vertex
+        //on ne se préoccupe pas de savoir si le vertex ets déjà présent dedans
+        //Le but étant d'avoir une structure de lecture.
+        verteces.push_back(vertexMesh.at(triMesh.at(j).getVertex(0)));
+        verteces.push_back(vertexMesh.at(triMesh.at(j).getVertex(1)));
+        verteces.push_back(vertexMesh.at(triMesh.at(j).getVertex(2)));
+
+        //On ajoute le triangle correspondant à la liste
+        this->triangles.push_back(Triangle(size, size+1, size+2));
+
+    }
+  }
 }

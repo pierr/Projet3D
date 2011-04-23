@@ -5,9 +5,6 @@
 // All rights reserved.
 // *********************************************************
 
-#ifndef RAY_H
-#define RAY_H
-
 #include <iostream>
 #include <vector>
 
@@ -18,6 +15,10 @@
 #include "Scene.h"
 #include "Light.h"
 #include "kdleaf.h"
+#ifndef RAY_H
+#define RAY_H
+
+
 class Ray {
 public:
     inline Ray () {}
@@ -32,6 +33,12 @@ public:
     inline const Vec3Df & getDirection () const { return direction; }
     inline Vec3Df & getDirection () { return direction; }
 
+    inline const std::vector<Vec3Df> & getIntersectedPoints () const { return intersectPts; }
+    inline std::vector<Vec3Df> & getIntersectedPoints () { return intersectPts; }
+
+    inline const std::vector<unsigned int> & getIntersectedTriangleIndex () const { return triIndex; }
+    inline std::vector<Vec3Df> & getIntersectedTriangleIndex () { return intersectPts; }
+
     bool intersect (const BoundingBox & bbox, Vec3Df & intersectionPoint) const;
     bool intersect ( const Triangle & tri, std::vector<Vertex> & verteces, Vec3Df & intersectionPoint) const;
 
@@ -42,14 +49,21 @@ public:
     @param radiance est la radiance qu'on va modifier.
     */
     void calcBRDF(Vertex & v,  Material & m,  Vec3Df & color);
+    void calcBRDF( Vec3Df & color);
     /**
       Le but de cette méthode est de calculer pour chaque rayon les triangles qui intersectent ce rayon , les triangles sont issus des objets qui composent la scène.
     */
     Vec3Df intersectScene(Vec3Df camPos);
     Vec3Df intersectkdScene(std::vector<kdleaf> leafs);
+
+    //*Méthodes qui permettent d'ajouter directement des triangles et des points d'intersection au rayon*/
+    inline void addTriangleToIndex(unsigned int id){ triIndex.push_back(id);}
+    inline void addIntersectPt(Vec3Df & pt){intersectPts.push_back(pt);}
 private:
     Vec3Df origin;
     Vec3Df direction;
+    std::vector<Vec3Df> intersectPts;
+    std::vector<unsigned int> triIndex;
 };
 
 

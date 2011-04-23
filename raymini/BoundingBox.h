@@ -84,6 +84,7 @@ public:
                 return false;
         return true;
     }
+
     inline bool contains (const BoundingBox & b) const {
         for (unsigned int i = 0; i < 3; i++)
             if (fabs (getMiddle (i) - b.getMiddle (i)) - BOUNDINGBOX_EPSILON > (getWHL (i) + b.getWHL (i)) / 2.0)
@@ -134,6 +135,36 @@ public:
         splitBoundingBoxArray[7] = BoundingBox (minBb + Vec3Df (x_2, y_2, z_2), med + Vec3Df (x_2, y_2, z_2));
     }
     bool intersectRay (const Vec3Df & origin, const Vec3Df & direction, Vec3Df & intersection) const;
+
+    inline void subdivideX (std::vector<BoundingBox> & splitBoundingBoxArray) const {
+        float x_2 = (maxBb[0] - minBb [0]) / 2;
+        splitBoundingBoxArray.resize (2);
+        splitBoundingBoxArray[0] = BoundingBox (minBb, maxBb - Vec3Df (x_2, 0.0, 0.0));
+        splitBoundingBoxArray[1] = BoundingBox (minBb + Vec3Df (x_2, 0.0, 0.0), maxBb);
+    }
+
+    inline void subdivideY (std::vector<BoundingBox> & splitBoundingBoxArray) const {
+        float y_2 = (maxBb[1] - minBb [1]) / 2;
+        splitBoundingBoxArray.resize (2);
+        splitBoundingBoxArray[0] = BoundingBox (minBb, maxBb - Vec3Df (0.0, y_2, 0.0));
+        splitBoundingBoxArray[1] = BoundingBox (minBb + Vec3Df (0.0, y_2, 0.0), maxBb);
+    }
+
+    inline void subdivideZ (std::vector<BoundingBox> & splitBoundingBoxArray) const {
+        float z_2 = (maxBb[2] - minBb [2]) / 2;
+        splitBoundingBoxArray.resize (2);
+        splitBoundingBoxArray[0] = BoundingBox (minBb, maxBb - Vec3Df ( 0.0, 0.0, z_2));
+        splitBoundingBoxArray[1] = BoundingBox (minBb + Vec3Df ( 0.0, 0.0, z_2), maxBb);
+    }
+    inline void subdivide(std::vector<BoundingBox> & splitBoundingBoxArray, unsigned int dim){
+        if(dim == 0){
+            subdivideX(splitBoundingBoxArray);
+        }else if( dim == 1){
+            subdivideY(splitBoundingBoxArray);
+        }else if( dim == 2){
+            subdivideZ(splitBoundingBoxArray);
+        }
+    }
 
 private:
     inline float getWHL (unsigned int i) const {

@@ -17,6 +17,7 @@
 #include "Scene.h"
 #include "sorttree.h"
 #include "kdtree.h"
+#include "boxtree.h"
 
 class RayTracer {
 public:

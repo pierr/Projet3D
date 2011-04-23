@@ -159,6 +159,27 @@ float r = a/b;
    } return true;
 }
 
+void Ray::calcBRDF(Vertex & bary,  Material & m, Vec3Df& color){
+    Scene* scene = Scene::getInstance();
+    std::vector<Light> lights = scene->getLights();
+    //Pour cacune des lumières on va chercher pour le triangle sa brdf
+   Vec3Df wi,wo,wn,wp, r;
+   Light light;
+   float brillance = 1;
+   for(unsigned int i = 0; i<lights.size(); i++){
+       light = lights.at(i);
+      // brillance = light.getIntensity(); //on récupère la brillance depuis la lumière.
+        wi = Vec3Df(light.getPos() - bary.getPos());
+        //wi = Vec3Df(lights[i]. - mesh.V[mesh.T[i].v[j]].p);
+        wi.normalize();
+        wo = Vec3Df(getOrigin() - bary.getPos());
+        wo.normalize();
+        wn = bary.getNormal();
+        wp = bary.getPos();
+        r = wn*Vec3Df::dotProduct(wi,wn)*2-wi;
+        color += m.getColor()*(m.getDiffuse()*Vec3Df::dotProduct(wn,wi)+m.getSpecular()*pow(Vec3Df::dotProduct(r,wo),brillance));
+    }
+}
 void Ray::calcBRDF(Vec3Df & p, Vec3Df & n, Material & m, Vec3Df& color){
     Scene* scene = Scene::getInstance();
     std::vector<Light> lights = scene->getLights();
@@ -180,10 +201,13 @@ void Ray::calcBRDF(Vec3Df & p, Vec3Df & n, Material & m, Vec3Df& color){
 }
 
 //reimplementation avec kdtree
-Vec3Df Ray::intersectkdScene(BoundingBox & scenebox, std::vector<kdnode> & kdboxes){
+Vec3Df Ray::intersectkdScene(Vec3Df camPos, BoundingBox & scenebox, std::vector<kdnode> & kdboxes){
 
-    Vertex bary;
-    Vec3Df radiance;
+    float mindist = FLT_MAX;
+    bool isbool = false;
+    Vec3Df isp, isn;
+    Material ism;
+    Vertex isv;
 
     Vec3Df tmp; //inutile
 
@@ -202,12 +226,26 @@ Vec3Df Ray::intersectkdScene(BoundingBox & scenebox, std::vector<kdnode> & kdbox
                     bool hasIntersection = intersect(leaf.get_v0(),leaf.get_v1(),leaf.get_v2(),leaf.get_normal(), intersectPt);
                     //Si il y a une intersection avec le triangle alors on appelle
                     if(hasIntersection){
-                        this->calcBRDF(intersectPt, leaf.get_normal(), leaf.get_Material(), radiance);
-                        return radiance;
+                        float dist = Vec3Df::distance(camPos,intersectPt);
+                        if(dist < mindist){
+                            mindist = dist;
+                            isbool = true;
+                            isp = intersectPt;
+                            isn = leaf.get_normal();
+                            ism = leaf.get_Material();
+                            isv = Vertex(intersectPt, isn);
+                        }
                     }
                 }
             }
         }
     }
-    return Vec3Df(0,0,0);
+    if(isbool){
+        Vec3Df radiance;
+        this->calcBRDF(isv, ism, radiance);
+//      this->calcBRDF(isp,isn,ism,radiance);
+        return radiance;
+    } else {
+        return Vec3Df();
+    }
 }

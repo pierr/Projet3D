@@ -7,6 +7,8 @@
 
 #include "RayTracer.h"
 
+#include <time.h>
+
 using namespace std;
 
 static RayTracer * instance = NULL;
@@ -40,6 +42,9 @@ QImage RayTracer::render (const Vec3Df & camPos,
                           float aspectRatio,
                           unsigned int screenWidth,
                           unsigned int screenHeight) {
+    time_t tstart, tstop;
+    tstart = time (NULL);
+  
     QImage image (QSize (screenWidth, screenHeight), QImage::Format_RGB888);
     
     Scene * scene = Scene::getInstance ();
@@ -64,8 +69,16 @@ QImage RayTracer::render (const Vec3Df & camPos,
     kdt = 0;
     sdt = 0;
 
+    //ordonner les boites selon distance
+//    boxtree * bt = new boxtree(kdboxes,camPos);
+//    bt->sort();
+//    bt->get_kdboxes();
+
     //on calcule pixel par pixel
     cout << "npixel = " << screenHeight*screenWidth << endl;
+
+    float pctstep = 0.01;
+    float pct = -pctstep;
 
     for (unsigned int i = 0; i < screenWidth; i++){
         for (unsigned int j = 0; j < screenHeight; j++) {
@@ -77,12 +90,19 @@ QImage RayTracer::render (const Vec3Df & camPos,
             Vec3Df dir = direction + step;
             dir.normalize ();
             Ray ray (camPos, dir);
-            Vec3Df col = 255.f*ray.intersectkdScene(scenebox, kdboxes);
+            Vec3Df col = 255.f*ray.intersectkdScene(camPos, scenebox, kdboxes);
             image.setPixel (i, ((screenHeight-1)-j), qRgb (clamp (col[0], 0, 255),
                                                            clamp (col[1], 0, 255),
                                                            clamp (col[2], 0, 255)));
-            cout <<  (float)(i*screenHeight+j)/(screenHeight*screenWidth) << endl;
+            if((float)(i*screenHeight+j)/(screenHeight*screenWidth) > pct){
+                pct += pctstep;
+                cout << pct << endl;
+            }
         }
     }
+    
+    tstop = time (NULL);
+    cout << "time " << tstop-tstart << "\r";
+
     return image;
 }

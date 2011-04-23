@@ -42,11 +42,12 @@ public:
     @param m est le material du triangle
     @param radiance est la radiance qu'on va modifier.
     */
+    void calcBRDF(Vertex & v,  Material & m,  Vec3Df & color);
     void calcBRDF(Vec3Df & p, Vec3Df & n, Material & m,  Vec3Df & color);
     /**
       Le but de cette méthode est de calculer pour chaque rayon les triangles qui intersectent ce rayon , les triangles sont issus des objets qui composent la scène.
     */
-    Vec3Df intersectkdScene(BoundingBox & scenebox, std::vector<kdnode> & kdboxes);
+    Vec3Df intersectkdScene(Vec3Df camPos, BoundingBox & scenebox, std::vector<kdnode> & kdboxes);
 private:
     Vec3Df origin;
     Vec3Df direction;

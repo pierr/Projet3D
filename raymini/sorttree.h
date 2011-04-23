@@ -6,6 +6,7 @@
 #include "kdleaf.h"
 #include "Object.h"
 #include "Triangle.h"
+#include "Vertex.h"
 
 class sorttree
 {

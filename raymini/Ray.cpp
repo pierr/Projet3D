@@ -115,11 +115,12 @@ float r = a/b;
     //return intersection(verteces.at(tri.getVertex(0)).getPos(), verteces.at(tri.getVertex(1)).getPos(), verteces.at(tri.getVertex(0)).getPos());
 }
 
-bool Ray::intersect(Vec3Df & v0 , Vec3Df & v1, Vec3Df & v2, Vec3Df n, Vec3Df & intersectionPoint) const{
+bool Ray::intersect(Vec3Df & v0 , Vec3Df & v1, Vec3Df & v2, Vec3Df & intersectionPoint) const{
   const float epsilon = 0.00000001; //Un epsilon pour éviter de faire des comparaisons a zero
     //Des vecteurs pour faire des calculs sur le triangle (arrêtes, normales)
   Vec3Df u = v1 - v0;
   Vec3Df v = v2 - v0;
+  Vec3Df n = Vec3Df::crossProduct(u,v);
   //Vecteur intermédiaire pour calculer la projection sur le plan
   Vec3Df w0 = getOrigin() - v0;
   float a = - Vec3Df::dotProduct(n,w0);
@@ -223,7 +224,7 @@ Vec3Df Ray::intersectkdScene(Vec3Df camPos, BoundingBox & scenebox, std::vector<
                     kdleaf leaf = leafs[i];
                     //Appeler la fonction qui vérifie l'intersection avec un triangle
                     Vec3Df intersectPt;
-                    bool hasIntersection = intersect(leaf.get_p0(),leaf.get_p1(),leaf.get_p2(),leaf.get_normal(), intersectPt);
+                    bool hasIntersection = intersect(leaf.get_p0(),leaf.get_p1(),leaf.get_p2(),intersectPt);
                     //Si il y a une intersection avec le triangle alors on appelle
                     if(hasIntersection){
                         float dist = Vec3Df::distance(camPos,intersectPt);

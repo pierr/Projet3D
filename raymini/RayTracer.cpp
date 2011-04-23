@@ -59,7 +59,7 @@ QImage RayTracer::render (const Vec3Df & camPos,
     std::vector<kdleaf> leafs = sdt->get_leafs();
 
     //splitter l'espace en boundingbox a travers un kdtree..
-    int kddeep = 10;
+    int kddeep = 5;
     BoundingBox scenebox = scene->getBoundingBox();
     kdtree * kdt = new kdtree(kddeep, leafs, scenebox);
     kdt->split();
@@ -96,7 +96,7 @@ QImage RayTracer::render (const Vec3Df & camPos,
                                                            clamp (col[2], 0, 255)));
             if((float)(i*screenHeight+j)/(screenHeight*screenWidth) > pct){
                 pct += pctstep;
-                cout << pct << "\r";
+                cout << pct << endl;
             }
         }
     }

@@ -34,6 +34,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef BOUNDINGBOX_H
 #define BOUNDINGBOX_H
 
+
 #include <vector>
 #include <algorithm>
 

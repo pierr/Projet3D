@@ -1,7 +1,10 @@
 #include "KDTreeXYZ.h"
+#include <iostream>
 void KDTreeXYZ::constKdTree(){
+   // std::cout << "nvo noeud taille triangles liste"<< indexTriangles.size()  << " dim " << dim << " prof " << prof << std::endl;
     //Condition d'arrêt , il faut qu'il ya ait plus d'un certain nombre de triangle dans la box ou que l'on ait dépassé la profondeur de l'arbre max
-    if(indexTriangles.size() <= KDTreeXYZ::nTMin || prof > KDTreeXYZ::profMax ){
+    if(indexTriangles.size() >= KDTreeXYZ::nTMin || prof < KDTreeXYZ::profMax ){
+
         std::vector<BoundingBox> bbxs;
         //On divise la boîte en deux boites suivant la dimention dim
         this->box.subdivide(bbxs , dim);
@@ -12,11 +15,12 @@ void KDTreeXYZ::constKdTree(){
 
         //On classe les triangles de la liste en fg ou fd
         for(unsigned int i = 0; i < this->indexTriangles.size(); i++){
+
             unsigned int indexCurTriangle = indexTriangles.at(i);
             Triangle t = Scene::getInstance()->getTriangles().at(indexCurTriangle);
             //On regarde si ce triangle est contenu dans la boîte
             //C'est le cas si un de ses vertex est contenu dans la boîte
-
+//std::cout << "On fait un fils " << i  <<" box size " << bbxs.size() <<std::endl;
             //Boite gauche
             if(bbxs[0].contains( Scene::getInstance()->getVerteces().at(t.getVertex(0)).getPos()) ||
                     bbxs[0].contains(Scene::getInstance()->getVerteces().at(t.getVertex(1)).getPos()) ||
@@ -39,12 +43,13 @@ void KDTreeXYZ::constKdTree(){
         fg = new KDTreeXYZ(triG,bbxs[0],dim+1,prof+1);
         fd = new KDTreeXYZ(triD,bbxs[1],dim+1,prof+1);
 
-    }
+    } //std ::cout << "feuille" << std::endl;
 }
 
 
  void KDTreeXYZ::intersect(Ray & ray){
-    Vec3Df intersecPt;
+   //  std::cout << "Calling IntersectRay" << std::endl;
+     Vec3Df intersecPt;
 
     //On teste qi ce n'est pas une feuille de l'arbre
     if(fg == NULL){ //Normalement fils gauche et fils droit sont null si c'est une feuille

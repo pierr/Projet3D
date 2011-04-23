@@ -39,6 +39,7 @@ public:
     inline const BoundingBox & getBoundingBox () const { return bbox; }
      inline KDTreeXYZ * getKDTree () { return kdTree; }
     void updateBoundingBox ();
+    void buildKdTree();
 protected:
     Scene ();
     virtual ~Scene ();

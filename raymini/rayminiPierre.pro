@@ -1,7 +1,9 @@
 TEMPLATE = app
 TARGET   = raymini
 CONFIG  += qt opengl warn_on release thread
-
+#CONFIG += debug
+#CONFIG += console
+CONFIG -= app_bundle
 HEADERS = Window.h \
           GLViewer.h \
           QTUtils.h \
@@ -15,9 +17,8 @@ HEADERS = Window.h \
           Scene.h \
           RayTracer.h \
           Ray.h\
-          kdleaf.h \
-          kdnode.h \
-          kdtree.h
+           KDTreeXYZ.h\
+          Leaf.h
 
 
 SOURCES = Window.cpp \
@@ -33,8 +34,8 @@ SOURCES = Window.cpp \
           Scene.cpp \ 
           RayTracer.cpp \
           Ray.cpp \
-          kdnode.cpp \
-          kdtree.cpp\
+          KDTreeXYZ.cpp\
+          Leaf.cpp\
           Main.cpp
           
 DESTDIR = .

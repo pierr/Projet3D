@@ -75,11 +75,11 @@ void Scene::buildDefaultScene (bool HD) {
     //Peut être faut il le mettre dans le kd tree et pour le kdtree avoir une instance
 
    buildTriangles();
-/*   vector<unsigned int> indextri;
+  /*  vector<unsigned int> indextri;
    for(unsigned int i =0; i< triangles.size(); i++){
     indextri.push_back(i);
    }
-   //this->kdTree = new KDTreeXYZ(indextri,bbox,0,0);*/
+   this->kdTree = new KDTreeXYZ(indextri,bbox,0,0);*/
 }
 
 void Scene::buildTriangles(){
@@ -97,10 +97,22 @@ void Scene::buildTriangles(){
         verteces.push_back(vertexMesh.at(triMesh.at(j).getVertex(0)));
         verteces.push_back(vertexMesh.at(triMesh.at(j).getVertex(1)));
         verteces.push_back(vertexMesh.at(triMesh.at(j).getVertex(2)));
-
+        Triangle t(size, size+1, size+2);
         //On ajoute le triangle correspondant à la liste
-        this->triangles.push_back(Triangle(size, size+1, size+2));
+        this->triangles.push_back(t);
 
     }
   }
+}
+
+void Scene::buildKdTree(){
+    vector<unsigned int> indextri;
+   for(unsigned int i =0; i< triangles.size(); i++){
+    indextri.push_back(i);
+   }
+   std::cout << "building kdTree" << std::endl;
+   std::cout << "nTri " << indextri.size() << std::endl;
+   std::cout << "bbox " << bbox.getHeight() << " " << bbox.getLength() << " " << bbox.getWidth() << std::endl;
+   this->kdTree = new KDTreeXYZ(indextri,bbox,0,0);
+   std::cout << "isTiWorking " << kdTree->isFgFd() << std::endl;
 }

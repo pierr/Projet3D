@@ -6,7 +6,8 @@
 // *********************************************************
 
 #include <vector>
-
+#include <QDebug>
+#include <QString>
 #include "RayTracer.h"
 #include "Ray.h"
 #include "Scene.h"
@@ -50,6 +51,7 @@ QImage RayTracer::render (const Vec3Df & camPos,
     QImage image (QSize (screenWidth, screenHeight), QImage::Format_RGB888);
     
     Scene * scene = Scene::getInstance ();
+    scene->buildKdTree();
     const BoundingBox & bbox = scene->getBoundingBox ();
     const Vec3Df & minBb = bbox.getMin ();
     const Vec3Df & maxBb = bbox.getMax ();
@@ -71,6 +73,8 @@ QImage RayTracer::render (const Vec3Df & camPos,
     kdt = 0;
 */
     //on calcule pixel par pixel
+    QString p ('p');
+    qDebug() << p;
     cout << "npixel = " << screenHeight*screenWidth << endl;
     for (unsigned int i = 0; i < screenWidth; i++){
         for (unsigned int j = 0; j < screenHeight; j++) {
@@ -83,14 +87,24 @@ QImage RayTracer::render (const Vec3Df & camPos,
             dir.normalize ();
             Ray ray (camPos, dir);
             KDTreeXYZ * kdTree= scene->getKDTree();
+            BoundingBox b = kdTree->getBox();
+
             kdTree->intersect(ray);
+
+           // std::cout << "Intersrectd pt" << ray.getIntersectedPoints().size() << std::endl;
             Vec3Df col;
             ray.calcBRDF(col);
+
+            /*if(ray.getIntersectedPoints().size() >0){
+
+                col = Vec3Df(102.f,255.f,51.f);
+            }*/
             col = 255.f*col;//ray.intersectScene(camPos);//intersectkdScene(kdleafs);
+
             image.setPixel (i, ((screenHeight-1)-j), qRgb (clamp (col[0], 0, 255),
                                                            clamp (col[1], 0, 255),
                                                            clamp (col[2], 0, 255)));
-            cout << (float)(i*screenHeight+j)/(screenHeight*screenWidth) << endl;
+            //cout << (float)(i*screenHeight+j)/(screenHeight*screenWidth) << endl;
         }
     }
     return image;

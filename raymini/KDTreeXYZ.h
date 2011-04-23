@@ -1,4 +1,5 @@
 #include <vector>
+#include <iostream>
 #include "BoundingBox.h"
 #include "Triangle.h"
 #include "Scene.h"
@@ -10,7 +11,7 @@ public:
     inline KDTreeXYZ(std::vector<unsigned int> & _indexTriangles, BoundingBox & _box , unsigned int _dim, unsigned int _prof) {
         indexTriangles = _indexTriangles;
         box = _box;
-        if(_dim == 4){dim = 0;}
+        if(_dim == 3){dim = 0;}
         else {
             dim = _dim;
         }
@@ -18,13 +19,15 @@ public:
         fg = NULL;
         fd = NULL;
         constKdTree();
+        //std::cout << "prof tree" << prof << std::endl;
     }
     inline BoundingBox & getBox(){return box;}
     inline std::vector<unsigned int> & getIndexTriangles() { return indexTriangles;}
     inline const std::vector<unsigned int> & getObjects () const { return indexTriangles; }
-    static const unsigned int nTMin = 7;
-    static const unsigned int profMax = 20;
+    static const unsigned int nTMin = 100;
+    static const unsigned int profMax = 30;
     void intersect(Ray & ray);
+    inline bool isFgFd(){ return fg!=NULL ||fd!=NULL ;}
 private:
     unsigned int dim;//Dans quelle dimension il faudra qu'on splite la boite
     /**
@@ -52,6 +55,8 @@ private:
     Cette méthode sert à construire le KdTree en utilisant les structures de Vertex et de triangles stockées dans Scène
     */
     void constKdTree();
+
+    void drawTree();
 
     /** Calcule les intersections entre le rayon et le kdTree (donc les triangles de la scène).
     * @param ray le rayon don on veut calculer les intersections avec la scène

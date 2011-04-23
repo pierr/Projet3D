@@ -14,7 +14,13 @@ HEADERS = Window.h \
           Light.h \
           Scene.h \
           RayTracer.h \
-          Ray.h
+          Ray.h \
+          sorttree.h \
+          sortleaf.h \
+          sortnode.h \
+          kdtree.h \
+          kdleaf.h \
+          kdnode.h
 
 SOURCES = Window.cpp \
           GLViewer.cpp \
@@ -29,8 +35,13 @@ SOURCES = Window.cpp \
           Scene.cpp \ 
           RayTracer.cpp \
           Ray.cpp \
-          Main.cpp 
-          
+          Main.cpp \ 
+          sorttree.cpp \
+          sortnode.cpp \
+          kdtree.cpp \
+          kdnode.cpp \
+    kdleaf.cpp
+
 DESTDIR = .
 
 QT_VERSION=$$[QT_VERSION]
@@ -38,7 +49,7 @@ QT_VERSION=$$[QT_VERSION]
 
 # -------------------------------------
 
-contains( QT_VERSION, "^4\..*" ) {
+contains( QT_VERSION, "^4.*" ) {
   QT *= xml opengl
 } else {
   CONFIG *= thread

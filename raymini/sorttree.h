@@ -2,21 +2,23 @@
 #define SORTTREE_H
 
 #include <vector>
-#include "sortleaf.h"
+#include "sortnode.h"
+#include "kdleaf.h"
 #include "Object.h"
+#include "Triangle.h"
 
 class sorttree
 {
 public:
     inline sorttree(std::vector<Object> objects, Vec3Df camPos) : objects(objects), camPos(camPos) {}
     void sort();
-    inline const std::vector<sortleaf> get_leafs() const { return leafs; }
+    inline const std::vector<kdleaf> get_leafs() const { return leafs; }
     void print();
 
 private:
     std::vector<Object> objects;
     Vec3Df camPos;
-    std::vector<sortleaf> leafs;
+    std::vector<kdleaf> leafs;
 };
 
 #endif // SORTTREE_H

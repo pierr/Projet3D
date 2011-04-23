@@ -5,11 +5,11 @@
 
 using namespace std;
 
-std::vector<sortleaf> sortnode::sort()
+std::vector<kdleaf> sortnode::sort()
 {
-    std::vector<sortleaf> supleafs;
-    std::vector<sortleaf> midleafs;
-    std::vector<sortleaf> infleafs;
+    std::vector<kdleaf> supleafs;
+    std::vector<kdleaf> midleafs;
+    std::vector<kdleaf> infleafs;
 
     //si le vecteur a plus d'un leaf on doit ordonner
     if(leafs.size()>1){
@@ -19,12 +19,12 @@ std::vector<sortleaf> sortnode::sort()
         float min_median = 0;
         float max_median = FLT_MAX;
         for(unsigned int i=0; i<leafs.size(); i++){
-            sortleaf ileaf = leafs.at(i);
+            kdleaf ileaf = leafs.at(i);
             if(min_median<ileaf.get_distance() && ileaf.get_distance()<max_median){
                 unsigned int count_over = 0;
                 unsigned int count_under = 0;
                 for(unsigned int j=0; j<leafs.size(); j++){
-                    sortleaf jleaf = leafs.at(j);
+                    kdleaf jleaf = leafs.at(j);
                     if(jleaf.get_distance() < ileaf.get_distance()) count_under++;
                     else if(jleaf.get_distance() > ileaf.get_distance()) count_over++;
                 }
@@ -40,7 +40,7 @@ std::vector<sortleaf> sortnode::sort()
 
         // on divise notre vecteur en 2 vecteurs en coupant par la mediane
         for(unsigned int i=0; i<leafs.size(); i++){
-            sortleaf ileaf = leafs.at(i);
+            kdleaf ileaf = leafs.at(i);
             if(ileaf.get_distance() > median)
                 supleafs.push_back(leafs.at(i));
             else if(ileaf.get_distance() < median)

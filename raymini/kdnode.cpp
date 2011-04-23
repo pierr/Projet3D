@@ -5,7 +5,7 @@
 
 using namespace std;
 
-void kdnode::split(int max_deep, std::vector<kdnode>& deepnodes)
+void kdnode::split(int max_deep, std::vector<kdnode> & deepnodes)
 {
     //si on na pas arrive a deep==max_deep ou le vecteur a plus d'un leaf, on doit diviser
     if(leafs.size()>1 && deep<max_deep){

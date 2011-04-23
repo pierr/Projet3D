@@ -48,16 +48,25 @@ QImage RayTracer::render (const Vec3Df & camPos,
     const Vec3Df & maxBb = bbox.getMax ();
     const Vec3Df rangeBb = maxBb-minBb;
 
+    //ordonner les triangles selon distance
+    sorttree * sdt = new sorttree(scene->getObjects(), camPos);
+    sdt->sort();
+    std::vector<kdleaf> leafs = sdt->get_leafs();
+
     //splitter l'espace en boundingbox a travers un kdtree..
-    int kddeep = 20;
-    kdtree * kdt = new kdtree(kddeep, scene->getObjects(), scene->getBoundingBox());
+    int kddeep = 10;
+    BoundingBox scenebox = scene->getBoundingBox();
+    kdtree * kdt = new kdtree(kddeep, leafs, scenebox);
     kdt->split();
     std::vector<kdnode> kdboxes = kdt->get_boxes();
     delete kdt;
+    delete sdt;
     kdt = 0;
+    sdt = 0;
 
     //on calcule pixel par pixel
     cout << "npixel = " << screenHeight*screenWidth << endl;
+
     for (unsigned int i = 0; i < screenWidth; i++){
         for (unsigned int j = 0; j < screenHeight; j++) {
             float tanX = tan (fieldOfView);
@@ -68,11 +77,11 @@ QImage RayTracer::render (const Vec3Df & camPos,
             Vec3Df dir = direction + step;
             dir.normalize ();
             Ray ray (camPos, dir);
-            Vec3Df col = 255.f*ray.intersectkdScene(kdboxes);
+            Vec3Df col = 255.f*ray.intersectkdScene(scenebox, kdboxes);
             image.setPixel (i, ((screenHeight-1)-j), qRgb (clamp (col[0], 0, 255),
                                                            clamp (col[1], 0, 255),
                                                            clamp (col[2], 0, 255)));
-            cout << (float)(i*screenHeight+j)/(screenHeight*screenWidth) << endl;
+            cout <<  (float)(i*screenHeight+j)/(screenHeight*screenWidth) << endl;
         }
     }
     return image;

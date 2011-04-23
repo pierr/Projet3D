@@ -39,7 +39,7 @@ private:
 };
 
 
-#endif // Scene_H
+#endif // OBJECT_H
 
 // Some Emacs-Hints -- please don't remove:
 //

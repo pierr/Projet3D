@@ -34,6 +34,7 @@ public:
 
     bool intersect (const BoundingBox & bbox, Vec3Df & intersectionPoint) const;
     bool intersect ( const Triangle & tri, std::vector<Vertex> & verteces, Vec3Df & intersectionPoint) const;
+    bool intersect(Vec3Df & v0 , Vec3Df & v1, Vec3Df & v2, Vec3Df n, Vec3Df & intersectionPoint) const;
 
     /**
       Le but de cette fonction est de calculer la brdf pour chacun des triangles pour chacun des rayons qui sont tracés.
@@ -41,11 +42,11 @@ public:
     @param m est le material du triangle
     @param radiance est la radiance qu'on va modifier.
     */
-    void calcBRDF(Vertex & v,  Material & m,  Vec3Df & color);
+    void calcBRDF(Vec3Df & p, Vec3Df & n, Material & m,  Vec3Df & color);
     /**
       Le but de cette méthode est de calculer pour chaque rayon les triangles qui intersectent ce rayon , les triangles sont issus des objets qui composent la scène.
     */
-    Vec3Df intersectkdScene(std::vector<kdnode> kdboxes);
+    Vec3Df intersectkdScene(BoundingBox & scenebox, std::vector<kdnode> & kdboxes);
 private:
     Vec3Df origin;
     Vec3Df direction;

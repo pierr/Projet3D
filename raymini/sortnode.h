@@ -3,16 +3,16 @@
 
 #include <vector>
 
-#include "sortleaf.h"
+#include "kdleaf.h"
 
 class sortnode
 {
 public:
-    inline sortnode(std::vector<sortleaf> &leafs) : leafs(leafs) {}
-    std::vector<sortleaf> sort();
+    inline sortnode(std::vector<kdleaf> &leafs) : leafs(leafs) {}
+    std::vector<kdleaf> sort();
 
 private:
-    std::vector<sortleaf> leafs;
+    std::vector<kdleaf> leafs;
 };
 
 #endif // SORTNODE_H

@@ -114,62 +114,100 @@ float r = a/b;
 
     //return intersection(verteces.at(tri.getVertex(0)).getPos(), verteces.at(tri.getVertex(1)).getPos(), verteces.at(tri.getVertex(0)).getPos());
 }
-void Ray::calcBRDF(Vertex & bary,  Material & m, Vec3Df& color){
+
+bool Ray::intersect(Vec3Df & v0 , Vec3Df & v1, Vec3Df & v2, Vec3Df n, Vec3Df & intersectionPoint) const{
+  const float epsilon = 0.00000001; //Un epsilon pour éviter de faire des comparaisons a zero
+    //Des vecteurs pour faire des calculs sur le triangle (arrêtes, normales)
+  Vec3Df u = v1 - v0;
+  Vec3Df v = v2 - v0;
+  //Vecteur intermédiaire pour calculer la projection sur le plan
+  Vec3Df w0 = getOrigin() - v0;
+  float a = - Vec3Df::dotProduct(n,w0);
+  float b = Vec3Df::dotProduct(n,getDirection());
+
+  if(fabs(b) < epsilon){
+    if(a ==  0){
+        return true; //Mais le triangle est dans le plan du triaangle
+    } return false;
+  }
+float r = a/b;
+
+  if( r < 0){ //Le rayon ne va pas dans la direction du plan
+    return false;
+  }
+
+  intersectionPoint = getOrigin() + r*getDirection();
+
+  //Il faut maintenant déterminer si le point est dans le triangle
+  //getDirection()
+   float uu = u.getSquaredLength();
+   float uv = Vec3Df::dotProduct(u,v);
+   float vv = v.getSquaredLength();
+   Vec3Df w = intersectionPoint - v0;
+   float wu = Vec3Df::dotProduct(w,u);
+   float wv = Vec3Df::dotProduct(w,v);
+   float D = uv * uv - uu * vv;
+
+   float s = (uv * wv - vv * wu) / D;
+   if(s < 0.0 || s > 1.0){
+        return false;
+   }
+
+   float t = (uv * wu - uu * wv) / D;
+   if(t < 0.0 || (s + t) > 1.0){
+        return false;
+   } return true;
+}
+
+void Ray::calcBRDF(Vec3Df & p, Vec3Df & n, Material & m, Vec3Df& color){
     Scene* scene = Scene::getInstance();
     std::vector<Light> lights = scene->getLights();
     //Pour cacune des lumières on va chercher pour le triangle sa brdf
-   Vec3Df wi,wo,wn,wp, r;
+   Vec3Df wi,wo,wn,r;
    Light light;
    float brillance = 1;
    for(unsigned int i = 0; i<lights.size(); i++){
        light = lights.at(i);
       // brillance = light.getIntensity(); //on récupère la brillance depuis la lumière.
-        wi = Vec3Df(light.getPos() - bary.getPos());
+        wi = Vec3Df(light.getPos() - p);
         //wi = Vec3Df(lights[i]. - mesh.V[mesh.T[i].v[j]].p);
         wi.normalize();
-        wo = Vec3Df(getOrigin() - bary.getPos());
+        wo = Vec3Df(getOrigin() - p);
         wo.normalize();
-        wn = bary.getNormal();
-        wp = bary.getPos();
-        r = wn*Vec3Df::dotProduct(wi,wn)*2-wi;
+        r = wn*Vec3Df::dotProduct(wi,n)*2-wi;
         color += m.getColor()*(m.getDiffuse()*Vec3Df::dotProduct(wn,wi)+m.getSpecular()*pow(Vec3Df::dotProduct(r,wo),brillance));
     }
 }
 
 //reimplementation avec kdtree
-Vec3Df Ray::intersectkdScene(std::vector<kdnode> kdboxes){
-    Scene* scene = Scene::getInstance();
-    std::vector<Object> objects = scene->getObjects();
+Vec3Df Ray::intersectkdScene(BoundingBox & scenebox, std::vector<kdnode> & kdboxes){
 
     Vertex bary;
-
     Vec3Df radiance;
 
-    for(unsigned int ib = 0; ib<kdboxes.size(); ib++){
-        //s'il y a intersection avec la boite, on regarde les triangles
-        kdnode kdbox = kdboxes[ib];
-        Vec3Df tmp;
-        if(intersect(kdbox.get_box(),tmp)){
+    Vec3Df tmp; //inutile
+
+    //si ça intersecte avec la scene, on regarde les triangles
+    if(intersect(scenebox,tmp)){
+        for(unsigned int ib = 0; ib<kdboxes.size(); ib++){
+            //s'il y a intersection avec la boite, on regarde les triangles
             kdnode kdbox = kdboxes[ib];
-            std::vector<kdleaf> leafs = kdbox.get_leafs();
-            //triangle par triangle..
-            for(unsigned int i = 0; i<leafs.size(); i++){
-                kdleaf leaf = leafs[i];
-                //On récupère l'ensemble des verteces
-                vector<Vertex> verteces = objects[leaf.get_object()].getMesh().getVertices();
-                Triangle tri = objects[leaf.get_object()].getMesh().getTriangles()[leaf.get_triangle()];
-                //Appeler la fonction qui vérifie l'intersection avec un triangle
-                Vec3Df intersectPt;
-                bool hasIntersection = intersect(tri, verteces, intersectPt);
-                //Si il y a une intersection avec le triangle alors on appelle
-                if(hasIntersection){
-                    Vec3Df is_norm = Vec3Df(verteces[tri.getVertex(0)].getNormal() + verteces[tri.getVertex(1)].getNormal() + verteces[tri.getVertex(2)].getNormal())/3;
-                    bary = Vertex(intersectPt, is_norm);
-                    this->calcBRDF(bary, objects[leaf.get_object()].getMaterial(), radiance);
-                    return radiance;
+            if(intersect(kdbox.get_box(),tmp)){
+                std::vector<kdleaf> leafs = kdbox.get_leafs();
+                //triangle par triangle..
+                for(unsigned int i = 0; i<leafs.size(); i++){
+                    kdleaf leaf = leafs[i];
+                    //Appeler la fonction qui vérifie l'intersection avec un triangle
+                    Vec3Df intersectPt;
+                    bool hasIntersection = intersect(leaf.get_v0(),leaf.get_v1(),leaf.get_v2(),leaf.get_normal(), intersectPt);
+                    //Si il y a une intersection avec le triangle alors on appelle
+                    if(hasIntersection){
+                        this->calcBRDF(intersectPt, leaf.get_normal(), leaf.get_Material(), radiance);
+                        return radiance;
+                    }
                 }
             }
         }
-    } 
-    return radiance;
+    }
+    return Vec3Df(0,0,0);
 }

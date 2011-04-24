@@ -15,9 +15,7 @@
 #include "Vec3D.h"
 #include "Ray.h"
 #include "Scene.h"
-#include "sorttree.h"
 #include "kdtree.h"
-#include "boxtree.h"
 
 class RayTracer {
 public:

@@ -12,7 +12,7 @@
 class kdtree
 {
 public:
-    inline kdtree(int max_deep, std::vector<kdleaf> & leafs, BoundingBox & scenebox) : max_deep(max_deep), leafs(leafs), scenebox(scenebox) {}
+    kdtree(std::vector<Object> objects, Vec3Df camPos, BoundingBox & scenebox);
     void split();
     inline std::vector<kdnode> & get_boxes() { return boxes; }
 

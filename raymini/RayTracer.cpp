@@ -48,37 +48,21 @@ QImage RayTracer::render (const Vec3Df & camPos,
     QImage image (QSize (screenWidth, screenHeight), QImage::Format_RGB888);
     
     Scene * scene = Scene::getInstance ();
-    const BoundingBox & bbox = scene->getBoundingBox ();
-    const Vec3Df & minBb = bbox.getMin ();
-    const Vec3Df & maxBb = bbox.getMax ();
-    const Vec3Df rangeBb = maxBb-minBb;
-
-    //ordonner les triangles selon distance
-    sorttree * sdt = new sorttree(scene->getObjects(), camPos);
-    sdt->sort();
-    std::vector<kdleaf> leafs = sdt->get_leafs();
 
     //splitter l'espace en boundingbox a travers un kdtree..
-    int kddeep = 5;
     BoundingBox scenebox = scene->getBoundingBox();
-    kdtree * kdt = new kdtree(kddeep, leafs, scenebox);
+    kdtree * kdt = new kdtree(scene->getObjects(), camPos, scenebox);
     kdt->split();
     std::vector<kdnode> kdboxes = kdt->get_boxes();
     delete kdt;
-    delete sdt;
     kdt = 0;
-    sdt = 0;
-
-    //ordonner les boites selon distance
-//    boxtree * bt = new boxtree(kdboxes,camPos);
-//    bt->sort();
-//    bt->get_kdboxes();
 
     //on calcule pixel par pixel
     cout << "npixel = " << screenHeight*screenWidth << endl;
 
     float pctstep = 0.01;
     float pct = -pctstep;
+
     #pragma omp parallel for
     for (unsigned int i = 0; i < screenWidth; i++){
         for (unsigned int j = 0; j < screenHeight; j++) {

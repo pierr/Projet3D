@@ -1,7 +1,7 @@
 TEMPLATE = app
 TARGET   = raymini
 CONFIG  += qt opengl warn_on release thread
-
+CONFIG -= app_bundle #permet de ne pas générer un .app mais un exec
 HEADERS = Window.h \
           GLViewer.h \
           QTUtils.h \
@@ -14,11 +14,15 @@ HEADERS = Window.h \
           Light.h \
           Scene.h \
           RayTracer.h \
-          Ray.h\
-          kdleaf.h \
+          Ray.h \
+          sorttree.h \
+          sortnode.h \
+          kdtree.h \
           kdnode.h \
-          kdtree.h
-
+          kdleaf.h \
+          boxtree.h \
+          boxnode.h \
+          boxleaf.h
 
 SOURCES = Window.cpp \
           GLViewer.cpp \
@@ -33,15 +37,21 @@ SOURCES = Window.cpp \
           Scene.cpp \ 
           RayTracer.cpp \
           Ray.cpp \
-          kdnode.cpp \
+          Main.cpp \ 
+          sorttree.cpp \
+          sortnode.cpp \
           kdtree.cpp\
-          Main.cpp
+          kdnode.cpp\
+          kdleaf.cpp \
+          boxtree.cpp \
+          boxnode.cpp
           
 DESTDIR = .
 
 QT_VERSION=$$[QT_VERSION]
 
-
+QMAKE_CXXFLAGS += -fopenmp
+QMAKE_LFLAGS += -fopenmp
 # -------------------------------------
 # Mac 
 #INCLUDEPATH *= /Users/pierrebesson/Dev/libQGLViewer-2.3.9/

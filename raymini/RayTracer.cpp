@@ -79,7 +79,7 @@ QImage RayTracer::render (const Vec3Df & camPos,
 
     float pctstep = 0.01;
     float pct = -pctstep;
-
+    #pragma omp parallel for
     for (unsigned int i = 0; i < screenWidth; i++){
         for (unsigned int j = 0; j < screenHeight; j++) {
             float tanX = tan (fieldOfView);

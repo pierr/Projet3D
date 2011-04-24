@@ -16,3 +16,9 @@ The enter:
 To compile on mac 
 qmake -spec macx-g++ file.pro
 to execute open exec
+
+#Pour le multi thread il faut ajouter 
+QMAKE_CXXFLAGS += -fopenmp
+QMAKE_LFLAGS += -fopenmp
+au .pro
+Et j'ai ajouté dans le code une ligne  #pragma omp parallel for avant la boucle for des pixel

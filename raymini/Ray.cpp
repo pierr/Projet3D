@@ -166,7 +166,7 @@ float r = a/b;
    } return true;
 }
 
-void Ray::calcBRDF(Vertex & v,  Material & m, Vec3Df& color, BoundingBox scenebox, std::vector<kdnode> kdboxes){
+void Ray::calcBRDF(Vertex & v,  Material & m, Vec3Df& color, std::vector<kdnode> kdboxes){
     Scene* scene = Scene::getInstance();
     std::vector<Light> lights = scene->getLights();
     //Pour cacune des lumières on va chercher pour le triangle sa brdf
@@ -183,10 +183,10 @@ void Ray::calcBRDF(Vertex & v,  Material & m, Vec3Df& color, BoundingBox scenebo
        Material ism; //inutile
        float dist=0;
 
-       //si le triangle est de l'autre cote de la source lumineuse
-       cache = rlight.intersectkdScene(scenebox, kdboxes,isv,ism,dist);
-//       if(cache && dist>Vec3Df::distance(origin,v.getPos()))
-//           cache = false;
+       Vec3Df bbmin = Vec3Df::min(light.getPos(),v.getPos());
+       Vec3Df bbmax = Vec3Df::max(light.getPos(),v.getPos());
+       BoundingBox bbox(bbmin, bbmax);
+       cache = rlight.intersectkdScene(bbox, kdboxes,isv,ism,dist);
 
        //s'il n'est pas cache
        if(!cache){
@@ -254,7 +254,7 @@ Vec3Df Ray::calcul_radiance(BoundingBox & scenebox, std::vector<kdnode> & kdboxe
     //s'il y a intersection, on retourne la radiance
     if(isbool){
         Vec3Df radiance;
-        this->calcBRDF(isv, ism, radiance, scenebox, kdboxes);
+        this->calcBRDF(isv, ism, radiance, kdboxes);
         return radiance;
     //sinon, on doit retourner le background. TODO!
     } else {

@@ -5,6 +5,7 @@ CONFIG  += qt opengl warn_on release thread
 HEADERS = Window.h \
           GLViewer.h \
           QTUtils.h \
+          Vec3D.h \
           Vertex.h \
           Triangle.h \
           Mesh.h \

@@ -12,9 +12,6 @@ kdleaf::kdleaf(int object, int triangle, Material material, Vertex vertex0, Vert
     this->p1 = p1;
     this->p2 = p2;
     this->barycentre = (p0+p1+p2)/3;
-    this->n0 = n0;
-    this->n1 = n1;
-    this->n2 = n2;
     this->normal = (n0+n1+n2)/3;
     this->distance = Vec3Df::distance(barycentre,camPos);
 }

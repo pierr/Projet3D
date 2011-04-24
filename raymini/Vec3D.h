@@ -243,6 +243,27 @@ public:
         return (u * (1.0f - alpha) + v * alpha);
     }
 
+    static inline Vec3D min (const Vec3D & u, const Vec3D & v) {
+        Vec3D ret;
+        if(u[0] < v[0]) ret[0] = u[0];
+        else            ret[0] = v[0];
+        if(u[1] < v[1]) ret[1] = u[1];
+        else            ret[1] = v[1];
+        if(u[2] < v[2]) ret[2] = u[2];
+        else            ret[2] = v[2];
+        return ret;
+    }
+    static inline Vec3D max (const Vec3D & u, const Vec3D & v) {
+        Vec3D ret;
+        if(u[0] > v[0]) ret[0] = u[0];
+        else            ret[0] = v[0];
+        if(u[1] > v[1]) ret[1] = u[1];
+        else            ret[1] = v[1];
+        if(u[2] > v[2]) ret[2] = u[2];
+        else            ret[2] = v[2];
+        return ret;
+    }
+
     // cartesion to polar coordinates
     // result:
     // [0] = length

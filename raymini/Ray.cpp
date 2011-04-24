@@ -132,7 +132,7 @@ void Ray::calcBRDF(Vertex & bary,  Material & m, Vec3Df& color){
         wn = bary.getNormal();
         wp = bary.getPos();
         r = wn*Vec3Df::dotProduct(wi,wn)*2-wi;
-        color = m.getColor()*(m.getDiffuse()*Vec3Df::dotProduct(wn,wi)+m.getSpecular()*pow(Vec3Df::dotProduct(r,wo),brillance));
+        color += m.getColor()*(m.getDiffuse()*Vec3Df::dotProduct(wn,wi)+m.getSpecular()*pow(Vec3Df::dotProduct(r,wo),brillance));
     }
 }
 Vec3Df Ray::intersectScene(Vec3Df camPos){
@@ -218,11 +218,13 @@ Vec3Df Ray::intersectkdScene(std::vector<kdleaf> leafs){
 }
 
 void Ray::calcBRDF(Vec3Df & color){
-    Material mat;
+    //Material mat;
     for(unsigned int i = 0; i< triIndex.size(); i++){
         Triangle t = Scene::getInstance()->getTriangles().at(triIndex.at(i));
         Vec3Df n = Vec3Df((Scene::getInstance()->getVerteces().at(t.getVertex(0)).getNormal () +Scene::getInstance()->getVerteces().at(t.getVertex(1)).getNormal () + Scene::getInstance()->getVerteces().at(t.getVertex(2)).getNormal ())/3);
         Vertex ver(intersectPts.at(i), n);
-        calcBRDF(ver,mat,color);
+        std::cout << "tri" << triIndex.at(i) << " mat " << t.getMaterial().getColor()[0] << " " << t.getMaterial().getColor()[1] << " " << t.getMaterial().getColor()[2] <<  std::endl;
+
+        calcBRDF(ver,t.getMaterial(),color);
     }
 }

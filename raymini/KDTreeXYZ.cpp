@@ -3,7 +3,7 @@
 void KDTreeXYZ::constKdTree(){
    // std::cout << "nvo noeud taille triangles liste"<< indexTriangles.size()  << " dim " << dim << " prof " << prof << std::endl;
     //Condition d'arrêt , il faut qu'il ya ait plus d'un certain nombre de triangle dans la box ou que l'on ait dépassé la profondeur de l'arbre max
-    if(indexTriangles.size() >= KDTreeXYZ::nTMin || prof < KDTreeXYZ::profMax ){
+    if(!(indexTriangles.size() <= KDTreeXYZ::nTMin || prof > KDTreeXYZ::profMax )){
 
         std::vector<BoundingBox> bbxs;
         //On divise la boîte en deux boites suivant la dimention dim
@@ -48,12 +48,14 @@ void KDTreeXYZ::constKdTree(){
 
 
  void KDTreeXYZ::intersect(Ray & ray){
-   //  std::cout << "Calling IntersectRay" << std::endl;
+    //std::cout << "Calling IntersectRay" << "fg " << this->fg <<  " fd " << this->fd<< std::endl;
      Vec3Df intersecPt;
 
     //On teste qi ce n'est pas une feuille de l'arbre
     if(fg == NULL){ //Normalement fils gauche et fils droit sont null si c'est une feuille
-        for(unsigned int i = 0 ; i++;  i< indexTriangles.size()){
+
+        for(unsigned int i = 0 ; i< indexTriangles.size(); i++){
+            //std::cout <<  "index at " <<  indexTriangles.at(i) << std::endl;
             //Si on a une intersection entre le rayon et le triangle, on ajoute les coordonnées de l'intersection et le numéto du triangle au ray
             if(ray.intersect(Scene::getInstance()->getTriangles().at(indexTriangles.at(i)), Scene::getInstance()->getVerteces(), intersecPt)){
                 ray.addIntersectPt(intersecPt);

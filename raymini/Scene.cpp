@@ -74,7 +74,7 @@ void Scene::buildDefaultScene (bool HD) {
     //Ainsi que tous les vertex dans un vecteur
     //Peut être faut il le mettre dans le kd tree et pour le kdtree avoir une instance
 
-   buildTriangles();
+  // buildTriangles();
   /*  vector<unsigned int> indextri;
    for(unsigned int i =0; i< triangles.size(); i++){
     indextri.push_back(i);
@@ -85,6 +85,8 @@ void Scene::buildDefaultScene (bool HD) {
 void Scene::buildTriangles(){
   for(unsigned int i =0;i<getObjects().size() ; i++){
     Mesh m = getObjects().at(i).getMesh();
+    Material mat = getObjects().at(i).getMaterial();
+std::cout <<"obj " <<i << " mat " <<    mat.getColor()[0] <<  " " << mat.getColor()[1]  << " "  << mat.getColor()[2] << std::endl;
    std::vector<Triangle> triMesh = m.getTriangles();
     std::vector<Vertex> vertexMesh = m.getVertices();
     for( unsigned int j = 0;j <m.getTriangles().size(); j++){
@@ -97,7 +99,9 @@ void Scene::buildTriangles(){
         verteces.push_back(vertexMesh.at(triMesh.at(j).getVertex(0)));
         verteces.push_back(vertexMesh.at(triMesh.at(j).getVertex(1)));
         verteces.push_back(vertexMesh.at(triMesh.at(j).getVertex(2)));
-        Triangle t(size, size+1, size+2);
+        Triangle t(size, size+1, size+2, mat);
+        //On ajoute le material au triangle
+
         //On ajoute le triangle correspondant à la liste
         this->triangles.push_back(t);
 

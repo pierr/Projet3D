@@ -46,7 +46,7 @@ class BoundingBox {
 public:
     BoundingBox () : minBb (Vec3Df (0.0f, 0.0f, 0.0f)), maxBb (Vec3Df (0.0f, 0.0f, 0.0f)) {}
     BoundingBox (const Vec3Df & p) : minBb (p), maxBb (p) {}
-    BoundingBox (const Vec3Df & min, const Vec3Df & max) : minBb (min), maxBb (max) {}
+    BoundingBox (const Vec3Df & min, const Vec3Df & max) : minBb (min ), maxBb (max ) {}
 
     inline void init (const Vec3Df & p) {
         minBb = maxBb = p;
@@ -136,26 +136,29 @@ public:
         splitBoundingBoxArray[7] = BoundingBox (minBb + Vec3Df (x_2, y_2, z_2), med + Vec3Df (x_2, y_2, z_2));
     }
     bool intersectRay (const Vec3Df & origin, const Vec3Df & direction, Vec3Df & intersection) const;
-
+    static const float epsilon = 0.1;
     inline void subdivideX (std::vector<BoundingBox> & splitBoundingBoxArray) const {
         float x_2 = (maxBb[0] - minBb [0]) / 2;
+        Vec3Df d = Vec3Df ( x_2*epsilon, 0.0,0.0);
         splitBoundingBoxArray.resize (2);
-        splitBoundingBoxArray[0] = BoundingBox (minBb, maxBb - Vec3Df (x_2, 0.0, 0.0));
-        splitBoundingBoxArray[1] = BoundingBox (minBb + Vec3Df (x_2, 0.0, 0.0), maxBb);
+        splitBoundingBoxArray[0] = BoundingBox (minBb - d, maxBb - Vec3Df (x_2, 0.0, 0.0) +d);
+        splitBoundingBoxArray[1] = BoundingBox (minBb + Vec3Df (x_2, 0.0, 0.0) - d, maxBb + d);
     }
 
     inline void subdivideY (std::vector<BoundingBox> & splitBoundingBoxArray) const {
         float y_2 = (maxBb[1] - minBb [1]) / 2;
         splitBoundingBoxArray.resize (2);
-        splitBoundingBoxArray[0] = BoundingBox (minBb, maxBb - Vec3Df (0.0, y_2, 0.0));
-        splitBoundingBoxArray[1] = BoundingBox (minBb + Vec3Df (0.0, y_2, 0.0), maxBb);
+        Vec3Df d = Vec3Df (0.0, y_2*epsilon, 0.0);
+        splitBoundingBoxArray[0] = BoundingBox (minBb -d, maxBb - Vec3Df (0.0, y_2, 0.0) +d);
+        splitBoundingBoxArray[1] = BoundingBox (minBb + Vec3Df (0.0, y_2, 0.0) -d, maxBb +d);
     }
 
     inline void subdivideZ (std::vector<BoundingBox> & splitBoundingBoxArray) const {
         float z_2 = (maxBb[2] - minBb [2]) / 2;
+        Vec3Df d = Vec3Df (0.0,0.0, z_2*epsilon);
         splitBoundingBoxArray.resize (2);
-        splitBoundingBoxArray[0] = BoundingBox (minBb, maxBb - Vec3Df ( 0.0, 0.0, z_2));
-        splitBoundingBoxArray[1] = BoundingBox (minBb + Vec3Df ( 0.0, 0.0, z_2), maxBb);
+        splitBoundingBoxArray[0] = BoundingBox (minBb -d, maxBb - Vec3Df ( 0.0, 0.0, z_2 )+d);
+        splitBoundingBoxArray[1] = BoundingBox (minBb + Vec3Df ( 0.0, 0.0, z_2) -d, maxBb +d);
     }
     inline void subdivide(std::vector<BoundingBox> & splitBoundingBoxArray, unsigned int dim){
         if(dim == 0){

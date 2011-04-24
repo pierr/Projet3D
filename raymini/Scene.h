@@ -40,13 +40,14 @@ public:
      inline KDTreeXYZ * getKDTree () { return kdTree; }
     void updateBoundingBox ();
     void buildKdTree();
+    void buildTriangles();
 protected:
     Scene ();
     virtual ~Scene ();
     
 private:
     void buildDefaultScene (bool HD);
-    void buildTriangles();
+   // void buildTriangles();
     std::vector<Object> objects;
     std::vector<Light> lights;
     BoundingBox bbox;

@@ -18,14 +18,16 @@ public:
         prof = _prof;
         fg = NULL;
         fd = NULL;
+        //DEBUG
+        //std::cout << "dim " << dim << "index tri t "<< indexTriangles.size() <<" prof tree" << prof << std::endl;
         constKdTree();
-        //std::cout << "prof tree" << prof << std::endl;
+
     }
     inline BoundingBox & getBox(){return box;}
     inline std::vector<unsigned int> & getIndexTriangles() { return indexTriangles;}
     inline const std::vector<unsigned int> & getObjects () const { return indexTriangles; }
-    static const unsigned int nTMin = 100;
-    static const unsigned int profMax = 30;
+    static const unsigned int nTMin = 7;
+    static const unsigned int profMax = 25;
     void intersect(Ray & ray);
     inline bool isFgFd(){ return fg!=NULL ||fd!=NULL ;}
 private:

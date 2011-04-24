@@ -51,6 +51,7 @@ QImage RayTracer::render (const Vec3Df & camPos,
     QImage image (QSize (screenWidth, screenHeight), QImage::Format_RGB888);
     
     Scene * scene = Scene::getInstance ();
+    scene->buildTriangles();
     scene->buildKdTree();
     const BoundingBox & bbox = scene->getBoundingBox ();
     const Vec3Df & minBb = bbox.getMin ();
@@ -75,6 +76,7 @@ QImage RayTracer::render (const Vec3Df & camPos,
     //on calcule pixel par pixel
     QString p ('p');
     qDebug() << p;
+
     cout << "npixel = " << screenHeight*screenWidth << endl;
     for (unsigned int i = 0; i < screenWidth; i++){
         for (unsigned int j = 0; j < screenHeight; j++) {

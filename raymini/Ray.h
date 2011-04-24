@@ -21,10 +21,7 @@
 class Ray {
 public:
     inline Ray () {}
-    inline Ray (const Vec3Df & origin, const Vec3Df & direction)
-        : origin (origin), direction (direction) {
-//			this.direction.normalize();
-}
+    Ray (const Vec3Df & origin, const Vec3Df & direction);
     inline virtual ~Ray () {}
 
     inline const Vec3Df & getOrigin () const { return origin; }
@@ -42,12 +39,14 @@ public:
     @param m est le material du triangle
     @param radiance est la radiance qu'on va modifier.
     */
-    void calcBRDF(Vertex & v,  Material & m,  Vec3Df & color);
-    void calcBRDF(Vec3Df & p, Vec3Df & n, Material & m,  Vec3Df & color);
+    void calcBRDF(Vertex & bary,  Material & m, Vec3Df& color, BoundingBox scenebox, std::vector<kdnode> kdboxes);
     /**
       Le but de cette méthode est de calculer pour chaque rayon les triangles qui intersectent ce rayon , les triangles sont issus des objets qui composent la scène.
     */
-    Vec3Df intersectkdScene(Vec3Df camPos, BoundingBox & scenebox, std::vector<kdnode> & kdboxes);
+    bool intersectkdScene(BoundingBox & scenebox, std::vector<kdnode> & kdboxes, Vertex & isv, Material & ism, float & mindist);
+
+    Vec3Df calcul_radiance(BoundingBox & scenebox, std::vector<kdnode> & kdboxes);
+
 private:
     Vec3Df origin;
     Vec3Df direction;

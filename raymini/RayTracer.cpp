@@ -72,9 +72,8 @@ QImage RayTracer::render (const Vec3Df & camPos,
             Vec3Df stepY = (float (j) - screenHeight/2.f)/screenHeight * tanY * upVector;
             Vec3Df step = stepX + stepY;
             Vec3Df dir = direction + step;
-            dir.normalize ();
             Ray ray (camPos, dir);
-            Vec3Df col = 255.f*ray.intersectkdScene(camPos, scenebox, kdboxes);
+            Vec3Df col = 255.f*ray.calcul_radiance(scenebox, kdboxes);
             image.setPixel (i, ((screenHeight-1)-j), qRgb (clamp (col[0], 0, 255),
                                                            clamp (col[1], 0, 255),
                                                            clamp (col[2], 0, 255)));
@@ -84,7 +83,7 @@ QImage RayTracer::render (const Vec3Df & camPos,
             }
         }
     }
-    
+
     tstop = time (NULL);
     cout << "time " << tstop-tstart << endl;
 

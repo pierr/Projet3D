@@ -13,6 +13,12 @@ using namespace std;
 
 static const unsigned int NUMDIM = 3, RIGHT = 0, LEFT = 1, MIDDLE = 2;
 
+Ray::Ray (const Vec3Df & origin, const Vec3Df & direction) {
+    this->origin = origin;
+    this->direction = direction;
+    this->direction.normalize();
+}
+
 bool Ray::intersect (const BoundingBox & bbox, Vec3Df & intersectionPoint) const {
     const Vec3Df & minBb = bbox.getMin ();
     const Vec3Df & maxBb = bbox.getMax ();
@@ -160,55 +166,49 @@ float r = a/b;
    } return true;
 }
 
-void Ray::calcBRDF(Vertex & bary,  Material & m, Vec3Df& color){
+void Ray::calcBRDF(Vertex & v,  Material & m, Vec3Df& color, BoundingBox scenebox, std::vector<kdnode> kdboxes){
     Scene* scene = Scene::getInstance();
     std::vector<Light> lights = scene->getLights();
     //Pour cacune des lumières on va chercher pour le triangle sa brdf
    Vec3Df wi,wo,wn,wp, r;
-   Light light;
    float brillance = 1;
    for(unsigned int i = 0; i<lights.size(); i++){
-       light = lights.at(i);
-      // brillance = light.getIntensity(); //on récupère la brillance depuis la lumière.
-        wi = Vec3Df(light.getPos() - bary.getPos());
-        //wi = Vec3Df(lights[i]. - mesh.V[mesh.T[i].v[j]].p);
-        wi.normalize();
-        wo = Vec3Df(getOrigin() - bary.getPos());
-        wo.normalize();
-        wn = bary.getNormal();
-        wp = bary.getPos();
-        r = wn*Vec3Df::dotProduct(wi,wn)*2-wi;
-        color += m.getColor()*(m.getDiffuse()*Vec3Df::dotProduct(wn,wi)+m.getSpecular()*pow(Vec3Df::dotProduct(r,wo),brillance));
-    }
-}
-void Ray::calcBRDF(Vec3Df & p, Vec3Df & n, Material & m, Vec3Df& color){
-    Scene* scene = Scene::getInstance();
-    std::vector<Light> lights = scene->getLights();
-    //Pour cacune des lumières on va chercher pour le triangle sa brdf
-   Vec3Df wi,wo,wn,r;
-   Light light;
-   float brillance = 1;
-   for(unsigned int i = 0; i<lights.size(); i++){
-       light = lights.at(i);
-      // brillance = light.getIntensity(); //on récupère la brillance depuis la lumière.
-        wi = Vec3Df(light.getPos() - p);
-        //wi = Vec3Df(lights[i]. - mesh.V[mesh.T[i].v[j]].p);
-        wi.normalize();
-        wo = Vec3Df(getOrigin() - p);
-        wo.normalize();
-        r = wn*Vec3Df::dotProduct(wi,n)*2-wi;
-        color += m.getColor()*(m.getDiffuse()*Vec3Df::dotProduct(wn,wi)+m.getSpecular()*pow(Vec3Df::dotProduct(r,wo),brillance));
+       //verifier si le triangle est cache par chaque lumiere
+       bool cache = false;
+       Light light = lights.at(i);
+       Vec3Df dir = light.getPos()-v.getPos();
+       Ray rlight(v.getPos(),dir); //prevention: jamais faire des calcBRDF avec ce ray!
+
+       Vertex isv; //inutile
+       Material ism; //inutile
+       float dist=0;
+
+       //si le triangle est de l'autre cote de la source lumineuse
+       cache = rlight.intersectkdScene(scenebox, kdboxes,isv,ism,dist);
+//       if(cache && dist>Vec3Df::distance(origin,v.getPos()))
+//           cache = false;
+
+       //s'il n'est pas cache
+       if(!cache){
+           light = lights.at(i);
+           // brillance = light.getIntensity(); //on récupère la brillance depuis la lumière.
+            wi = Vec3Df(light.getPos() - v.getPos());
+            //wi = Vec3Df(lights[i]. - mesh.V[mesh.T[i].v[j]].p);
+            wi.normalize();
+            wo = Vec3Df(getOrigin() - v.getPos());
+            wo.normalize();
+            wn = v.getNormal();
+            wp = v.getPos();
+            r = wn*Vec3Df::dotProduct(wi,wn)*2-wi;
+            color += m.getColor()*(m.getDiffuse()*Vec3Df::dotProduct(wn,wi)+m.getSpecular()*pow(Vec3Df::dotProduct(r,wo),brillance));
+        }
     }
 }
 
-//reimplementation avec kdtree
-Vec3Df Ray::intersectkdScene(Vec3Df camPos, BoundingBox & scenebox, std::vector<kdnode> & kdboxes){
-
-    float mindist = FLT_MAX;
+//chercher l'intersection avec triangles de la scene a partir du vecteur du kdtree
+bool Ray::intersectkdScene(BoundingBox & scenebox, std::vector<kdnode> & kdboxes, Vertex & isv, Material & ism, float & mindist){
+    mindist = FLT_MAX;
     bool isbool = false;
-    Vec3Df isn;
-    Material ism;
-    Vertex isv;
 
     Vec3Df tmp; //inutile
 
@@ -227,12 +227,12 @@ Vec3Df Ray::intersectkdScene(Vec3Df camPos, BoundingBox & scenebox, std::vector<
                     bool hasIntersection = intersect(leaf.get_p0(),leaf.get_p1(),leaf.get_p2(),intersectPt);
                     //Si il y a une intersection avec le triangle alors on appelle
                     if(hasIntersection){
-                        float dist = Vec3Df::distance(camPos,intersectPt);
+                        float dist = Vec3Df::distance(origin,intersectPt);
                         if(dist < mindist){
                             mindist = dist;
                             isbool = true;
                             ism = leaf.get_Material();
-                            isn = leaf.get_normal();
+                            Vec3Df isn = leaf.get_normal();
                             isv = Vertex(intersectPt, isn);
                         }
                     }
@@ -240,10 +240,23 @@ Vec3Df Ray::intersectkdScene(Vec3Df camPos, BoundingBox & scenebox, std::vector<
             }
         }
     }
+    return isbool;
+}
+Vec3Df Ray::calcul_radiance(BoundingBox & scenebox, std::vector<kdnode> & kdboxes){
+    bool isbool;
+    Material ism;
+    Vertex isv;
+
+    //on regarde le triangle d'intersection plus proche
+    float dist; //inutile
+    isbool = intersectkdScene(scenebox, kdboxes, isv, ism, dist);
+
+    //s'il y a intersection, on retourne la radiance
     if(isbool){
         Vec3Df radiance;
-        this->calcBRDF(isv, ism, radiance);
+        this->calcBRDF(isv, ism, radiance, scenebox, kdboxes);
         return radiance;
+    //sinon, on doit retourner le background. TODO!
     } else {
         return Vec3Df();
     }

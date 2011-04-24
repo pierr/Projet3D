@@ -15,14 +15,9 @@ HEADERS = Window.h \
           Scene.h \
           RayTracer.h \
           Ray.h \
-          sorttree.h \
-          sortnode.h \
           kdtree.h \
           kdnode.h \
-          kdleaf.h \
-          boxtree.h \
-          boxnode.h \
-          boxleaf.h
+          kdleaf.h
 
 SOURCES = Window.cpp \
           GLViewer.cpp \
@@ -34,17 +29,13 @@ SOURCES = Window.cpp \
           Material.cpp \
           Object.cpp \
           Light.cpp \
-          Scene.cpp \ 
+          Scene.cpp \
           RayTracer.cpp \
           Ray.cpp \
-          Main.cpp \ 
-          sorttree.cpp \
-          sortnode.cpp \
+          Main.cpp \
           kdtree.cpp\
           kdnode.cpp\
-          kdleaf.cpp \
-          boxtree.cpp \
-          boxnode.cpp
+          kdleaf.cpp
           
 DESTDIR = .
 

@@ -73,7 +73,7 @@ QImage RayTracer::render (const Vec3Df & camPos,
                     Vec3Df stepY = (float (j+(k2/grillepixel)) - screenHeight/2.f)/screenHeight * tanY * upVector;
                     Vec3Df step = stepX + stepY;
                     Vec3Df dir = direction + step;
-                    Ray ray (camPos, dir);
+                    Ray ray (camPos, dir, backgroundColor);
                     col += 255.f*ray.calcul_radiance(kdt->get_root());
                 }
             }

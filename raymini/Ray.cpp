@@ -14,10 +14,11 @@ using namespace std;
 
 static const unsigned int NUMDIM = 3, RIGHT = 0, LEFT = 1, MIDDLE = 2;
 Vec3Df perturbateVector(const Vec3Df & originVecor, float  & teta);
-Ray::Ray (const Vec3Df & origin, const Vec3Df & direction) {
+Ray::Ray (const Vec3Df & origin, const Vec3Df & direction, const Vec3Df & bgColor) {
     this->origin = origin;
     this->direction = direction;
     this->direction.normalize();
+    this->bgColor = bgColor;
 }
 
 bool Ray::intersect (const BoundingBox & bbox, Vec3Df & intersectionPoint) const {
@@ -185,7 +186,7 @@ void Ray::calcBRDF(Vertex & v,  Material & m, Vec3Df& color, kdnode * root){
         float lightprop = lightpoints.size();
         for(int j=0; j<(int)lightpoints.size(); j++){
             Vec3Df dir = lightpoints.at(j)-v.getPos();
-            Ray rlight(v.getPos()+dir*epsilon,dir); //prevention: jamais faire des calcBRDF avec ce ray!
+            Ray rlight(v.getPos()+dir*epsilon,dir,bgColor); //prevention: jamais faire des calcBRDF avec ce ray!
 
             //s'il y a intersection et le triangle est entre le point et la lumiere, il cache
             if(rlight.kd_intersect(root, isv, ism, dist) && dist<Vec3Df::distance(origin,light.getPos()))
@@ -310,11 +311,8 @@ Vec3Df Ray::calcul_radiance(kdnode * root){
                 }¨*/
         radiance = radiance* occ;
         return radiance;
-        return Vec3Df(1,1,1);
-    //sinon, on doit retourner le background. TODO!
     } else {
-
-        return Vec3Df(0,0,0);
+        return bgColor/255.f;
     }
 }
 
@@ -334,7 +332,7 @@ float Ray::calcAmbOcclusion(kdnode * root, Vertex & v, float  & rayonSphere, flo
         Material ism;
         Vertex isv;
         float epsilon = 0.000001f;
-         Ray rlight(v.getPos() + v.getNormal()*epsilon, perturbateVector(v.getNormal(), theta));
+         Ray rlight(v.getPos() + v.getNormal()*epsilon, perturbateVector(v.getNormal(), theta), bgColor);
 
          bool isIntersect = rlight.kd_intersect(root, isv, ism, epsilon);
          //On teste si l'intersection est dans une sphère de rayon rayonsphère si il y a eu une intersection

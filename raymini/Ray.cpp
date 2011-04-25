@@ -305,6 +305,7 @@ Vec3Df Ray::calcul_radiance(kdnode * root){
         return Vec3Df(1,1,1);
     //sinon, on doit retourner le background. TODO!
     } else {
+
         return Vec3Df(0,0,0);
     }
 }

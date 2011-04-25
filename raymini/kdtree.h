@@ -13,7 +13,7 @@ class kdtree
 {
 public:
     kdtree(std::vector<Object> objects, Vec3Df camPos, BoundingBox & scenebox);
-    void split();
+    void split(int max_deep);
     inline kdnode * get_root() { return root; }
 
 private:

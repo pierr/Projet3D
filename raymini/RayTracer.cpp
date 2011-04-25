@@ -52,7 +52,7 @@ QImage RayTracer::render (const Vec3Df & camPos,
     //splitter l'espace en boundingbox a travers un kdtree..
     BoundingBox scenebox = scene->getBoundingBox();
     kdtree * kdt = new kdtree(scene->getObjects(), camPos, scenebox);
-    kdt->split();
+    kdt->split(5);
 
     //on calcule pixel par pixel
     cout << "npixel = " << screenHeight*screenWidth << endl;
@@ -60,17 +60,24 @@ QImage RayTracer::render (const Vec3Df & camPos,
     float pctstep = 0.01;
     float pct = -pctstep;
 
+    int grillepixel = 2;
     #pragma omp parallel for
     for (unsigned int i = 0; i < screenWidth; i++){
         for (unsigned int j = 0; j < screenHeight; j++) {
             float tanX = tan (fieldOfView);
             float tanY = tanX/aspectRatio;
-            Vec3Df stepX = (float (i) - screenWidth/2.f)/screenWidth * tanX * rightVector;
-            Vec3Df stepY = (float (j) - screenHeight/2.f)/screenHeight * tanY * upVector;
-            Vec3Df step = stepX + stepY;
-            Vec3Df dir = direction + step;
-            Ray ray (camPos, dir);
-            Vec3Df col = 255.f*ray.calcul_radiance(kdt->get_root());
+            Vec3Df col;
+            for(int k1=0; k1<grillepixel; k1++){
+                for(int k2=0; k2<grillepixel; k2++){
+                    Vec3Df stepX = (float (i+(k1/grillepixel)) - screenWidth/2.f)/screenWidth * tanX * rightVector;
+                    Vec3Df stepY = (float (j+(k2/grillepixel)) - screenHeight/2.f)/screenHeight * tanY * upVector;
+                    Vec3Df step = stepX + stepY;
+                    Vec3Df dir = direction + step;
+                    Ray ray (camPos, dir);
+                    col += 255.f*ray.calcul_radiance(kdt->get_root());
+                }
+            }
+            col = col/(grillepixel*grillepixel);
             image.setPixel (i, ((screenHeight-1)-j), qRgb (clamp (col[0], 0, 255),
                                                            clamp (col[1], 0, 255),
                                                            clamp (col[2], 0, 255)));
@@ -82,7 +89,7 @@ QImage RayTracer::render (const Vec3Df & camPos,
     }
 
     tstop = time (NULL);
-    cout << "time " << tstop-tstart << endl;
+    cout << "time " << tstop-tstart << "\r" << ends;
 
     return image;
 }

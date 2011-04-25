@@ -63,15 +63,12 @@ void Scene::buildDefaultScene (bool HD) {
     if (HD)
         ramMesh.loadOFF ("models/ram_HD.off");
     else
-        //ramMesh.loadOFF ("models/ram.off");
-       ramMesh.loadOFF ("models/monkey.off");
-   // ramMesh.loadOFF ("models/max_50K.off");
-  // ramMesh.loadOFF ("models/armadillo.off");
-//ramMesh.loadOFF ("models/double-torus.off");
+        ramMesh.loadOFF ("models/ram.off");
     Material ramMat (1.f, 1.f, Vec3Df (1.f, .6f, .2f));
     Object ram (ramMesh, ramMat);    
     objects.push_back (ram);
     }
-    Light l (Vec3Df (3.0f, 3.0f, 3.0f), Vec3Df (1.0f, 1.0f, 1.0f), 1.0f);
-    lights.push_back (l);
+//    Light l (Vec3Df (3.0f, 3.0f, 3.0f), Vec3Df (1.0f, 1.0f, 1.0f), 1.0f);                                           // point
+    Light ldisk (Vec3Df (3.0f, 3.0f, 3.0f), Vec3Df (1.0f, 1.0f, 1.0f), Vec3Df(-1.0f, -1.0f, -1.0f), 0.5f, 1.0f);    // disque
+    lights.push_back (ldisk);
 }

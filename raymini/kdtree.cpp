@@ -24,14 +24,11 @@ kdtree::kdtree(std::vector<Object> objects, Vec3Df camPos, BoundingBox & scenebo
         }
     }
     this->scenebox = scenebox;
-
-    //valeur par default de max_deep
-    max_deep = (int)log2(sqrt(leafs.size()));
-    cout << "max_deep " << max_deep << endl;
 }
 
-void kdtree::split()
+void kdtree::split(int max_deep)
 {
+    this->max_deep = max_deep;
     //on definit le premier node du kdtree
     root = new kdnode(1,leafs,scenebox);
     //on ordonne le kdtree et on garde le resultat

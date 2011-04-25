@@ -54,8 +54,6 @@ QImage RayTracer::render (const Vec3Df & camPos,
     kdtree * kdt = new kdtree(scene->getObjects(), camPos, scenebox);
     kdt->split();
     std::vector<kdnode> kdboxes = kdt->get_boxes();
-    delete kdt;
-    kdt = 0;
 
     //on calcule pixel par pixel
     cout << "npixel = " << screenHeight*screenWidth << endl;
@@ -73,7 +71,7 @@ QImage RayTracer::render (const Vec3Df & camPos,
             Vec3Df step = stepX + stepY;
             Vec3Df dir = direction + step;
             Ray ray (camPos, dir);
-            Vec3Df col = 255.f*ray.calcul_radiance(scenebox, kdboxes);
+            Vec3Df col = 255.f*ray.calcul_radiance(kdt->get_root());
             image.setPixel (i, ((screenHeight-1)-j), qRgb (clamp (col[0], 0, 255),
                                                            clamp (col[1], 0, 255),
                                                            clamp (col[2], 0, 255)));

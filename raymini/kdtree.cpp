@@ -9,7 +9,6 @@ kdtree::kdtree(std::vector<Object> objects, Vec3Df camPos, BoundingBox & scenebo
         Object object = objects.at(io);
         for(int it=0; it<(int)object.getMesh().getTriangles().size(); it++){
             Triangle triangle = object.getMesh().getTriangles().at(it);
-            //on push l'objet, le triangle et la distance(camPos, barycentre du triangle)
             Material mat = object.getMaterial();
             Vertex vertex0 = object.getMesh().getVertices().at(triangle.getVertex(0));
             Vertex vertex1 = object.getMesh().getVertices().at(triangle.getVertex(1));
@@ -20,7 +19,8 @@ kdtree::kdtree(std::vector<Object> objects, Vec3Df camPos, BoundingBox & scenebo
             Vec3Df n0 = object.getMesh().getVertices().at(triangle.getVertex(0)).getNormal();
             Vec3Df n1 = object.getMesh().getVertices().at(triangle.getVertex(1)).getNormal();
             Vec3Df n2 = object.getMesh().getVertices().at(triangle.getVertex(2)).getNormal();
-            leafs.push_back(kdleaf(io,it,mat,vertex0,vertex1,vertex2,v0,v1,v2,n0,n1,n2,camPos));
+            Vec3Df normal = (n0+n1+n2)/3;
+            leafs.push_back(kdleaf(io,it,mat,vertex0,vertex1,vertex2,normal,camPos));
         }
     }
     this->scenebox = scenebox;
@@ -34,8 +34,8 @@ void kdtree::split()
 {
     boxes.clear();
     //on definit le premier node du kdtree
-    kdnode root(1,leafs,scenebox);
+    root = new kdnode(1,leafs,scenebox);
     //on ordonne le kdtree et on garde le resultat
-    root.split(max_deep, boxes);
+    root->split(max_deep, boxes);
 }
 

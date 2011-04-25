@@ -67,9 +67,9 @@ void kdnode::split(int max_deep, std::vector<kdnode> & deepnodes)
             Vec3Df box_min = box.getMin();
             box_max[axis] = median;
             BoundingBox infbox(box_min, box_max);
-            kdnode infnode = kdnode(deep+1,infleafs,infbox);
-            infnode.split(max_deep, deepnodes);
-            infleafs = infnode.get_leafs();
+            infnode = new kdnode(deep+1,infleafs,infbox);
+            infnode->split(max_deep, deepnodes);
+            infleafs = infnode->get_leafs();
         }
 
         if(supleafs.size()>0){
@@ -77,11 +77,12 @@ void kdnode::split(int max_deep, std::vector<kdnode> & deepnodes)
             Vec3Df box_min = box.getMin();
             box_min[axis] = median;
             BoundingBox supbox(box_min, box_max);
-            kdnode supnode = kdnode(deep+1,supleafs,supbox);
-            supnode.split(max_deep, deepnodes);
-            supleafs = supnode.get_leafs();
+            supnode = new kdnode(deep+1,supleafs,supbox);
+            supnode->split(max_deep, deepnodes);
+            supleafs = supnode->get_leafs();
         }
     } else {
+        deepest = true;
         deepnodes.push_back(*this);
     }
 }

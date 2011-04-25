@@ -8,7 +8,8 @@
 #include "Ray.h"
 
 #include <float.h>
-
+#include "Material.h"
+#include "Object.h"
 using namespace std;
 
 static const unsigned int NUMDIM = 3, RIGHT = 0, LEFT = 1, MIDDLE = 2;
@@ -218,13 +219,16 @@ Vec3Df Ray::intersectkdScene(std::vector<kdleaf> leafs){
 }
 
 void Ray::calcBRDF(Vec3Df & color){
-    //Material mat;
+     std::vector<Object> objs =Scene::getInstance()->getObjects();
     for(unsigned int i = 0; i< triIndex.size(); i++){
         Triangle t = Scene::getInstance()->getTriangles().at(triIndex.at(i));
         Vec3Df n = Vec3Df((Scene::getInstance()->getVerteces().at(t.getVertex(0)).getNormal () +Scene::getInstance()->getVerteces().at(t.getVertex(1)).getNormal () + Scene::getInstance()->getVerteces().at(t.getVertex(2)).getNormal ())/3);
         Vertex ver(intersectPts.at(i), n);
-        std::cout << "tri" << triIndex.at(i) << " mat " << t.getMaterial().getColor()[0] << " " << t.getMaterial().getColor()[1] << " " << t.getMaterial().getColor()[2] <<  std::endl;
-
-        calcBRDF(ver,t.getMaterial(),color);
+        //if(i ==0|| i == triIndex.size()-1)
+      // std::cout << "obj id "<<  t.getObjectId() << std::endl;
+        //std::cout << "tri" << triIndex.at(i) << " mat " << t.getMaterial().getColor()[0] << " " << t.getMaterial().getColor()[1] << " " << t.getMaterial().getColor()[2] <<  std::endl;
+       // Material mat;// = objs.at(t.getObjectId()).getMaterial();
+        Material mat =Scene::getInstance()->getObjects().at(t.getObjectId()).getMaterial();
+        calcBRDF(ver,mat,color);
     }
 }

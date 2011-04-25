@@ -27,6 +27,8 @@ void Scene::destroyInstance () {
 Scene::Scene () {
     buildDefaultScene (false);
     updateBoundingBox ();
+    buildTriangles();
+   // buildKdTree();
 }
 
 Scene::~Scene () {
@@ -74,7 +76,7 @@ void Scene::buildDefaultScene (bool HD) {
     //Ainsi que tous les vertex dans un vecteur
     //Peut être faut il le mettre dans le kd tree et pour le kdtree avoir une instance
 
-  // buildTriangles();
+
   /*  vector<unsigned int> indextri;
    for(unsigned int i =0; i< triangles.size(); i++){
     indextri.push_back(i);
@@ -99,12 +101,22 @@ std::cout <<"obj " <<i << " mat " <<    mat.getColor()[0] <<  " " << mat.getColo
         verteces.push_back(vertexMesh.at(triMesh.at(j).getVertex(0)));
         verteces.push_back(vertexMesh.at(triMesh.at(j).getVertex(1)));
         verteces.push_back(vertexMesh.at(triMesh.at(j).getVertex(2)));
-        Triangle t(size, size+1, size+2, mat);
+        Triangle t(size, size+1, size+2, i);
         //On ajoute le material au triangle
 
+        if(i == 1){
+           // std::cout <<"index obj " << t.getObjectId() << std::endl;
+
+        }
         //On ajoute le triangle correspondant à la liste
         this->triangles.push_back(t);
 
+      //  Material ma = Scene::getInstance()->getObjects().at(
+
+       // unsigned int g=        Scene::getInstance()->getTriangles().at(j).getObjectId();
+
+                //).getMaterial();
+       // std::cout << "triangle "<< j  << " real mat " << i<< " insert tri mat " << t.getObjectId() <<" mat  " << g <<std::endl ;
     }
   }
 }

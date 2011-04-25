@@ -136,7 +136,7 @@ public:
         splitBoundingBoxArray[7] = BoundingBox (minBb + Vec3Df (x_2, y_2, z_2), med + Vec3Df (x_2, y_2, z_2));
     }
     bool intersectRay (const Vec3Df & origin, const Vec3Df & direction, Vec3Df & intersection) const;
-    static const float epsilon = 0.1;
+    static const float epsilon = 0.0;
     inline void subdivideX (std::vector<BoundingBox> & splitBoundingBoxArray) const {
         float x_2 = (maxBb[0] - minBb [0]) / 2;
         Vec3Df d = Vec3Df ( x_2*epsilon, 0.0,0.0);

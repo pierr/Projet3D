@@ -51,7 +51,7 @@ QImage RayTracer::render (const Vec3Df & camPos,
     QImage image (QSize (screenWidth, screenHeight), QImage::Format_RGB888);
     
     Scene * scene = Scene::getInstance ();
-    scene->buildTriangles();
+   // scene->buildTriangles();
     scene->buildKdTree();
     const BoundingBox & bbox = scene->getBoundingBox ();
     const Vec3Df & minBb = bbox.getMin ();
@@ -78,6 +78,9 @@ QImage RayTracer::render (const Vec3Df & camPos,
     qDebug() << p;
 
     cout << "npixel = " << screenHeight*screenWidth << endl;
+    float pctstep = 0.01;
+        float pct = -pctstep;
+    #pragma omp parallel for
     for (unsigned int i = 0; i < screenWidth; i++){
         for (unsigned int j = 0; j < screenHeight; j++) {
             float tanX = tan (fieldOfView);
@@ -107,7 +110,11 @@ QImage RayTracer::render (const Vec3Df & camPos,
                                                            clamp (col[1], 0, 255),
                                                            clamp (col[2], 0, 255)));
             //cout << (float)(i*screenHeight+j)/(screenHeight*screenWidth) << endl;
-        }
+            if((float)(i*screenHeight+j)/(screenHeight*screenWidth) > pct){
+                            pct += pctstep;
+                            cout << pct << endl;
+                        }
+         }
     }
     return image;
 }

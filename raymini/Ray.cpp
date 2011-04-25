@@ -181,15 +181,15 @@ void Ray::calcBRDF(Vertex & v,  Material & m, Vec3Df& color, kdnode * root){
 
         //verifier en quelle proportion le point est cache de chaque lumiere
         Light light = lights.at(i);
-        float epsilon = 0.0001; //pour que l'intersection avec l'origine ne soit pas possible
         std::vector<Vec3Df> lightpoints = light.getPoints(15,1);
         float lightprop = lightpoints.size();
         for(int j=0; j<(int)lightpoints.size(); j++){
-            Vec3Df dir = lightpoints.at(j)-v.getPos();
-            Ray rlight(v.getPos()+dir*epsilon,dir,bgColor); //prevention: jamais faire des calcBRDF avec ce ray!
+            Vec3Df dir = v.getPos()-lightpoints.at(j);
+            Ray rlight(lightpoints.at(j),dir,bgColor); //prevention: jamais faire des calcBRDF avec ce ray!
 
             //s'il y a intersection et le triangle est entre le point et la lumiere, il cache
-            if(rlight.kd_intersect(root, isv, ism, dist) && dist<Vec3Df::distance(origin,light.getPos()))
+            float epsilon = 0.0001f;
+            if(rlight.kd_intersect(root, isv, ism, dist) && dist<(1-epsilon)*Vec3Df::distance(lightpoints.at(j),v.getPos()))
                 lightprop--;
         }
         lightprop = lightprop/lightpoints.size();
@@ -304,7 +304,7 @@ Vec3Df Ray::calcul_radiance(kdnode * root){
     if(isbool){
         Vec3Df radiance;
         this->calcBRDF(isv, ism, radiance, root);
-        float occ =  this->calcAmbOcclusion(root,isv,scneeSize, theta);
+        float occ = calcAmbOcclusion(root,isv,scneeSize, theta);
                 /*if(occ < 0.5f){
                     std::cout <<"occlusion factor " << occ << std::endl;
 
@@ -331,7 +331,7 @@ float Ray::calcAmbOcclusion(kdnode * root, Vertex & v, float  & rayonSphere, flo
     for(unsigned int i =0; i < nRay; i++){
         Material ism;
         Vertex isv;
-        float epsilon = 0.000001f;
+        float epsilon = 0.0001f*rayonSphere;
          Ray rlight(v.getPos() + v.getNormal()*epsilon, perturbateVector(v.getNormal(), theta), bgColor);
 
          bool isIntersect = rlight.kd_intersect(root, isv, ism, epsilon);

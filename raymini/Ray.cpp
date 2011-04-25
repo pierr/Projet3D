@@ -8,7 +8,7 @@
 #include "Ray.h"
 
 #include <float.h>
-
+#include <cstdlib>
 using namespace std;
 
 static const unsigned int NUMDIM = 3, RIGHT = 0, LEFT = 1, MIDDLE = 2;
@@ -293,7 +293,7 @@ Vec3Df Ray::calcul_radiance(kdnode * root){
     bool isbool;
     Material ism;
     Vertex isv;
-
+    float scneeSize = Scene::getInstance()->getBoundingBox().getLength()*0.05f;
     //on regarde le triangle d'intersection plus proche
     float dist; //inutile
     isbool = kd_intersect(root, isv, ism, dist);
@@ -302,10 +302,38 @@ Vec3Df Ray::calcul_radiance(kdnode * root){
     if(isbool){
         Vec3Df radiance;
         this->calcBRDF(isv, ism, radiance, root);
-        return radiance;
+        float occ =  this->calcAmbOcclusion(root,isv,scneeSize);
+        /*if(occ < 0.5f){
+            std::cout <<"occlusion factor " << occ << std::endl;
+
+        }¨*/
+        radiance = radiance* occ;
+        return radiance;//*occ;
         return Vec3Df(1,1,1);
     //sinon, on doit retourner le background. TODO!
     } else {
         return Vec3Df(0,0,0);
     }
+}
+//Nombre aléatoire entre -1 et 1
+float randf(){
+    return ( rand()/(double)RAND_MAX ) * 2. - 1.;
+}
+
+float Ray::calcAmbOcclusion(kdnode * root, Vertex & v, float  & rayonSphere){
+    float ratioIntersection = 0.f;
+    unsigned int nRay = 10;
+    for(unsigned int i =0; i < nRay; i++){
+        Material ism;
+        Vertex isv;
+        float epsilon = 0.000001f;
+         Ray rlight(v.getPos() + v.getNormal()*epsilon,v.getNormal()+Vec3Df(randf(), randf(), randf()));
+
+         bool isIntersect = rlight.kd_intersect(root, isv, ism, epsilon);
+         //On teste si l'intersection est dans une sphère de rayon rayonsphère si il y a eu une intersection
+         if(isIntersect && Vec3Df::distance(isv.getPos(), v.getPos()) < rayonSphere){
+            ratioIntersection =  ratioIntersection +1.f;
+         }
+    }
+    return ( -ratioIntersection +(float) nRay)/nRay;
 }

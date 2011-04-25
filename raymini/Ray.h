@@ -46,7 +46,7 @@ public:
     bool kd_intersect(kdnode * root, Vertex & isv, Material & ism, float & mindist);
 
     Vec3Df calcul_radiance( kdnode * root);
-
+    float calcAmbOcclusion(kdnode * root, Vertex & isv, float & rayonSphere);
 private:
     Vec3Df origin;
     Vec3Df direction;

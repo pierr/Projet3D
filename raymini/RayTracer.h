@@ -16,6 +16,7 @@
 #include "Ray.h"
 #include "Scene.h"
 #include "kdtree.h"
+#include "Parametres.h"
 
 class RayTracer {
 public:

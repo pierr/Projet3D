@@ -18,7 +18,8 @@ HEADERS = Window.h \
           Ray.h \
           kdtree.h \
           kdnode.h \
-          kdleaf.h
+          kdleaf.h \
+    Parametres.h
 
 SOURCES = Window.cpp \
           GLViewer.cpp \

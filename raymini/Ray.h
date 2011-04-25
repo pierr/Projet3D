@@ -18,6 +18,8 @@
 #include "Scene.h"
 #include "Light.h"
 #include "kdnode.h"
+#include "Parametres.h"
+
 class Ray {
 public:
     inline Ray () {}

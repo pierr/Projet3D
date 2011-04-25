@@ -171,30 +171,33 @@ float r = a/b;
 void Ray::calcBRDF(Vertex & v,  Material & m, Vec3Df& color, kdnode * root){
     Scene* scene = Scene::getInstance();
     std::vector<Light> lights = scene->getLights();
-    //Pour cacune des lumières on va chercher pour le triangle sa brdf
+    //Pour chacune des lumières on va chercher pour le triangle sa brdf
     Vec3Df wi,wo,wn,wp, r;
     float brillance = 1;
-    for(unsigned int i = 0; i<lights.size(); i++){        
-        Vertex isv; //inutile
-        Material ism; //inutile
-        float dist;
-
-        //verifier en quelle proportion le point est cache de chaque lumiere
+    for(unsigned int i = 0; i<lights.size(); i++){
+        float lightprop;
         Light light = lights.at(i);
-        std::vector<Vec3Df> lightpoints = light.getPoints(15,1);
-        float lightprop = lightpoints.size();
-        for(int j=0; j<(int)lightpoints.size(); j++){
-            Vec3Df dir = v.getPos()-lightpoints.at(j);
-            Ray rlight(lightpoints.at(j),dir,bgColor); //prevention: jamais faire des calcBRDF avec ce ray!
+        if(Parametres::ombres_active){
+            Vertex isv; //inutile
+            Material ism; //inutile
+            float dist;
+            //verifier en quelle proportion le point est cache de chaque lumiere
+            std::vector<Vec3Df> lightpoints = light.getPoints(Parametres::ombres_numr,Parametres::ombres_numa);
+            lightprop = lightpoints.size();
+            Ray rlight;
+            for(int j=0; j<(int)lightpoints.size(); j++){
+                Vec3Df dir = v.getPos()-lightpoints.at(j);
+                rlight = Ray(lightpoints.at(j),dir,bgColor); //prevention: jamais faire des calcBRDF avec ce ray!
 
-            //s'il y a intersection et le triangle est entre le point et la lumiere, il cache
-            float epsilon = 0.0001f;
-            if(rlight.kd_intersect(root, isv, ism, dist) && dist<(1-epsilon)*Vec3Df::distance(lightpoints.at(j),v.getPos()))
-                lightprop--;
+                //s'il y a intersection et le triangle est entre le point et la lumiere, il cache
+                if(rlight.kd_intersect(root, isv, ism, dist) && dist<(1-Parametres::epsilon)*Vec3Df::distance(lightpoints.at(j),v.getPos()))
+                    lightprop--;
+            }
+            lightprop = lightprop/lightpoints.size();
+        } else {
+            lightprop = 1;
         }
-        lightprop = lightprop/lightpoints.size();
 
-        light = lights.at(i);
         // brillance = light.getIntensity(); //on récupère la brillance depuis la lumière.
         wi = Vec3Df(light.getPos() - v.getPos());
         //wi = Vec3Df(lights[i]. - mesh.V[mesh.T[i].v[j]].p);
@@ -304,12 +307,10 @@ Vec3Df Ray::calcul_radiance(kdnode * root){
     if(isbool){
         Vec3Df radiance;
         this->calcBRDF(isv, ism, radiance, root);
-        float occ = calcAmbOcclusion(root,isv,scneeSize, theta);
-                /*if(occ < 0.5f){
-                    std::cout <<"occlusion factor " << occ << std::endl;
-
-                }¨*/
-        radiance = radiance* occ;
+        if(Parametres::ambocc_active){
+            float occ = calcAmbOcclusion(root,isv,scneeSize, theta);
+            radiance = radiance* occ;
+        }
         return radiance;
     } else {
         return bgColor/255.f;
@@ -327,20 +328,19 @@ float rand1(){
 }
 float Ray::calcAmbOcclusion(kdnode * root, Vertex & v, float  & rayonSphere, float & theta){
     float ratioIntersection = 0.f;
-    unsigned int nRay = 30;
-    for(unsigned int i =0; i < nRay; i++){
+    for(unsigned int i =0; i < Parametres::ambocc_nray; i++){
         Material ism;
         Vertex isv;
-        float epsilon = 0.0001f*rayonSphere;
-         Ray rlight(v.getPos() + v.getNormal()*epsilon, perturbateVector(v.getNormal(), theta), bgColor);
+         Ray rlight(v.getPos() + v.getNormal()*Parametres::epsilon*rayonSphere, perturbateVector(v.getNormal(), theta), bgColor);
 
-         bool isIntersect = rlight.kd_intersect(root, isv, ism, epsilon);
+         float mindist; //inutile
+         bool isIntersect = rlight.kd_intersect(root, isv, ism, mindist);
          //On teste si l'intersection est dans une sphère de rayon rayonsphère si il y a eu une intersection
          if(isIntersect && Vec3Df::distance(isv.getPos(), v.getPos()) < rayonSphere){
             ratioIntersection =  ratioIntersection +1.f;
          }
     }
-    return ( -ratioIntersection +(float) nRay)/nRay;
+    return ( -ratioIntersection +(float) Parametres::ambocc_nray)/Parametres::ambocc_nray;
 }
 
 Vec3Df perturbateVector(const Vec3Df & originVecor, float  & teta){

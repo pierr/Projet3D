@@ -42,6 +42,8 @@ DESTDIR = .
 
 QT_VERSION=$$[QT_VERSION]
 
+QMAKE_CXXFLAGS += -fopenmp
+QMAKE_LFLAGS += -fopenmp
 
 # -------------------------------------
 # Mac 

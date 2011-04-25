@@ -53,7 +53,6 @@ QImage RayTracer::render (const Vec3Df & camPos,
     BoundingBox scenebox = scene->getBoundingBox();
     kdtree * kdt = new kdtree(scene->getObjects(), camPos, scenebox);
     kdt->split();
-    std::vector<kdnode> kdboxes = kdt->get_boxes();
 
     //on calcule pixel par pixel
     cout << "npixel = " << screenHeight*screenWidth << endl;

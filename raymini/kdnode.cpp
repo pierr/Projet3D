@@ -5,7 +5,7 @@
 
 using namespace std;
 
-void kdnode::split(int max_deep, std::vector<kdnode> & deepnodes)
+void kdnode::split(int max_deep)
 {
     //si on na pas arrive a deep==max_deep ou le vecteur a plus d'un leaf, on doit diviser
     if(leafs.size()>1 && deep<max_deep){
@@ -46,7 +46,6 @@ void kdnode::split(int max_deep, std::vector<kdnode> & deepnodes)
             Vec3Df ip1 = ileaf.get_p1();
             Vec3Df ip2 = ileaf.get_p2();
             //il n'intersecte pas avec le plan de division
-//            cout << iv0[axis] << " " << iv1[axis] << " " << iv2[axis] << endl;
             if(ip0[axis]<median && ip1[axis]<median && ip2[axis]<median)
                 infleafs.push_back(leafs[i]);
             else if(ip0[axis]>median && ip1[axis]>median && ip2[axis]>median)
@@ -68,7 +67,7 @@ void kdnode::split(int max_deep, std::vector<kdnode> & deepnodes)
             box_max[axis] = median;
             BoundingBox infbox(box_min, box_max);
             infnode = new kdnode(deep+1,infleafs,infbox);
-            infnode->split(max_deep, deepnodes);
+            infnode->split(max_deep);
             infleafs = infnode->get_leafs();
         }
 
@@ -78,11 +77,10 @@ void kdnode::split(int max_deep, std::vector<kdnode> & deepnodes)
             box_min[axis] = median;
             BoundingBox supbox(box_min, box_max);
             supnode = new kdnode(deep+1,supleafs,supbox);
-            supnode->split(max_deep, deepnodes);
+            supnode->split(max_deep);
             supleafs = supnode->get_leafs();
         }
     } else {
         deepest = true;
-        deepnodes.push_back(*this);
     }
 }

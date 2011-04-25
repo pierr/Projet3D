@@ -32,10 +32,9 @@ kdtree::kdtree(std::vector<Object> objects, Vec3Df camPos, BoundingBox & scenebo
 
 void kdtree::split()
 {
-    boxes.clear();
     //on definit le premier node du kdtree
     root = new kdnode(1,leafs,scenebox);
     //on ordonne le kdtree et on garde le resultat
-    root->split(max_deep, boxes);
+    root->split(max_deep);
 }
 

@@ -8,11 +8,12 @@
 #include "Ray.h"
 
 #include <float.h>
-
+#include <cstdlib>
+#include <cmath>
 using namespace std;
 
 static const unsigned int NUMDIM = 3, RIGHT = 0, LEFT = 1, MIDDLE = 2;
-
+Vec3Df perturbateVector(const Vec3Df & originVecor, float  & teta);
 Ray::Ray (const Vec3Df & origin, const Vec3Df & direction) {
     this->origin = origin;
     this->direction = direction;
@@ -292,7 +293,8 @@ Vec3Df Ray::calcul_radiance(kdnode * root){
     bool isbool;
     Material ism;
     Vertex isv;
-
+    float scneeSize = Scene::getInstance()->getBoundingBox().getLength()*0.05f;
+        float theta =90.;
     //on regarde le triangle d'intersection plus proche
     float dist; //inutile
     isbool = kd_intersect(root, isv, ism, dist);
@@ -301,6 +303,12 @@ Vec3Df Ray::calcul_radiance(kdnode * root){
     if(isbool){
         Vec3Df radiance;
         this->calcBRDF(isv, ism, radiance, root);
+        float occ =  this->calcAmbOcclusion(root,isv,scneeSize, theta);
+                /*if(occ < 0.5f){
+                    std::cout <<"occlusion factor " << occ << std::endl;
+
+                }¨*/
+        radiance = radiance* occ;
         return radiance;
         return Vec3Df(1,1,1);
     //sinon, on doit retourner le background. TODO!
@@ -308,4 +316,57 @@ Vec3Df Ray::calcul_radiance(kdnode * root){
 
         return Vec3Df(0,0,0);
     }
+}
+
+//Nombre aléatoire entre -1 et 1
+float randf(){
+    return ( rand()/(double)RAND_MAX ) * 2. - 1.;
+}
+
+
+float rand1(){
+    return  rand()/(float)RAND_MAX  ;
+}
+float Ray::calcAmbOcclusion(kdnode * root, Vertex & v, float  & rayonSphere, float & theta){
+    float ratioIntersection = 0.f;
+    unsigned int nRay = 30;
+    for(unsigned int i =0; i < nRay; i++){
+        Material ism;
+        Vertex isv;
+        float epsilon = 0.000001f;
+         Ray rlight(v.getPos() + v.getNormal()*epsilon, perturbateVector(v.getNormal(), theta));
+
+         bool isIntersect = rlight.kd_intersect(root, isv, ism, epsilon);
+         //On teste si l'intersection est dans une sphère de rayon rayonsphère si il y a eu une intersection
+         if(isIntersect && Vec3Df::distance(isv.getPos(), v.getPos()) < rayonSphere){
+            ratioIntersection =  ratioIntersection +1.f;
+         }
+    }
+    return ( -ratioIntersection +(float) nRay)/nRay;
+}
+
+Vec3Df perturbateVector(const Vec3Df & originVecor, float  & teta){
+  float pi = 3.14;
+  float thetaRad = pi*teta/180;
+  //originVecor.normalize();
+  Vec3Df basis1 (-originVecor[1],originVecor[0],0);
+  basis1.normalize();
+  Vec3Df basis2 = Vec3Df::crossProduct(originVecor,basis1);
+  basis2.normalize();
+  //On a maintenant une base.
+  float s = rand1();//( 0, 1 );
+  float r = rand1();//( 0, 1 );
+  float h = cos( thetaRad);
+
+  float phi = 2 * pi * s;
+  float z = h + ( 1 - h ) * r;
+  float sinT = sqrt( 1 - z * z );
+  float x = cos( phi ) * sinT;
+  float y = sin( phi ) * sinT;
+
+  Vec3Df perturbated = basis1 * x + basis2 * y + originVecor * z;
+  //Debug to see the perturbated Vector
+  //std::cout <<"vect " << std::endl;
+  //std::cout << "origin v " << originVecor << " pert one " << perturbated << std:: endl;
+return perturbated;
 }

@@ -63,7 +63,8 @@ void Scene::buildDefaultScene (bool HD) {
     if (HD)
         ramMesh.loadOFF ("models/ram_HD.off");
     else
-        ramMesh.loadOFF ("models/ram.off");
+//        ramMesh.loadOFF ("models/ram.off");
+    ramMesh.loadOFF ("models/monkey.off");
     Material ramMat (1.f, 1.f, Vec3Df (1.f, .6f, .2f));
     Object ram (ramMesh, ramMat);    
     objects.push_back (ram);

@@ -176,7 +176,8 @@ void Ray::calcBRDF(Vertex & v,  Material & m, Vec3Df& color, kdnode * root){
         //verifier si le triangle est cache par chaque lumiere
         Light light = lights.at(i);
         Vec3Df dir = light.getPos()-v.getPos();
-        Ray rlight(v.getPos(),dir); //prevention: jamais faire des calcBRDF avec ce ray!
+        float epsilon = 0.000001; //pour que l'intersection avec l'origine ne soit pas possible
+        Ray rlight(v.getPos()+dir*epsilon,dir); //prevention: jamais faire des calcBRDF avec ce ray!
 
         Vertex isv; //inutile
         Material ism; //inutile

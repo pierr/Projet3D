@@ -30,6 +30,7 @@ public:
     inline Vec3Df & getOrigin () { return origin; }
     inline const Vec3Df & getDirection () const { return direction; }
     inline Vec3Df & getDirection () { return direction; }
+    inline void setParam(Parametres * param) { this->param = param; }
 
     bool intersect (const BoundingBox & bbox, Vec3Df & intersectionPoint) const;
     bool intersect ( const Triangle & tri, std::vector<Vertex> & verteces, Vec3Df & intersectionPoint) const;
@@ -48,11 +49,13 @@ public:
     bool kd_intersect(kdnode * root, Vertex & isv, Material & ism, float & mindist);
 
     Vec3Df calcul_radiance( kdnode * root);
-    float calcAmbOcclusion(kdnode * root, Vertex & v, float  & rayonSphere, float & theta);
+    float calcAmbOcclusion(kdnode * root, Vertex & v, float rayonSphere, float theta);
+
 private:
     Vec3Df origin;
     Vec3Df direction;
     Vec3Df bgColor;
+    Parametres * param;
 };
 
 

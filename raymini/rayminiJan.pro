@@ -19,7 +19,7 @@ HEADERS = Window.h \
           kdtree.h \
           kdnode.h \
           kdleaf.h \
-    Parametres.h
+	  Parametres.h
 
 SOURCES = Window.cpp \
           GLViewer.cpp \

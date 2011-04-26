@@ -19,6 +19,8 @@
 #include "QTUtils.h"
 #include "GLViewer.h"
 
+#include "Parametres.h"
+
 class Window : public QMainWindow {
     Q_OBJECT
 public:
@@ -45,6 +47,8 @@ private :
     GLViewer * viewer;
     QLabel * imageLabel;
     QImage rayImage;
+
+    Parametres * param;
 };
 
 #endif // WINDOW_H

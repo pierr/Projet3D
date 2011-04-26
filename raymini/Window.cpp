@@ -32,6 +32,8 @@
 #include <QMessageBox>
 #include <QFileDialog>
 
+#include <QListWidget>
+
 #include "RayTracer.h"
 
 using namespace std;
@@ -68,6 +70,8 @@ Window::Window () : QMainWindow (NULL) {
 
     setMinimumWidth (800);
     setMinimumHeight (400);
+
+    param = new Parametres();
 }
 
 Window::~Window () {
@@ -77,6 +81,7 @@ Window::~Window () {
 void Window::renderRayImage () {
     qglviewer::Camera * cam = viewer->camera ();
     RayTracer * rayTracer = RayTracer::getInstance ();
+    rayTracer->setParametres(param);
     qglviewer::Vec p = cam->position ();
     qglviewer::Vec d = cam->viewDirection ();
     qglviewer::Vec u = cam->upVector ();
@@ -130,6 +135,8 @@ void Window::initControlWidget () {
     controlWidget = new QGroupBox ();
     QVBoxLayout * layout = new QVBoxLayout (controlWidget);
     
+    /* PREVIEW */
+
     QGroupBox * previewGroupBox = new QGroupBox ("Preview", controlWidget);
     QVBoxLayout * previewLayout = new QVBoxLayout (previewGroupBox);
     
@@ -152,6 +159,8 @@ void Window::initControlWidget () {
     previewLayout->addWidget (snapshotButton);
 
     layout->addWidget (previewGroupBox);
+
+    /* RAY */
     
     QGroupBox * rayGroupBox = new QGroupBox ("Ray Tracing", controlWidget);
     QVBoxLayout * rayLayout = new QVBoxLayout (rayGroupBox);
@@ -164,6 +173,28 @@ void Window::initControlWidget () {
     rayLayout->addWidget (saveButton);
 
     layout->addWidget (rayGroupBox);
+
+    /* PARAMETRES */
+
+    QGroupBox * paramGroupBox = new QGroupBox ("Parameters", controlWidget);
+    QVBoxLayout * paramLayout = new QVBoxLayout (paramGroupBox);
+
+    QCheckBox * BRDFCheckBox = new QCheckBox ("BRDF", paramGroupBox);
+    connect (BRDFCheckBox, SIGNAL (toggled (bool)), param, SLOT (set_BRDFactive (bool)));
+    paramLayout->addWidget (BRDFCheckBox);
+
+    QCheckBox * ombresCheckBox = new QCheckBox ("Shadows", paramGroupBox);
+    connect (ombresCheckBox, SIGNAL (toggled (bool)), param, SLOT (set_ombresactive (bool)));
+    paramLayout->addWidget (ombresCheckBox);
+
+    QCheckBox * amboccCheckBox = new QCheckBox ("Ambient Oclusion", paramGroupBox);
+    connect (amboccCheckBox, SIGNAL (toggled (bool)), param, SLOT (set_amboccactive (bool)));
+    paramLayout->addWidget (amboccCheckBox);
+
+    layout->addWidget (paramGroupBox);
+
+
+    /* GLOBAL */
     
     QGroupBox * globalGroupBox = new QGroupBox ("Global Settings", controlWidget);
     QVBoxLayout * globalLayout = new QVBoxLayout (globalGroupBox);
@@ -171,7 +202,7 @@ void Window::initControlWidget () {
     QPushButton * bgColorButton  = new QPushButton ("Background Color", globalGroupBox);
     connect (bgColorButton, SIGNAL (clicked()) , this, SLOT (setBGColor()));
     globalLayout->addWidget (bgColorButton);
-    
+
     QPushButton * aboutButton  = new QPushButton ("About", globalGroupBox);
     connect (aboutButton, SIGNAL (clicked()) , this, SLOT (about()));
     globalLayout->addWidget (aboutButton);

@@ -25,6 +25,7 @@ public:
 
     inline const Vec3Df & getBackgroundColor () const { return backgroundColor;}
     inline void setBackgroundColor (const Vec3Df & c) { backgroundColor = c; }
+    inline void setParametres (Parametres * param) { this->param = param; }
     
     QImage render (const Vec3Df & camPos,
                    const Vec3Df & viewDirection,
@@ -41,6 +42,7 @@ protected:
     
 private:
     Vec3Df backgroundColor;
+    Parametres * param;
 };
 
 

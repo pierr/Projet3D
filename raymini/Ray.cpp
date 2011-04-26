@@ -12,8 +12,9 @@
 #include <cmath>
 using namespace std;
 
+Vec3Df perturbateVector(const Vec3Df & originVecor, float  & theta);
+
 static const unsigned int NUMDIM = 3, RIGHT = 0, LEFT = 1, MIDDLE = 2;
-Vec3Df perturbateVector(const Vec3Df & originVecor, float  & teta);
 Ray::Ray (const Vec3Df & origin, const Vec3Df & direction, const Vec3Df & bgColor) {
     this->origin = origin;
     this->direction = direction;
@@ -177,20 +178,20 @@ void Ray::calcBRDF(Vertex & v,  Material & m, Vec3Df& color, kdnode * root){
     for(unsigned int i = 0; i<lights.size(); i++){
         float lightprop;
         Light light = lights.at(i);
-        if(Parametres::ombres_active){
+        if(param->get_ombresactive()){
             Vertex isv; //inutile
             Material ism; //inutile
             float dist;
             //verifier en quelle proportion le point est cache de chaque lumiere
-            std::vector<Vec3Df> lightpoints = light.getPoints(Parametres::ombres_numr,Parametres::ombres_numa);
+            std::vector<Vec3Df> lightpoints = light.getPoints(param->get_ombresnumr(),param->get_ombresnuma());
             lightprop = lightpoints.size();
             Ray rlight;
             for(int j=0; j<(int)lightpoints.size(); j++){
                 Vec3Df dir = v.getPos()-lightpoints.at(j);
                 rlight = Ray(lightpoints.at(j),dir,bgColor); //prevention: jamais faire des calcBRDF avec ce ray!
-
+                rlight.setParam(param);
                 //s'il y a intersection et le triangle est entre le point et la lumiere, il cache
-                if(rlight.kd_intersect(root, isv, ism, dist) && dist<(1-Parametres::epsilon)*Vec3Df::distance(lightpoints.at(j),v.getPos()))
+                if(rlight.kd_intersect(root, isv, ism, dist) && dist<(1-param->get_epsilon())*Vec3Df::distance(lightpoints.at(j),v.getPos()))
                     lightprop--;
             }
             lightprop = lightprop/lightpoints.size();
@@ -297,8 +298,6 @@ Vec3Df Ray::calcul_radiance(kdnode * root){
     bool isbool;
     Material ism;
     Vertex isv;
-    float scneeSize = Scene::getInstance()->getBoundingBox().getLength()*0.05f;
-        float theta =90.;
     //on regarde le triangle d'intersection plus proche
     float dist; //inutile
     isbool = kd_intersect(root, isv, ism, dist);
@@ -306,11 +305,11 @@ Vec3Df Ray::calcul_radiance(kdnode * root){
     //s'il y a intersection, on retourne la radiance
     if(isbool){
         Vec3Df radiance;
-        if(Parametres::BRDF_active){
+        if(param->get_BRDFactive()){
             calcBRDF(isv, ism, radiance, root);
         } else radiance = Vec3Df(1,1,1);
-        if(Parametres::ambocc_active){
-            float occ = calcAmbOcclusion(root,isv,scneeSize, theta);
+        if(param->get_amboccactive()){
+            float occ = calcAmbOcclusion(root,isv,Scene::getInstance()->getBoundingBox().getLength()*param->get_amboccrayon(), param->get_ambocctheta());
             radiance = radiance* occ;
         }
         return radiance;
@@ -328,12 +327,13 @@ float randf(){
 float rand1(){
     return  rand()/(float)RAND_MAX  ;
 }
-float Ray::calcAmbOcclusion(kdnode * root, Vertex & v, float  & rayonSphere, float & theta){
+float Ray::calcAmbOcclusion(kdnode * root, Vertex & v, float rayonSphere, float theta){
     float ratioIntersection = 0.f;
-    for(int i =0; i < Parametres::ambocc_nray; i++){
+    for(int i =0; i < param->get_amboccnray(); i++){
         Material ism;
         Vertex isv;
-         Ray rlight(v.getPos() + v.getNormal()*Parametres::epsilon*rayonSphere, perturbateVector(v.getNormal(), theta), bgColor);
+         Ray rlight(v.getPos() + v.getNormal()*param->get_epsilon()*rayonSphere, perturbateVector(v.getNormal(), theta), bgColor);
+         rlight.setParam(param);
 
          float mindist; //inutile
          bool isIntersect = rlight.kd_intersect(root, isv, ism, mindist);
@@ -342,12 +342,12 @@ float Ray::calcAmbOcclusion(kdnode * root, Vertex & v, float  & rayonSphere, flo
             ratioIntersection =  ratioIntersection +1.f;
          }
     }
-    return ( -ratioIntersection +(float) Parametres::ambocc_nray)/Parametres::ambocc_nray;
+    return ( -ratioIntersection +(float) param->get_amboccnray())/param->get_amboccnray();
 }
 
-Vec3Df perturbateVector(const Vec3Df & originVecor, float  & teta){
+Vec3Df perturbateVector(const Vec3Df & originVecor, float  & theta){
   float pi = 3.14;
-  float thetaRad = pi*teta/180;
+  float thetaRad = pi*theta/180;
   //originVecor.normalize();
   Vec3Df basis1 (-originVecor[1],originVecor[0],0);
   basis1.normalize();
@@ -356,7 +356,7 @@ Vec3Df perturbateVector(const Vec3Df & originVecor, float  & teta){
   //On a maintenant une base.
   float s = rand1();//( 0, 1 );
   float r = rand1();//( 0, 1 );
-  float h = cos( thetaRad);
+  float h = cos(thetaRad);
 
   float phi = 2 * pi * s;
   float z = h + ( 1 - h ) * r;

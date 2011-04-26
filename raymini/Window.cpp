@@ -183,6 +183,7 @@ void Window::initControlWidget () {
 
     QCheckBox * BRDFCheckBox = new QCheckBox ("BRDF", paramGroupBox);
     BRDFCheckBox->setChecked(param->get_BRDFactive());
+    param->set_BRDFcheckbox(BRDFCheckBox);
     connect (BRDFCheckBox, SIGNAL (toggled (bool)), param, SLOT (set_BRDFactive (bool)));
     paramLayout->addWidget (BRDFCheckBox);
 

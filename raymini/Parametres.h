@@ -25,6 +25,11 @@ public:
         kd_borneInf = 3;
         kd_borneSup = 20;
         kd_initValue = 8;
+        path_active = true;
+        path_nray = 20;
+        path_theta = 20;
+        path_rayon = 0.5;
+
     }
     inline virtual ~Parametres() {}
 
@@ -47,6 +52,10 @@ public:
     inline int get_kdinitValue(){ return kd_initValue;}
 
     inline float get_epsilon() { return epsilon; }
+    bool get_path_active(){return path_active;}
+    int get_pathnray(){return path_nray;}
+    float get_paththeta(){return path_theta;}
+    float get_pathrayon(){ return path_rayon;}
     inline void print(){
 
         std::cout  <<"AMBIANT OCCLUSION PARAMETERS "
@@ -109,7 +118,11 @@ private:
      int kd_borneInf;
      int kd_borneSup;
      int kd_initValue;
-
+//pathtracing
+     bool path_active;
+     int path_nray;
+     float path_theta;
+     float path_rayon;
 //autres
      float epsilon;
 };

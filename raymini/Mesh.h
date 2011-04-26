@@ -46,7 +46,7 @@ public:
     void renderGL (bool flat) const;
     
     void loadOFF (const std::string & filename);
-  
+    void loadOFF (const std::string & filename, Vec3Df & translatedVector, float & grandissement);
     class Exception {
     private: 
         std::string msg;

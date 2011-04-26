@@ -182,8 +182,7 @@ void Mesh::renderGL (bool flat) const {
     }
     glEnd ();
 }
-
-void Mesh::loadOFF (const std::string & filename) {
+void Mesh::loadOFF (const std::string & filename, Vec3Df & translatedVector, float & grandissement){
     clear ();
     ifstream input (filename.c_str ());
     if (!input)
@@ -198,6 +197,8 @@ void Mesh::loadOFF (const std::string & filename) {
         Vec3Df pos;
         Vec3Df col;
         input >> pos;
+        pos = pos + translatedVector;
+        pos = pos * grandissement;
         vertices.push_back (Vertex (pos, Vec3Df (1.0, 0.0, 0.0)));
     }
     for (unsigned int i = 0; i < numOfTriangles; i++) {
@@ -211,4 +212,9 @@ void Mesh::loadOFF (const std::string & filename) {
     }
     input.close ();
     recomputeSmoothVertexNormals (0);
+}
+void Mesh::loadOFF (const std::string & filename) {
+     Vec3Df zer;
+     float z = 1.f;
+     loadOFF(filename, zer,z);
 }

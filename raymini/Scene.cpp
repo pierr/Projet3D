@@ -7,6 +7,7 @@
 
 #include "Scene.h"
 #include <string>
+#include "Vec3D.h"
 using namespace std;
 
 static Scene * instance = NULL;
@@ -62,6 +63,8 @@ string getFileName(int num){
 // Changer ce code pour créer des scènes originales
 void Scene::buildDefaultScene (bool HD) {
     Mesh groundMesh;
+
+
     bool debug = false;
     if (debug){
         groundMesh.loadOFF (getFileName(2));//"models/sphere.off");
@@ -69,10 +72,22 @@ void Scene::buildDefaultScene (bool HD) {
     Object ground (groundMesh, groundMat);
     objects.push_back (ground);
     }else{
+
+        /*Ici on récupère ou on défini les paramêtres de chaque ojet*/
+        //Param Shape
+        string fileNameShape = getFileName(3);//Nom du fichier à charger
+        Vec3Df transShape = Vec3Df (1.f, 1.795f, 1.504f);// de combien on le translate
+        float grandShape = 1.f; // de combien on multiplie la forme
+        //param Ground
+        string fileNameGround = "models/ground.off";
+        Vec3Df transGround;//De combien on veut le translater
+        float grandGround = 10.f; // de combien on multiplie le fond
+
+
     if (HD)
-        groundMesh.loadOFF ("models/ground_HD.off");
+        groundMesh.loadOFF ("models/ground_HD.off", transGround, grandGround);
     else
-        groundMesh.loadOFF ("models/ground.off");
+        groundMesh.loadOFF (fileNameGround,transGround, grandGround);
         Material groundMat;
     Object ground (groundMesh, groundMat);    
     objects.push_back (ground);
@@ -80,9 +95,8 @@ void Scene::buildDefaultScene (bool HD) {
     if (HD)
         ramMesh.loadOFF ("models/ram_HD.off");
     else
-//        ramMesh.loadOFF ("models/ram.off");
-    ramMesh.loadOFF (getFileName(3));
-    //Material ramMat (1.f, 1.f, Vec3Df (1.f, .6f, .2f));
+    ramMesh.loadOFF (fileNameShape, transShape,grandShape);
+    //Material ramMat (1.f, 1.f, Vec3Df (1.f, .6f, .2f));//old rammat
     Material ramMat(0.735f,1.656f, Vec3Df (1.f, .795f, .504f));
     Object ram (ramMesh, ramMat);
     objects.push_back (ram);

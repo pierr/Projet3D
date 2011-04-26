@@ -377,3 +377,33 @@ Vec3Df perturbateVector(const Vec3Df & originVecor, float  & theta){
   //std::cout << "origin v " << originVecor << " pert one " << perturbated << std:: endl;
 return perturbated;
 }
+
+Vec3Df Ray::pathTracing( kdnode * root, int prof){
+    if(prof >= 10){
+        return Vec3Df();
+    }
+    bool isHit = false;
+    Material ism;
+    Vertex isv;
+    float dist = 0.f;
+    //On lance un certain nombre de rayon par rayon d'origine
+    isHit = this->kd_intersect(root, isv,ism,dist);
+    if(!isHit){
+        return Vec3Df();
+    }
+    float specular = ism.getSpecular();
+    Vec3Df color = ism.getColor();
+    float teta = param->get_paththeta();
+    Vec3Df pertVect = perturbateVector(isv.getNormal(), teta);
+    Ray rlight(
+                isv.getPos() + isv.getNormal()*param->get_epsilon(),
+                pertVect,
+                this->bgColor,
+                param
+    );
+    Vec3Df reflected = rlight.pathTracing(root, prof+1);
+    float cos_omega = Vec3Df::dotProduct(rlight.getDirection(), isv.getNormal());//rlight.getDirection().dotProduct(isv.getNormal());
+    float BDRF = specular*cos_omega;
+    return color + ( BDRF * cos_omega * reflected );
+
+}

@@ -25,6 +25,14 @@ public:
 
         kd_done = -1; //kd to do
         epsilon =       0.0001f;
+        kd_borneInf = 3;
+        kd_borneSup = 20;
+        kd_initValue = 8;
+        path_active = true;
+        path_nray = 20;
+        path_theta = 20;
+        path_rayon = 0.5;
+
     }
     inline virtual ~Parametres() {}
 
@@ -46,6 +54,11 @@ public:
 
     inline float get_epsilon()                      { return epsilon; }
 
+    inline float get_epsilon() { return epsilon; }
+    bool get_path_active(){return path_active;}
+    int get_pathnray(){return path_nray;}
+    float get_paththeta(){return path_theta;}
+    float get_pathrayon(){ return path_rayon;}
     inline void print(){
 
         std::cout  <<"AMBIANT OCCLUSION PARAMETERS "
@@ -109,6 +122,15 @@ private:
      float kd_done; //pour voir si on doit refaire le kdtree
      float kd_propdeep;
 
+     int kd_maxdeep;
+     int kd_borneInf;
+     int kd_borneSup;
+     int kd_initValue;
+//pathtracing
+     bool path_active;
+     int path_nray;
+     float path_theta;
+     float path_rayon;
 //autres
      float epsilon; //pour le ambocc et les ombres
 };

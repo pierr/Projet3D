@@ -35,12 +35,27 @@ public:
     inline bool get_amboccactive() { return ambocc_active; }
     inline int get_amboccnray() { return ambocc_nray; }
     inline int get_ambocctheta() { return ambocc_theta; }
-    inline int get_amboccrayon() { return ambocc_rayon; }
+    inline float get_amboccrayon() { return ambocc_rayon; }
 
     inline int get_kdmaxdeep() { return kd_maxdeep; }
 
     inline float get_epsilon() { return epsilon; }
+    inline void print(){
 
+        std::cout  <<"AMBIANT OCCLUSION PARAMETERS "
+                   << "ao active " << ambocc_active
+                   << " ao nRay " << ambocc_nray
+                   << " arayon "  << ambocc_rayon
+                   << " ao teta  " << ambocc_theta
+                   << std::endl
+                   << "nombre de pixel par grille"<< pix_grille << std::endl
+                   << " is BRDF " << BRDF_active << std::endl
+                   << " isOmbres "<< ombres_active << std::endl
+                   << "Ombres numA "  << ombres_numa << " Ombres numR" << ombres_numr <<  std::endl
+                   << "kD Tree prof max " << kd_maxdeep <<  std::endl
+                   << " epsilon "<< epsilon
+                   << std::endl;
+    }
 public slots:
     inline void set_pixgrille(int pix_grille)       { this->pix_grille = pix_grille; }
 

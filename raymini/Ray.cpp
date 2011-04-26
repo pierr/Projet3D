@@ -306,9 +306,12 @@ Vec3Df Ray::calcul_radiance(kdnode * root){
     if(isbool){
         Vec3Df radiance;
         if(param->get_BRDFactive()){
+
             calcBRDF(isv, ism, radiance, root);
         } else radiance = Vec3Df(1,1,1);
         if(param->get_amboccactive()){
+            // std::cout << "Is AO ACTIVE "<< param->get_BRDFactive() << std::endl;
+            //std::cout << "Scene Length " << Scene::getInstance()->getBoundingBox().getLength() << "ration Rayon "<< param->get_amboccrayon() << " * les 2 " << Scene::getInstance()->getBoundingBox().getLength()*param->get_amboccrayon() << std::endl;
             float occ = calcAmbOcclusion(root,isv,Scene::getInstance()->getBoundingBox().getLength()*param->get_amboccrayon(), param->get_ambocctheta());
             radiance = radiance* occ;
         }
@@ -329,6 +332,7 @@ float rand1(){
 }
 float Ray::calcAmbOcclusion(kdnode * root, Vertex & v, float rayonSphere, float theta){
     float ratioIntersection = 0.f;
+  //  std::cout << "rayon sph " << rayonSphere << "teta  " << theta << " nRay " << param->get_amboccnray()<< std::endl;
     for(int i =0; i < param->get_amboccnray(); i++){
         Material ism;
         Vertex isv;

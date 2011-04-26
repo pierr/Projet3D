@@ -175,7 +175,8 @@ void Window::initControlWidget () {
     /* PARAMETRES */
 
     param = new Parametres();
-
+    //std::cout << "PARAM " <<  param->get_amboccrayon() << std::endl;
+    param->print();
     QGroupBox * paramGroupBox = new QGroupBox ("Parameters", controlWidget);
     QVBoxLayout * paramLayout = new QVBoxLayout (paramGroupBox);
 

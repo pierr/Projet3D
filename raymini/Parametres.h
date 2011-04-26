@@ -2,6 +2,9 @@
 #define PARAMETRES_H
 
 #include <QObject>
+#include <iostream>
+
+using namespace std;
 
 class Parametres : public QObject {
     Q_OBJECT
@@ -41,13 +44,13 @@ public:
 public slots:
     inline void set_pixgrille(int pix_grille)       { this->pix_grille = pix_grille; }
 
-    inline void set_BRDFactive(bool BRDF_active)    { this->BRDF_active = BRDF_active; }
+    inline void set_BRDFactive(bool BRDF_active)    { this->BRDF_active = BRDF_active; cout << "BRDF_active " << BRDF_active << endl;}
 
-    inline void set_ombresactive(bool ombres_active){ this->ombres_active = ombres_active; }
+    inline void set_ombresactive(bool ombres_active){ this->ombres_active = ombres_active; cout << "ombres_active " << ombres_active << endl;}
     inline void set_ombresnuma(int ombres_numa)     { this->ombres_numa = ombres_numa; }
     inline void set_ombresnumr(int ombres_numr)     { this->ombres_numr = ombres_numr; }
 
-    inline void set_amboccactive(bool ambocc_active){ this->ambocc_active = ambocc_active; }
+    inline void set_amboccactive(bool ambocc_active){ this->ambocc_active = ambocc_active; cout << "ambocc_active " << ambocc_active << endl;}
     inline void set_amboccnray(int ambocc_nray)     { this->ambocc_nray = ambocc_nray; }
     inline void set_ambocctheta(int ambocc_theta)   { this->ambocc_theta = ambocc_theta; }
     inline void set_amboccrayon(float ambocc_rayon) { this->ambocc_rayon = ambocc_rayon; }

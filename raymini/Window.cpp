@@ -54,7 +54,7 @@ Window::Window () : QMainWindow (NULL) {
     imageLabel->setSizePolicy (QSizePolicy::Ignored, QSizePolicy::Ignored);
     imageLabel->setScaledContents (true);
     imageLabel->setPixmap (QPixmap::fromImage (rayImage));
-    
+
     renderingLayout->addWidget (viewer);
     renderingLayout->addWidget (imageLabel);
 
@@ -70,8 +70,6 @@ Window::Window () : QMainWindow (NULL) {
 
     setMinimumWidth (800);
     setMinimumHeight (400);
-
-    param = new Parametres();
 }
 
 Window::~Window () {
@@ -176,23 +174,28 @@ void Window::initControlWidget () {
 
     /* PARAMETRES */
 
+    param = new Parametres();
+
     QGroupBox * paramGroupBox = new QGroupBox ("Parameters", controlWidget);
     QVBoxLayout * paramLayout = new QVBoxLayout (paramGroupBox);
 
+
     QCheckBox * BRDFCheckBox = new QCheckBox ("BRDF", paramGroupBox);
+    BRDFCheckBox->setChecked(param->get_BRDFactive());
     connect (BRDFCheckBox, SIGNAL (toggled (bool)), param, SLOT (set_BRDFactive (bool)));
     paramLayout->addWidget (BRDFCheckBox);
 
     QCheckBox * ombresCheckBox = new QCheckBox ("Shadows", paramGroupBox);
+    ombresCheckBox->setChecked(param->get_ombresactive());
     connect (ombresCheckBox, SIGNAL (toggled (bool)), param, SLOT (set_ombresactive (bool)));
     paramLayout->addWidget (ombresCheckBox);
 
     QCheckBox * amboccCheckBox = new QCheckBox ("Ambient Oclusion", paramGroupBox);
+    amboccCheckBox->setChecked(param->get_amboccactive());
     connect (amboccCheckBox, SIGNAL (toggled (bool)), param, SLOT (set_amboccactive (bool)));
     paramLayout->addWidget (amboccCheckBox);
 
     layout->addWidget (paramGroupBox);
-
 
     /* GLOBAL */
     

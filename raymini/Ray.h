@@ -23,7 +23,7 @@
 class Ray {
 public:
     inline Ray () {}
-    Ray (const Vec3Df & origin, const Vec3Df & direction, const Vec3Df & bgColor);
+    Ray (const Vec3Df & origin, const Vec3Df & direction, const Vec3Df & bgColor, Parametres * param);
     inline virtual ~Ray () {}
 
     inline const Vec3Df & getOrigin () const { return origin; }

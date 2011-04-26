@@ -15,11 +15,12 @@ using namespace std;
 Vec3Df perturbateVector(const Vec3Df & originVecor, float  & theta);
 
 static const unsigned int NUMDIM = 3, RIGHT = 0, LEFT = 1, MIDDLE = 2;
-Ray::Ray (const Vec3Df & origin, const Vec3Df & direction, const Vec3Df & bgColor) {
+Ray::Ray (const Vec3Df & origin, const Vec3Df & direction, const Vec3Df & bgColor, Parametres * param) {
     this->origin = origin;
     this->direction = direction;
     this->direction.normalize();
     this->bgColor = bgColor;
+    this->param = param;
 }
 
 bool Ray::intersect (const BoundingBox & bbox, Vec3Df & intersectionPoint) const {
@@ -188,8 +189,7 @@ void Ray::calcBRDF(Vertex & v,  Material & m, Vec3Df& color, kdnode * root){
             Ray rlight;
             for(int j=0; j<(int)lightpoints.size(); j++){
                 Vec3Df dir = v.getPos()-lightpoints.at(j);
-                rlight = Ray(lightpoints.at(j),dir,bgColor); //prevention: jamais faire des calcBRDF avec ce ray!
-                rlight.setParam(param);
+                rlight = Ray(lightpoints.at(j),dir,bgColor, param); //prevention: jamais faire des calcBRDF avec ce ray!
                 //s'il y a intersection et le triangle est entre le point et la lumiere, il cache
                 if(rlight.kd_intersect(root, isv, ism, dist) && dist<(1-param->get_epsilon())*Vec3Df::distance(lightpoints.at(j),v.getPos()))
                     lightprop--;
@@ -332,8 +332,7 @@ float Ray::calcAmbOcclusion(kdnode * root, Vertex & v, float rayonSphere, float 
     for(int i =0; i < param->get_amboccnray(); i++){
         Material ism;
         Vertex isv;
-         Ray rlight(v.getPos() + v.getNormal()*param->get_epsilon()*rayonSphere, perturbateVector(v.getNormal(), theta), bgColor);
-         rlight.setParam(param);
+         Ray rlight(v.getPos() + v.getNormal()*param->get_epsilon()*rayonSphere, perturbateVector(v.getNormal(), theta), bgColor, param);
 
          float mindist; //inutile
          bool isIntersect = rlight.kd_intersect(root, isv, ism, mindist);

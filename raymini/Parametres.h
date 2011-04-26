@@ -5,14 +5,15 @@ class Parametres{
 public:
 //pixels
     const static int pix_grille = 1;
-
+//BRDF
+    const static bool BRDF_active = false;
 //ombres
     const static bool ombres_active = false;
-    const static int ombres_numa = 8;
-    const static int ombres_numr = 1;
+    const static int ombres_numa = 2;
+    const static int ombres_numr = 2;
 
 //ambocc
-    const static bool ambocc_active = false;
+    const static bool ambocc_active = true;
     const static int ambocc_nray = 30;
     const static int ambocc_angle = 45;
     const static float ambocc_rayon;

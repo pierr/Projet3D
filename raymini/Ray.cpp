@@ -306,7 +306,9 @@ Vec3Df Ray::calcul_radiance(kdnode * root){
     //s'il y a intersection, on retourne la radiance
     if(isbool){
         Vec3Df radiance;
-        this->calcBRDF(isv, ism, radiance, root);
+        if(Parametres::BRDF_active){
+            calcBRDF(isv, ism, radiance, root);
+        } else radiance = Vec3Df(1,1,1);
         if(Parametres::ambocc_active){
             float occ = calcAmbOcclusion(root,isv,scneeSize, theta);
             radiance = radiance* occ;
@@ -328,7 +330,7 @@ float rand1(){
 }
 float Ray::calcAmbOcclusion(kdnode * root, Vertex & v, float  & rayonSphere, float & theta){
     float ratioIntersection = 0.f;
-    for(unsigned int i =0; i < Parametres::ambocc_nray; i++){
+    for(int i =0; i < Parametres::ambocc_nray; i++){
         Material ism;
         Vertex isv;
          Ray rlight(v.getPos() + v.getNormal()*Parametres::epsilon*rayonSphere, perturbateVector(v.getNormal(), theta), bgColor);

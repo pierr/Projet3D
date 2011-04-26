@@ -88,7 +88,7 @@ QImage RayTracer::render (const Vec3Df & camPos,
     }
 
     tstop = time (NULL);
-    cout << "time " << tstop-tstart << "\r" << ends;
+    cout << "time " << tstop-tstart << endl;
 
     return image;
 }

@@ -21,6 +21,9 @@ public:
         ambocc_rayon =  0.05f;
         kd_maxdeep =    5;
         epsilon =       0.0001f;
+        kd_borneInf = 3;
+        kd_borneSup = 20;
+        kd_initValue = 8;
     }
     inline virtual ~Parametres() {}
 
@@ -38,6 +41,9 @@ public:
     inline float get_amboccrayon() { return ambocc_rayon; }
 
     inline int get_kdmaxdeep() { return kd_maxdeep; }
+    inline int get_kdBorneInf() { return kd_borneInf; }
+    inline int get_kdBorneSup(){ return kd_borneSup;}
+    inline int get_kdinitValue(){ return kd_initValue;}
 
     inline float get_epsilon() { return epsilon; }
     inline void print(){
@@ -70,7 +76,7 @@ public slots:
     inline void set_ambocctheta(int ambocc_theta)   { this->ambocc_theta = ambocc_theta; }
     inline void set_amboccrayon(float ambocc_rayon) { this->ambocc_rayon = ambocc_rayon; }
 
-    inline void set_kdmaxdeep(int kd_maxdeep)       { this->kd_maxdeep = kd_maxdeep; }
+    inline void set_kdmaxdeep(int kd_maxdeep)       { this->kd_maxdeep = kd_maxdeep;  cout << "max deep changed " << kd_maxdeep << endl;}
 
     inline void set_epsilon(float epsilon)          { this->epsilon = epsilon; }
 
@@ -92,6 +98,9 @@ private:
 
 //kdtree
      int kd_maxdeep;
+     int kd_borneInf;
+     int kd_borneSup;
+     int kd_initValue;
 
 //autres
      float epsilon;

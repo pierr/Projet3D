@@ -196,6 +196,29 @@ void Window::initControlWidget () {
     connect (amboccCheckBox, SIGNAL (toggled (bool)), param, SLOT (set_amboccactive (bool)));
     paramLayout->addWidget (amboccCheckBox);
 
+
+    QGroupBox * sliderBox = new QGroupBox("Profondeur max tree", paramGroupBox);
+    QVBoxLayout * sliderLayout = new QVBoxLayout (sliderBox);
+
+
+    QSlider * sliderProfTree = new QSlider(Qt::Horizontal, sliderBox );
+   // sliderProfTree->setLayout();
+    sliderProfTree->setValue(param->get_kdinitValue());
+    sliderProfTree->setAccessibleDescription(QString("slider"));
+    sliderProfTree->setTickPosition(QSlider::TicksAbove);
+    sliderProfTree->setRange(param->get_kdBorneInf(),param->get_kdBorneSup());
+    connect(sliderProfTree, SIGNAL(valueChanged(int)), param, SLOT (set_kdmaxdeep(int)));
+    sliderLayout->addWidget(sliderProfTree);
+
+    QSpinBox * minimumSpinBox = new QSpinBox();
+    minimumSpinBox->setRange(param->get_kdBorneInf(),param->get_kdBorneSup());
+   minimumSpinBox->setValue(param->get_kdinitValue());
+    minimumSpinBox->setSingleStep(1);
+    sliderLayout->addWidget(minimumSpinBox);
+    paramLayout->addWidget (sliderBox);
+    connect(sliderProfTree, SIGNAL(valueChanged(int)), minimumSpinBox, SLOT (setValue(int)));
+    connect(minimumSpinBox, SIGNAL(valueChanged(int)), sliderProfTree, SLOT (setValue(int)));
+     connect(minimumSpinBox, SIGNAL(valueChanged(int)), param, SLOT (set_kdmaxdeep(int)));
     layout->addWidget (paramGroupBox);
 
     /* GLOBAL */

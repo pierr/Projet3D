@@ -30,7 +30,7 @@ public:
         kd_initValue = 8;
         path_active = true;
         path_nray = 20;
-        path_theta = 20;
+        path_theta = 10;
         path_rayon = 0.5;
 
     }

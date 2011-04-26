@@ -379,7 +379,7 @@ return perturbated;
 }
 
 Vec3Df Ray::pathTracing( kdnode * root, int prof){
-    if(prof >= 10){
+    if(prof >= 3){
         return Vec3Df();
     }
     bool isHit = false;
@@ -404,6 +404,6 @@ Vec3Df Ray::pathTracing( kdnode * root, int prof){
     Vec3Df reflected = rlight.pathTracing(root, prof+1);
     float cos_omega = Vec3Df::dotProduct(rlight.getDirection(), isv.getNormal());//rlight.getDirection().dotProduct(isv.getNormal());
     float BDRF = specular*cos_omega;
-    return color + ( BDRF * cos_omega * reflected );
+    return (color + ( BDRF * cos_omega * reflected )*0.5;
 
 }

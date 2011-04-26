@@ -128,8 +128,8 @@ void Scene::buildDefaultScene (bool HD) {
     Vec3Df transTheiere = Vec3Df (1.f, -1.795f, 1.504f);// de combien on le translate
     float grandTheiere = 0.1f; // de combien on multiplie la forme
     theiere.loadOFF(fileTheiere, transTheiere, grandTheiere);
-    Material theiMat(1.735f,1.656f, Vec3Df (119.f, 181.f, 254.f));
-    Object theier(theiere,theiMat);
+    Material theiMat(0.235f,0.656f, Vec3Df (119.f, 181.f, 254.f));
+    Object theier(theiere,ramMat);
     objects.push_back(theier);
 
 }

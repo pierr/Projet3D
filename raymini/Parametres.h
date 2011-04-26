@@ -52,8 +52,6 @@ public:
     inline bool get_kddone()                        { return kd_done!=kd_propdeep; }
     inline float get_kdpropdeep()                   { return kd_propdeep; }
 
-    inline float get_epsilon()                      { return epsilon; }
-
     inline float get_epsilon() { return epsilon; }
     bool get_path_active(){return path_active;}
     int get_pathnray(){return path_nray;}

@@ -39,10 +39,11 @@ SOURCES = Window.cpp \
           kdleaf.cpp
           
 DESTDIR = .
+          
+DESTDIR = .
 
 QT_VERSION=$$[QT_VERSION]
-QMAKE_CXXFLAGS += -fopenmp
-QMAKE_LFLAGS += -fopenmp
+
 LIBS += -lqglviewer-qt4 
 
 
@@ -54,6 +55,3 @@ LIBS += -lqglviewer-qt4
 
   MOC_DIR = .moc
   OBJECTS_DIR = .obj
-
-
-

@@ -73,9 +73,11 @@ QImage RayTracer::render (const Vec3Df & camPos,
                     Vec3Df step = stepX + stepY;
                     Vec3Df dir = direction + step;
                     Ray ray (camPos, dir, backgroundColor, param);
+                    //Si on choisit la méthode de rendu path tracing
                     if(param->get_path_active()){
                         col+=255.f*ray.pathTracing(kdt->get_root(),0);
                     }
+                    //Sinon on applique les autres méthodes de rendu
                     col += 255.f*ray.calcul_radiance(kdt->get_root());
                 }
             }

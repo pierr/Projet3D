@@ -6,7 +6,7 @@
 // *********************************************************
 
 #include "Scene.h"
-
+#include <string>
 using namespace std;
 
 static Scene * instance = NULL;
@@ -25,7 +25,7 @@ void Scene::destroyInstance () {
 }
 
 Scene::Scene () {
-    buildDefaultScene (false);
+    buildDefaultScene (true);
     updateBoundingBox ();
 }
 
@@ -42,13 +42,27 @@ void Scene::updateBoundingBox () {
     }
 }
 
+string getFileName(int num){
+    string out = "models/";
+    switch(num){
+    case 1:
+        out+="Apple.off";
+        break;
+    default:
+    out+="monkey.off";
+
+    }
+    return out;
+}
+
+
 // Changer ce code pour créer des scènes originales
 void Scene::buildDefaultScene (bool HD) {
     Mesh groundMesh;
-    bool debug = false;
+    bool debug = true;
     if (debug){
-        groundMesh.loadOFF ("models/sphere.off");
-        Material groundMat;
+        groundMesh.loadOFF (getFileName(1));//"models/sphere.off");
+        Material groundMat(0.735f,1.656f, Vec3Df (1.f, .795f, .504f));
     Object ground (groundMesh, groundMat);
     objects.push_back (ground);
     }else{
@@ -65,8 +79,9 @@ void Scene::buildDefaultScene (bool HD) {
     else
 //        ramMesh.loadOFF ("models/ram.off");
     ramMesh.loadOFF ("models/monkey.off");
-    Material ramMat (1.f, 1.f, Vec3Df (1.f, .6f, .2f));
-    Object ram (ramMesh, ramMat);    
+    //Material ramMat (1.f, 1.f, Vec3Df (1.f, .6f, .2f));
+    Material ramMat(0.735f,1.656f, Vec3Df (1.f, .795f, .504f));
+    Object ram (ramMesh, ramMat);
     objects.push_back (ram);
     }
 //    Light l (Vec3Df (3.0f, 3.0f, 3.0f), Vec3Df (1.0f, 1.0f, 1.0f), 1.0f);                                           // point

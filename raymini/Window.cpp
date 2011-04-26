@@ -80,6 +80,7 @@ void Window::renderRayImage () {
     qglviewer::Camera * cam = viewer->camera ();
     RayTracer * rayTracer = RayTracer::getInstance ();
     rayTracer->setParametres(param);
+    rayTracer->setRayButton(rayButton);
     qglviewer::Vec p = cam->position ();
     qglviewer::Vec d = cam->viewDirection ();
     qglviewer::Vec u = cam->upVector ();
@@ -141,28 +142,152 @@ void Window::initControlWidget () {
     QCheckBox * wireframeCheckBox = new QCheckBox ("Wireframe", previewGroupBox);
     connect (wireframeCheckBox, SIGNAL (toggled (bool)), viewer, SLOT (setWireframe (bool)));
     previewLayout->addWidget (wireframeCheckBox);
-   
-    QButtonGroup * modeButtonGroup = new QButtonGroup (previewGroupBox);
-    modeButtonGroup->setExclusive (true);
-    QRadioButton * flatButton = new QRadioButton ("Flat", previewGroupBox);
-    QRadioButton * smoothButton = new QRadioButton ("Smooth", previewGroupBox);
-    modeButtonGroup->addButton (flatButton, static_cast<int>(GLViewer::Flat));
-    modeButtonGroup->addButton (smoothButton, static_cast<int>(GLViewer::Smooth));
-    connect (modeButtonGroup, SIGNAL (buttonClicked (int)), viewer, SLOT (setRenderingMode (int)));
-    previewLayout->addWidget (flatButton);
-    previewLayout->addWidget (smoothButton);
-    
+
+    QCheckBox * smoothCheckBox = new QCheckBox ("Smooth", previewGroupBox);
+    smoothCheckBox->setChecked(true);
+    connect (smoothCheckBox, SIGNAL (toggled (bool)), viewer, SLOT (setRenderingMode (bool)));
+    previewLayout->addWidget (smoothCheckBox);
+
     QPushButton * snapshotButton  = new QPushButton ("Save preview", previewGroupBox);
     connect (snapshotButton, SIGNAL (clicked ()) , this, SLOT (exportGLImage ()));
     previewLayout->addWidget (snapshotButton);
 
     layout->addWidget (previewGroupBox);
 
+    /* PARAMETRES */
+
+
+    param = new Parametres();
+
+    QGroupBox * paramGroupBox = new QGroupBox ("Parameters", controlWidget);
+    QVBoxLayout * paramLayout = new QVBoxLayout (paramGroupBox);
+
+
+    /* RAYS */
+
+    QGroupBox * raysGroupBox = new QGroupBox ("Rays");
+    QVBoxLayout * raysLayout = new QVBoxLayout (raysGroupBox);
+
+        //pix_grille
+        QLabel * pixgrilleLabel = new QLabel("Rays per pixel");
+        raysLayout->addWidget(pixgrilleLabel);
+
+        QSpinBox * pixgrilleSpinBox = new QSpinBox();
+        pixgrilleSpinBox->setValue(param->get_pixgrille());
+        connect (pixgrilleSpinBox, SIGNAL (valueChanged (int)), param, SLOT(set_pixgrille(int)));
+        raysLayout->addWidget(pixgrilleSpinBox);
+
+        //material_active
+        QCheckBox * materialCheckBox = new QCheckBox ("Material", paramGroupBox);
+        materialCheckBox->setChecked(param->get_materialactive());
+        connect (materialCheckBox, SIGNAL (toggled (bool)), param, SLOT (set_materialactive (bool)));
+        raysLayout->addWidget (materialCheckBox);
+
+        //BRDF_active
+        QCheckBox * BRDFCheckBox = new QCheckBox ("BRDF", paramGroupBox);
+        BRDFCheckBox->setChecked(param->get_BRDFactive());
+        param->set_BRDFcheckbox(BRDFCheckBox);
+        connect (BRDFCheckBox, SIGNAL (toggled (bool)), param, SLOT (set_BRDFactive (bool)));
+        raysLayout->addWidget (BRDFCheckBox);
+
+    paramLayout->addWidget(raysGroupBox);
+
+
+    /* SHADOWS, OMBRES */
+
+    QGroupBox * shadowsGroupBox = new QGroupBox ("Shadows");
+    QVBoxLayout * shadowsLayout = new QVBoxLayout (shadowsGroupBox);
+
+        //active
+        QCheckBox * ombresCheckBox = new QCheckBox ("Shadows", paramGroupBox);
+        ombresCheckBox->setChecked(param->get_ombresactive());
+        connect (ombresCheckBox, SIGNAL (toggled (bool)), param, SLOT (set_ombresactive (bool)));
+        shadowsLayout->addWidget (ombresCheckBox);
+
+        //numa
+        QLabel * ombresnumaLabel = new QLabel("nombres points par cercle");
+        shadowsLayout->addWidget(ombresnumaLabel);
+        QSpinBox * ombresnumaSpinBox = new QSpinBox();
+        ombresnumaSpinBox->setValue(param->get_ombresnuma());
+        connect (ombresnumaSpinBox, SIGNAL (valueChanged (int)), param, SLOT(set_ombresnuma(int)));
+        shadowsLayout->addWidget(ombresnumaSpinBox);
+
+        //numr
+        QLabel * ombresnumrLabel = new QLabel("nombres points pour le rayon");
+        shadowsLayout->addWidget(ombresnumrLabel);
+        QSpinBox * ombresnumrSpinBox = new QSpinBox();
+        ombresnumrSpinBox->setValue(param->get_ombresnumr());
+        connect (ombresnumrSpinBox, SIGNAL (valueChanged (int)), param, SLOT(set_ombresnumr(int)));
+        shadowsLayout->addWidget(ombresnumrSpinBox);
+
+    paramLayout->addWidget(shadowsGroupBox);
+
+
+    /* AMBOCC */
+
+    QGroupBox * amboccGroupBox = new QGroupBox ("Ambient Occlusion");
+    QVBoxLayout * amboccLayout = new QVBoxLayout (amboccGroupBox);
+
+        //active
+        QCheckBox * amboccCheckBox = new QCheckBox ("Ambient Oclusion", paramGroupBox);
+        amboccCheckBox->setChecked(param->get_amboccactive());
+        connect (amboccCheckBox, SIGNAL (toggled (bool)), param, SLOT (set_amboccactive (bool)));
+        amboccLayout->addWidget (amboccCheckBox);
+
+        paramLayout->addWidget(shadowsGroupBox);
+
+        //nray
+        QLabel * amboccnrayLabel = new QLabel("nray");
+        amboccLayout->addWidget(amboccnrayLabel);
+        QSpinBox * amboccnraySpinBox = new QSpinBox();
+        amboccnraySpinBox->setValue(param->get_amboccnray());
+        connect (amboccnraySpinBox, SIGNAL (valueChanged (int)), param, SLOT(set_amboccnray(int)));
+        amboccLayout->addWidget(amboccnraySpinBox);
+
+        //theta
+        QLabel * amboccthetaLabel = new QLabel("angle du cone");
+        amboccLayout->addWidget(amboccthetaLabel);
+        QDoubleSpinBox * amboccthetaSpinBox = new QDoubleSpinBox();
+        amboccthetaSpinBox->setValue(param->get_ambocctheta());
+        connect (amboccthetaSpinBox, SIGNAL (valueChanged (double)), param, SLOT(set_ambocctheta(double)));
+        amboccLayout->addWidget(amboccthetaSpinBox);
+
+        //rayon
+        QLabel * amboccrayonLabel = new QLabel("rayon relatif");
+        amboccLayout->addWidget(amboccrayonLabel);
+        QDoubleSpinBox * amboccrayonSpinBox = new QDoubleSpinBox();
+        amboccrayonSpinBox->setValue(param->get_amboccrayon());
+        connect (amboccrayonSpinBox, SIGNAL (valueChanged (double)), param, SLOT(set_amboccrayon(double)));
+        amboccLayout->addWidget(amboccrayonSpinBox);
+
+    paramLayout->addWidget(amboccGroupBox);
+
+
+    /* KDTREE */
+
+    QGroupBox * kdGroupBox = new QGroupBox ("kdTree");
+    QVBoxLayout * kdLayout = new QVBoxLayout (kdGroupBox);
+
+        //propdeep
+        QLabel * kdpropdeepLabel = new QLabel("% of triangles per box");
+        kdLayout->addWidget(kdpropdeepLabel);
+        QDoubleSpinBox * kdpropdeepSpinBox = new QDoubleSpinBox();
+        kdpropdeepSpinBox->setRange(0,1);
+        kdpropdeepSpinBox->setSingleStep(0.01);
+        kdpropdeepSpinBox->setValue(param->get_kdpropdeep());
+        connect (kdpropdeepSpinBox, SIGNAL (valueChanged (double)), param, SLOT(set_kdpropdeep(double)));
+        kdLayout->addWidget(kdpropdeepSpinBox);
+
+    paramLayout->addWidget(kdGroupBox);
+
+    layout->addWidget(paramGroupBox);
+
+
     /* RAY */
     
     QGroupBox * rayGroupBox = new QGroupBox ("Ray Tracing", controlWidget);
     QVBoxLayout * rayLayout = new QVBoxLayout (rayGroupBox);
-    QPushButton * rayButton = new QPushButton ("Render", rayGroupBox);
+    rayButton = new QPushButton ("Render", rayGroupBox);
     rayLayout->addWidget (rayButton);
     connect (rayButton, SIGNAL (clicked ()), this, SLOT (renderRayImage ()));
 
@@ -171,79 +296,6 @@ void Window::initControlWidget () {
     rayLayout->addWidget (saveButton);
 
     layout->addWidget (rayGroupBox);
-
-    /* PARAMETRES */
-
-    param = new Parametres();
-    param->print();
-
-    QGroupBox * paramGroupBox = new QGroupBox ("Parameters", controlWidget);
-    QVBoxLayout * paramLayout = new QVBoxLayout (paramGroupBox);
-
-        /* PIX */
-
-    QGroupBox * pixGroupBox = new QGroupBox ("Rayons par pixel");
-    QVBoxLayout * pixLayout = new QVBoxLayout (pixGroupBox);
-
-    QSpinBox * pixgrilleSpinBox = new QSpinBox();
-    pixgrilleSpinBox->setValue(param->get_pixgrille());
-    connect (pixgrilleSpinBox, SIGNAL (valueChanged (int)), param, SLOT(set_pixgrille(int)));
-    pixLayout->addWidget(pixgrilleSpinBox);
-
-    paramLayout->addWidget (pixGroupBox);
-
-
-        /* RADIANCE */
-
-    QCheckBox * materialCheckBox = new QCheckBox ("material", paramGroupBox);
-    materialCheckBox->setChecked(param->get_materialactive());
-    connect (materialCheckBox, SIGNAL (toggled (bool)), param, SLOT (set_materialactive (bool)));
-    paramLayout->addWidget (materialCheckBox);
-
-    QCheckBox * BRDFCheckBox = new QCheckBox ("BRDF", paramGroupBox);
-    BRDFCheckBox->setChecked(param->get_BRDFactive());
-    param->set_BRDFcheckbox(BRDFCheckBox);
-    connect (BRDFCheckBox, SIGNAL (toggled (bool)), param, SLOT (set_BRDFactive (bool)));
-    paramLayout->addWidget (BRDFCheckBox);
-
-        /* Shadows, ombres */
-
-    QCheckBox * ombresCheckBox = new QCheckBox ("Shadows", paramGroupBox);
-    ombresCheckBox->setChecked(param->get_ombresactive());
-    connect (ombresCheckBox, SIGNAL (toggled (bool)), param, SLOT (set_ombresactive (bool)));
-    paramLayout->addWidget (ombresCheckBox);
-
-    QCheckBox * amboccCheckBox = new QCheckBox ("Ambient Oclusion", paramGroupBox);
-    amboccCheckBox->setChecked(param->get_amboccactive());
-    connect (amboccCheckBox, SIGNAL (toggled (bool)), param, SLOT (set_amboccactive (bool)));
-    paramLayout->addWidget (amboccCheckBox);
-
-
-    QGroupBox * sliderBox = new QGroupBox("Profondeur max tree", paramGroupBox);
-    QVBoxLayout * sliderLayout = new QVBoxLayout (sliderBox);
-
-
-    QSlider * sliderProfTree = new QSlider(Qt::Horizontal, sliderBox );
-    //sliderProfTree->setLayout();
-    sliderProfTree->setValue(param->get_kdinitValue());
-    sliderProfTree->setAccessibleDescription(QString("slider"));
-    sliderProfTree->setTickPosition(QSlider::TicksAbove);
-    sliderProfTree->setRange(param->get_kdBorneInf(),param->get_kdBorneSup());
-    connect(sliderProfTree, SIGNAL(valueChanged(int)), param, SLOT (set_kdmaxdeep(int)));
-    sliderLayout->addWidget(sliderProfTree);
-
-    QSpinBox * minimumSpinBox = new QSpinBox();
-    minimumSpinBox->setRange(param->get_kdBorneInf(),param->get_kdBorneSup());
-    minimumSpinBox->setValue(param->get_kdinitValue());
-    minimumSpinBox->setSingleStep(1);
-    sliderLayout->addWidget(minimumSpinBox);
-    paramLayout->addWidget (sliderBox);
-    connect(sliderProfTree, SIGNAL(valueChanged(int)), minimumSpinBox, SLOT (setValue(int)));
-    connect(minimumSpinBox, SIGNAL(valueChanged(int)), sliderProfTree, SLOT (setValue(int)));
-    connect(minimumSpinBox, SIGNAL(valueChanged(int)), param, SLOT (set_kdmaxdeep(int)));
-
-
-    layout->addWidget (paramGroupBox);
 
     /* GLOBAL */
     

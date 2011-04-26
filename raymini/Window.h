@@ -12,6 +12,7 @@
 #include <QSpinBox>
 #include <QImage>
 #include <QLabel>
+#include <QPushButton>
 
 #include <vector>
 #include <string>
@@ -49,6 +50,7 @@ private :
     QImage rayImage;
 
     Parametres * param;
+    QPushButton * rayButton;
 };
 
 #endif // WINDOW_H

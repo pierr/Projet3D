@@ -5,10 +5,10 @@
 
 using namespace std;
 
-void kdnode::split(int max_deep)
+void kdnode::split(int max_triangles)
 {
     //si on na pas arrive a deep==max_deep ou le vecteur a plus d'un leaf, on doit diviser
-    if(leafs.size()>1 && deep<max_deep){
+    if(max_triangles<(int)leafs.size()){
         //l'axe de division
         axis = deep%3;
         //calcul rapide(?) de la mediane
@@ -56,29 +56,35 @@ void kdnode::split(int max_deep)
                 supleafs.push_back(leafs[i]);
             }
         }
-        leafs.clear();
 
+        //si la division a ete possible
         //on cree les deux nouveaux noeuds
         //les deux noeuds divisent a nouveau chaque vecteur
         //on push les kdnode de maximum profondeur
-        if(infleafs.size()>0){
-            Vec3Df box_max = box.getMax();
-            Vec3Df box_min = box.getMin();
-            box_max[axis] = median;
-            BoundingBox infbox(box_min, box_max);
-            infnode = new kdnode(deep+1,infleafs,infbox);
-            infnode->split(max_deep);
-            infleafs = infnode->get_leafs();
-        }
+        if(infleafs.size()< leafs.size() && supleafs.size()<leafs.size()){
+            leafs.clear();
+            if(infleafs.size()>0){
+                Vec3Df box_max = box.getMax();
+                Vec3Df box_min = box.getMin();
+                box_max[axis] = median;
+                BoundingBox infbox(box_min, box_max);
+                infnode = new kdnode(deep+1,infleafs,infbox);
+                infnode->split(max_triangles);
+                infleafs = infnode->get_leafs();
+            }
 
-        if(supleafs.size()>0){
-            Vec3Df box_max = box.getMax();
-            Vec3Df box_min = box.getMin();
-            box_min[axis] = median;
-            BoundingBox supbox(box_min, box_max);
-            supnode = new kdnode(deep+1,supleafs,supbox);
-            supnode->split(max_deep);
-            supleafs = supnode->get_leafs();
+            if(supleafs.size()>0){
+                Vec3Df box_max = box.getMax();
+                Vec3Df box_min = box.getMin();
+                box_min[axis] = median;
+                BoundingBox supbox(box_min, box_max);
+                supnode = new kdnode(deep+1,supleafs,supbox);
+                supnode->split(max_triangles);
+                supleafs = supnode->get_leafs();
+            }
+        //sinon on le prend comme boite finale
+        } else {
+            deepest = true;
         }
     } else {
         deepest = true;

@@ -35,8 +35,8 @@ void GLViewer::setWireframe (bool b) {
     updateGL ();
 }
 
-void GLViewer::setRenderingMode (int m) {
-    renderingMode = static_cast<RenderingMode>(m);
+void GLViewer::setRenderingMode (bool m) {
+    renderingMode = static_cast<RenderingMode>((int)m);
     updateGL ();
 }
 

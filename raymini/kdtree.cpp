@@ -3,6 +3,7 @@
 using namespace std;
 
 kdtree::kdtree(std::vector<Object> objects, Vec3Df camPos, BoundingBox & scenebox){
+
     //on melange les triangles de tous les objets dans le meme vecteur<kdleaf>
     leafs.clear();
     for(int io=0; io<(int)objects.size(); io++){
@@ -26,12 +27,13 @@ kdtree::kdtree(std::vector<Object> objects, Vec3Df camPos, BoundingBox & scenebo
     this->scenebox = scenebox;
 }
 
-void kdtree::split(int max_deep)
+void kdtree::split(float propdeep)
 {
-    this->max_deep = max_deep;
     //on definit le premier node du kdtree
     root = new kdnode(1,leafs,scenebox);
     //on ordonne le kdtree et on garde le resultat
-    root->split(max_deep);
+    int maxtriangles = (int)leafs.size()*propdeep;
+    if(maxtriangles<1) maxtriangles=1;
+    root->split(maxtriangles);
 }
 

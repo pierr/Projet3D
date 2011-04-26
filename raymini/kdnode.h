@@ -2,9 +2,12 @@
 #define KDNODE_H
 
 #include <vector>
+#include <iostream>
 
 #include "kdleaf.h"
 #include "BoundingBox.h"
+
+using namespace std;
 
 class kdnode
 {

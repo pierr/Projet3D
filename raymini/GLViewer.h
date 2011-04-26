@@ -38,7 +38,7 @@ public:
      
 public slots :
     void setWireframe (bool b);
-    void setRenderingMode (int m);
+    void setRenderingMode (bool m);
     
 protected :
     void init();

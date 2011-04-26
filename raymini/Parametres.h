@@ -21,34 +21,31 @@ public:
         ambocc_nray =   30;
         ambocc_theta =  90;
         ambocc_rayon =  0.05f;
-        kd_maxdeep =    5;
+        kd_propdeep =    0.05;
+
+        kd_done = -1; //kd to do
         epsilon =       0.0001f;
-        kd_borneInf = 3;
-        kd_borneSup = 20;
-        kd_initValue = 8;
     }
     inline virtual ~Parametres() {}
 
-    inline int get_pixgrille() { return pix_grille; }
+    inline int get_pixgrille()                      { return pix_grille; }
+    inline bool get_materialactive()                { return material_active; }
+    inline bool get_BRDFactive()                    { return BRDF_active; }
 
-    inline bool get_materialactive() { return material_active; }
-    inline bool get_BRDFactive() { return BRDF_active; }
+    inline bool get_ombresactive()                  { return ombres_active; }
+    inline int get_ombresnuma()                     { return ombres_numa; }
+    inline int get_ombresnumr()                     { return ombres_numr; }
 
-    inline bool get_ombresactive() { return ombres_active; }
-    inline int get_ombresnuma() { return ombres_numa; }
-    inline int get_ombresnumr() { return ombres_numr; }
+    inline bool get_amboccactive()                  { return ambocc_active; }
+    inline int get_amboccnray()                     { return ambocc_nray; }
+    inline float get_ambocctheta()                  { return ambocc_theta; }
+    inline float get_amboccrayon()                  { return ambocc_rayon; }
 
-    inline bool get_amboccactive() { return ambocc_active; }
-    inline int get_amboccnray() { return ambocc_nray; }
-    inline int get_ambocctheta() { return ambocc_theta; }
-    inline float get_amboccrayon() { return ambocc_rayon; }
+    inline bool get_kddone()                        { return kd_done!=kd_propdeep; }
+    inline float get_kdpropdeep()                   { return kd_propdeep; }
 
-    inline int get_kdmaxdeep() { return kd_maxdeep; }
-    inline int get_kdBorneInf() { return kd_borneInf; }
-    inline int get_kdBorneSup(){ return kd_borneSup;}
-    inline int get_kdinitValue(){ return kd_initValue;}
+    inline float get_epsilon()                      { return epsilon; }
 
-    inline float get_epsilon() { return epsilon; }
     inline void print(){
 
         std::cout  <<"AMBIANT OCCLUSION PARAMETERS "
@@ -61,15 +58,15 @@ public:
                    << " is BRDF " << BRDF_active << std::endl
                    << " isOmbres "<< ombres_active << std::endl
                    << "Ombres numA "  << ombres_numa << " Ombres numR" << ombres_numr <<  std::endl
-                   << "kD Tree prof max " << kd_maxdeep <<  std::endl
+                   << "kD Tree prof max " << kd_propdeep <<  std::endl
                    << " epsilon "<< epsilon
                    << std::endl;
     }
 public slots:
-    inline void set_pixgrille(int pix_grille)       { this->pix_grille = pix_grille; }
+    inline void set_pixgrille(int pix_grille)               { this->pix_grille = pix_grille; }
 
-    inline void set_materialactive(bool material_active) { this->material_active = material_active; }
-    inline void set_BRDFactive(bool BRDF_active)    { this->BRDF_active = BRDF_active; }
+    inline void set_materialactive(bool material_active)    { this->material_active = material_active; }
+    inline void set_BRDFactive(bool BRDF_active)            { this->BRDF_active = BRDF_active; }
     inline void set_BRDFcheckbox(QCheckBox * BRDFCheckBox)  { this->BRDFCheckBox = BRDFCheckBox; }
 
     inline void set_ombresactive(bool ombres_active){
@@ -78,22 +75,22 @@ public slots:
             BRDF_active = true;
             BRDFCheckBox->setChecked(true);
         }
-    }    inline void set_ombresnuma(int ombres_numa)     { this->ombres_numa = ombres_numa; }
-    inline void set_ombresnumr(int ombres_numr)     { this->ombres_numr = ombres_numr; }
+    }    inline void set_ombresnuma(int ombres_numa)        { this->ombres_numa = ombres_numa; }
+    inline void set_ombresnumr(int ombres_numr)             { this->ombres_numr = ombres_numr; }
 
-    inline void set_amboccactive(bool ambocc_active){ this->ambocc_active = ambocc_active; }
-    inline void set_amboccnray(int ambocc_nray)     { this->ambocc_nray = ambocc_nray; }
-    inline void set_ambocctheta(int ambocc_theta)   { this->ambocc_theta = ambocc_theta; }
-    inline void set_amboccrayon(float ambocc_rayon) { this->ambocc_rayon = ambocc_rayon; }
+    inline void set_amboccactive(bool ambocc_active)        { this->ambocc_active = ambocc_active; }
+    inline void set_amboccnray(int ambocc_nray)             { this->ambocc_nray = ambocc_nray; }
+    inline void set_ambocctheta(double ambocc_theta)        { this->ambocc_theta = (float)ambocc_theta; }
+    inline void set_amboccrayon(double ambocc_rayon)        { this->ambocc_rayon = (float)ambocc_rayon; }
 
-    inline void set_kdmaxdeep(int kd_maxdeep)       { this->kd_maxdeep = kd_maxdeep; }
+    inline void set_kddone()                                { this->kd_done = this->kd_propdeep; }
+    inline void set_kdpropdeep(double kd_propdeep)          { this->kd_propdeep = (float)kd_propdeep; }
 
-    inline void set_epsilon(float epsilon)          { this->epsilon = epsilon; }
+    inline void set_epsilon(float epsilon)                  { this->epsilon = epsilon; }
 
 private:
-//pixels
-     int pix_grille;
-//radiance
+//rays
+    int pix_grille;
      bool material_active;
      bool BRDF_active;
      QCheckBox * BRDFCheckBox;
@@ -105,17 +102,15 @@ private:
 //ambocc
      bool ambocc_active;
      int ambocc_nray;
-     int ambocc_theta;
+     float ambocc_theta;
      float ambocc_rayon;
 
 //kdtree
-     int kd_maxdeep;
-     int kd_borneInf;
-     int kd_borneSup;
-     int kd_initValue;
+     float kd_done; //pour voir si on doit refaire le kdtree
+     float kd_propdeep;
 
 //autres
-     float epsilon;
+     float epsilon; //pour le ambocc et les ombres
 };
 
 #endif // PARAMETRES_H

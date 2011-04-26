@@ -11,6 +11,7 @@
 #include <iostream>
 #include <vector>
 #include <QImage>
+#include <QPushButton>
 
 #include "Vec3D.h"
 #include "Ray.h"
@@ -26,6 +27,7 @@ public:
     inline const Vec3Df & getBackgroundColor () const { return backgroundColor;}
     inline void setBackgroundColor (const Vec3Df & c) { backgroundColor = c; }
     inline void setParametres (Parametres * param) { this->param = param; }
+    inline void setRayButton(QPushButton * rayButton) { this->rayButton = rayButton; }
     
     QImage render (const Vec3Df & camPos,
                    const Vec3Df & viewDirection,
@@ -37,12 +39,16 @@ public:
                    unsigned int screenHeight);
     
 protected:
-    inline RayTracer () {}
+    inline RayTracer () {
+        kdt = 0;
+    }
     inline virtual ~RayTracer () {}
     
 private:
     Vec3Df backgroundColor;
     Parametres * param;
+    kdtree * kdt;
+    QPushButton * rayButton;
 };
 
 

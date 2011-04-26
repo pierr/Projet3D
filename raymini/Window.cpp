@@ -175,17 +175,38 @@ void Window::initControlWidget () {
     /* PARAMETRES */
 
     param = new Parametres();
-    //std::cout << "PARAM " <<  param->get_amboccrayon() << std::endl;
     param->print();
+
     QGroupBox * paramGroupBox = new QGroupBox ("Parameters", controlWidget);
     QVBoxLayout * paramLayout = new QVBoxLayout (paramGroupBox);
 
+        /* PIX */
+
+    QGroupBox * pixGroupBox = new QGroupBox ("Rayons par pixel");
+    QVBoxLayout * pixLayout = new QVBoxLayout (pixGroupBox);
+
+    QSpinBox * pixgrilleSpinBox = new QSpinBox();
+    pixgrilleSpinBox->setValue(param->get_pixgrille());
+    connect (pixgrilleSpinBox, SIGNAL (valueChanged (int)), param, SLOT(set_pixgrille(int)));
+    pixLayout->addWidget(pixgrilleSpinBox);
+
+    paramLayout->addWidget (pixGroupBox);
+
+
+        /* RADIANCE */
+
+    QCheckBox * materialCheckBox = new QCheckBox ("material", paramGroupBox);
+    materialCheckBox->setChecked(param->get_materialactive());
+    connect (materialCheckBox, SIGNAL (toggled (bool)), param, SLOT (set_materialactive (bool)));
+    paramLayout->addWidget (materialCheckBox);
 
     QCheckBox * BRDFCheckBox = new QCheckBox ("BRDF", paramGroupBox);
     BRDFCheckBox->setChecked(param->get_BRDFactive());
     param->set_BRDFcheckbox(BRDFCheckBox);
     connect (BRDFCheckBox, SIGNAL (toggled (bool)), param, SLOT (set_BRDFactive (bool)));
     paramLayout->addWidget (BRDFCheckBox);
+
+        /* Shadows, ombres */
 
     QCheckBox * ombresCheckBox = new QCheckBox ("Shadows", paramGroupBox);
     ombresCheckBox->setChecked(param->get_ombresactive());
@@ -203,7 +224,7 @@ void Window::initControlWidget () {
 
 
     QSlider * sliderProfTree = new QSlider(Qt::Horizontal, sliderBox );
-   // sliderProfTree->setLayout();
+    //sliderProfTree->setLayout();
     sliderProfTree->setValue(param->get_kdinitValue());
     sliderProfTree->setAccessibleDescription(QString("slider"));
     sliderProfTree->setTickPosition(QSlider::TicksAbove);
@@ -213,13 +234,15 @@ void Window::initControlWidget () {
 
     QSpinBox * minimumSpinBox = new QSpinBox();
     minimumSpinBox->setRange(param->get_kdBorneInf(),param->get_kdBorneSup());
-   minimumSpinBox->setValue(param->get_kdinitValue());
+    minimumSpinBox->setValue(param->get_kdinitValue());
     minimumSpinBox->setSingleStep(1);
     sliderLayout->addWidget(minimumSpinBox);
     paramLayout->addWidget (sliderBox);
     connect(sliderProfTree, SIGNAL(valueChanged(int)), minimumSpinBox, SLOT (setValue(int)));
     connect(minimumSpinBox, SIGNAL(valueChanged(int)), sliderProfTree, SLOT (setValue(int)));
-     connect(minimumSpinBox, SIGNAL(valueChanged(int)), param, SLOT (set_kdmaxdeep(int)));
+    connect(minimumSpinBox, SIGNAL(valueChanged(int)), param, SLOT (set_kdmaxdeep(int)));
+
+
     layout->addWidget (paramGroupBox);
 
     /* GLOBAL */

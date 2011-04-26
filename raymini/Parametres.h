@@ -12,6 +12,7 @@ class Parametres : public QObject {
 public:
     inline Parametres(QObject *parent = 0) : QObject(parent) {
         pix_grille =    1;
+        material_active = true;
         BRDF_active =   true;
         ombres_active = true;
         ombres_numa =   2;
@@ -30,6 +31,7 @@ public:
 
     inline int get_pixgrille() { return pix_grille; }
 
+    inline bool get_materialactive() { return material_active; }
     inline bool get_BRDFactive() { return BRDF_active; }
 
     inline bool get_ombresactive() { return ombres_active; }
@@ -66,6 +68,7 @@ public:
 public slots:
     inline void set_pixgrille(int pix_grille)       { this->pix_grille = pix_grille; }
 
+    inline void set_materialactive(bool material_active) { this->material_active = material_active; }
     inline void set_BRDFactive(bool BRDF_active)    { this->BRDF_active = BRDF_active; }
     inline void set_BRDFcheckbox(QCheckBox * BRDFCheckBox)  { this->BRDFCheckBox = BRDFCheckBox; }
 
@@ -90,7 +93,8 @@ public slots:
 private:
 //pixels
      int pix_grille;
-//BRDF
+//radiance
+     bool material_active;
      bool BRDF_active;
      QCheckBox * BRDFCheckBox;
 //ombres

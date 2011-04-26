@@ -177,7 +177,11 @@ void Ray::calcBRDF(Vertex & v,  Material & m, Vec3Df& color, kdnode * root){
     Vec3Df wi,wo,wn,wp, r;
     float brillance = 1;
     for(unsigned int i = 0; i<lights.size(); i++){
-        float lightprop;
+
+        Vec3Df material(1,1,1); //material
+        float BRDF = 1;  //BRDF
+        float lightprop = 1; //shadows
+
         Light light = lights.at(i);
         if(param->get_ombresactive()){
             Vertex isv; //inutile
@@ -195,20 +199,23 @@ void Ray::calcBRDF(Vertex & v,  Material & m, Vec3Df& color, kdnode * root){
                     lightprop--;
             }
             lightprop = lightprop/lightpoints.size();
-        } else {
-            lightprop = 1;
         }
 
-        // brillance = light.getIntensity(); //on récupère la brillance depuis la lumière.
-        wi = Vec3Df(light.getPos() - v.getPos());
-        //wi = Vec3Df(lights[i]. - mesh.V[mesh.T[i].v[j]].p);
-        wi.normalize();
-        wo = Vec3Df(getOrigin() - v.getPos());
-        wo.normalize();
-        wn = v.getNormal();
-        wp = v.getPos();
-        r = wn*Vec3Df::dotProduct(wi,wn)*2-wi;
-        color += (m.getColor()*(m.getDiffuse()*Vec3Df::dotProduct(wn,wi)+m.getSpecular()*pow(Vec3Df::dotProduct(r,wo),brillance)))*lightprop;
+        if(param->get_BRDFactive()){
+            // brillance = light.getIntensity(); //on récupère la brillance depuis la lumière.
+            wi = Vec3Df(light.getPos() - v.getPos());
+            //wi = Vec3Df(lights[i]. - mesh.V[mesh.T[i].v[j]].p);
+            wi.normalize();
+            wo = Vec3Df(getOrigin() - v.getPos());
+            wo.normalize();
+            wn = v.getNormal();
+            wp = v.getPos();
+            r = wn*Vec3Df::dotProduct(wi,wn)*2-wi;
+            BRDF = m.getDiffuse()*Vec3Df::dotProduct(wn,wi)+m.getSpecular()*pow(Vec3Df::dotProduct(r,wo),brillance);
+        }
+        if(param->get_materialactive()) material = m.getColor();
+
+        color += material*BRDF*lightprop;
     }
 }
 
@@ -305,10 +312,7 @@ Vec3Df Ray::calcul_radiance(kdnode * root){
     //s'il y a intersection, on retourne la radiance
     if(isbool){
         Vec3Df radiance;
-        if(param->get_BRDFactive()){
-
-            calcBRDF(isv, ism, radiance, root);
-        } else radiance = Vec3Df(1,1,1);
+        calcBRDF(isv, ism, radiance, root);
         if(param->get_amboccactive()){
             // std::cout << "Is AO ACTIVE "<< param->get_BRDFactive() << std::endl;
             //std::cout << "Scene Length " << Scene::getInstance()->getBoundingBox().getLength() << "ration Rayon "<< param->get_amboccrayon() << " * les 2 " << Scene::getInstance()->getBoundingBox().getLength()*param->get_amboccrayon() << std::endl;

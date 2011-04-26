@@ -25,7 +25,7 @@ void Scene::destroyInstance () {
 }
 
 Scene::Scene () {
-    buildDefaultScene (true);
+    buildDefaultScene (false);
     updateBoundingBox ();
 }
 
@@ -48,6 +48,9 @@ string getFileName(int num){
     case 1:
         out+="Apple.off";
         break;
+    case 2:
+        out+="triceratops.off";
+        break;
     default:
     out+="monkey.off";
 
@@ -59,9 +62,9 @@ string getFileName(int num){
 // Changer ce code pour créer des scènes originales
 void Scene::buildDefaultScene (bool HD) {
     Mesh groundMesh;
-    bool debug = true;
+    bool debug = false;
     if (debug){
-        groundMesh.loadOFF (getFileName(1));//"models/sphere.off");
+        groundMesh.loadOFF (getFileName(2));//"models/sphere.off");
         Material groundMat(0.735f,1.656f, Vec3Df (1.f, .795f, .504f));
     Object ground (groundMesh, groundMat);
     objects.push_back (ground);
@@ -78,7 +81,7 @@ void Scene::buildDefaultScene (bool HD) {
         ramMesh.loadOFF ("models/ram_HD.off");
     else
 //        ramMesh.loadOFF ("models/ram.off");
-    ramMesh.loadOFF ("models/monkey.off");
+    ramMesh.loadOFF (getFileName(3));
     //Material ramMat (1.f, 1.f, Vec3Df (1.f, .6f, .2f));
     Material ramMat(0.735f,1.656f, Vec3Df (1.f, .795f, .504f));
     Object ram (ramMesh, ramMat);

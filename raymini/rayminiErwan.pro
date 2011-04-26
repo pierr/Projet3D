@@ -14,7 +14,11 @@ HEADERS = Window.h \
           Light.h \
           Scene.h \
           RayTracer.h \
-          Ray.h
+          Ray.h \
+          kdtree.h \
+          kdnode.h \
+          kdleaf.h \
+Parametres.h
 
 SOURCES = Window.cpp \
           GLViewer.cpp \
@@ -26,15 +30,19 @@ SOURCES = Window.cpp \
           Material.cpp \
           Object.cpp \
           Light.cpp \
-          Scene.cpp \ 
+          Scene.cpp \
           RayTracer.cpp \
           Ray.cpp \
-          Main.cpp 
+          Main.cpp \
+          kdtree.cpp\
+          kdnode.cpp\
+          kdleaf.cpp
           
 DESTDIR = .
 
 QT_VERSION=$$[QT_VERSION]
-
+QMAKE_CXXFLAGS += -fopenmp
+QMAKE_LFLAGS += -fopenmp
 LIBS += -lqglviewer-qt4 
 
 

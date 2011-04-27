@@ -168,7 +168,8 @@ void Window::initControlWidget () {
 
     /* RAYS */
 
-    QGroupBox * raysGroupBox = new QGroupBox ("");
+    QWidget * raysGroupBox = new QGroupBox ("");
+
     QVBoxLayout * raysLayout = new QVBoxLayout (raysGroupBox);
 tab->addTab(raysGroupBox, "Rays");
     paramLayout->addWidget(tab);

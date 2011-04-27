@@ -15,6 +15,7 @@
 #else
 #	include <GL/glut.h>
 #endif
+
 using namespace std;
 
 void Mesh::clear () {
@@ -182,7 +183,7 @@ void Mesh::renderGL (bool flat) const {
     }
     glEnd ();
 }
-void Mesh::loadOFF (const std::string & filename, Vec3Df & translatedVector, float & grandissement){
+void Mesh::loadOFF (const std::string & filename, Vec3Df & translatedVector, float & grandissement, RotationMatrix & rotMat){
     clear ();
     ifstream input (filename.c_str ());
     if (!input)
@@ -197,6 +198,7 @@ void Mesh::loadOFF (const std::string & filename, Vec3Df & translatedVector, flo
         Vec3Df pos;
         Vec3Df col;
         input >> pos;
+        pos = rotMat*pos;
         pos = pos + translatedVector;
         pos = pos * grandissement;
         vertices.push_back (Vertex (pos, Vec3Df (1.0, 0.0, 0.0)));
@@ -216,5 +218,6 @@ void Mesh::loadOFF (const std::string & filename, Vec3Df & translatedVector, flo
 void Mesh::loadOFF (const std::string & filename) {
      Vec3Df zer;
      float z = 1.f;
-     loadOFF(filename, zer,z);
+     RotationMatrix rot(0.);
+     loadOFF(filename, zer,z, rot);
 }

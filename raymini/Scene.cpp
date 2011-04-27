@@ -66,6 +66,10 @@ string getFileName(int num){
     break;
     case 7:
         out+="THEIERE.OFF";
+    case 8:
+        out+="room.off";
+    case 9:
+        out+="CHERRY.OFF";
     break;
     /*camel_head.off   horse.off        squirrel.off
     CHERRY.OFF       double-torus.off max.off.off      tri.off
@@ -89,7 +93,7 @@ void Scene::buildDefaultScene (bool HD) {
 
     bool debug = false;
     if (debug){
-        groundMesh.loadOFF (getFileName(2));//"models/sphere.off");
+        groundMesh.loadOFF (getFileName(9));//"models/sphere.off");
         Material groundMat(0.735f,1.656f, Vec3Df (1.f, .795f, .504f));
     Object ground (groundMesh, groundMat);
     objects.push_back (ground);
@@ -97,7 +101,7 @@ void Scene::buildDefaultScene (bool HD) {
 
     /*Ici on récupère ou on défini les paramêtres de chaque objet*/
     //Param Shape
-    string fileNameShape = getFileName(2);//Nom du fichier à charger
+    string fileNameShape = getFileName(99);//Nom du fichier à charger
     Vec3Df transShape = Vec3Df (7.f, 5.795f, 5.504f);// de combien on le translate
     float grandShape = 1.f; // de combien on multiplie la forme
     //param Ground
@@ -105,11 +109,15 @@ void Scene::buildDefaultScene (bool HD) {
     Vec3Df transGround;//De combien on veut le translater
     float grandGround = 7.f; // de combien on multiplie le fond
 
+    //MatriceDe Rotation
+    RotationMatrix nulRot(0.);
+    RotationMatrix fortyRot(45.);
+    //std::cout << fortyRot << std::endl;
 
     if (HD)
-        groundMesh.loadOFF ("models/ground_HD.off", transGround, grandGround);
+        groundMesh.loadOFF ("models/ground_HD.off", transGround, grandGround ,nulRot);
     else
-        groundMesh.loadOFF (fileNameGround,transGround, grandGround);
+        groundMesh.loadOFF (fileNameGround,transGround, grandGround, nulRot);
     Material groundMat;
     Object ground (groundMesh, groundMat);    
     objects.push_back (ground);
@@ -117,23 +125,24 @@ void Scene::buildDefaultScene (bool HD) {
     if (HD)
         ramMesh.loadOFF ("models/ram_HD.off");
     else
-    ramMesh.loadOFF (fileNameShape, transShape,grandShape);
+    ramMesh.loadOFF (fileNameShape, transShape,grandShape, fortyRot);
     //Material ramMat (1.f, 1.f, Vec3Df (1.f, .6f, .2f));//old rammat
     Material ramMat(0.735f,1.656f, Vec3Df (1.f, .795f, .504f));
     Object ram (ramMesh, ramMat);
     objects.push_back (ram);
 
     Mesh theiere;
-    string fileTheiere = getFileName(7);
+    string fileTheiere = getFileName(9);
     Vec3Df transTheiere = Vec3Df (1.f, -1.795f, 1.504f);// de combien on le translate
     float grandTheiere = 0.1f; // de combien on multiplie la forme
-    theiere.loadOFF(fileTheiere, transTheiere, grandTheiere);
+    theiere.loadOFF(fileTheiere, transTheiere, grandTheiere, nulRot);
     Material theiMat(0.235f,0.656f, Vec3Df (119.f, 181.f, 254.f));
     Object theier(theiere,theiMat);
     objects.push_back(theier);
 
 }
 //    Light l (Vec3Df (3.0f, 3.0f, 3.0f), Vec3Df (1.0f, 1.0f, 1.0f), 1.0f);                                           // point
-    Light ldisk (Vec3Df (3.0f, 3.0f, 3.0f), Vec3Df (1.0f, 1.0f, 1.0f), Vec3Df(-1.0f, -1.0f, -1.0f), 0.5f, 1.0f);    // disque
+    Light ldisk (Vec3Df (3.0f, 3.0f, 3.0f), Vec3Df (1.0f, 1.0f, 1.0f), Vec3Df(-1.0f, -1.0f, -1.0f), 0.5f, 0.5f);    // disque
     lights.push_back (ldisk);
+    //Light ldisk2();
 }

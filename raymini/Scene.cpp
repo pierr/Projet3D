@@ -97,8 +97,8 @@ void Scene::buildDefaultScene (bool HD) {
 
     /*Ici on récupère ou on défini les paramêtres de chaque objet*/
     //Param Shape
-    string fileNameShape = getFileName(2);//Nom du fichier à charger
-    Vec3Df transShape = Vec3Df (7.f, 5.795f, 5.504f);// de combien on le translate
+    string fileNameShape = getFileName(6);//Nom du fichier à charger
+    Vec3Df transShape = Vec3Df (0.f, 2.f, 1.f);// de combien on le translate
     float grandShape = 1.f; // de combien on multiplie la forme
     //param Ground
     string fileNameGround = "models/ground.off";
@@ -124,16 +124,16 @@ void Scene::buildDefaultScene (bool HD) {
     objects.push_back (ram);
 
     Mesh theiere;
-    string fileTheiere = getFileName(7);
-    Vec3Df transTheiere = Vec3Df (1.f, -1.795f, 1.504f);// de combien on le translate
-    float grandTheiere = 0.1f; // de combien on multiplie la forme
+    string fileTheiere = getFileName(6);
+    Vec3Df transTheiere = Vec3Df (0.f, 0.f, 1.f);// de combien on le translate
+    float grandTheiere = 1.0f; // de combien on multiplie la forme
     theiere.loadOFF(fileTheiere, transTheiere, grandTheiere);
-    Material theiMat(0.235f,0.656f, Vec3Df (119.f, 181.f, 254.f));
+    Material theiMat(0.235f,0.656f, Vec3Df (0.5f, 0.f, .8f));
     Object theier(theiere,theiMat);
     objects.push_back(theier);
 
 }
-//    Light l (Vec3Df (3.0f, 3.0f, 3.0f), Vec3Df (1.0f, 1.0f, 1.0f), 1.0f);                                           // point
-    Light ldisk (Vec3Df (3.0f, 3.0f, 3.0f), Vec3Df (1.0f, 1.0f, 1.0f), Vec3Df(-1.0f, -1.0f, -1.0f), 0.5f, 1.0f);    // disque
-    lights.push_back (ldisk);
+    Light l (Vec3Df (3.0f, 1.0f, 3.0f), Vec3Df (1.0f, 1.0f, 1.0f), 1.0f);                                           // point
+//    Light ldisk (Vec3Df (3.0f, 3.0f, -10.0f), Vec3Df (1.0f, 1.0f, 1.0f), Vec3Df(-1.0f, -1.0f, -1.0f), 0.5f, 1.0f);    // disque
+    lights.push_back (l);
 }

@@ -198,7 +198,10 @@ void Mesh::loadOFF (const std::string & filename, Vec3Df & translatedVector, flo
         Vec3Df pos;
         Vec3Df col;
         input >> pos;
+        //cout << "Matrice "<< rotMat << endl;
+        //cout << "Pos ini " << pos ;
         pos = rotMat*pos;
+        //cout <<" pos finale " << pos  << endl;
         pos = pos + translatedVector;
         pos = pos * grandissement;
         vertices.push_back (Vertex (pos, Vec3Df (1.0, 0.0, 0.0)));
@@ -218,6 +221,6 @@ void Mesh::loadOFF (const std::string & filename, Vec3Df & translatedVector, flo
 void Mesh::loadOFF (const std::string & filename) {
      Vec3Df zer;
      float z = 1.f;
-     RotationMatrix rot(0.);
+     RotationMatrix rot(0., Matrix::Z);
      loadOFF(filename, zer,z, rot);
 }

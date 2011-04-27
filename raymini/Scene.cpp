@@ -8,6 +8,7 @@
 #include "Scene.h"
 #include <string>
 #include "Vec3D.h"
+#include "Matrix.h"
 using namespace std;
 
 static Scene * instance = NULL;
@@ -68,9 +69,13 @@ string getFileName(int num){
         out+="THEIERE.OFF";
     case 8:
         out+="room.off";
+        break;
     case 9:
         out+="CHERRY.OFF";
-    break;
+        break;
+    case 10:
+        out+="sphere.off";
+        break;
     /*camel_head.off   horse.off        squirrel.off
     CHERRY.OFF       double-torus.off max.off.off      tri.off
     DAUPHIN.OFF      double_ram.off   max_50K.off      triceratops.off
@@ -93,7 +98,7 @@ void Scene::buildDefaultScene (bool HD) {
 
     bool debug = false;
     if (debug){
-        groundMesh.loadOFF (getFileName(9));//"models/sphere.off");
+        groundMesh.loadOFF (getFileName(10));//"models/sphere.off");
         Material groundMat(0.735f,1.656f, Vec3Df (1.f, .795f, .504f));
     Object ground (groundMesh, groundMat);
     objects.push_back (ground);
@@ -101,7 +106,7 @@ void Scene::buildDefaultScene (bool HD) {
 
     /*Ici on récupère ou on défini les paramêtres de chaque objet*/
     //Param Shape
-    string fileNameShape = getFileName(99);//Nom du fichier à charger
+    string fileNameShape = getFileName(77);//Nom du fichier à charger
     Vec3Df transShape = Vec3Df (7.f, 5.795f, 5.504f);// de combien on le translate
     float grandShape = 1.f; // de combien on multiplie la forme
     //param Ground
@@ -110,8 +115,10 @@ void Scene::buildDefaultScene (bool HD) {
     float grandGround = 7.f; // de combien on multiplie le fond
 
     //MatriceDe Rotation
-    RotationMatrix nulRot(0.);
-    RotationMatrix fortyRot(45.);
+    //cout << "X" << endl;
+    RotationMatrix nulRot(0., Matrix::X);
+   // RotationMatrix fortyRot(45., Vec3Df(1.,1.,1.));//
+    RotationMatrix fortyRot(45., Matrix::Y);
     //std::cout << fortyRot << std::endl;
 
     if (HD)
@@ -136,7 +143,7 @@ void Scene::buildDefaultScene (bool HD) {
     Vec3Df transTheiere = Vec3Df (1.f, -1.795f, 1.504f);// de combien on le translate
     float grandTheiere = 0.1f; // de combien on multiplie la forme
     theiere.loadOFF(fileTheiere, transTheiere, grandTheiere, nulRot);
-    Material theiMat(0.235f,0.656f, Vec3Df (119.f, 181.f, 254.f));
+    Material theiMat(0.235f,0.656f, Vec3Df (119.f/255, 181.f/255, 254.f/255));
     Object theier(theiere,theiMat);
     objects.push_back(theier);
 

@@ -16,6 +16,13 @@ public:
         double matrix[4][4];
         //double** matrix;
         static int const dim = 4;
+        enum Axis
+           {
+              X,
+              Y,
+              Z,
+              Other
+           };
         /*
          * Constructeur qui initialise une matrice 4*4 nulle
          * */

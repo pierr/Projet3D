@@ -201,6 +201,7 @@ void Window::initControlWidget () {
         //active
         QCheckBox * ombresCheckBox = new QCheckBox ("Shadows", paramGroupBox);
         ombresCheckBox->setChecked(param->get_ombresactive());
+        param->set_ombrescheckbox(ombresCheckBox);
         connect (ombresCheckBox, SIGNAL (toggled (bool)), param, SLOT (set_ombresactive (bool)));
         shadowsLayout->addWidget (ombresCheckBox);
 

@@ -22,16 +22,13 @@ public:
         ambocc_theta =  90;
         ambocc_rayon =  0.05f;
         kd_propdeep =    0.05;
-
-        kd_done = -1; //kd to do
-        epsilon =       0.0001f;
-        kd_borneInf = 3;
-        kd_borneSup = 20;
-        kd_initValue = 8;
         path_active = true;
         path_nray = 20;
         path_theta = 10;
         path_rayon = 0.5;
+
+        kd_done = -1; //kd to do
+        epsilon =       0.0001f;
 
     }
     inline virtual ~Parametres() {}
@@ -74,11 +71,17 @@ public:
                    << std::endl;
     }
 public slots:
-    inline void set_pixgrille(int pix_grille)               { this->pix_grille = pix_grille; }
+    inline void set_pixgrille(int pix_grille)                   { this->pix_grille = pix_grille; }
 
-    inline void set_materialactive(bool material_active)    { this->material_active = material_active; }
-    inline void set_BRDFactive(bool BRDF_active)            { this->BRDF_active = BRDF_active; }
-    inline void set_BRDFcheckbox(QCheckBox * BRDFCheckBox)  { this->BRDFCheckBox = BRDFCheckBox; }
+    inline void set_materialactive(bool material_active)        { this->material_active = material_active; }
+    inline void set_BRDFactive(bool BRDF_active){
+        this->BRDF_active = BRDF_active;
+        if(ombres_active && !BRDF_active){
+            ombres_active = false;
+            ombresCheckBox->setChecked(false);
+        }
+    }
+    inline void set_BRDFcheckbox(QCheckBox * BRDFCheckBox)      { this->BRDFCheckBox = BRDFCheckBox; }
 
     inline void set_ombresactive(bool ombres_active){
         this->ombres_active = ombres_active;
@@ -86,18 +89,20 @@ public slots:
             BRDF_active = true;
             BRDFCheckBox->setChecked(true);
         }
-    }    inline void set_ombresnuma(int ombres_numa)        { this->ombres_numa = ombres_numa; }
-    inline void set_ombresnumr(int ombres_numr)             { this->ombres_numr = ombres_numr; }
+    }
+    inline void set_ombrescheckbox(QCheckBox * ombresCheckBox)  { this->ombresCheckBox = ombresCheckBox; }
+    inline void set_ombresnuma(int ombres_numa)                 { this->ombres_numa = ombres_numa; }
+    inline void set_ombresnumr(int ombres_numr)                 { this->ombres_numr = ombres_numr; }
 
-    inline void set_amboccactive(bool ambocc_active)        { this->ambocc_active = ambocc_active; }
-    inline void set_amboccnray(int ambocc_nray)             { this->ambocc_nray = ambocc_nray; }
-    inline void set_ambocctheta(double ambocc_theta)        { this->ambocc_theta = (float)ambocc_theta; }
-    inline void set_amboccrayon(double ambocc_rayon)        { this->ambocc_rayon = (float)ambocc_rayon; }
+    inline void set_amboccactive(bool ambocc_active)            { this->ambocc_active = ambocc_active; }
+    inline void set_amboccnray(int ambocc_nray)                 { this->ambocc_nray = ambocc_nray; }
+    inline void set_ambocctheta(double ambocc_theta)            { this->ambocc_theta = (float)ambocc_theta; }
+    inline void set_amboccrayon(double ambocc_rayon)            { this->ambocc_rayon = (float)ambocc_rayon; }
 
-    inline void set_kddone()                                { this->kd_done = this->kd_propdeep; }
-    inline void set_kdpropdeep(double kd_propdeep)          { this->kd_propdeep = (float)kd_propdeep; }
+    inline void set_kddone()                                    { this->kd_done = this->kd_propdeep; }
+    inline void set_kdpropdeep(double kd_propdeep)              { this->kd_propdeep = (float)kd_propdeep; }
 
-    inline void set_epsilon(float epsilon)                  { this->epsilon = epsilon; }
+    inline void set_epsilon(float epsilon)                      { this->epsilon = epsilon; }
 
 private:
 //rays
@@ -107,6 +112,7 @@ private:
      QCheckBox * BRDFCheckBox;
 //ombres
      bool ombres_active;
+     QCheckBox * ombresCheckBox;
      int ombres_numa;
      int ombres_numr;
 
@@ -119,11 +125,6 @@ private:
 //kdtree
      float kd_done; //pour voir si on doit refaire le kdtree
      float kd_propdeep;
-
-     int kd_maxdeep;
-     int kd_borneInf;
-     int kd_borneSup;
-     int kd_initValue;
 //pathtracing
      bool path_active;
      int path_nray;

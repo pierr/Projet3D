@@ -18,7 +18,9 @@ HEADERS = Window.h \
           kdtree.h \
           kdnode.h \
           kdleaf.h \
-Parametres.h
+          Matrix.h \
+          RotationMatrix.h  \
+          Parametres.h
 
 SOURCES = Window.cpp \
           GLViewer.cpp \
@@ -36,6 +38,8 @@ SOURCES = Window.cpp \
           Main.cpp \
           kdtree.cpp\
           kdnode.cpp\
+          Matrix.cpp\
+          RotationMatrix.cpp\
           kdleaf.cpp
           
 DESTDIR = .

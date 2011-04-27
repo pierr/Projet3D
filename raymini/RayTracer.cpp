@@ -60,7 +60,7 @@ QImage RayTracer::render (const Vec3Df & camPos,
     float pctstep = 0.01;
     float pct = -pctstep;
 
-#pragma omp parallel for
+ #pragma omp parallel for
     for (unsigned int i = 0; i < screenWidth; i++){
         for (unsigned int j = 0; j < screenHeight; j++) {
             float tanX = tan (fieldOfView);
@@ -76,7 +76,7 @@ QImage RayTracer::render (const Vec3Df & camPos,
                     //Si on choisit la méthode de rendu path tracing
                     if(param->get_pathactive()){
                         Material m();
-                        col+=255.f*ray.pathTracing(kdt->get_root(),1.0f,0);
+                        col+=255.f*ray.pathTracing(kdt->get_root(),1.0f,1);
                     } else {
                     //Sinon on applique les autres méthodes de rendu
                         col += 255.f*ray.calcul_radiance(kdt->get_root());

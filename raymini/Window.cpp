@@ -144,7 +144,7 @@ void Window::initControlWidget () {
     previewLayout->addWidget (wireframeCheckBox);
 
     QCheckBox * smoothCheckBox = new QCheckBox ("Smooth", previewGroupBox);
-    smoothCheckBox->setChecked(true);
+    smoothCheckBox->setChecked((bool)viewer->getRenderingMode());
     connect (smoothCheckBox, SIGNAL (toggled (bool)), viewer, SLOT (setRenderingMode (bool)));
     previewLayout->addWidget (smoothCheckBox);
 
@@ -154,19 +154,20 @@ void Window::initControlWidget () {
 
     layout->addWidget (previewGroupBox);
 
-    /* PARAMETRES */
 
+    /* PARAMETRES */
 
     param = new Parametres();
 
     QGroupBox * paramGroupBox = new QGroupBox ("Parameters", controlWidget);
     QVBoxLayout * paramLayout = new QVBoxLayout (paramGroupBox);
-
+    QTabWidget * paramTab = new QTabWidget(paramGroupBox);
 
     /* RAYS */
 
     QGroupBox * raysGroupBox = new QGroupBox ("Rays");
     QVBoxLayout * raysLayout = new QVBoxLayout (raysGroupBox);
+    paramTab->addTab(raysGroupBox, "Rays");
 
         //pix_grille
         QLabel * pixgrilleLabel = new QLabel("Rays per pixel");
@@ -176,6 +177,16 @@ void Window::initControlWidget () {
         pixgrilleSpinBox->setValue(param->get_pixgrille());
         connect (pixgrilleSpinBox, SIGNAL (valueChanged (int)), param, SLOT(set_pixgrille(int)));
         raysLayout->addWidget(pixgrilleSpinBox);
+
+        //brillance
+        QLabel * brillanceLabel = new QLabel("brillance");
+        raysLayout->addWidget(brillanceLabel);
+        QDoubleSpinBox * brillanceSpinBox = new QDoubleSpinBox();
+        brillanceSpinBox->setRange(1,100);
+        brillanceSpinBox->setSingleStep(0.1);
+        brillanceSpinBox->setValue(param->get_brillance());
+        connect (brillanceSpinBox, SIGNAL (valueChanged (double)), param, SLOT(set_brillance(double)));
+        raysLayout->addWidget(brillanceSpinBox);
 
         //material_active
         QCheckBox * materialCheckBox = new QCheckBox ("Material", paramGroupBox);
@@ -190,13 +201,12 @@ void Window::initControlWidget () {
         connect (BRDFCheckBox, SIGNAL (toggled (bool)), param, SLOT (set_BRDFactive (bool)));
         raysLayout->addWidget (BRDFCheckBox);
 
-    paramLayout->addWidget(raysGroupBox);
-
 
     /* SHADOWS, OMBRES */
 
     QGroupBox * shadowsGroupBox = new QGroupBox ("Shadows");
     QVBoxLayout * shadowsLayout = new QVBoxLayout (shadowsGroupBox);
+    paramTab->addTab(shadowsGroupBox, "Shadows");
 
         //active
         QCheckBox * ombresCheckBox = new QCheckBox ("Shadows", paramGroupBox);
@@ -221,13 +231,12 @@ void Window::initControlWidget () {
         connect (ombresnumrSpinBox, SIGNAL (valueChanged (int)), param, SLOT(set_ombresnumr(int)));
         shadowsLayout->addWidget(ombresnumrSpinBox);
 
-    paramLayout->addWidget(shadowsGroupBox);
-
 
     /* AMBOCC */
 
     QGroupBox * amboccGroupBox = new QGroupBox ("Ambient Occlusion");
     QVBoxLayout * amboccLayout = new QVBoxLayout (amboccGroupBox);
+    paramTab->addTab(amboccGroupBox, "Amb Occ");
 
         //active
         QCheckBox * amboccCheckBox = new QCheckBox ("Ambient Oclusion", paramGroupBox);
@@ -247,7 +256,7 @@ void Window::initControlWidget () {
         QLabel * amboccthetaLabel = new QLabel("angle du cone");
         amboccLayout->addWidget(amboccthetaLabel);
         QDoubleSpinBox * amboccthetaSpinBox = new QDoubleSpinBox();
-        amboccthetaSpinBox->setRange(0,180);
+        amboccthetaSpinBox->setRange(0,90);
         amboccthetaSpinBox->setValue(param->get_ambocctheta());
         connect (amboccthetaSpinBox, SIGNAL (valueChanged (double)), param, SLOT(set_ambocctheta(double)));
         amboccLayout->addWidget(amboccthetaSpinBox);
@@ -260,13 +269,12 @@ void Window::initControlWidget () {
         connect (amboccrayonSpinBox, SIGNAL (valueChanged (double)), param, SLOT(set_amboccrayon(double)));
         amboccLayout->addWidget(amboccrayonSpinBox);
 
-    paramLayout->addWidget(amboccGroupBox);
-
 
     /* KDTREE */
 
     QGroupBox * kdGroupBox = new QGroupBox ("kdTree");
     QVBoxLayout * kdLayout = new QVBoxLayout (kdGroupBox);
+    paramTab->addTab(kdGroupBox, "kdTree");
 
         //propdeep
         QLabel * kdpropdeepLabel = new QLabel("% of triangles per box");
@@ -278,9 +286,46 @@ void Window::initControlWidget () {
         connect (kdpropdeepSpinBox, SIGNAL (valueChanged (double)), param, SLOT(set_kdpropdeep(double)));
         kdLayout->addWidget(kdpropdeepSpinBox);
 
-    paramLayout->addWidget(kdGroupBox);
 
-    /* RAY */
+    /* PATH TRACING */
+
+    QGroupBox * pathGroupBox = new QGroupBox ("Path Tracing");
+    QVBoxLayout * pathLayout = new QVBoxLayout (pathGroupBox);
+    paramTab->addTab(pathGroupBox,"Path Tracing");
+
+        //active
+        QCheckBox * pathCheckBox = new QCheckBox ("Path Tracing", paramGroupBox);
+        pathCheckBox->setChecked(param->get_pathactive());
+        connect (pathCheckBox, SIGNAL (toggled (bool)), param, SLOT (set_pathactive (bool)));
+        pathLayout->addWidget (pathCheckBox);
+
+        //diff
+        QCheckBox * pathdiffCheckBox = new QCheckBox ("Diffuse reflect", paramGroupBox);
+        pathdiffCheckBox->setChecked(param->get_pathdiff());
+        connect (pathdiffCheckBox, SIGNAL (toggled (bool)), param, SLOT (set_pathdiff (bool)));
+        pathLayout->addWidget (pathdiffCheckBox);
+
+        //spec
+        QCheckBox * pathspecCheckBox = new QCheckBox ("Specular reflect", paramGroupBox);
+        pathspecCheckBox->setChecked(param->get_pathspec());
+        connect (pathspecCheckBox, SIGNAL (toggled (bool)), param, SLOT (set_pathspec (bool)));
+        pathLayout->addWidget (pathspecCheckBox);
+
+        //theta
+        QLabel * paththetaLabel = new QLabel("angle du cone");
+        pathLayout->addWidget(paththetaLabel);
+        QDoubleSpinBox * paththetaSpinBox = new QDoubleSpinBox();
+        paththetaSpinBox->setRange(0,90);
+        paththetaSpinBox->setSingleStep(1);
+        paththetaSpinBox->setValue(param->get_paththeta());
+        connect (paththetaSpinBox, SIGNAL (valueChanged (double)), param, SLOT(set_paththeta(double)));
+        pathLayout->addWidget(paththetaSpinBox);
+
+
+    paramLayout->addWidget(paramTab);
+    layout->addWidget(paramGroupBox);
+
+    /* RAY TRACING */
     
     QGroupBox * rayGroupBox = new QGroupBox ("Ray Tracing", controlWidget);
     QVBoxLayout * rayLayout = new QVBoxLayout (rayGroupBox);
@@ -293,21 +338,6 @@ void Window::initControlWidget () {
     rayLayout->addWidget (saveButton);
 
     layout->addWidget (rayGroupBox);
-
-    /* PATH TRACING */
-
-    QGroupBox * pathGroupBox = new QGroupBox ("Path Tracing");
-    QVBoxLayout * pathLayout = new QVBoxLayout (pathGroupBox);
-
-        //active
-        QCheckBox * pathCheckBox = new QCheckBox ("Path Tracing", paramGroupBox);
-        pathCheckBox->setChecked(param->get_pathactive());
-        connect (pathCheckBox, SIGNAL (toggled (bool)), param, SLOT (set_pathactive (bool)));
-        pathLayout->addWidget (pathCheckBox);
-
-    paramLayout->addWidget(pathGroupBox);
-
-    layout->addWidget(paramGroupBox);
 
     /* GLOBAL */
     

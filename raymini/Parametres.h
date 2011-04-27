@@ -14,23 +14,29 @@ class Parametres : public QObject {
 public:
     inline Parametres(QObject *parent = 0) : QObject(parent) {
         pix_grille =        1;
-        material_active =   false;
-        BRDF_active =       false;
+        material_active =   true;
+        BRDF_active =       true;
         brillance =         1;
+
         ombres_active =     false;
         ombres_numa =       2;
         ombres_numr =       2;
+
         ambocc_active =     false;
         ambocc_nray =       30;
         ambocc_theta =      90;
         ambocc_rayon =      0.05f;
+
         kd_propdeep =       0.05;
+
         path_active =       false;
-        path_theta =        60;
-        path_numrdiff =     2;
-        path_numrspec =     2;
-        path_pondmin =      0.001;
-        path_maxdeep =      10;
+        path_diff =         false;
+        path_spec =         false;
+        path_theta =        1;
+        path_numrdiff =     20;
+        path_numrspec =     1;
+        path_pondmin =      0.01;
+        path_maxdeep =      3;
 
         kd_done = -1; //kd to do
         epsilon =           0.0001f;
@@ -57,6 +63,8 @@ public:
     inline float get_kdpropdeep()                   { return kd_propdeep; }
 
     inline bool get_pathactive()                    { return path_active; }
+    inline bool get_pathdiff()                      { return path_diff; }
+    inline bool get_pathspec()                      { return path_spec; }
     inline float get_paththeta()                    { return path_theta; }
     inline int get_pathnumrdiff()                   { return path_numrdiff; }
     inline int get_pathnumrspec()                   { return path_numrspec; }
@@ -93,7 +101,7 @@ public slots:
         }
     }
     inline void set_BRDFcheckbox(QCheckBox * BRDFCheckBox)      { this->BRDFCheckBox = BRDFCheckBox; }
-    inline void set_brillance(float brillance)                  { this->brillance = brillance; }
+    inline void set_brillance(double brillance)                  { this->brillance = (float)brillance; }
 
     inline void set_ombresactive(bool ombres_active){
         this->ombres_active = ombres_active;
@@ -115,6 +123,9 @@ public slots:
     inline void set_kdpropdeep(double kd_propdeep)              { this->kd_propdeep = (float)kd_propdeep; }
 
     inline void set_pathactive(bool path_active)                { this->path_active = path_active; }
+    inline void set_pathdiff(bool path_diff)                    { this->path_diff = path_diff; }
+    inline void set_pathspec(bool path_spec)                    { this->path_spec = path_spec; }
+    inline void set_paththeta(double path_theta)                { this->path_theta = (float) path_theta; }
     inline void set_pathnumrdiff(int path_numrdiff)             { this->path_numrdiff = path_numrdiff; }
     inline void set_pathnumrspec(int path_numrspec)             { this->path_numrspec = path_numrspec; }
     inline void set_pathpondmin(float path_pondmin)             { this->path_pondmin = path_pondmin; }
@@ -146,6 +157,11 @@ private:
      float kd_propdeep;
 //pathtracing
      bool path_active;
+     QCheckBox * pathCheckBox;
+     bool path_diff;
+     QCheckBox * diffCheckBox;
+     bool path_spec;
+     QCheckBox * specCheckBox;
      float path_theta;
      int path_numrdiff;
      int path_numrspec;

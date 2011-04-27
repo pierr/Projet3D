@@ -20,7 +20,7 @@ static const GLuint OpenGLLightID[] = {GL_LIGHT0, GL_LIGHT1, GL_LIGHT2, GL_LIGHT
 
 GLViewer::GLViewer () : QGLViewer () {
     wireframe = false;
-    renderingMode = Smooth;
+    renderingMode = Flat;
 }
 
 GLViewer::~GLViewer () {

@@ -5,37 +5,44 @@
 #include <QCheckBox>
 #include <iostream>
 
+#define PI 3.141592
+
 using namespace std;
 
 class Parametres : public QObject {
     Q_OBJECT
 public:
     inline Parametres(QObject *parent = 0) : QObject(parent) {
-        pix_grille =    1;
-        material_active = true;
-        BRDF_active =   true;
-        ombres_active = true;
-        ombres_numa =   2;
-        ombres_numr =   2;
-        ambocc_active = true;
-        ambocc_nray =   30;
-        ambocc_theta =  90;
-        ambocc_rayon =  0.05f;
-        kd_propdeep =    0.05;
-        path_active = true;
-        path_nray = 20;
-        path_theta = 10;
-        path_rayon = 0.5;
+        pix_grille =        1;
+        material_active =   false;
+        BRDF_active =       false;
+        brillance =         1;
+        ombres_active =     false;
+        ombres_numa =       2;
+        ombres_numr =       2;
+        ambocc_active =     false;
+        ambocc_nray =       30;
+        ambocc_theta =      90;
+        ambocc_rayon =      0.05f;
+        kd_propdeep =       0.05;
+        path_active =       false;
+        path_theta =        60;
+        path_numrdiff =     2;
+        path_numrspec =     2;
+        path_pondmin =      0.001;
+        path_maxdeep =      10;
 
         kd_done = -1; //kd to do
-        epsilon =       0.0001f;
+        epsilon =           0.0001f;
 
     }
     inline virtual ~Parametres() {}
 
+    //get qu'on utilise sur le GUI
     inline int get_pixgrille()                      { return pix_grille; }
     inline bool get_materialactive()                { return material_active; }
     inline bool get_BRDFactive()                    { return BRDF_active; }
+    inline float get_brillance()                    { return brillance; }
 
     inline bool get_ombresactive()                  { return ombres_active; }
     inline int get_ombresnuma()                     { return ombres_numa; }
@@ -49,11 +56,15 @@ public:
     inline bool get_kddone()                        { return kd_done!=kd_propdeep; }
     inline float get_kdpropdeep()                   { return kd_propdeep; }
 
+    inline bool get_pathactive()                    { return path_active; }
+    inline float get_paththeta()                    { return path_theta; }
+    inline int get_pathnumrdiff()                   { return path_numrdiff; }
+    inline int get_pathnumrspec()                   { return path_numrspec; }
+    inline float get_pathpondmin()                  { return path_pondmin; }
+    inline float get_pathmaxdeep()                  { return path_maxdeep; }
+
+    //get internes
     inline float get_epsilon() { return epsilon; }
-    bool get_path_active(){return path_active;}
-    int get_pathnray(){return path_nray;}
-    float get_paththeta(){return path_theta;}
-    float get_pathrayon(){ return path_rayon;}
     inline void print(){
 
         std::cout  <<"AMBIANT OCCLUSION PARAMETERS "
@@ -82,6 +93,7 @@ public slots:
         }
     }
     inline void set_BRDFcheckbox(QCheckBox * BRDFCheckBox)      { this->BRDFCheckBox = BRDFCheckBox; }
+    inline void set_brillance(float brillance)                  { this->brillance = brillance; }
 
     inline void set_ombresactive(bool ombres_active){
         this->ombres_active = ombres_active;
@@ -102,6 +114,12 @@ public slots:
     inline void set_kddone()                                    { this->kd_done = this->kd_propdeep; }
     inline void set_kdpropdeep(double kd_propdeep)              { this->kd_propdeep = (float)kd_propdeep; }
 
+    inline void set_pathactive(bool path_active)                { this->path_active = path_active; }
+    inline void set_pathnumrdiff(int path_numrdiff)             { this->path_numrdiff = path_numrdiff; }
+    inline void set_pathnumrspec(int path_numrspec)             { this->path_numrspec = path_numrspec; }
+    inline void set_pathpondmin(float path_pondmin)             { this->path_pondmin = path_pondmin; }
+    inline void set_pathmaxdeep(int path_maxdeep)               { this->path_maxdeep = path_maxdeep; }
+
     inline void set_epsilon(float epsilon)                      { this->epsilon = epsilon; }
 
 private:
@@ -109,6 +127,7 @@ private:
     int pix_grille;
      bool material_active;
      bool BRDF_active;
+     float brillance;
      QCheckBox * BRDFCheckBox;
 //ombres
      bool ombres_active;
@@ -127,9 +146,11 @@ private:
      float kd_propdeep;
 //pathtracing
      bool path_active;
-     int path_nray;
      float path_theta;
-     float path_rayon;
+     int path_numrdiff;
+     int path_numrspec;
+     float path_pondmin;
+     int path_maxdeep;
 //autres
      float epsilon; //pour le ambocc et les ombres
 };

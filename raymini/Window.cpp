@@ -31,8 +31,8 @@
 #include <QPushButton>
 #include <QMessageBox>
 #include <QFileDialog>
-
 #include <QListWidget>
+#include <QScrollArea>
 
 #include "RayTracer.h"
 
@@ -132,8 +132,8 @@ void Window::about () {
 
 void Window::initControlWidget () {
     controlWidget = new QGroupBox ();
-    QVBoxLayout * layout = new QVBoxLayout (controlWidget);
-    
+    QVBoxLayout * layout = new QVBoxLayout(controlWidget);
+
     /* PREVIEW */
 
     QGroupBox * previewGroupBox = new QGroupBox ("Preview", controlWidget);
@@ -235,8 +235,6 @@ void Window::initControlWidget () {
         connect (amboccCheckBox, SIGNAL (toggled (bool)), param, SLOT (set_amboccactive (bool)));
         amboccLayout->addWidget (amboccCheckBox);
 
-        paramLayout->addWidget(shadowsGroupBox);
-
         //nray
         QLabel * amboccnrayLabel = new QLabel("nray");
         amboccLayout->addWidget(amboccnrayLabel);
@@ -249,6 +247,7 @@ void Window::initControlWidget () {
         QLabel * amboccthetaLabel = new QLabel("angle du cone");
         amboccLayout->addWidget(amboccthetaLabel);
         QDoubleSpinBox * amboccthetaSpinBox = new QDoubleSpinBox();
+        amboccthetaSpinBox->setRange(0,180);
         amboccthetaSpinBox->setValue(param->get_ambocctheta());
         connect (amboccthetaSpinBox, SIGNAL (valueChanged (double)), param, SLOT(set_ambocctheta(double)));
         amboccLayout->addWidget(amboccthetaSpinBox);
@@ -281,9 +280,6 @@ void Window::initControlWidget () {
 
     paramLayout->addWidget(kdGroupBox);
 
-    layout->addWidget(paramGroupBox);
-
-
     /* RAY */
     
     QGroupBox * rayGroupBox = new QGroupBox ("Ray Tracing", controlWidget);
@@ -297,6 +293,21 @@ void Window::initControlWidget () {
     rayLayout->addWidget (saveButton);
 
     layout->addWidget (rayGroupBox);
+
+    /* PATH TRACING */
+
+    QGroupBox * pathGroupBox = new QGroupBox ("Path Tracing");
+    QVBoxLayout * pathLayout = new QVBoxLayout (pathGroupBox);
+
+        //active
+        QCheckBox * pathCheckBox = new QCheckBox ("Path Tracing", paramGroupBox);
+        pathCheckBox->setChecked(param->get_pathactive());
+        connect (pathCheckBox, SIGNAL (toggled (bool)), param, SLOT (set_pathactive (bool)));
+        pathLayout->addWidget (pathCheckBox);
+
+    paramLayout->addWidget(pathGroupBox);
+
+    layout->addWidget(paramGroupBox);
 
     /* GLOBAL */
     
@@ -318,4 +329,5 @@ void Window::initControlWidget () {
     layout->addWidget (globalGroupBox);
 
     layout->addStretch (0);
+
 }

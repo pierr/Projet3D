@@ -87,7 +87,7 @@ void Scene::buildDefaultScene (bool HD) {
     Mesh groundMesh;
 
 
-    bool debug = true;
+    bool debug = false;
     if (debug){
         groundMesh.loadOFF (getFileName(2));//"models/sphere.off");
         Material groundMat(0.735f,1.656f, Vec3Df (1.f, .795f, .504f));
@@ -129,7 +129,7 @@ void Scene::buildDefaultScene (bool HD) {
     float grandTheiere = 0.1f; // de combien on multiplie la forme
     theiere.loadOFF(fileTheiere, transTheiere, grandTheiere);
     Material theiMat(0.235f,0.656f, Vec3Df (119.f, 181.f, 254.f));
-    Object theier(theiere,ramMat);
+    Object theier(theiere,theiMat);
     objects.push_back(theier);
 
 }

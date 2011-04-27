@@ -14,6 +14,7 @@
 #include "Vertex.h"
 #include "Triangle.h"
 #include "Edge.h"
+#include "RotationMatrix.h"
 
 class Mesh {
 public:
@@ -44,9 +45,9 @@ public:
     void markBorderEdges (EdgeMapIndex & edgeMap);
     
     void renderGL (bool flat) const;
-    
+
     void loadOFF (const std::string & filename);
-    void loadOFF (const std::string & filename, Vec3Df & translatedVector, float & grandissement);
+   void loadOFF (const std::string & filename, Vec3Df & translatedVector, float & grandissement, RotationMatrix & rotMat);
     class Exception {
     private: 
         std::string msg;

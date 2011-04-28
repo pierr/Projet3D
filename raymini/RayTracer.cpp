@@ -57,6 +57,9 @@ QImage RayTracer::render (const Vec3Df & camPos,
         param->set_kddone();
     }
 
+    //On affiche les paramêtres dans la console
+    param->print();
+
     float pctstep = 0.01;
     float pct = -pctstep;
 

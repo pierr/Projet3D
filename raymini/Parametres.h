@@ -75,18 +75,40 @@ public:
     inline float get_epsilon() { return epsilon; }
     inline void print(){
 
-        std::cout  <<"AMBIANT OCCLUSION PARAMETERS "
-                   << "ao active " << ambocc_active
-                   << " ao nRay " << ambocc_nray
-                   << " arayon "  << ambocc_rayon
-                   << " ao teta  " << ambocc_theta
+        std::cout  << "RAYS PARAMETERS " << std::endl
+                << "nombre de pixel par grille"<< pix_grille << std::endl
+                << "is Material " << material_active << std::endl
+                << "is BRDF " << BRDF_active << std::endl
+                << "briallance "<< brillance << std::endl
+
+
+                   <<"AMBIANT OCCLUSION PARAMETERS " << std::endl
+                   << "ao active " << ambocc_active << std::endl
+                   << "ao nRay " << ambocc_nray << std::endl
+                   << "ao rayon "  << ambocc_rayon << std::endl
+                   << "ao teta  " << ambocc_theta << std::endl
                    << std::endl
-                   << "nombre de pixel par grille"<< pix_grille << std::endl
-                   << " is BRDF " << BRDF_active << std::endl
-                   << " isOmbres "<< ombres_active << std::endl
-                   << "Ombres numA "  << ombres_numa << " Ombres numR" << ombres_numr <<  std::endl
+
+
+                   <<"OMBRES PARAMETERS "<< std::endl
+                   << "isOmbres "<< ombres_active << std::endl
+                   << "Ombres numA "  << ombres_numa << std::endl
+                   << "Ombres numR" << ombres_numr <<  std::endl
+
+                   << "KD TREE PARAMETERS" << std::endl
                    << "kD Tree prof max " << kd_propdeep <<  std::endl
-                   << " epsilon "<< epsilon
+                   << "KD done " << kd_done << std::endl
+                   << "epsilon "<< epsilon << std::endl
+                   << std::endl
+                   << "PATH TRACING PARAMETERS" << std::endl
+                   << "is Active "<< path_active << std::endl
+                   << "is diff coeff " << path_diff << std::endl
+                   << "is spec coeff "<<  path_spec << std::endl
+                   << "path teta cone" <<  path_theta << std::endl
+                   << "num Ray for diff" << path_numrdiff << std::endl
+                   << "num Ray for spec "<<  path_numrspec << std::endl
+                   << "pond minimal value (stop cdt)  "<< path_pondmin << std::endl
+                   << "path max deep" <<  path_maxdeep << std::endl
                    << std::endl;
     }
 public slots:

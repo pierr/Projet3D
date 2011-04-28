@@ -34,6 +34,8 @@ protected:
     
 private:
     void buildDefaultScene (bool HD);
+    void buildScene2buffleHD();
+    void loadLights(int type);
     std::vector<Object> objects;
     std::vector<Light> lights;
     BoundingBox bbox;

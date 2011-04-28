@@ -20,7 +20,7 @@ Matrix::Matrix(double valeur){
 	}
 }
 /*
- * Constrcteur qui crée une nouvelle matrice à partir d'une autre
+ * Constrcteur qui cree une nouvelle matrice a partir d'une autre
  * */
 Matrix::Matrix(const Matrix &source){
 	for(int i = 0 ; i < dim ; i++){
@@ -62,12 +62,12 @@ Matrix::Matrix(
  * Destructeur de matrice
  * */
 Matrix::~Matrix(){
-    //il n'y a rien à détruire
+    //il n'y a rien a detruire
 }
 /*
- * Méthode qui permet de changer une valeur dans la matrice
- * line -> numéro de la ligne
- * col -> numéro de la colonne
+ * Methode qui permet de changer une valeur dans la matrice
+ * line -> numero de la ligne
+ * col -> numero de la colonne
  * value -> la valeur
  * */
 void Matrix::setValue(int line, int col, double value){
@@ -118,14 +118,14 @@ Vec3Df  Matrix::operator*( Vec3Df &vec){
 }
 
 /*
- * On va redéfinir l'opérateur * de manière à faire un produit matriciel
+ * On va redefinir l'operateur * de maniere a faire un produit matriciel
  * */
 Matrix & Matrix::operator=(const Matrix &mat){
     new (this)Matrix(mat);
     return *this;
 }
 /*
- * On redéfini l'opérateur * avec un double pour qu'il multiplie chacun des coeffs
+ * On redefini l'operateur * avec un double pour qu'il multiplie chacun des coeffs
  * */
 Matrix & Matrix::operator*=(const double nb){
     for(int i =0 ; i<dim; i++){
@@ -136,7 +136,7 @@ Matrix & Matrix::operator*=(const double nb){
     return *this;
 }
 /*
- * Redéfinition de l'opérateur + de manière à faire une addition de matrice
+ * Redefinition de l'operateur + de maniere a faire une addition de matrice
  * */
 Matrix & Matrix::operator+=(const Matrix &mat){
     for(int i =0 ; i<dim; i++){
@@ -147,7 +147,7 @@ Matrix & Matrix::operator+=(const Matrix &mat){
     return *this;
 }
 /*
- * Redéfinition de l'opérateur - de manière * faire une soustraction de matrice
+ * Redefinition de l'operateur - de maniere * faire une soustraction de matrice
  * */
 Matrix & Matrix::operator-=(const Matrix &mat){
     for(int i =0 ; i<dim; i++){
@@ -158,7 +158,7 @@ Matrix & Matrix::operator-=(const Matrix &mat){
     return *this;
 }
 /*
- * On redéfini l'opérateur d'affichage de manière à bien afficher une matrice
+ * On redefini l'operateur d'affichage de maniere a bien afficher une matrice
  * */
 std::ostream & operator<<(std::ostream &os,const Matrix &mat){
     os << "{" << std::endl;
@@ -172,7 +172,7 @@ std::ostream & operator<<(std::ostream &os,const Matrix &mat){
     os << "}" << std::endl;
     return os;
 }
-/*Méthode qui permet d'avoir la dimension de la matrice qui est 4 ici*/
-int const Matrix::getDim(){
+/*Methode qui permet d'avoir la dimension de la matrice qui est 4 ici*/
+int Matrix::getDim(){
     return 4;
 }

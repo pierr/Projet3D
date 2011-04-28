@@ -192,7 +192,7 @@ void Ray::calcBRDF(Vertex & v,  Material & m, Vec3Df& color, kdnode * root){
             wn = v.getNormal();
             wp = v.getPos();
             r = wn*Vec3Df::dotProduct(wi,wn)*2-wi;
-            BRDF = m.getDiffuse()*Vec3Df::dotProduct(wn,wi)+m.getSpecular()*pow(Vec3Df::dotProduct(r,wo),param->get_brillance());
+            BRDF = m.getDiffuse()*Vec3Df::dotProduct(wn,wi)+m.getSpecular()*pow(abs(Vec3Df::dotProduct(r,wo)),param->get_brillance());
         }
         if(param->get_ombresactive()){
             Vertex isv; //inutile

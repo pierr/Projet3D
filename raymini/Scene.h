@@ -36,6 +36,7 @@ private:
     void buildDefaultScene (bool HD);
     void buildScene2buffleHD();
     void buildSceneManyCircles();
+    void buildSceneSpheres();
     void buildGroundWall();
     void loadLights(int type);
     std::vector<Object> objects;

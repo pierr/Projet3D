@@ -452,7 +452,7 @@ Vec3Df Ray::pathTracing(kdnode * root, float ponderation, int num){
                     Vec3Df pertVect = perturbateVector(wi, theta);
                     Ray rlight(isv.getPos()+wi*param->get_epsilon(), pertVect, this->bgColor, param);
                     Vec3Df r = wn*Vec3Df::dotProduct(wi,wn)*2-wi;
-                    pond = pow(Vec3Df::dotProduct(r,wo),param->get_brillance());
+                    pond = pow(abs(Vec3Df::dotProduct(r,wo)),param->get_brillance());
                     rad_speculaire += pond*rlight.pathTracing(root, ponderation*pond, num+1)*pow(Vec3Df::dotProduct(r,-direction),param->get_brillance());
                     sumponderations += pond;
                 }
@@ -468,7 +468,7 @@ Vec3Df Ray::pathTracing(kdnode * root, float ponderation, int num){
                     wn = isv.getNormal();
                     wp = isv.getPos();
                     r = wn*Vec3Df::dotProduct(wi,wn)*2-wi;
-                    pond = pow(Vec3Df::dotProduct(r,wo),param->get_brillance());
+                    pond = pow(abs(Vec3Df::dotProduct(r,wo)),param->get_brillance());
                     rad_speculaire = pond*light.getColor();
                     sumponderations += pond;
                 }

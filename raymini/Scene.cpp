@@ -27,7 +27,7 @@ void Scene::destroyInstance () {
 }
 
 Scene::Scene () {
-    buildDefaultScene (false);
+    buildSceneSpheres();
     updateBoundingBox ();
 }
 
@@ -96,7 +96,7 @@ void Scene::buildDefaultScene (bool HD) {
     Mesh groundMesh;
 
 
-    bool debug = true;
+    bool debug = false;
     if (debug){
         buildScene2buffleHD();
     }else{
@@ -186,6 +186,43 @@ void Scene::buildScene2buffleHD(){
 
     loadLights(0);
 }
+void Scene::buildSceneSpheres() {
+    Mesh groundMesh;
+    RotationMatrix nulRot(0., Matrix::X);
+
+    /*Ici on récupère ou on défini les paramêtres de chaque objet*/
+    //Param Shape
+    string fileNameShape = getFileName(Object::sphere);//Nom du fichier à charger
+    Vec3Df transShape = Vec3Df (0.f, 2.f, 1.f);// de combien on le translate
+    float grandShape = 1.f; // de combien on multiplie la forme
+    //param Ground
+    string fileNameGround = "models/ground.off";
+    Vec3Df transGround;//De combien on veut le translater
+    float grandGround = 7.f; // de combien on multiplie le fond
+
+
+    groundMesh.loadOFF(fileNameGround,transGround, grandGround,nulRot);
+    Material groundMat;
+    Object ground (groundMesh, groundMat);
+    objects.push_back (ground);
+    Mesh ramMesh;
+
+    ramMesh.loadOFF (fileNameShape, transShape,grandShape,nulRot);
+    //Material ramMat (1.f, 1.f, Vec3Df (1.f, .6f, .2f));//old rammat
+    Material ramMat(0.735f,1.656f, Vec3Df (1.f, .795f, .504f));
+    Object ram (ramMesh, ramMat);
+    objects.push_back (ram);
+
+    Mesh theiere;
+    string fileTheiere = getFileName(Object::sphere);
+    Vec3Df transTheiere = Vec3Df (0.f, 0.f, 1.f);// de combien on le translate
+    float grandTheiere = 1.0f; // de combien on multiplie la forme
+    theiere.loadOFF(fileTheiere, transTheiere, grandTheiere, nulRot);
+    Material theiMat(0.235f,0.656f, Vec3Df (0.5f, 0.f, .8f));
+    Object theier(theiere,theiMat);
+    objects.push_back(theier);
+}
+
 void Scene::loadLights(int type){
     Light l (Vec3Df (3.0f, 1.0f, 3.0f), Vec3Df (1.0f, 1.0f, 1.0f), 1.0f);
     Light ldisk (Vec3Df (3.0f, 3.0f, -10.0f), Vec3Df (1.0f, 1.0f, 1.0f), Vec3Df(-1.0f, -1.0f, -1.0f), 0.5f, 1.0f);

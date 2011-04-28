@@ -192,7 +192,11 @@ void Ray::calcBRDF(Vertex & v,  Material & m, Vec3Df& color, kdnode * root){
             wn = v.getNormal();
             wp = v.getPos();
             r = wn*Vec3Df::dotProduct(wi,wn)*2-wi;
-            BRDF = m.getDiffuse()*Vec3Df::dotProduct(wn,wi)+m.getSpecular()*pow(abs(Vec3Df::dotProduct(r,wo)),param->get_brillance());
+            BRDF = 0;
+            if(param->get_diffactive())
+                BRDF += m.getDiffuse()*Vec3Df::dotProduct(wn,wi);
+            if(param->get_specactive())
+                BRDF += m.getSpecular()*pow(abs(Vec3Df::dotProduct(r,wo)),param->get_brillance());
         }
         if(param->get_ombresactive()){
             Vertex isv; //inutile
@@ -391,7 +395,7 @@ Vec3Df Ray::pathTracing(kdnode * root, float ponderation, int num){
         if(param->get_materialactive())
             radiance *= ism.getColor();
 
-        if(param->get_pathdiff()){
+        if(param->get_diffactive()){
             Vec3Df rad_diffuse;
 
             //DIFFUSE. initialisation
@@ -432,7 +436,7 @@ Vec3Df Ray::pathTracing(kdnode * root, float ponderation, int num){
             radiance *= rad_diffuse;
         }
 
-        if(param->get_pathspec()){
+        if(param->get_specactive()){
         //SPECULAIRE. initialisation
             Vec3Df rad_speculaire;
             sumponderations=0;

@@ -60,7 +60,9 @@ public:
         room,
         bunny2,
         horse,
-        room_f
+        room_f,
+        coloredGlass,
+        opened_cube
     };
 private:
     Mesh mesh;

@@ -28,6 +28,7 @@ public:
     
     inline const BoundingBox & getBoundingBox () const { return bbox; }
     void updateBoundingBox ();
+
 protected:
     Scene ();
     virtual ~Scene ();
@@ -37,6 +38,8 @@ private:
     void buildScene2buffleHD();
     void buildSceneManyCircles();
     void buildGroundWall();
+    void buildNormalGround();
+    void simpleScene();
     void loadLights(int type);
     std::vector<Object> objects;
     std::vector<Light> lights;

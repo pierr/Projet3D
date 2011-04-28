@@ -48,9 +48,8 @@ public:
     */
     bool kd_intersect(kdnode * root, Vertex & isv, Material & ism, float & mindist);
 
-    Vec3Df calcul_radiance( kdnode * root);
+    Vec3Df calcul_radiance( kdnode * root, int num);
     float calcAmbOcclusion(kdnode * root, Vertex & v, float rayonSphere, float theta);
-    Vec3Df pathTracing( kdnode * root, float ponderation, int num);
 private:
     Vec3Df origin;
     Vec3Df direction;

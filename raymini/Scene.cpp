@@ -29,8 +29,8 @@ void Scene::destroyInstance () {
 Scene::Scene () {
    // buildDefaultScene (false);
   //buildScene2buffleHD();
- // buildSceneSpheres();
-   buildSceneManyCircles();
+  buildSceneSpheres();
+//   buildSceneManyCircles();
     // simpleScene();
 //buildNormalGround();
     updateBoundingBox ();

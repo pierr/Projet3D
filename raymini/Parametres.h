@@ -32,11 +32,9 @@ public:
         kd_propdeep =       0.05;
 
         path_active =       false;
-        path_theta =        1;
-        path_numrdiff =     1;
-        path_numrspec =     1;
-        path_pondmin =      0.01;
-        path_maxdeep =      1;
+        path_theta =        8;
+        path_nray =         1;
+        path_maxdeep =      2;
 
         kd_done = -1; //kd to do
         epsilon =           0.0001f;
@@ -66,9 +64,7 @@ public:
 
     inline bool get_pathactive()                    { return path_active; }
     inline float get_paththeta()                    { return path_theta; }
-    inline int get_pathnumrdiff()                   { return path_numrdiff; }
-    inline int get_pathnumrspec()                   { return path_numrspec; }
-    inline float get_pathpondmin()                  { return path_pondmin; }
+    inline int get_pathnray()                       { return path_nray; }
     inline float get_pathmaxdeep()                  { return path_maxdeep; }
 
     //get internes
@@ -105,9 +101,7 @@ public:
                    //<< "is diff coeff " << path_diff << std::endl
                    //<< "is spec coeff "<<  path_spec << std::endl
                    << "path teta cone" <<  path_theta << std::endl
-                   << "num Ray for diff" << path_numrdiff << std::endl
-                   << "num Ray for spec "<<  path_numrspec << std::endl
-                   << "pond minimal value (stop cdt)  "<< path_pondmin << std::endl
+                   << "num Ray" << path_nray << std::endl
                    << "path max deep" <<  path_maxdeep << std::endl
                    << std::endl;
     }
@@ -150,9 +144,7 @@ public slots:
 
     inline void set_pathactive(bool path_active)                { this->path_active = path_active; }
     inline void set_paththeta(double path_theta)                { this->path_theta = (float) path_theta; }
-    inline void set_pathnumrdiff(int path_numrdiff)             { this->path_numrdiff = path_numrdiff; }
-    inline void set_pathnumrspec(int path_numrspec)             { this->path_numrspec = path_numrspec; }
-    inline void set_pathpondmin(double path_pondmin)             { this->path_pondmin = (float)     path_pondmin; }
+    inline void set_pathnray(int path_nray)                     { this->path_nray = path_nray; }
     inline void set_pathmaxdeep(int path_maxdeep)               { this->path_maxdeep = path_maxdeep; }
 
     inline void set_epsilon(float epsilon)                      { this->epsilon = epsilon; }
@@ -186,10 +178,8 @@ private:
 //pathtracing
      bool path_active;
      QCheckBox * pathCheckBox;
+     int path_nray;
      float path_theta;
-     int path_numrdiff;
-     int path_numrspec;
-     float path_pondmin;
      int path_maxdeep;
 //autres
      float epsilon; //pour le ambocc et les ombres

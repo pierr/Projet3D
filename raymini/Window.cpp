@@ -321,31 +321,13 @@ void Window::initControlWidget () {
         connect (paththetaSpinBox, SIGNAL (valueChanged (double)), param, SLOT(set_paththeta(double)));
         pathLayout->addWidget(paththetaSpinBox);
 
-        //numrdiff
-        QLabel * pathnumrdiffLabel = new QLabel("nb rays diffuse");
-        pathLayout->addWidget(pathnumrdiffLabel);
-        QSpinBox * pathnumrdiffSpinBox = new QSpinBox();
-        pathnumrdiffSpinBox->setValue(param->get_pathnumrdiff());
-        connect (pathnumrdiffSpinBox, SIGNAL (valueChanged (int)), param, SLOT(set_pathnumrdiff(int)));
-        pathLayout->addWidget(pathnumrdiffSpinBox);
-
-        //numrspec
-        QLabel * pathnumrspecLabel = new QLabel("nb rays specular");
-        pathLayout->addWidget(pathnumrspecLabel);
-        QSpinBox * pathnumrspecSpinBox = new QSpinBox();
-        pathnumrspecSpinBox->setValue(param->get_pathnumrspec());
-        connect (pathnumrspecSpinBox, SIGNAL (valueChanged (int)), param, SLOT(set_pathnumrspec(int)));
-        pathLayout->addWidget(pathnumrspecSpinBox);
-
-        //pondmin
-        QLabel * pathpondminLabel = new QLabel("ponderation minimale");
-        pathLayout->addWidget(pathpondminLabel);
-        QDoubleSpinBox * pathpondminSpinBox = new QDoubleSpinBox();
-        pathpondminSpinBox->setRange(0,1);
-        pathpondminSpinBox->setSingleStep(0.001);
-        pathpondminSpinBox->setValue(param->get_pathpondmin());
-        connect (pathpondminSpinBox, SIGNAL (valueChanged (double)), param, SLOT(set_pathpondmin(double)));
-        pathLayout->addWidget(pathpondminSpinBox);
+        //nray
+        QLabel * pathnrayLabel = new QLabel("nb rays par rebondissement");
+        pathLayout->addWidget(pathnrayLabel);
+        QSpinBox * pathnraySpinBox = new QSpinBox();
+        pathnraySpinBox->setValue(param->get_pathnray());
+        connect (pathnraySpinBox, SIGNAL (valueChanged (int)), param, SLOT(set_pathnray(int)));
+        pathLayout->addWidget(pathnraySpinBox);
 
         //maxdeep
         QLabel * pathmaxdeepLabel = new QLabel("max reflexions");

@@ -12,7 +12,7 @@
 #include <cmath>
 using namespace std;
 
-Vec3Df perturbateVector(const Vec3Df & originVecor, float  & theta);
+Vec3Df perturbateVector(const Vec3Df & originVecor, float theta);
 
 static const unsigned int NUMDIM = 3, RIGHT = 0, LEFT = 1, MIDDLE = 2;
 Ray::Ray (const Vec3Df & origin, const Vec3Df & direction, const Vec3Df & bgColor, Parametres * param) {
@@ -224,7 +224,8 @@ void Ray::calcBRDF(Vertex & v,  Material & m, Vec3Df& color, kdnode * root){
             ambocc = calcAmbOcclusion(root,v,Scene::getInstance()->getBoundingBox().getLength()*param->get_amboccrayon(), param->get_ambocctheta());
         }
 
-        color = material*BRDFradiance*lightprop*ambocc;
+        //pour chaque lumiere on somme
+        color += material*BRDFradiance*lightprop*ambocc;
     }
 }
 
@@ -310,19 +311,33 @@ bool Ray::kd_intersect(kdnode * root, Vertex & rootisv, Material & rootism, floa
     }
 }
 
-Vec3Df Ray::calcul_radiance(kdnode * root){
-    bool isbool;
+Vec3Df Ray::calcul_radiance(kdnode * root, int num){
     Material ism;
     Vertex isv;
-    //on regarde le triangle d'intersection plus proche
     float dist; //inutile
-    isbool = kd_intersect(root, isv, ism, dist);
 
     //s'il y a intersection, on retourne la radiance
-    if(isbool){
+    if(kd_intersect(root, isv, ism, dist)){
         Vec3Df radiance;
+
+        //RAY TRACING
         calcBRDF(isv, ism, radiance, root);
+
+        //PATH TRACING
+        if(param->get_pathactive() && num<param->get_pathmaxdeep()){
+            Vec3Df rad_rayons;
+            for(int i=0; i<param->get_pathnray(); i++){
+                //aleatoires, direction proche a la normale
+                Vec3Df pertVect = perturbateVector(isv.getNormal(), param->get_paththeta());
+                Ray rlight(isv.getPos()+pertVect*param->get_epsilon(), pertVect, this->bgColor, param);
+                rad_rayons += rlight.calcul_radiance(root, num+1);
+            }
+            rad_rayons = rad_rayons/param->get_pathnray();
+
+            radiance += rad_rayons;
+        }
         return radiance;
+    //sinon le fonds d'ecran
     } else {
         return bgColor/255.f;
     }
@@ -354,7 +369,7 @@ float Ray::calcAmbOcclusion(kdnode * root, Vertex & v, float rayonSphere, float 
     return ( -ratioIntersection +(float) param->get_amboccnray())/param->get_amboccnray();
 }
 
-Vec3Df perturbateVector(const Vec3Df & originVecor, float  & theta){
+Vec3Df perturbateVector(const Vec3Df & originVecor, float theta){
   float pi = 3.14;
   float thetaRad = pi*theta/180;
   //originVecor.normalize();
@@ -376,107 +391,4 @@ Vec3Df perturbateVector(const Vec3Df & originVecor, float  & theta){
   Vec3Df perturbated = basis1 * x + basis2 * y + originVecor * z;
   //Debug to see the perturbated Vector
 return perturbated;
-}
-
-Vec3Df Ray::pathTracing(kdnode * root, float ponderation, int num){
-
-    Material ism;
-    Vertex isv;
-    float dist;
-
-    //si le rayon intersectionne
-    if(kd_intersect(root, isv,ism,dist)){
-        Vec3Df radiance(0,0,0);
-
-        Scene* scene = Scene::getInstance();
-        std::vector<Light> lights = scene->getLights();
-        float theta = param->get_paththeta();
-        float sumponderations;
-        float pond;
-        Vec3Df wi,wo,wn,wp, r;
-
-        if(param->get_diffactive()){
-            Vec3Df rad_diffuse(1,1,1);
-            //DIFFUSE. initialisation
-            sumponderations = 0;
-            wn = isv.getNormal();
-            wn.normalize();
-            //DIFFUSE. on calcule le brdf pour les light
-            for(unsigned int i = 0; i<lights.size(); i++){
-                Light light = lights.at(i);
-                wi = Vec3Df(light.getPos() - isv.getPos());
-                wi.normalize();
-                rad_diffuse *= light.getColor()*ism.getDiffuse()*abs(Vec3Df::dotProduct(wn,wi));
-            }
-            //DIFFUSE. on lance plusieurs rayons.
-            //si le coef de ponderation n'est pas trop petit on lance des nouveaux rayons
-            if(ponderation>param->get_pathpondmin() && num<param->get_pathmaxdeep()){
-                Vec3Df rad_raydiffuse(1,1,1);
-                for(int i=0; i<param->get_pathnumrdiff(); i++){
-                    //aleatoires, direction proche a la normale
-                    Vec3Df pertVect = perturbateVector(wn, theta);
-                    Ray rlight(isv.getPos()+pertVect*param->get_epsilon(), pertVect, this->bgColor, param);
-                    pond = abs(Vec3Df::dotProduct(rlight.getDirection(),wn));
-                    rad_raydiffuse += pond*rlight.pathTracing(root, ponderation*pond, num+1);
-                    sumponderations += pond;
-                }
-                if(sumponderations==0)
-                    sumponderations = 1;
-                rad_raydiffuse = ism.getDiffuse()*rad_raydiffuse/sumponderations;
-                rad_diffuse *= rad_raydiffuse;
-            }
-            //SPECULAR. on ajoute le resultat
-            radiance += rad_diffuse;
-        }
-
-        if(param->get_specactive()){
-            //m.getSpecular()*pow(abs(Vec3Df::dotProduct(r,wo)),param->get_brillance())
-            Vec3Df rad_specular(1,1,1);
-            //SPECULAR. initialisation
-            sumponderations = 0;
-            wn = isv.getNormal();
-            wn.normalize();
-            //SPECULAR. on calcule le brdf pour les light
-            for(unsigned int i = 0; i<lights.size(); i++){
-                Light light = lights.at(i);
-                wi = Vec3Df(light.getPos() - isv.getPos());
-                wi.normalize();
-                wo = -direction;
-                wo.normalize();
-                wn = isv.getNormal();
-                r = wn*abs(Vec3Df::dotProduct(wi,wn))*2-wi;
-                rad_specular *= light.getColor()*ism.getSpecular()*pow(abs(Vec3Df::dotProduct(r,wo)),param->get_brillance());
-
-            }
-
-            //SPECULAR. on lance plusieurs rayons.
-            //si le coef de ponderation n'est pas trop petit on lance des nouveaux rayons
-            if(ponderation>param->get_pathpondmin() && num<param->get_pathmaxdeep()){
-                Vec3Df rad_rayspecular(1,1,1);
-                for(int i=0; i<param->get_pathnumrspec(); i++){
-                    //aleatoires, direction proche a la normale
-                    Vec3Df pertVect = perturbateVector(wn, theta);
-                    Ray rlight(isv.getPos()+pertVect*param->get_epsilon(), pertVect, this->bgColor, param);
-                    pond = abs(Vec3Df::dotProduct(rlight.getDirection(),wn));
-                    rad_rayspecular += pond*rlight.pathTracing(root, ponderation*pond, num+1);
-                    sumponderations += pond;
-                }
-                if(sumponderations==0)
-                    sumponderations = 1;
-                rad_rayspecular = ism.getSpecular()*rad_rayspecular/sumponderations;
-                rad_specular *= rad_rayspecular;
-            }
-            //SPECULAR. on ajoute le resultat
-            radiance += rad_specular;
-        }
-
-        //MATERIAL
-        if(param->get_materialactive())
-            radiance *= ism.getColor();
-
-
-        return radiance;
-    }
-    //si non intersection il retourne le background
-    return bgColor;
 }

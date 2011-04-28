@@ -33,10 +33,10 @@ public:
 
         path_active =       false;
         path_theta =        1;
-        path_numrdiff =     20;
+        path_numrdiff =     1;
         path_numrspec =     1;
         path_pondmin =      0.01;
-        path_maxdeep =      3;
+        path_maxdeep =      1;
 
         kd_done = -1; //kd to do
         epsilon =           0.0001f;

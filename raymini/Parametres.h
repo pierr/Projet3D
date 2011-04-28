@@ -16,6 +16,8 @@ public:
         pix_grille =        1;
         material_active =   true;
         BRDF_active =       true;
+        diff_active =       true;
+        spec_active =       true;
         brillance =         1;
 
         ombres_active =     false;
@@ -30,8 +32,6 @@ public:
         kd_propdeep =       0.05;
 
         path_active =       false;
-        path_diff =         false;
-        path_spec =         false;
         path_theta =        1;
         path_numrdiff =     20;
         path_numrspec =     1;
@@ -48,6 +48,8 @@ public:
     inline int get_pixgrille()                      { return pix_grille; }
     inline bool get_materialactive()                { return material_active; }
     inline bool get_BRDFactive()                    { return BRDF_active; }
+    inline bool get_diffactive()                    { return diff_active; }
+    inline bool get_specactive()                    { return spec_active; }
     inline float get_brillance()                    { return brillance; }
 
     inline bool get_ombresactive()                  { return ombres_active; }
@@ -63,8 +65,6 @@ public:
     inline float get_kdpropdeep()                   { return kd_propdeep; }
 
     inline bool get_pathactive()                    { return path_active; }
-    inline bool get_pathdiff()                      { return path_diff; }
-    inline bool get_pathspec()                      { return path_spec; }
     inline float get_paththeta()                    { return path_theta; }
     inline int get_pathnumrdiff()                   { return path_numrdiff; }
     inline int get_pathnumrspec()                   { return path_numrspec; }
@@ -101,6 +101,10 @@ public slots:
         }
     }
     inline void set_BRDFcheckbox(QCheckBox * BRDFCheckBox)      { this->BRDFCheckBox = BRDFCheckBox; }
+    inline void set_diffactive(bool diff_active)                { this->diff_active = diff_active; }
+    inline void set_diffcheckbox(QCheckBox * diffCheckBox)      { this->diffCheckBox = diffCheckBox; }
+    inline void set_specactive(bool spec_active)                { this->spec_active = spec_active; }
+    inline void set_speccheckbox(QCheckBox * specCheckBox)      { this->specCheckBox = specCheckBox; }
     inline void set_brillance(double brillance)                  { this->brillance = (float)brillance; }
 
     inline void set_ombresactive(bool ombres_active){
@@ -123,12 +127,10 @@ public slots:
     inline void set_kdpropdeep(double kd_propdeep)              { this->kd_propdeep = (float)kd_propdeep; }
 
     inline void set_pathactive(bool path_active)                { this->path_active = path_active; }
-    inline void set_pathdiff(bool path_diff)                    { this->path_diff = path_diff; }
-    inline void set_pathspec(bool path_spec)                    { this->path_spec = path_spec; }
     inline void set_paththeta(double path_theta)                { this->path_theta = (float) path_theta; }
     inline void set_pathnumrdiff(int path_numrdiff)             { this->path_numrdiff = path_numrdiff; }
     inline void set_pathnumrspec(int path_numrspec)             { this->path_numrspec = path_numrspec; }
-    inline void set_pathpondmin(float path_pondmin)             { this->path_pondmin = path_pondmin; }
+    inline void set_pathpondmin(double path_pondmin)             { this->path_pondmin = (float)     path_pondmin; }
     inline void set_pathmaxdeep(int path_maxdeep)               { this->path_maxdeep = path_maxdeep; }
 
     inline void set_epsilon(float epsilon)                      { this->epsilon = epsilon; }
@@ -136,10 +138,14 @@ public slots:
 private:
 //rays
     int pix_grille;
+    float brillance;
      bool material_active;
      bool BRDF_active;
-     float brillance;
      QCheckBox * BRDFCheckBox;
+     bool diff_active;
+     QCheckBox * diffCheckBox;
+     bool spec_active;
+     QCheckBox * specCheckBox;
 //ombres
      bool ombres_active;
      QCheckBox * ombresCheckBox;
@@ -158,10 +164,6 @@ private:
 //pathtracing
      bool path_active;
      QCheckBox * pathCheckBox;
-     bool path_diff;
-     QCheckBox * diffCheckBox;
-     bool path_spec;
-     QCheckBox * specCheckBox;
      float path_theta;
      int path_numrdiff;
      int path_numrspec;

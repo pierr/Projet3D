@@ -201,6 +201,18 @@ void Window::initControlWidget () {
         connect (BRDFCheckBox, SIGNAL (toggled (bool)), param, SLOT (set_BRDFactive (bool)));
         raysLayout->addWidget (BRDFCheckBox);
 
+        //diff
+        QCheckBox * diffCheckBox = new QCheckBox ("Diffuse reflect", paramGroupBox);
+        diffCheckBox->setChecked(param->get_diffactive());
+        connect (diffCheckBox, SIGNAL (toggled (bool)), param, SLOT (set_diffactive (bool)));
+        raysLayout->addWidget (diffCheckBox);
+
+        //spec
+        QCheckBox * specCheckBox = new QCheckBox ("Specular reflect", paramGroupBox);
+        specCheckBox->setChecked(param->get_specactive());
+        connect (specCheckBox, SIGNAL (toggled (bool)), param, SLOT (set_specactive (bool)));
+        raysLayout->addWidget (specCheckBox);
+
 
     /* SHADOWS, OMBRES */
 
@@ -299,18 +311,6 @@ void Window::initControlWidget () {
         connect (pathCheckBox, SIGNAL (toggled (bool)), param, SLOT (set_pathactive (bool)));
         pathLayout->addWidget (pathCheckBox);
 
-        //diff
-        QCheckBox * pathdiffCheckBox = new QCheckBox ("Diffuse reflect", paramGroupBox);
-        pathdiffCheckBox->setChecked(param->get_pathdiff());
-        connect (pathdiffCheckBox, SIGNAL (toggled (bool)), param, SLOT (set_pathdiff (bool)));
-        pathLayout->addWidget (pathdiffCheckBox);
-
-        //spec
-        QCheckBox * pathspecCheckBox = new QCheckBox ("Specular reflect", paramGroupBox);
-        pathspecCheckBox->setChecked(param->get_pathspec());
-        connect (pathspecCheckBox, SIGNAL (toggled (bool)), param, SLOT (set_pathspec (bool)));
-        pathLayout->addWidget (pathspecCheckBox);
-
         //theta
         QLabel * paththetaLabel = new QLabel("angle du cone");
         pathLayout->addWidget(paththetaLabel);
@@ -321,6 +321,40 @@ void Window::initControlWidget () {
         connect (paththetaSpinBox, SIGNAL (valueChanged (double)), param, SLOT(set_paththeta(double)));
         pathLayout->addWidget(paththetaSpinBox);
 
+        //numrdiff
+        QLabel * pathnumrdiffLabel = new QLabel("nb rays diffuse");
+        pathLayout->addWidget(pathnumrdiffLabel);
+        QSpinBox * pathnumrdiffSpinBox = new QSpinBox();
+        pathnumrdiffSpinBox->setValue(param->get_pathnumrdiff());
+        connect (pathnumrdiffSpinBox, SIGNAL (valueChanged (int)), param, SLOT(set_pathnumrdiff(int)));
+        pathLayout->addWidget(pathnumrdiffSpinBox);
+
+        //numrspec
+        QLabel * pathnumrspecLabel = new QLabel("nb rays specular");
+        pathLayout->addWidget(pathnumrspecLabel);
+        QSpinBox * pathnumrspecSpinBox = new QSpinBox();
+        pathnumrspecSpinBox->setValue(param->get_pathnumrspec());
+        connect (pathnumrspecSpinBox, SIGNAL (valueChanged (int)), param, SLOT(set_pathnumrspec(int)));
+        pathLayout->addWidget(pathnumrspecSpinBox);
+
+        //pondmin
+        QLabel * pathpondminLabel = new QLabel("ponderation minimale");
+        pathLayout->addWidget(pathpondminLabel);
+        QDoubleSpinBox * pathpondminSpinBox = new QDoubleSpinBox();
+        pathpondminSpinBox->setRange(0,1);
+        pathpondminSpinBox->setSingleStep(0.001);
+        pathpondminSpinBox->setValue(param->get_pathpondmin());
+        connect (pathpondminSpinBox, SIGNAL (valueChanged (double)), param, SLOT(set_pathpondmin(double)));
+        pathLayout->addWidget(pathpondminSpinBox);
+
+        //maxdeep
+        QLabel * pathmaxdeepLabel = new QLabel("max reflexions");
+        pathLayout->addWidget(pathmaxdeepLabel);
+        QSpinBox * pathmaxdeepSpinBox = new QSpinBox();
+        pathmaxdeepSpinBox->setMinimum(1);
+        pathmaxdeepSpinBox->setValue(param->get_pathmaxdeep());
+        connect (pathmaxdeepSpinBox, SIGNAL (valueChanged (int)), param, SLOT(set_pathmaxdeep(int)));
+        pathLayout->addWidget(pathmaxdeepSpinBox);
 
     paramLayout->addWidget(paramTab);
     layout->addWidget(paramGroupBox);

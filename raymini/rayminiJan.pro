@@ -14,12 +14,14 @@ HEADERS = Window.h \
           Object.h \
           Light.h \
           Scene.h \
+          Matrix.h \
+          RotationMatrix.h \
           RayTracer.h \
           Ray.h \
           kdtree.h \
           kdnode.h \
           kdleaf.h \
-	  Parametres.h
+          Parametres.h
 
 SOURCES = Window.cpp \
           GLViewer.cpp \
@@ -32,6 +34,8 @@ SOURCES = Window.cpp \
           Object.cpp \
           Light.cpp \
           Scene.cpp \ 
+          Matrix.cpp \
+          RotationMatrix.cpp \
           RayTracer.cpp \
           Ray.cpp \
           Main.cpp \ 

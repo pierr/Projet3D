@@ -180,7 +180,7 @@ void Scene::buildScene2buffleHD(){
     Vec3Df transTheiere = Vec3Df (1.f, -1.795f, 1.504f);// de combien on le translate
     float grandTheiere =1.f; // de combien on multiplie la forme
     theiere.loadOFF(fileTheiere, transTheiere, grandTheiere, nulRot);
-    Material theiMat(0.235f,0.656f, Vec3Df (119.f/255, 181.f/255, 254.f/255));
+    Material theiMat(0.235f,0.656f, Vec3Df (119.f, 181.f, 254.f));
     Object theier(theiere,theiMat);
     objects.push_back(theier);
 
@@ -221,12 +221,13 @@ void Scene::buildSceneSpheres() {
     Material theiMat(0.235f,0.656f, Vec3Df (0.5f, 0.f, .8f));
     Object theier(theiere,theiMat);
     objects.push_back(theier);
+
+    loadLights(0);
 }
 
 void Scene::loadLights(int type){
-    Light l (Vec3Df (3.0f, 1.0f, 3.0f), Vec3Df (1.0f, 1.0f, 1.0f), 1.0f);
+    Light l (Vec3Df (3.0f, 0.0f, 1.0f), Vec3Df (1.0f, 1.0f, 1.0f), 1.0f);
     Light ldisk (Vec3Df (3.0f, 3.0f, -10.0f), Vec3Df (1.0f, 1.0f, 1.0f), Vec3Df(-1.0f, -1.0f, -1.0f), 0.5f, 1.0f);
-    lights.push_back (ldisk);
     switch(type){
     case 0:
         lights.push_back (l);

@@ -81,7 +81,7 @@ public:
          * */
     friend std::ostream & operator<<(std::ostream &os,const Matrix &mat);
     /*Méthode qui permet d'avoir la dimension de la matrice qui est 4 ici*/
-    int const getDim();
+    int getDim();
     //double[4][4] getMatrix();
 };
 std::ostream & operator<<(std::ostream &os,const Matrix &mat);

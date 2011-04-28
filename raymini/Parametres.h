@@ -102,8 +102,8 @@ public:
                    << std::endl
                    << "PATH TRACING PARAMETERS" << std::endl
                    << "is Active "<< path_active << std::endl
-                   << "is diff coeff " << path_diff << std::endl
-                   << "is spec coeff "<<  path_spec << std::endl
+                   //<< "is diff coeff " << path_diff << std::endl
+                   //<< "is spec coeff "<<  path_spec << std::endl
                    << "path teta cone" <<  path_theta << std::endl
                    << "num Ray for diff" << path_numrdiff << std::endl
                    << "num Ray for spec "<<  path_numrspec << std::endl

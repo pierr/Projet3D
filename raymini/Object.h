@@ -31,7 +31,37 @@ public:
 
     inline const BoundingBox & getBoundingBox () const { return bbox; }
     void updateBoundingBox ();
-    
+    enum objName {
+        threeD,
+        camel_head,
+        max,
+        sphere,
+        apple,
+        dbtorus,
+        max_50K,
+        squirrel,
+        cherry,
+        double_ram,
+        monkey,
+        tri,
+        dauphin,
+        fandisk,
+        paysage,
+        triceratops,
+        theiere,
+        gargoyle,
+        ram,
+        tweety,
+        armadillo,
+        ground,
+        ram_HD,
+        bunny,
+        ground_HD,
+        room,
+        bunny2,
+        horse,
+        room_f
+    };
 private:
     Mesh mesh;
     Material mat;

@@ -21,6 +21,7 @@ public:
         brillance =         1;
 
         ombres_active =     false;
+        ombres_douces =     false;
         ombres_numa =       2;
         ombres_numr =       2;
 
@@ -51,6 +52,7 @@ public:
     inline float get_brillance()                    { return brillance; }
 
     inline bool get_ombresactive()                  { return ombres_active; }
+    inline bool get_ombresdouces()                  { return ombres_douces; }
     inline int get_ombresnuma()                     { return ombres_numa; }
     inline int get_ombresnumr()                     { return ombres_numr; }
 
@@ -131,6 +133,7 @@ public slots:
         }
     }
     inline void set_ombrescheckbox(QCheckBox * ombresCheckBox)  { this->ombresCheckBox = ombresCheckBox; }
+    inline void set_ombresdouces(bool ombres_douces)            { this->ombres_douces = ombres_douces; }
     inline void set_ombresnuma(int ombres_numa)                 { this->ombres_numa = ombres_numa; }
     inline void set_ombresnumr(int ombres_numr)                 { this->ombres_numr = ombres_numr; }
 
@@ -163,6 +166,7 @@ private:
 //ombres
      bool ombres_active;
      QCheckBox * ombresCheckBox;
+     bool ombres_douces;
      int ombres_numa;
      int ombres_numr;
 

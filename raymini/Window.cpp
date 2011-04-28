@@ -227,6 +227,12 @@ void Window::initControlWidget () {
         connect (ombresCheckBox, SIGNAL (toggled (bool)), param, SLOT (set_ombresactive (bool)));
         shadowsLayout->addWidget (ombresCheckBox);
 
+        //douces
+        QCheckBox * ombresdoucesCheckBox = new QCheckBox ("Soft", paramGroupBox);
+        ombresdoucesCheckBox->setChecked(param->get_ombresdouces());
+        connect (ombresdoucesCheckBox, SIGNAL (toggled (bool)), param, SLOT (set_ombresdouces (bool)));
+        shadowsLayout->addWidget (ombresdoucesCheckBox);
+
         //numa
         QLabel * ombresnumaLabel = new QLabel("nombres points par cercle");
         shadowsLayout->addWidget(ombresnumaLabel);

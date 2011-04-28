@@ -246,7 +246,7 @@ void Scene::buildSceneSpheres() {
     Object theier(theiere,theiMat);
     objects.push_back(theier);
 
-    loadLights(2);
+    loadLights(3);
 }
 
 void Scene::loadLights(int type){

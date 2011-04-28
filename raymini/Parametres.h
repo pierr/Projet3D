@@ -80,8 +80,8 @@ public:
                 << "is Material " << material_active << std::endl
                 << "is BRDF " << BRDF_active << std::endl
                 << "briallance "<< brillance << std::endl
-
-
+				<< "diff active " << diff_active << std::endl
+				<< "spec active" << std::endl
                    <<"AMBIANT OCCLUSION PARAMETERS " << std::endl
                    << "ao active " << ambocc_active << std::endl
                    << "ao nRay " << ambocc_nray << std::endl

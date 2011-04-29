@@ -19,7 +19,7 @@ public:
         diff_active =       true;
         spec_active =       true;
         brillance =         1;
-
+        ambiantLight = 0.;
         ombres_active =     false;
         ombres_douces =     false;
         ombres_numa =       2;
@@ -50,7 +50,7 @@ public:
     inline bool get_diffactive()                    { return diff_active; }
     inline bool get_specactive()                    { return spec_active; }
     inline float get_brillance()                    { return brillance; }
-
+    inline float get_ambiantLight()                    { return ambiantLight; }
     inline bool get_ombresactive()                  { return ombres_active; }
     inline bool get_ombresdouces()                  { return ombres_douces; }
     inline int get_ombresnuma()                     { return ombres_numa; }
@@ -74,12 +74,13 @@ public:
     inline void print(){
 
         std::cout  << "RAYS PARAMETERS " << std::endl
-                << "nombre de pixel par grille"<< pix_grille << std::endl
-                << "is Material " << material_active << std::endl
-                << "is BRDF " << BRDF_active << std::endl
-                << "briallance "<< brillance << std::endl
-				<< "diff active " << diff_active << std::endl
-				<< "spec active" << std::endl
+                   << "nombre de pixel par grille"<< pix_grille << std::endl
+                   << "is Material " << material_active << std::endl
+                   << "is BRDF " << BRDF_active << std::endl
+                   << "briallance "<< brillance << std::endl
+                   << "ambiant Light" << ambiantLight << std::endl
+                   << "diff active " << diff_active << std::endl
+                   << "spec active" << std::endl
                    <<"AMBIANT OCCLUSION PARAMETERS " << std::endl
                    << "ao active " << ambocc_active << std::endl
                    << "ao nRay " << ambocc_nray << std::endl
@@ -101,8 +102,8 @@ public:
                    << std::endl
                    << "PATH TRACING PARAMETERS" << std::endl
                    << "is Active "<< path_active << std::endl
-                   //<< "is diff coeff " << path_diff << std::endl
-                   //<< "is spec coeff "<<  path_spec << std::endl
+                      //<< "is diff coeff " << path_diff << std::endl
+                      //<< "is spec coeff "<<  path_spec << std::endl
                    << "path teta cone" <<  path_theta << std::endl
                    << "num Ray" << path_nray << std::endl
                    << "path max deep" <<  path_maxdeep << std::endl
@@ -125,7 +126,7 @@ public slots:
     inline void set_specactive(bool spec_active)                { this->spec_active = spec_active; }
     inline void set_speccheckbox(QCheckBox * specCheckBox)      { this->specCheckBox = specCheckBox; }
     inline void set_brillance(double brillance)                  { this->brillance = (float)brillance; }
-
+    inline void set_ambiantLight(double ambiant){ this->ambiantLight = (float) ambiant ;}
     inline void set_ombresactive(bool ombres_active){
         this->ombres_active = ombres_active;
         if(ombres_active && !BRDF_active){
@@ -154,40 +155,41 @@ public slots:
     inline void set_epsilon(float epsilon)                      { this->epsilon = epsilon; }
 
 private:
-//rays
+    //rays
     int pix_grille;
     float brillance;
-     bool material_active;
-     bool BRDF_active;
-     QCheckBox * BRDFCheckBox;
-     bool diff_active;
-     QCheckBox * diffCheckBox;
-     bool spec_active;
-     QCheckBox * specCheckBox;
-//ombres
-     bool ombres_active;
-     QCheckBox * ombresCheckBox;
-     bool ombres_douces;
-     int ombres_numa;
-     int ombres_numr;
+    float ambiantLight;
+    bool material_active;
+    bool BRDF_active;
+    QCheckBox * BRDFCheckBox;
+    bool diff_active;
+    QCheckBox * diffCheckBox;
+    bool spec_active;
+    QCheckBox * specCheckBox;
+    //ombres
+    bool ombres_active;
+    QCheckBox * ombresCheckBox;
+    bool ombres_douces;
+    int ombres_numa;
+    int ombres_numr;
 
-//ambocc
-     bool ambocc_active;
-     int ambocc_nray;
-     float ambocc_theta;
-     float ambocc_rayon;
+    //ambocc
+    bool ambocc_active;
+    int ambocc_nray;
+    float ambocc_theta;
+    float ambocc_rayon;
 
-//kdtree
-     float kd_done; //pour voir si on doit refaire le kdtree
-     float kd_propdeep;
-//pathtracing
-     bool path_active;
-     QCheckBox * pathCheckBox;
-     int path_nray;
-     float path_theta;
-     int path_maxdeep;
-//autres
-     float epsilon; //pour le ambocc et les ombres
+    //kdtree
+    float kd_done; //pour voir si on doit refaire le kdtree
+    float kd_propdeep;
+    //pathtracing
+    bool path_active;
+    QCheckBox * pathCheckBox;
+    int path_nray;
+    float path_theta;
+    int path_maxdeep;
+    //autres
+    float epsilon; //pour le ambocc et les ombres
 };
 
 #endif // PARAMETRES_H

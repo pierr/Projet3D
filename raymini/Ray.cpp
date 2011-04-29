@@ -10,6 +10,7 @@
 #include <float.h>
 #include <cstdlib>
 #include <cmath>
+ #include <algorithm>
 using namespace std;
 
 Vec3Df perturbateVector(const Vec3Df & originVecor, float theta);
@@ -187,7 +188,7 @@ void Ray::calcBRDF(Vertex & v,  Material & m, Vec3Df& color, kdnode * root){
         if(param->get_BRDFactive()){
             float BRDF = 1;  //BRDF
 
-            wi = Vec3Df(light.getPos() - v.getPos());
+            wi = Vec3Df(light.getPos() - v.getPos()); //Point in the lignt direction from the current pas
             wi.normalize();
             wo = Vec3Df(getOrigin() - v.getPos());
             wo.normalize();
@@ -196,8 +197,11 @@ void Ray::calcBRDF(Vertex & v,  Material & m, Vec3Df& color, kdnode * root){
             r = wn*Vec3Df::dotProduct(wi,wn)*2-wi;
 
             BRDF = 0;
-            if(param->get_diffactive())
-                BRDF += m.getDiffuse()*abs(Vec3Df::dotProduct(wn,wi));
+            //Calcul de la partie diffuse de la brdf (Diffuse Shading)//Ajouter le terme ambiant
+            if(param->get_diffactive()){
+                BRDF += m.getDiffuse()*light.getIntensity()*max(0.f,Vec3Df::dotProduct(wn,wi));//abs(Vec3Df::dotProduct(wn,wi)); si on pernait le abs ça revenait à avoir une source symétrique
+            }
+
             if(param->get_specactive())
                 BRDF += m.getSpecular()*pow(abs(Vec3Df::dotProduct(r,wo)),param->get_brillance());
 
@@ -363,7 +367,7 @@ float Ray::calcAmbOcclusion(kdnode * root, Vertex & v, float rayonSphere, float 
     for(int i =0; i < param->get_amboccnray(); i++){
         Material ism;
         Vertex isv;
-         Ray rlight(v.getPos() + v.getNormal()*param->get_epsilon()*rayonSphere, perturbateVector(v.getNormal(), theta), bgColor, param);
+         Ray rlight(v.getPos() + v.getNormal()*param->get_epsilon()/**rayonSphere*/, perturbateVector(v.getNormal(), theta), bgColor, param);
 
          float mindist; //inutile
          bool isIntersect = rlight.kd_intersect(root, isv, ism, mindist);
@@ -384,8 +388,8 @@ Vec3Df perturbateVector(const Vec3Df & originVecor, float theta){
   Vec3Df basis2 = Vec3Df::crossProduct(originVecor,basis1);
   basis2.normalize();
   //On a maintenant une base.
-  float s = rand1();//( 0, 1 );
-  float r = rand1();//( 0, 1 );
+  float s = randf();//( 0, 1 );
+  float r = randf();//( 0, 1 );
   float h = cos(thetaRad);
 
   float phi = 2 * pi * s;

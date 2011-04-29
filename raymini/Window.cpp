@@ -188,6 +188,16 @@ void Window::initControlWidget () {
         connect (brillanceSpinBox, SIGNAL (valueChanged (double)), param, SLOT(set_brillance(double)));
         raysLayout->addWidget(brillanceSpinBox);
 
+        //AmbiantLight
+        QLabel * ambiantLightLabel = new QLabel("ambiant Light");
+        raysLayout->addWidget(ambiantLightLabel);
+        QDoubleSpinBox * ambiantLSpinBox = new QDoubleSpinBox();
+        ambiantLSpinBox->setRange(0.,2.);
+        ambiantLSpinBox->setSingleStep(0.1);
+        ambiantLSpinBox->setValue(param->get_ambiantLight());
+        connect (ambiantLSpinBox, SIGNAL (valueChanged (double)), param, SLOT(set_ambiantLight(double)));
+        raysLayout->addWidget(ambiantLSpinBox);
+
         //material_active
         QCheckBox * materialCheckBox = new QCheckBox ("Material", paramGroupBox);
         materialCheckBox->setChecked(param->get_materialactive());

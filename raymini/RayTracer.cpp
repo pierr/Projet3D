@@ -63,7 +63,8 @@ QImage RayTracer::render (const Vec3Df & camPos,
     float pctstep = 0.01;
     float pct = -pctstep;
 
- #pragma omp parallel for
+ #pragma omp parallel for //Pour avoir du multi thread
+    //On itère sur tous les pixels de l'écran
     for (unsigned int i = 0; i < screenWidth; i++){
         for (unsigned int j = 0; j < screenHeight; j++) {
             float tanX = tan (fieldOfView);
@@ -75,12 +76,13 @@ QImage RayTracer::render (const Vec3Df & camPos,
                     Vec3Df stepY = (float (j+(k2/param->get_pixgrille())) - screenHeight/2.f)/screenHeight * tanY * upVector;
                     Vec3Df step = stepX + stepY;
                     Vec3Df dir = direction + step;
-                    Ray ray (camPos, dir, backgroundColor, param);
+                    Ray ray (camPos, dir, backgroundColor, param);//On crée le rayon à lancer
                     col+=255.f*ray.calcul_radiance(kdt->get_root(),1);
                 }
             }
-            col = col/(param->get_pixgrille()*param->get_pixgrille());
-            image.setPixel (i, ((screenHeight-1)-j), qRgb (clamp (col[0], 0, 255),
+            col = col/(param->get_pixgrille()*param->get_pixgrille());//On normalise la couleur par le nombre rayons qu'on a lançé pour chaque pixels
+            //On affecte une couleur au pixel
+            image.setPixel (i, ((screenHeight-1)-j), qRgb (clamp (col[0], 0, 255), //clamp in order to deal with the > 255 value
                                                            clamp (col[1], 0, 255),
                                                            clamp (col[2], 0, 255)));
             if((float)(i*screenHeight+j)/(screenHeight*screenWidth) > pct){

@@ -29,9 +29,9 @@ void Scene::destroyInstance () {
 Scene::Scene () {
    // buildDefaultScene (false);
   //buildScene2buffleHD();
-  buildSceneSpheres();
+  //buildSceneSpheres();
 //   buildSceneManyCircles();
-    // simpleScene();
+     simpleScene();
 //buildNormalGround();
     updateBoundingBox ();
 }
@@ -119,9 +119,9 @@ void Scene::buildDefaultScene (bool HD) {
 
     bool debug = false;
     if (debug){
-       buildScene2buffleHD();
+       //buildScene2buffleHD();
         //buildSceneManyCircles();
-        //simpleScene();
+        simpleScene();
     }else{
 
         /*Ici on récupère ou on défini les paramêtres de chaque objet*/
@@ -250,8 +250,10 @@ void Scene::buildSceneSpheres() {
 }
 
 void Scene::loadLights(int type){
-    Light l (Vec3Df (3.0f, 0.0f, 1.0f), Vec3Df (1.0f, 1.0f, 1.0f), 1.0f);
-    Light ldisk (Vec3Df (3.0f, 3.0f, -3.0f), Vec3Df (1.0f, 1.0f, 1.0f), Vec3Df(-3.0f, -3.0f, 10.0f), 0.5f, 10.0f);
+    Light l (Vec3Df (3.0f, 3.0f, 3.0f), Vec3Df (1.0f, 1.0f, 1.0f), 1.0f);                                           // point
+     Light ldisk (Vec3Df (3.0f, 3.0f, 3.0f), Vec3Df (1.0f, 1.0f, 1.0f), Vec3Df(-1.0f, -1.0f, -1.0f), 0.5f, 1.0f);    // disque
+    // Light l (Vec3Df (3.0f, 0.0f, 1.0f), Vec3Df (1.0f, 1.0f, 1.0f), 1.0f);
+    //Light ldisk (Vec3Df (3.0f, 3.0f, -3.0f), Vec3Df (1.0f, 1.0f, 1.0f), Vec3Df(-3.0f, -3.0f, 10.0f), 0.5f, 10.0f);
 Light ldisk2 (Vec3Df (-3.0f, -3.0f, 3.0f), Vec3Df (1.0f, 1.0f, -1.0f), Vec3Df(-1.0f, -1.0f, 1.0f), 0.5f, 1.0f);
     lights.push_back (ldisk);
     switch(type){
@@ -260,7 +262,7 @@ Light ldisk2 (Vec3Df (-3.0f, -3.0f, 3.0f), Vec3Df (1.0f, 1.0f, -1.0f), Vec3Df(-1
         break;
     case 1:
         lights.push_back (ldisk);
-        lights.push_back (ldisk2);
+        //lights.push_back (ldisk2);
         break;
     default:
         break;
@@ -353,10 +355,10 @@ void Scene::buildNormalGround(){
     Mesh sol;
     string fileName = getFileName(Object::ground);
     Vec3Df transGround;//De combien on veut le translater
-    float grandGround = 8.f; // de combien on multiplie le fond
+    float grandGround = 1.f; // de combien on multiplie le fond
     RotationMatrix nulRot(0., Matrix::X);
     sol.loadOFF(fileName,transGround,grandGround,nulRot);
-    Material groundMat(rand2(),rand2(), Vec3Df (0.f,255.f/255, 255.f/255));
+    Material groundMat;//(rand2(),rand2(), Vec3Df (0.f,255.f/255, 255.f/255));
     Object soll (sol, groundMat);
     objects.push_back(soll);
     //loadLights(1);
@@ -369,17 +371,17 @@ void Scene::simpleScene(){
 
         /*Ici on récupère ou on défini les paramêtres de chaque objet*/
         //Param Shape
-        string fileNameShape = getFileName(Object::ram);//Nom du fichier à charger
-        Vec3Df transShape = Vec3Df (0.f, 2.f, 1.f);// de combien on le translate
-        float grandShape = 1.f; // de combien on multiplie la forme
+        string fileNameShape = getFileName(Object::cherry);//Nom du fichier à charger
+        Vec3Df transShape(0.f, 0.f, 4.f);// de combien on le translate
+        float grandShape = 0.01f; // de combien on multiplie la forme
         //param Ground
         string fileNameGround = "models/ground.off";
         Vec3Df transGround;//De combien on veut le translater
-        float grandGround = 7.f; // de combien on multiplie le fond
+        float grandGround = 0.03f; // de combien on multiplie le fond
 
 
-        groundMesh.loadOFF(fileNameShape,transGround, grandGround,nulRot);
-        Material groundMat;
+        groundMesh.loadOFF(fileNameShape,transShape, grandGround,nulRot);
+        Material groundMat(1.f, 1.f, Vec3Df (1.f, 0.f, 0.f));
         Object ground (groundMesh, groundMat);
         objects.push_back (ground);
         Mesh ramMesh;
@@ -388,7 +390,7 @@ void Scene::simpleScene(){
         //Material ramMat (1.f, 1.f, Vec3Df (1.f, .6f, .2f));//old rammat
         Material ramMat(0.735f,1.656f, Vec3Df (1.f, .795f, .504f));
         Object ram (ramMesh, ramMat);
-        objects.push_back (ram);
+       // objects.push_back (ram);
 
         Mesh theiere;
         string fileTheiere = getFileName(Object::ram);
@@ -397,7 +399,7 @@ void Scene::simpleScene(){
         theiere.loadOFF(fileTheiere, transTheiere, grandTheiere, nulRot);
         Material theiMat(0.235f,0.656f, Vec3Df (0.5f, 0.f, .8f));
         Object theier(theiere,theiMat);
-        objects.push_back(theier);
+       // objects.push_back(theier);
 
     loadLights(1);
  }

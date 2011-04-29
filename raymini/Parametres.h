@@ -90,6 +90,7 @@ public:
 
                    <<"OMBRES PARAMETERS "<< std::endl
                    << "isOmbres "<< ombres_active << std::endl
+                   << "isOmbres douce "<< ombres_douces << std::endl
                    << "Ombres numA "  << ombres_numa << std::endl
                    << "Ombres numR" << ombres_numr <<  std::endl
 

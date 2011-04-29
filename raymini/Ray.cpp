@@ -219,7 +219,7 @@ void Ray::calcBRDF(Vertex & v,  Material & m, Vec3Df& color, kdnode * root){
                 if(param->get_ombresdouces())
                     if(rlight.kd_intersect(root, isv, ism, dist) && dist<(1-param->get_epsilon())*Vec3Df::distance(lightpoints.at(j),v.getPos()))
                         lightprop--;
-                //ombres fortes
+                    //ombres fortes
                 else
                         if(rlight.kd_intersect(root, isv, ism, dist) && dist<(1-param->get_epsilon())*Vec3Df::distance(light.getPos(),v.getPos()))
                             lightprop--;

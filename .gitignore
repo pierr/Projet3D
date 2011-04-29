@@ -9,3 +9,5 @@ raymini/.obj/*
 rayminiPierre-build-desktop/*
 raymini/rayminiPierre.pro.user
 raymini/raymini
+raymini/*.old*
+raymini/models/*.old

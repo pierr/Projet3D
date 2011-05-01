@@ -1,0 +1,127 @@
+\hypertarget{class_ray}{
+\section{Ray Class Reference}
+\label{class_ray}\index{Ray@{Ray}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_ray_abad5657e70675cb55435231e0d636979}{
+{\bfseries Ray} (const \hyperlink{class_vec3_d}{Vec3Df} \&origin, const \hyperlink{class_vec3_d}{Vec3Df} \&direction, const \hyperlink{class_vec3_d}{Vec3Df} \&bgColor, \hyperlink{class_parametres}{Parametres} $\ast$param)}
+\label{class_ray_abad5657e70675cb55435231e0d636979}
+
+\item 
+\hypertarget{class_ray_ae4225450cd5f59c1f2e2bc55b1cdcc9f}{
+const \hyperlink{class_vec3_d}{Vec3Df} \& {\bfseries getOrigin} () const }
+\label{class_ray_ae4225450cd5f59c1f2e2bc55b1cdcc9f}
+
+\item 
+\hypertarget{class_ray_a4ffdcfc4d1e7fafe17f4e122856c3f87}{
+\hyperlink{class_vec3_d}{Vec3Df} \& {\bfseries getOrigin} ()}
+\label{class_ray_a4ffdcfc4d1e7fafe17f4e122856c3f87}
+
+\item 
+\hypertarget{class_ray_a1e83e988cfd711743042c49eac092006}{
+const \hyperlink{class_vec3_d}{Vec3Df} \& {\bfseries getDirection} () const }
+\label{class_ray_a1e83e988cfd711743042c49eac092006}
+
+\item 
+\hypertarget{class_ray_a8005eac632a3960446e3b202a89623cd}{
+\hyperlink{class_vec3_d}{Vec3Df} \& {\bfseries getDirection} ()}
+\label{class_ray_a8005eac632a3960446e3b202a89623cd}
+
+\item 
+\hypertarget{class_ray_a8f49b81dd458de63f8981096d88ef8cd}{
+void {\bfseries setParam} (\hyperlink{class_parametres}{Parametres} $\ast$param)}
+\label{class_ray_a8f49b81dd458de63f8981096d88ef8cd}
+
+\item 
+\hypertarget{class_ray_a85653d7f19e1b15783417898152d4ab9}{
+bool {\bfseries intersect} (const \hyperlink{class_bounding_box}{BoundingBox} \&bbox, \hyperlink{class_vec3_d}{Vec3Df} \&intersectionPoint) const }
+\label{class_ray_a85653d7f19e1b15783417898152d4ab9}
+
+\item 
+\hypertarget{class_ray_ab4ef2d8047d3061177e803c6a3b4c55a}{
+bool {\bfseries intersect} (const \hyperlink{class_triangle}{Triangle} \&tri, std::vector$<$ \hyperlink{class_vertex}{Vertex} $>$ \&verteces, \hyperlink{class_vec3_d}{Vec3Df} \&intersectionPoint) const }
+\label{class_ray_ab4ef2d8047d3061177e803c6a3b4c55a}
+
+\item 
+\hypertarget{class_ray_a0f428b1df8e9ffb8c0685c24c5a02a62}{
+bool {\bfseries intersect} (\hyperlink{class_vertex}{Vertex} \&v0, \hyperlink{class_vertex}{Vertex} \&v1, \hyperlink{class_vertex}{Vertex} \&v2, \hyperlink{class_vec3_d}{Vec3Df} \&intersectionPoint) const }
+\label{class_ray_a0f428b1df8e9ffb8c0685c24c5a02a62}
+
+\item 
+\hypertarget{class_ray_ad58816dc53730f35e03b8b738085e586}{
+bool {\bfseries intersect} (const \hyperlink{class_vertex}{Vertex} \&v0, const \hyperlink{class_vertex}{Vertex} \&v1, const \hyperlink{class_vertex}{Vertex} \&v2, \hyperlink{class_vec3_d}{Vec3Df} \&intersectionPoint, float \&ir, float \&iu, float \&iv) const }
+\label{class_ray_ad58816dc53730f35e03b8b738085e586}
+
+\item 
+void \hyperlink{class_ray_a08e5a153b888c634ffcf6ba48fcaa5d9}{calcBRDF} (\hyperlink{class_vertex}{Vertex} \&bary, \hyperlink{class_material}{Material} \&m, \hyperlink{class_vec3_d}{Vec3Df} \&color, \hyperlink{classkdnode}{kdnode} $\ast$root)
+\item 
+bool \hyperlink{class_ray_acefd27e81e60869cdbb8c2e4e41e930c}{kd\_\-intersect} (\hyperlink{classkdnode}{kdnode} $\ast$root, \hyperlink{class_vertex}{Vertex} \&isv, \hyperlink{class_material}{Material} \&ism, float \&mindist)
+\item 
+\hypertarget{class_ray_a62c0f1bccd99236e718ff3b5d1dc755d}{
+\hyperlink{class_vec3_d}{Vec3Df} {\bfseries calcul\_\-radiance} (\hyperlink{classkdnode}{kdnode} $\ast$root, int num)}
+\label{class_ray_a62c0f1bccd99236e718ff3b5d1dc755d}
+
+\item 
+float \hyperlink{class_ray_a3ba68b6180f49a8949d54f8e0f70af0a}{calcAmbOcclusion} (\hyperlink{classkdnode}{kdnode} $\ast$root, \hyperlink{class_vertex}{Vertex} \&v, float rayonSphere, float theta)
+\end{DoxyCompactItemize}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_ray_a3ba68b6180f49a8949d54f8e0f70af0a}{
+\index{Ray@{Ray}!calcAmbOcclusion@{calcAmbOcclusion}}
+\index{calcAmbOcclusion@{calcAmbOcclusion}!Ray@{Ray}}
+\subsubsection[{calcAmbOcclusion}]{\setlength{\rightskip}{0pt plus 5cm}float Ray::calcAmbOcclusion (
+\begin{DoxyParamCaption}
+\item[{{\bf kdnode} $\ast$}]{root, }
+\item[{{\bf Vertex} \&}]{v, }
+\item[{float}]{rayonSphere, }
+\item[{float}]{theta}
+\end{DoxyParamCaption}
+)}}
+\label{class_ray_a3ba68b6180f49a8949d54f8e0f70af0a}
+
+
+rayonSphere 
+
+\hypertarget{class_ray_a08e5a153b888c634ffcf6ba48fcaa5d9}{
+\index{Ray@{Ray}!calcBRDF@{calcBRDF}}
+\index{calcBRDF@{calcBRDF}!Ray@{Ray}}
+\subsubsection[{calcBRDF}]{\setlength{\rightskip}{0pt plus 5cm}void Ray::calcBRDF (
+\begin{DoxyParamCaption}
+\item[{{\bf Vertex} \&}]{bary, }
+\item[{{\bf Material} \&}]{m, }
+\item[{{\bf Vec3Df} \&}]{color, }
+\item[{{\bf kdnode} $\ast$}]{root}
+\end{DoxyParamCaption}
+)}}
+\label{class_ray_a08e5a153b888c634ffcf6ba48fcaa5d9}
+Le but de cette fonction est de calculer la brdf pour chacun des triangles pour chacun des rayons qui sont tracés. 
+\begin{DoxyParams}{Parameters}
+{\em v} & est le barycentre du triangle \\
+\hline
+{\em m} & est le material du triangle \\
+\hline
+{\em radiance} & est la radiance qu'on va modifier. \\
+\hline
+\end{DoxyParams}
+\hypertarget{class_ray_acefd27e81e60869cdbb8c2e4e41e930c}{
+\index{Ray@{Ray}!kd\_\-intersect@{kd\_\-intersect}}
+\index{kd\_\-intersect@{kd\_\-intersect}!Ray@{Ray}}
+\subsubsection[{kd\_\-intersect}]{\setlength{\rightskip}{0pt plus 5cm}bool Ray::kd\_\-intersect (
+\begin{DoxyParamCaption}
+\item[{{\bf kdnode} $\ast$}]{root, }
+\item[{{\bf Vertex} \&}]{isv, }
+\item[{{\bf Material} \&}]{ism, }
+\item[{float \&}]{mindist}
+\end{DoxyParamCaption}
+)}}
+\label{class_ray_acefd27e81e60869cdbb8c2e4e41e930c}
+Le but de cette méthode est de calculer pour chaque rayon les triangles qui intersectent ce rayon , les triangles sont issus des objets qui composent la scène. 
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+raymini/Ray.h\item 
+raymini/Ray.cpp\item 
+raymini/Raycp.cpp\end{DoxyCompactItemize}

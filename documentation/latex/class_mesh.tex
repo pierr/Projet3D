@@ -1,0 +1,118 @@
+\hypertarget{class_mesh}{
+\section{Mesh Class Reference}
+\label{class_mesh}\index{Mesh@{Mesh}}
+}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_mesh_1_1_exception}{Exception}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_mesh_adb9316d7dace57df26ff1fe78b8f8c0a}{
+{\bfseries Mesh} (const std::vector$<$ \hyperlink{class_vertex}{Vertex} $>$ \&v)}
+\label{class_mesh_adb9316d7dace57df26ff1fe78b8f8c0a}
+
+\item 
+\hypertarget{class_mesh_a341fbc5393e30d8f391961e57d27f01f}{
+{\bfseries Mesh} (const std::vector$<$ \hyperlink{class_vertex}{Vertex} $>$ \&v, const std::vector$<$ \hyperlink{class_triangle}{Triangle} $>$ \&t)}
+\label{class_mesh_a341fbc5393e30d8f391961e57d27f01f}
+
+\item 
+\hypertarget{class_mesh_ad0260249329b621d4d91c66293baef8d}{
+{\bfseries Mesh} (const \hyperlink{class_mesh}{Mesh} \&mesh)}
+\label{class_mesh_ad0260249329b621d4d91c66293baef8d}
+
+\item 
+\hypertarget{class_mesh_a42f498162d3a1c2dc33673aaf0e13bbe}{
+std::vector$<$ \hyperlink{class_vertex}{Vertex} $>$ \& {\bfseries getVertices} ()}
+\label{class_mesh_a42f498162d3a1c2dc33673aaf0e13bbe}
+
+\item 
+\hypertarget{class_mesh_a012af8d734e4b24c9e4455460a309f39}{
+const std::vector$<$ \hyperlink{class_vertex}{Vertex} $>$ \& {\bfseries getVertices} () const }
+\label{class_mesh_a012af8d734e4b24c9e4455460a309f39}
+
+\item 
+\hypertarget{class_mesh_ad8028e3925807b895700685d20d8d068}{
+std::vector$<$ \hyperlink{class_triangle}{Triangle} $>$ \& {\bfseries getTriangles} ()}
+\label{class_mesh_ad8028e3925807b895700685d20d8d068}
+
+\item 
+\hypertarget{class_mesh_a0ed54e18cd41d1464e9856870c0517af}{
+const std::vector$<$ \hyperlink{class_triangle}{Triangle} $>$ \& {\bfseries getTriangles} () const }
+\label{class_mesh_a0ed54e18cd41d1464e9856870c0517af}
+
+\item 
+\hypertarget{class_mesh_a7008e23cbaacd2878b7e81a01ac5d96b}{
+void {\bfseries clear} ()}
+\label{class_mesh_a7008e23cbaacd2878b7e81a01ac5d96b}
+
+\item 
+\hypertarget{class_mesh_a1f53f5b1ea374096e87549bb34527627}{
+void {\bfseries clearGeometry} ()}
+\label{class_mesh_a1f53f5b1ea374096e87549bb34527627}
+
+\item 
+\hypertarget{class_mesh_aa23a3186392b0285ff3cd5577a58a7eb}{
+void {\bfseries clearTopology} ()}
+\label{class_mesh_aa23a3186392b0285ff3cd5577a58a7eb}
+
+\item 
+\hypertarget{class_mesh_a5bf95f9557c71f7397b5d468e8c081e1}{
+void {\bfseries unmarkAllVertices} ()}
+\label{class_mesh_a5bf95f9557c71f7397b5d468e8c081e1}
+
+\item 
+\hypertarget{class_mesh_a9cb470310ac2300d068cace3b9ddf222}{
+void {\bfseries recomputeSmoothVertexNormals} (unsigned int weight)}
+\label{class_mesh_a9cb470310ac2300d068cace3b9ddf222}
+
+\item 
+\hypertarget{class_mesh_adb597894886af67deefb9abce6833c95}{
+void {\bfseries computeTriangleNormals} (std::vector$<$ \hyperlink{class_vec3_d}{Vec3Df} $>$ \&triangleNormals)}
+\label{class_mesh_adb597894886af67deefb9abce6833c95}
+
+\item 
+\hypertarget{class_mesh_ad615ce139902c658b6afa192e04e60a0}{
+void {\bfseries collectOneRing} (std::vector$<$ std::vector$<$ unsigned int $>$ $>$ \&oneRing) const }
+\label{class_mesh_ad615ce139902c658b6afa192e04e60a0}
+
+\item 
+\hypertarget{class_mesh_abd301b4995d59fdd09b631c1162d97f1}{
+void {\bfseries collectOrderedOneRing} (std::vector$<$ std::vector$<$ unsigned int $>$ $>$ \&oneRing) const }
+\label{class_mesh_abd301b4995d59fdd09b631c1162d97f1}
+
+\item 
+\hypertarget{class_mesh_a2734381378be9cb9c8349e7bbfb6f2e9}{
+void {\bfseries computeDualEdgeMap} (EdgeMapIndex \&dualVMap1, EdgeMapIndex \&dualVMap2)}
+\label{class_mesh_a2734381378be9cb9c8349e7bbfb6f2e9}
+
+\item 
+\hypertarget{class_mesh_ac461b001aa91580cc939e0ad15d7bdb6}{
+void {\bfseries markBorderEdges} (EdgeMapIndex \&edgeMap)}
+\label{class_mesh_ac461b001aa91580cc939e0ad15d7bdb6}
+
+\item 
+\hypertarget{class_mesh_a454105bfe72190b81331641be2edf3ec}{
+void {\bfseries renderGL} (bool flat) const }
+\label{class_mesh_a454105bfe72190b81331641be2edf3ec}
+
+\item 
+\hypertarget{class_mesh_a1b9cb544aed0779cd165703979b83315}{
+void {\bfseries loadOFF} (const std::string \&filename)}
+\label{class_mesh_a1b9cb544aed0779cd165703979b83315}
+
+\item 
+\hypertarget{class_mesh_ad440dee62af2c492a89255310d8068bd}{
+void {\bfseries loadOFF} (const std::string \&filename, \hyperlink{class_vec3_d}{Vec3Df} \&translatedVector, float \&grandissement, \hyperlink{class_rotation_matrix}{RotationMatrix} \&rotMat)}
+\label{class_mesh_ad440dee62af2c492a89255310d8068bd}
+
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+raymini/Mesh.h\item 
+raymini/Mesh.cpp\end{DoxyCompactItemize}

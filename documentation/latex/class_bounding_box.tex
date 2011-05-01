@@ -1,0 +1,112 @@
+\hypertarget{class_bounding_box}{
+\section{BoundingBox Class Reference}
+\label{class_bounding_box}\index{BoundingBox@{BoundingBox}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_bounding_box_afcd5c43bf230a10f07e6552c58db967e}{
+{\bfseries BoundingBox} (const \hyperlink{class_vec3_d}{Vec3Df} \&p)}
+\label{class_bounding_box_afcd5c43bf230a10f07e6552c58db967e}
+
+\item 
+\hypertarget{class_bounding_box_a5f44381ea07c9b6f65bae79dada53ce5}{
+{\bfseries BoundingBox} (const \hyperlink{class_vec3_d}{Vec3Df} \&min, const \hyperlink{class_vec3_d}{Vec3Df} \&max)}
+\label{class_bounding_box_a5f44381ea07c9b6f65bae79dada53ce5}
+
+\item 
+\hypertarget{class_bounding_box_a0b1b7e15c6b98752179faa396e7896f1}{
+void {\bfseries init} (const \hyperlink{class_vec3_d}{Vec3Df} \&p)}
+\label{class_bounding_box_a0b1b7e15c6b98752179faa396e7896f1}
+
+\item 
+\hypertarget{class_bounding_box_abb26b742738d4081aafff2c5436bf226}{
+void {\bfseries init} (float x, float y, float z)}
+\label{class_bounding_box_abb26b742738d4081aafff2c5436bf226}
+
+\item 
+\hypertarget{class_bounding_box_acd3378928b8a9996790b22ad9f8b6404}{
+float {\bfseries getWidth} () const }
+\label{class_bounding_box_acd3378928b8a9996790b22ad9f8b6404}
+
+\item 
+\hypertarget{class_bounding_box_aeb0038310316513e738f712548394d45}{
+float {\bfseries getHeight} () const }
+\label{class_bounding_box_aeb0038310316513e738f712548394d45}
+
+\item 
+\hypertarget{class_bounding_box_a9551e31a1a85d1dcaff9951fb05223e2}{
+float {\bfseries getLength} () const }
+\label{class_bounding_box_a9551e31a1a85d1dcaff9951fb05223e2}
+
+\item 
+\hypertarget{class_bounding_box_a8a89e81934b64c21bc4b825b5d695f87}{
+float {\bfseries getSize} () const }
+\label{class_bounding_box_a8a89e81934b64c21bc4b825b5d695f87}
+
+\item 
+\hypertarget{class_bounding_box_a8b43b3ab3ca509d5558b74d7f4899423}{
+float {\bfseries getRadius} () const }
+\label{class_bounding_box_a8b43b3ab3ca509d5558b74d7f4899423}
+
+\item 
+\hypertarget{class_bounding_box_a706c118cbc1abea55312761b9096bc00}{
+void {\bfseries extendTo} (const \hyperlink{class_vec3_d}{Vec3Df} \&p)}
+\label{class_bounding_box_a706c118cbc1abea55312761b9096bc00}
+
+\item 
+\hypertarget{class_bounding_box_af1d01d2b8b878a43e7eb484a99a54a30}{
+void {\bfseries extendTo} (const \hyperlink{class_bounding_box}{BoundingBox} \&b)}
+\label{class_bounding_box_af1d01d2b8b878a43e7eb484a99a54a30}
+
+\item 
+\hypertarget{class_bounding_box_aab7f3773aa3779f55a67766d8ac28488}{
+bool {\bfseries contains} (const \hyperlink{class_vec3_d}{Vec3Df} \&p) const }
+\label{class_bounding_box_aab7f3773aa3779f55a67766d8ac28488}
+
+\item 
+\hypertarget{class_bounding_box_ae9b938d02ca033840598ab03cab3859d}{
+bool {\bfseries contains} (const \hyperlink{class_bounding_box}{BoundingBox} \&b) const }
+\label{class_bounding_box_ae9b938d02ca033840598ab03cab3859d}
+
+\item 
+\hypertarget{class_bounding_box_a7522c0fca351c17de100f04a7a5430a2}{
+bool {\bfseries scaleContains} (const \hyperlink{class_vec3_d}{Vec3Df} \&p, float scale) const }
+\label{class_bounding_box_a7522c0fca351c17de100f04a7a5430a2}
+
+\item 
+\hypertarget{class_bounding_box_a3574993358ea575dfa5cab96f59cae58}{
+void {\bfseries scale} (float factor)}
+\label{class_bounding_box_a3574993358ea575dfa5cab96f59cae58}
+
+\item 
+\hypertarget{class_bounding_box_acf67cd451e1d713b91b2a64e0b3d49e1}{
+\hyperlink{class_vec3_d}{Vec3Df} {\bfseries getCenter} () const }
+\label{class_bounding_box_acf67cd451e1d713b91b2a64e0b3d49e1}
+
+\item 
+\hypertarget{class_bounding_box_a512de4e092aa1d13f8b79b431ec61ed6}{
+const \hyperlink{class_vec3_d}{Vec3Df} \& {\bfseries getMin} () const }
+\label{class_bounding_box_a512de4e092aa1d13f8b79b431ec61ed6}
+
+\item 
+\hypertarget{class_bounding_box_adf165a57276c53e0dcce8e3079e78a54}{
+const \hyperlink{class_vec3_d}{Vec3Df} \& {\bfseries getMax} () const }
+\label{class_bounding_box_adf165a57276c53e0dcce8e3079e78a54}
+
+\item 
+\hypertarget{class_bounding_box_a8c308fe75ccdf49206b3f2c24841b688}{
+void {\bfseries subdivide} (std::vector$<$ \hyperlink{class_bounding_box}{BoundingBox} $>$ \&splitBoundingBoxArray) const }
+\label{class_bounding_box_a8c308fe75ccdf49206b3f2c24841b688}
+
+\item 
+\hypertarget{class_bounding_box_aa14554dfd5978b6cfcdd948929aa673b}{
+bool {\bfseries intersectRay} (const \hyperlink{class_vec3_d}{Vec3Df} \&origin, const \hyperlink{class_vec3_d}{Vec3Df} \&direction, \hyperlink{class_vec3_d}{Vec3Df} \&intersection) const }
+\label{class_bounding_box_aa14554dfd5978b6cfcdd948929aa673b}
+
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
+\item 
+raymini/BoundingBox.h\end{DoxyCompactItemize}

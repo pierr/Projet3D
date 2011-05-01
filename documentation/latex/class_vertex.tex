@@ -1,0 +1,106 @@
+\hypertarget{class_vertex}{
+\section{Vertex Class Reference}
+\label{class_vertex}\index{Vertex@{Vertex}}
+}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_vertex_af7a13faf027010bf791afeab4b7e5334}{
+{\bfseries Vertex} (const \hyperlink{class_vec3_d}{Vec3Df} \&pos)}
+\label{class_vertex_af7a13faf027010bf791afeab4b7e5334}
+
+\item 
+\hypertarget{class_vertex_a27a83fd914a9c3356e1a91175af9dcb2}{
+{\bfseries Vertex} (const \hyperlink{class_vec3_d}{Vec3Df} \&pos, const \hyperlink{class_vec3_d}{Vec3Df} \&normal)}
+\label{class_vertex_a27a83fd914a9c3356e1a91175af9dcb2}
+
+\item 
+\hypertarget{class_vertex_a2cd575cac73be8dba0f87dfc38fe20e7}{
+{\bfseries Vertex} (const \hyperlink{class_vertex}{Vertex} \&v)}
+\label{class_vertex_a2cd575cac73be8dba0f87dfc38fe20e7}
+
+\item 
+\hypertarget{class_vertex_a0a25587d8b6e15e799bd4384a9f443cf}{
+\hyperlink{class_vertex}{Vertex} \& {\bfseries operator=} (const \hyperlink{class_vertex}{Vertex} \&vertex)}
+\label{class_vertex_a0a25587d8b6e15e799bd4384a9f443cf}
+
+\item 
+\hypertarget{class_vertex_abc85a4fa1297c23dbb5bd99c3b410943}{
+const \hyperlink{class_vec3_d}{Vec3Df} \& {\bfseries getPos} () const }
+\label{class_vertex_abc85a4fa1297c23dbb5bd99c3b410943}
+
+\item 
+\hypertarget{class_vertex_ad35a48e6284848d838dc57fe8876beea}{
+const \hyperlink{class_vec3_d}{Vec3Df} \& {\bfseries getNormal} () const }
+\label{class_vertex_ad35a48e6284848d838dc57fe8876beea}
+
+\item 
+\hypertarget{class_vertex_afa6b3258a4e1702a9335c1bd65dc1f39}{
+bool {\bfseries isMarked} () const }
+\label{class_vertex_afa6b3258a4e1702a9335c1bd65dc1f39}
+
+\item 
+\hypertarget{class_vertex_aa61ee83bfe1b0c80f0b554663bdbd2da}{
+int {\bfseries getId} () const }
+\label{class_vertex_aa61ee83bfe1b0c80f0b554663bdbd2da}
+
+\item 
+\hypertarget{class_vertex_a2e70cf74099095e6dcbf1cb0b6c36a60}{
+void {\bfseries setPos} (const \hyperlink{class_vec3_d}{Vec3Df} \&newPos)}
+\label{class_vertex_a2e70cf74099095e6dcbf1cb0b6c36a60}
+
+\item 
+\hypertarget{class_vertex_a8a7525b1dbd634e704d298cb4b49a6e8}{
+void {\bfseries setNormal} (const \hyperlink{class_vec3_d}{Vec3Df} \&newNormal)}
+\label{class_vertex_a8a7525b1dbd634e704d298cb4b49a6e8}
+
+\item 
+\hypertarget{class_vertex_a35c96268d32fe84af664a2d3beb0c6ca}{
+void {\bfseries mark} ()}
+\label{class_vertex_a35c96268d32fe84af664a2d3beb0c6ca}
+
+\item 
+\hypertarget{class_vertex_a0b8c2a69595f86592e9538386d82125b}{
+void {\bfseries unmark} ()}
+\label{class_vertex_a0b8c2a69595f86592e9538386d82125b}
+
+\item 
+\hypertarget{class_vertex_a022e5d3151c7525ca5663b9fcd62ea52}{
+void {\bfseries setId} (int newId)}
+\label{class_vertex_a022e5d3151c7525ca5663b9fcd62ea52}
+
+\item 
+\hypertarget{class_vertex_a50c7b9747e7c6eb761d0559dbfd9847d}{
+bool {\bfseries operator==} (const \hyperlink{class_vertex}{Vertex} \&v)}
+\label{class_vertex_a50c7b9747e7c6eb761d0559dbfd9847d}
+
+\item 
+\hypertarget{class_vertex_ac00a06d538fca792d8aa14b559ed21b0}{
+void {\bfseries interpolate} (const \hyperlink{class_vertex}{Vertex} \&u, const \hyperlink{class_vertex}{Vertex} \&v, float alpha=0.5)}
+\label{class_vertex_ac00a06d538fca792d8aa14b559ed21b0}
+
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{class_vertex_ab7d3c50b63d26fcaa3b473ff9635e8d1}{
+static void {\bfseries computeAveragePosAndRadius} (std::vector$<$ \hyperlink{class_vertex}{Vertex} $>$ \&vertices, \hyperlink{class_vec3_d}{Vec3Df} \&center, float \&radius)}
+\label{class_vertex_ab7d3c50b63d26fcaa3b473ff9635e8d1}
+
+\item 
+\hypertarget{class_vertex_a3d88aa3bcab9a1e745694725a65214bc}{
+static void {\bfseries scaleToUnitBox} (std::vector$<$ \hyperlink{class_vertex}{Vertex} $>$ \&vertices, \hyperlink{class_vec3_d}{Vec3Df} \&center, float \&scaleToUnitBox)}
+\label{class_vertex_a3d88aa3bcab9a1e745694725a65214bc}
+
+\item 
+\hypertarget{class_vertex_ac71b7a76430abbb2ce0ae8d4af706881}{
+static void {\bfseries normalizeNormals} (std::vector$<$ \hyperlink{class_vertex}{Vertex} $>$ \&vertices)}
+\label{class_vertex_ac71b7a76430abbb2ce0ae8d4af706881}
+
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
+\item 
+raymini/Vertex.h\item 
+raymini/Vertex.cpp\end{DoxyCompactItemize}

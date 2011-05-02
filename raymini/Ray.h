@@ -59,6 +59,7 @@ public:
 
     Vec3Df calcul_radiance( kdnode * root, int num);
     float calcAmbOcclusion(kdnode * root, Vertex & v, float rayonSphere, float theta);
+    void calcPathTracing(kdnode * root,int num,Vertex & isV,Vec3Df & radiance);
 private:
     Vec3Df origin;
     Vec3Df direction;

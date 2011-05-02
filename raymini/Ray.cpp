@@ -221,7 +221,8 @@ void Ray::calcBRDF(Vertex & v,  Material & m, Vec3Df& color, kdnode * root){
             wn = v.getNormal();
             wp = v.getPos();
             r = wn*Vec3Df::dotProduct(wi,wn)*2-wi;
-
+            Vec3Df h = (wi+ wo);
+            h.normalize();
             BRDF = 0;
             //Calcul de la partie diffuse de la brdf (Diffuse Shading)//Ajouter le terme ambiant
             if(param->get_diffactive()){
@@ -229,7 +230,7 @@ void Ray::calcBRDF(Vertex & v,  Material & m, Vec3Df& color, kdnode * root){
             }
 
             if(param->get_specactive())
-                BRDF += m.getSpecular()*pow(abs(Vec3Df::dotProduct(r,wo)),param->get_brillance());
+                BRDF += m.getSpecular()*pow(abs(Vec3Df::dotProduct(h,wn)),param->get_brillance());
 
             BRDFradiance = light.getColor()*BRDF;
         }
@@ -256,6 +257,7 @@ void Ray::calcBRDF(Vertex & v,  Material & m, Vec3Df& color, kdnode * root){
             }
             lightprop = lightprop/lightpoints.size();
         }
+
         if(param->get_amboccactive()){
             ambocc = calcAmbOcclusion(root,v,Scene::getInstance()->getBoundingBox().getLength()*param->get_amboccrayon(), param->get_ambocctheta());
         }
@@ -338,6 +340,7 @@ bool Ray::kd_intersect(kdnode * root, Vertex & rootisv, Material & rootism, floa
                         rootmindist = dist;
                         rootbool = true;
                         rootism = leaf.get_Material();
+                        //On fait l'interpolation des normales à partir des coordonnées barycentriques.
                         Vec3Df isn = leaf.get_vertex0().getNormal()*(1-iU-iV) + leaf.get_vertex1().getNormal()*iV + leaf.get_vertex2().getNormal()*iU; //leaf.get_normal();
                         rootisv = Vertex(intersectPt, isn);
                     }
@@ -361,22 +364,27 @@ Vec3Df Ray::calcul_radiance(kdnode * root, int num){
         calcBRDF(isv, ism, radiance, root);
 
         //PATH TRACING
-        if(param->get_pathactive() && num<param->get_pathmaxdeep()){
-            Vec3Df rad_rayons;
-            for(int i=0; i<param->get_pathnray(); i++){
-                //aleatoires, direction proche a la normale
-                Vec3Df pertVect = perturbateVector(isv.getNormal(), param->get_paththeta());
-                Ray rlight(isv.getPos()+pertVect*param->get_epsilon(), pertVect, this->bgColor, param);
-                rad_rayons += rlight.calcul_radiance(root, num+1);
-            }
-            rad_rayons = rad_rayons/param->get_pathnray();
+        calcPathTracing(root , num, isv,radiance);
 
-            radiance += rad_rayons;
-        }
         return radiance;
     //sinon le fonds d'ecran
     } else {
         return bgColor/255.f;
+    }
+}
+
+void Ray::calcPathTracing(kdnode * root,int num,Vertex & isV, Vec3Df & radiance){
+    if(param->get_pathactive() && num<param->get_pathmaxdeep()){
+        Vec3Df rad_rayons;
+        for(int i=0; i<param->get_pathnray(); i++){
+            //aleatoires, direction proche a la normale
+            Vec3Df pertVect = perturbateVector(isV.getNormal(), param->get_paththeta());
+            Ray rlight(isV.getPos()+pertVect*param->get_epsilon(), pertVect, this->bgColor, param);
+            rad_rayons += rlight.calcul_radiance(root, num+1);
+        }
+        rad_rayons = rad_rayons/param->get_pathnray();
+
+        radiance += rad_rayons;
     }
 }
 
@@ -394,7 +402,7 @@ float Ray::calcAmbOcclusion(kdnode * root, Vertex & v, float rayonSphere, float 
     for(int i =0; i < param->get_amboccnray(); i++){
         Material ism;
         Vertex isv;
-         Ray rlight(v.getPos() + v.getNormal()*param->get_epsilon()/**rayonSphere*/, perturbateVector(v.getNormal(), theta), bgColor, param);
+         Ray rlight(v.getPos() + v.getNormal()*param->get_epsilon()*rayonSphere, perturbateVector(v.getNormal(), theta), bgColor, param);
 
          float mindist; //inutile
          bool isIntersect = rlight.kd_intersect(root, isv, ism, mindist);

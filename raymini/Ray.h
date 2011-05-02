@@ -35,7 +35,16 @@ public:
     bool intersect (const BoundingBox & bbox, Vec3Df & intersectionPoint) const;
     bool intersect ( const Triangle & tri, std::vector<Vertex> & verteces, Vec3Df & intersectionPoint) const;
     bool intersect(Vertex & v0 , Vertex & v1, Vertex & v2, Vec3Df & intersectionPoint) const;
-
+    /**
+    * Méthode qui permet de vérifier si il ya bien une intersection entre le rayon et le triangle.
+    *@param v0 premier Vertex du triangle
+    *@param v1 deuxième Vertex du triangle
+    *@param v2 troisième Vertex du triangle
+    *@param intersectionPoint Vecteur 3D qui représente les coordonnées du point d'intersection
+    *@param ir,iu,iv sont les coordonnées barycentriques du point d'intersection, ces coordonnées sont utiles afin de réaliser une interpolation des normales ou des couleurs
+    *@return true si il y a une intersection entre le rayon et le triangles défini par le trois vertex v0,v1,v2
+    */
+    bool intersect (const Vertex & v0, const Vertex & v1, const Vertex & v2, Vec3Df & intersectionPoint, float & ir, float & iu, float & iv) const;
     /**
       Le but de cette fonction est de calculer la brdf pour chacun des triangles pour chacun des rayons qui sont tracés.
     @param v est le barycentre du triangle

@@ -74,6 +74,32 @@ bool Ray::intersect (const BoundingBox & bbox, Vec3Df & intersectionPoint) const
         }
     return (true);			
 }
+/**
+ *@inheaderfile
+ */
+bool Ray::intersect (const Vertex & v0, const Vertex & v1, const Vertex & v2, Vec3Df & intersectionPoint, float & ir, float & iu, float & iv) const {
+        Vec3Df v = v1.getPos() - v0.getPos();
+        Vec3Df u = v2.getPos() - v0.getPos();
+        Vec3Df nn = Vec3Df::crossProduct(u, v);
+        Vec3Df otr = origin - v0.getPos();
+        Vec3Df otrv = Vec3Df::crossProduct (otr, v);
+        Vec3Df uotr = Vec3Df::crossProduct (u, otr);
+
+        float c = Vec3Df::dotProduct (nn, direction);
+        iu = Vec3Df::dotProduct (otrv, direction)/c;
+        iv = Vec3Df::dotProduct (uotr, direction)/c;
+        ir = -Vec3Df::dotProduct (nn, otr)/c;
+
+        //Test pour voir si le point est dans le triangle
+        bool hasIntersection = (0 <= iu && iu <= 1 && 0 <= iv && iv <= 1 && ir >= 0 && iu + iv <= 1);
+        if (hasIntersection) {
+                nn.normalize();
+                intersectionPoint = origin + ir*direction;
+        }
+
+        //retrun true si il y a vraiment une intersection
+        return hasIntersection;
+}
 
 bool Ray::intersect(const Triangle &tri , vector<Vertex> & verteces, Vec3Df & intersectionPoint) const{
   const float epsilon = 0.00000001; //Un epsilon pour éviter de faire des comparaisons a zero
@@ -303,7 +329,8 @@ bool Ray::kd_intersect(kdnode * root, Vertex & rootisv, Material & rootism, floa
                 kdleaf leaf = leafs[i];
                 //Appeler la fonction qui vérifie l'intersection avec un triangle
                 Vec3Df intersectPt;
-                bool hasIntersection = intersect(leaf.get_vertex0(),leaf.get_vertex1(),leaf.get_vertex2(),intersectPt);
+                float iR,iU,iV;
+                bool hasIntersection = intersect(leaf.get_vertex0(),leaf.get_vertex1(),leaf.get_vertex2(),intersectPt,iR,iU,iV);
                 //Si il y a une intersection avec le triangle alors on appelle
                 if(hasIntersection){
                     float dist = Vec3Df::distance(origin,intersectPt);
@@ -311,7 +338,7 @@ bool Ray::kd_intersect(kdnode * root, Vertex & rootisv, Material & rootism, floa
                         rootmindist = dist;
                         rootbool = true;
                         rootism = leaf.get_Material();
-                        Vec3Df isn = leaf.get_normal();
+                        Vec3Df isn = leaf.get_vertex0().getNormal()*(1-iU-iV) + leaf.get_vertex1().getNormal()*iV + leaf.get_vertex2().getNormal()*iU; //leaf.get_normal();
                         rootisv = Vertex(intersectPt, isn);
                     }
                 }

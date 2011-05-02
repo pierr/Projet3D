@@ -16,3 +16,8 @@ The enter:
 To compile on mac 
 qmake -spec macx-g++ file.pro
 to execute open exec
+
+#In order to go to the branch documentation
+git checkout -b gh-pages origin/gh-pages 
+//TODO => Mettre la documentation de doxygen dedans
+

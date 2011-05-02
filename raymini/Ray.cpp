@@ -402,7 +402,7 @@ float Ray::calcAmbOcclusion(kdnode * root, Vertex & v, float rayonSphere, float 
     for(int i =0; i < param->get_amboccnray(); i++){
         Material ism;
         Vertex isv;
-         Ray rlight(v.getPos() + v.getNormal()*param->get_epsilon()*rayonSphere, perturbateVector(v.getNormal(), theta), bgColor, param);
+         Ray rlight(v.getPos() + v.getNormal()*param->get_epsilon()/**rayonSphere*/, perturbateVector(v.getNormal(), theta), bgColor, param);
 
          float mindist; //inutile
          bool isIntersect = rlight.kd_intersect(root, isv, ism, mindist);

@@ -277,6 +277,7 @@ void Window::initControlWidget () {
         amboccLayout->addWidget(amboccnrayLabel);
         QSpinBox * amboccnraySpinBox = new QSpinBox();
         amboccnraySpinBox->setValue(param->get_amboccnray());
+        amboccnraySpinBox->setRange(1,1000);
         connect (amboccnraySpinBox, SIGNAL (valueChanged (int)), param, SLOT(set_amboccnray(int)));
         amboccLayout->addWidget(amboccnraySpinBox);
 
@@ -294,6 +295,8 @@ void Window::initControlWidget () {
         amboccLayout->addWidget(amboccrayonLabel);
         QDoubleSpinBox * amboccrayonSpinBox = new QDoubleSpinBox();
         amboccrayonSpinBox->setValue(param->get_amboccrayon());
+        amboccrayonSpinBox->setRange(0,1);
+        amboccrayonSpinBox->setSingleStep(0.05);
         connect (amboccrayonSpinBox, SIGNAL (valueChanged (double)), param, SLOT(set_amboccrayon(double)));
         amboccLayout->addWidget(amboccrayonSpinBox);
 

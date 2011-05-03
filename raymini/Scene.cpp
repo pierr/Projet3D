@@ -28,10 +28,10 @@ void Scene::destroyInstance () {
 
 Scene::Scene () {
    // buildDefaultScene (false);
-  //buildScene2buffleHD();
-  //buildSceneSpheres();
+  // buildScene2buffleHD();
+  buildSceneSpheres();
 //   buildSceneManyCircles();
-   simpleScene();
+//   simpleScene();
 //buildNormalGround();
     updateBoundingBox ();
 }
@@ -379,7 +379,7 @@ void Scene::simpleScene(){
         //param Ground
         string fileNameGround = "models/ground.off";
         Vec3Df transGround;//De combien on veut le translater
-        float grandGround = 0.03f; // de combien on multiplie le fond
+//        float grandGround = 0.03f; // de combien on multiplie le fond
 
         groundMesh.loadOFF(fileNameShape);
 //       groundMesh.loadOFF(fileNameShape,transShape, grandGround,nulRot);

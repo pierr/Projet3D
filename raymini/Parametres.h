@@ -28,13 +28,13 @@ public:
         ambocc_active =     false;
         ambocc_nray =       30;
         ambocc_theta =      90;
-        ambocc_rayon =      0.05f;
+        ambocc_rayon =      1.0f;
 
         kd_propdeep =       0.05;
 
         path_active =       false;
-        path_theta =        8;
-        path_nray =         1;
+        path_theta =        90;
+        path_nray =         30;
         path_maxdeep =      2;
 
         kd_done = -1; //kd to do

@@ -55,10 +55,10 @@ public:
     /**
       Le but de cette méthode est de calculer pour chaque rayon les triangles qui intersectent ce rayon , les triangles sont issus des objets qui composent la scène.
     */
-    bool kd_intersect(kdnode * root, Vertex & isv, Material & ism, float & mindist);
+    bool kd_intersect(kdnode * root, Vertex & isv, Material & ism, float & mindist, float maxdist);
 
     Vec3Df calcul_radiance( kdnode * root, int num);
-    float calcAmbOcclusion(kdnode * root, Vertex & v, float rayonSphere, float theta);
+    float calcAmbOcclusion(kdnode * root, Vertex & v, float rayonSphere, float angle);
     void calcPathTracing(kdnode * root,int num,Vertex & isV,Vec3Df & radiance);
 private:
     Vec3Df origin;

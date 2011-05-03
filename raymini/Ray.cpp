@@ -10,7 +10,10 @@
 #include <float.h>
 #include <cstdlib>
 #include <cmath>
- #include <algorithm>
+#include <algorithm>
+
+# define PI 3.141592
+
 using namespace std;
 
 Vec3Df perturbateVector(const Vec3Df & originVecor, float theta);
@@ -247,13 +250,14 @@ void Ray::calcBRDF(Vertex & v,  Material & m, Vec3Df& color, kdnode * root){
                 rlight = Ray(lightpoints.at(j),dir,bgColor, param); //prevention: jamais faire des calcBRDF avec ce ray!
                 //s'il y a intersection et le triangle est entre le point et la lumiere, il cache
                 //ombres douces
-                if(param->get_ombresdouces())
-                    if(rlight.kd_intersect(root, isv, ism, dist) && dist<(1-param->get_epsilon())*Vec3Df::distance(lightpoints.at(j),v.getPos()))
+                if(param->get_ombresdouces()){
+                    if(rlight.kd_intersect(root, isv, ism, dist, FLT_MAX) && dist<(1-param->get_epsilon())*Vec3Df::distance(lightpoints.at(j),v.getPos()))
                         lightprop--;
-                    //ombres fortes
-                else
-                        if(rlight.kd_intersect(root, isv, ism, dist) && dist<(1-param->get_epsilon())*Vec3Df::distance(light.getPos(),v.getPos()))
+                //ombres fortes
+                } else {
+                        if(rlight.kd_intersect(root, isv, ism, dist, FLT_MAX) && dist<(1-param->get_epsilon())*Vec3Df::distance(light.getPos(),v.getPos()))
                             lightprop--;
+                }
             }
             lightprop = lightprop/lightpoints.size();
         }
@@ -268,7 +272,8 @@ void Ray::calcBRDF(Vertex & v,  Material & m, Vec3Df& color, kdnode * root){
 }
 
 //chercher des intersections dans les boites minimales
-bool Ray::kd_intersect(kdnode * root, Vertex & rootisv, Material & rootism, float & rootmindist){
+bool Ray::kd_intersect(kdnode * root, Vertex & rootisv, Material & rootism, float & rootmindist, float maxdist){
+
     //si on est dans les nodes intermediaires on passe le message..
     if(!root->get_deepest()){
 
@@ -287,11 +292,17 @@ bool Ray::kd_intersect(kdnode * root, Vertex & rootisv, Material & rootism, floa
         //on regarde l'intersection avec la boite superieure
         Vec3Df is_point; //inutile
         if(intersect(supnode->get_box(),is_point)){
-            supbool = kd_intersect(supnode,supisv,supism,supmindist);
+            supbool = kd_intersect(supnode,supisv,supism,supmindist,maxdist);
+            //si la boite est plus loin que distmax on regarde pas
+            if(supbool && Vec3Df::distance(origin,is_point)>maxdist)
+                supbool = false;
         }
         //on regarde l'intersection avec la boite inferieure
         if(intersect(infnode->get_box(),is_point)){
-            infbool = kd_intersect(infnode,infisv,infism,infmindist);
+            infbool = kd_intersect(infnode,infisv,infism,infmindist,maxdist);
+            //si la boite est plus loin que distmax on regarde pas
+            if(infbool && Vec3Df::distance(origin,is_point)>maxdist)
+                infbool = false;
         }
         //aucune intersection
         if(!supbool && !infbool){
@@ -357,7 +368,7 @@ Vec3Df Ray::calcul_radiance(kdnode * root, int num){
     float dist; //inutile
 
     //s'il y a intersection, on retourne la radiance
-    if(kd_intersect(root, isv, ism, dist)){
+    if(kd_intersect(root, isv, ism, dist,FLT_MAX)){
         Vec3Df radiance;
 
         //RAY TRACING
@@ -405,35 +416,34 @@ float Ray::calcAmbOcclusion(kdnode * root, Vertex & v, float rayonSphere, float 
          Ray rlight(v.getPos() + v.getNormal()*param->get_epsilon()/**rayonSphere*/, perturbateVector(v.getNormal(), theta), bgColor, param);
 
          float mindist; //inutile
-         bool isIntersect = rlight.kd_intersect(root, isv, ism, mindist);
+         bool isIntersect = rlight.kd_intersect(root, isv, ism, mindist,rayonSphere);
          //On teste si l'intersection est dans une sphère de rayon rayonsphère si il y a eu une intersection
-         if(isIntersect && Vec3Df::distance(isv.getPos(), v.getPos()) < rayonSphere){
-            ratioIntersection =  ratioIntersection +1.f;
+         if(isIntersect && mindist < rayonSphere){
+            ratioIntersection += (rayonSphere-mindist)/rayonSphere ;
          }
     }
-    return ( -ratioIntersection +(float) param->get_amboccnray())/param->get_amboccnray();
+    return ((float) param->get_amboccnray() - ratioIntersection)/param->get_amboccnray();
 }
 
-Vec3Df perturbateVector(const Vec3Df & originVecor, float theta){
-  float pi = 3.14;
-  float thetaRad = pi*theta/180;
-  //originVecor.normalize();
-  Vec3Df basis1 (-originVecor[1],originVecor[0],0);
-  basis1.normalize();
-  Vec3Df basis2 = Vec3Df::crossProduct(originVecor,basis1);
-  basis2.normalize();
-  //On a maintenant une base.
-  float s = randf();//( 0, 1 );
-  float r = randf();//( 0, 1 );
-  float h = cos(thetaRad);
+Vec3Df perturbateVector(const Vec3Df & originVecor, float angle){
 
-  float phi = 2 * pi * s;
-  float z = h + ( 1 - h ) * r;
-  float sinT = sqrt( 1 - z * z );
-  float x = cos( phi ) * sinT;
-  float y = sin( phi ) * sinT;
+  //On definit une base par rapport au vecteur original
+  Vec3Df z = originVecor;
+  z.normalize();
+  Vec3Df x, y;
+  z.getTwoOrthogonals(x,y);
+  x.normalize();
+  y.normalize();
 
-  Vec3Df perturbated = basis1 * x + basis2 * y + originVecor * z;
-  //Debug to see the perturbated Vector
-return perturbated;
+  float theta = randf()*PI*angle/180;
+  float phi = randf()*PI*angle/180;
+
+  float coordx = sin( theta ) * cos( phi );
+  float coordy = sin( theta ) * sin( phi );
+  float coordz = cos( theta );
+
+  Vec3Df perturbated = x * coordx + y * coordy + z * coordz;
+  perturbated.normalize();
+
+  return perturbated;
 }

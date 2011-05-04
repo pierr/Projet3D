@@ -43,8 +43,6 @@ QImage RayTracer::render (const Vec3Df & camPos,
                           unsigned int screenWidth,
                           unsigned int screenHeight) {
 
-    cout << "step" << endl;
-
     time_t tstart, tstop;
     tstart = time (NULL);
   

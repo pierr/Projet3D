@@ -205,8 +205,9 @@ void Window::initControlWidget () {
         raysLayout->addWidget(saturationLabel);
         QDoubleSpinBox * saturationSpinBox = new QDoubleSpinBox();
         saturationSpinBox->setRange(0,100);
-        saturationSpinBox->setSingleStep(0.001);
+        saturationSpinBox->setSingleStep(1);
         saturationSpinBox->setValue(param->get_saturation());
+        saturationSpinBox->setDecimals(10);
         connect (saturationSpinBox, SIGNAL (valueChanged (double)), this, SLOT(set_saturation(double)));
         raysLayout->addWidget(saturationSpinBox);
 

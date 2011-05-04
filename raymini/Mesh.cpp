@@ -184,6 +184,8 @@ void Mesh::renderGL (bool flat) const {
     }
     glEnd ();
 }
+
+
 void Mesh::loadOFF (const std::string & filename, Vec3Df & translatedVector, float & grandissement, RotationMatrix & rotMat){
     clear ();
     ifstream input (filename.c_str ());
@@ -203,8 +205,10 @@ void Mesh::loadOFF (const std::string & filename, Vec3Df & translatedVector, flo
         //cout << "Pos ini " << pos ;
         pos = rotMat*pos;
         //cout <<" pos finale " << pos  << endl;
+        cout << "pos " << pos << "After Tr";
         pos = pos + translatedVector;
-        pos = pos * grandissement;
+        cout << " pos + tr " << pos << std::endl;
+        //pos = pos * grandissement;
         vertices.push_back (Vertex (pos, Vec3Df (1.0, 0.0, 0.0)));
     }
     for (unsigned int i = 0; i < numOfTriangles; i++) {
@@ -220,6 +224,12 @@ void Mesh::loadOFF (const std::string & filename, Vec3Df & translatedVector, flo
     recomputeSmoothVertexNormals (0);
 }
 void Mesh::loadOFF (const std::string & filename) {
+     Vec3Df zer;
+     float z = 1.f;
+     RotationMatrix rot(0., Matrix::Z);
+     loadOFF(filename, zer,z, rot);
+}
+void Mesh::loadOFFF ( std::string  filename) {
      Vec3Df zer;
      float z = 1.f;
      RotationMatrix rot(0., Matrix::Z);

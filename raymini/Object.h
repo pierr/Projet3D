@@ -62,7 +62,14 @@ public:
         horse,
         room_f,
         coloredGlass,
-        opened_cube
+        opened_cube,
+        cubeoff,
+        cubeFloor,
+        cubeWallRight,
+        cubeWallLeft,
+        cubebackWall,
+        cubeFaceWall,
+        cubeRoof,
     };
 private:
     Mesh mesh;

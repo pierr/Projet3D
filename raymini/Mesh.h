@@ -45,7 +45,7 @@ public:
     void markBorderEdges (EdgeMapIndex & edgeMap);
     
     void renderGL (bool flat) const;
-
+    void loadOFFF (const std::string  filename);
     void loadOFF (const std::string & filename);
    void loadOFF (const std::string & filename, Vec3Df & translatedVector, float & grandissement, RotationMatrix & rotMat);
     class Exception {

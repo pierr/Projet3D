@@ -41,6 +41,7 @@ private:
     void buildGroundWall();
     void buildNormalGround();
     void simpleScene();
+    void buildBox();
     void loadLights(int type);
     std::vector<Object> objects;
     std::vector<Light> lights;

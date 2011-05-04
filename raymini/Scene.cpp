@@ -29,7 +29,9 @@ void Scene::destroyInstance () {
 Scene::Scene () {
    // buildDefaultScene (false);
   // buildScene2buffleHD();
-  buildSceneSpheres();
+//:buildGroundWall();
+   buildBox();
+    //  buildSceneSpheres();
 //   buildSceneManyCircles();
 //   simpleScene();
 //buildNormalGround();
@@ -50,6 +52,7 @@ void Scene::updateBoundingBox () {
 }
 /**
   *Méthode pour charger les fichiers sans devoir se souvenir du nom, on l'écrit une fois pour toute dans une enum ainsi c'est plus facile.
+* @param objName est une enum qui peremet de trouver le nom de fichier sans devoir le taper à chaque fois.
 */
 string getFileName(Object::objName objName){
     string out = "models/";
@@ -92,9 +95,29 @@ string getFileName(Object::objName objName){
     case Object::coloredGlass:
         out+="coloredGlass0.off";
         break;
-
     case Object::opened_cube:
         out+="opened_cube.off";
+        break;
+    case Object::cubeoff:
+        out+="cube.off";
+        break;
+    case Object::cubeFloor:
+        out+="cubeFloor.off";
+        break;
+    case Object::cubeWallRight:
+        out+="cubeWallR.off";
+        break;
+    case Object::cubeWallLeft:
+        out+="cubeWallLeft.off";
+        break;
+    case Object::cubebackWall:
+        out+="cubeBackWall.off";
+        break;
+    case Object::cubeFaceWall:
+        out+="cubeFrontWall.off";
+        break;
+    case Object::cubeRoof:
+        out+="cubeRoof.off";
         break;
         /*camel_head.off   horse.off        squirrel.off
     CHERRY.OFF       double-torus.off max.off.off      tri.off
@@ -275,7 +298,7 @@ Light ldisk2 (Vec3Df (-3.0f, -3.0f, 3.0f), Vec3Df (1.0f, 1.0f, -1.0f), Vec3Df(-1
 //Juste pour charger un mur dans la scène
 void Scene::buildGroundWall(){
     Mesh sol;
-    string fileName = getFileName(Object::ground);
+    string fileName = getFileName(Object::cubeoff);
     Vec3Df transGround;//De combien on veut le translater
     float grandGround = 1.f; // de combien on multiplie le fond
     RotationMatrix nulRot(0., Matrix::X);
@@ -305,14 +328,24 @@ void Scene::buildGroundWall(){
     std::cout << xmax -xmin << " " << ymax-ymin << " " << zmax-zmin << std::endl;
     Mesh sol2;
     RotationMatrix ninetyRot(90.,Matrix::Y);
-     Vec3Df transGround2( (xmax -xmin)/2,(ymax-ymin)/2,0.f);
+    Vec3Df transGround2 = Vec3Df( 2.f, 0.f, 0.f);//,(ymax-ymin)/2,0.f);
      transGround2.normalize();
      //std::cout << len << std::endl;
      //std::cout << transGround2 << std::endl;
     sol2.loadOFF(fileName,transGround2,grandGround, ninetyRot);
     Object soll2(sol2, groundMat);
-    objects.push_back(soll2);
+    //objects.push_back(soll2);
 
+    Mesh sol3;
+    RotationMatrix ninetyRotX(90.,Matrix::X);
+    Vec3Df transGround3 = Vec3Df( 2.f, 0.f, 0.f);//,(ymax-ymin)/2,0.f);
+     transGround3.normalize();
+     //std::cout << len << std::endl;
+     //std::cout << transGround2 << std::endl;
+    sol3.loadOFF(fileName,transGround2,grandGround, ninetyRotX);
+    Object soll3(sol3, groundMat);
+    //objects.push_back(soll3);
+    loadLights(1);
 }
 
 float rand2(){
@@ -353,6 +386,19 @@ void Scene::buildSceneManyCircles(){
     loadLights(1);
 }
 
+void Scene::buildBox(){
+    Mesh sol;
+
+    string fileName = getFileName(Object::cubeFloor);
+    sol.loadOFF(fileName);//,transGround,grandGround,nulRot);
+    sol.loadOFFF(getFileName(Object::cubeWallLeft));
+   // sol.loadOFFF(getFileName(Object::cubeRoof));
+    Material groundMat;//(rand2(),rand2(), Vec3Df (0.f,255.f/255, 255.f/255));
+    Object soll (sol, groundMat);
+    objects.push_back(soll);
+    loadLights(1);
+}
+
 void Scene::buildNormalGround(){
     Mesh sol;
     string fileName = getFileName(Object::ground);
@@ -363,7 +409,7 @@ void Scene::buildNormalGround(){
     Material groundMat;//(rand2(),rand2(), Vec3Df (0.f,255.f/255, 255.f/255));
     Object soll (sol, groundMat);
     objects.push_back(soll);
-    //loadLights(1);
+    loadLights(1);
 }
 
 void Scene::simpleScene(){

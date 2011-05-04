@@ -34,11 +34,12 @@ public:
 
         ombres_active =     false;
         ombres_douces =     false;
-        ombres_numa =       2;
-        ombres_numr =       2;
+        ombres_numr =       4;
+        ombres_numa =       4;
 
         ambocc_active =     false;
-        ambocc_nray =       30;
+        ambocc_numr =       4;
+        ambocc_numa =       4;
         ambocc_theta =      90;
         ambocc_rayon =      1.0f;
 
@@ -46,7 +47,8 @@ public:
 
         path_active =       false;
         path_theta =        90;
-        path_nray =         30;
+        path_numr =         4;
+        path_numr =         4;
         path_maxdeep =      2;
 
         kd_done = -1; //kd to do
@@ -67,11 +69,12 @@ public:
 
     inline bool get_ombresactive()                  { return ombres_active; }
     inline bool get_ombresdouces()                  { return ombres_douces; }
-    inline int get_ombresnuma()                     { return ombres_numa; }
     inline int get_ombresnumr()                     { return ombres_numr; }
+    inline int get_ombresnuma()                     { return ombres_numa; }
 
     inline bool get_amboccactive()                  { return ambocc_active; }
-    inline int get_amboccnray()                     { return ambocc_nray; }
+    inline int get_amboccnumr()                     { return ambocc_numr; }
+    inline int get_amboccnuma()                     { return ambocc_numa; }
     inline float get_ambocctheta()                  { return ambocc_theta; }
     inline float get_amboccrayon()                  { return ambocc_rayon; }
 
@@ -80,7 +83,8 @@ public:
 
     inline bool get_pathactive()                    { return path_active; }
     inline float get_paththeta()                    { return path_theta; }
-    inline int get_pathnray()                       { return path_nray; }
+    inline int get_pathnumr()                       { return path_numr; }
+    inline int get_pathnuma()                       { return path_numa; }
     inline float get_pathmaxdeep()                  { return path_maxdeep; }
 
     //get internes
@@ -97,7 +101,8 @@ public:
                    << "spec active" << std::endl
                    <<"AMBIANT OCCLUSION PARAMETERS " << std::endl
                    << "ao active " << ambocc_active << std::endl
-                   << "ao nRay " << ambocc_nray << std::endl
+                   << "ao numr " << ambocc_numr << std::endl
+                   << "ao numa " << ambocc_numa << std::endl
                    << "ao rayon "  << ambocc_rayon << std::endl
                    << "ao teta  " << ambocc_theta << std::endl
                    << std::endl
@@ -106,8 +111,8 @@ public:
                    <<"OMBRES PARAMETERS "<< std::endl
                    << "isOmbres "<< ombres_active << std::endl
                    << "isOmbres douce "<< ombres_douces << std::endl
-                   << "Ombres numA "  << ombres_numa << std::endl
-                   << "Ombres numR" << ombres_numr <<  std::endl
+                   << "Ombres numr "  << ombres_numr << std::endl
+                   << "Ombres numa "  << ombres_numa << std::endl
 
                    << "KD TREE PARAMETERS" << std::endl
                    << "kD Tree prof max " << kd_propdeep <<  std::endl
@@ -119,9 +124,20 @@ public:
                       //<< "is diff coeff " << path_diff << std::endl
                       //<< "is spec coeff "<<  path_spec << std::endl
                    << "path teta cone" <<  path_theta << std::endl
-                   << "num Ray" << path_nray << std::endl
+                   << "numr" << path_numr << std::endl
+                   << "numa" << path_numa << std::endl
                    << "path max deep" <<  path_maxdeep << std::endl
                    << std::endl;
+    }
+
+    //Nombre aléatoire entre -1 et 1
+    inline float randf(){
+        return ( rand()/(double)RAND_MAX ) * 2. - 1.;
+    }
+
+
+    inline float rand1(){
+        return  rand()/(float)RAND_MAX  ;
     }
 public slots:
     inline void set_renderdone(bool render_done)                { this->render_done = render_done; }
@@ -154,11 +170,12 @@ public slots:
     }
     inline void set_ombrescheckbox(QCheckBox * ombresCheckBox)  { this->ombresCheckBox = ombresCheckBox; }
     inline void set_ombresdouces(bool ombres_douces)            { this->ombres_douces = ombres_douces; }
-    inline void set_ombresnuma(int ombres_numa)                 { this->ombres_numa = ombres_numa; }
     inline void set_ombresnumr(int ombres_numr)                 { this->ombres_numr = ombres_numr; }
+    inline void set_ombresnuma(int ombres_numa)                 { this->ombres_numa = ombres_numa; }
 
     inline void set_amboccactive(bool ambocc_active)            { this->ambocc_active = ambocc_active; }
-    inline void set_amboccnray(int ambocc_nray)                 { this->ambocc_nray = ambocc_nray; }
+    inline void set_amboccnumr(int ambocc_numr)                 { this->ambocc_numr = ambocc_numr; }
+    inline void set_amboccnuma(int ambocc_numa)                 { this->ambocc_numa = ambocc_numa; }
     inline void set_ambocctheta(double ambocc_theta)            { this->ambocc_theta = (float)ambocc_theta; }
     inline void set_amboccrayon(double ambocc_rayon)            { this->ambocc_rayon = (float)ambocc_rayon; }
 
@@ -167,7 +184,8 @@ public slots:
 
     inline void set_pathactive(bool path_active)                { this->path_active = path_active; }
     inline void set_paththeta(double path_theta)                { this->path_theta = (float) path_theta; }
-    inline void set_pathnray(int path_nray)                     { this->path_nray = path_nray; }
+    inline void set_pathnumr(int path_numr)                     { this->path_numr = path_numr; }
+    inline void set_pathnuma(int path_numa)                     { this->path_numa = path_numa; }
     inline void set_pathmaxdeep(int path_maxdeep)               { this->path_maxdeep = path_maxdeep; }
 
     inline void set_epsilon(float epsilon)                      { this->epsilon = epsilon; }
@@ -193,12 +211,13 @@ private:
     bool ombres_active;
     QCheckBox * ombresCheckBox;
     bool ombres_douces;
-    int ombres_numa;
     int ombres_numr;
+    int ombres_numa;
 
     //ambocc
     bool ambocc_active;
-    int ambocc_nray;
+    int ambocc_numr;
+    int ambocc_numa;
     float ambocc_theta;
     float ambocc_rayon;
 
@@ -208,7 +227,8 @@ private:
     //pathtracing
     bool path_active;
     QCheckBox * pathCheckBox;
-    int path_nray;
+    int path_numr;
+    int path_numa;
     float path_theta;
     int path_maxdeep;
     //autres

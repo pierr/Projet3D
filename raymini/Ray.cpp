@@ -244,24 +244,29 @@ void Ray::calcBRDF(Vertex & v,  Material & m, Vec3Df& color, kdnode * root){
             Material ism; //inutile
             float dist;
             //verifier en quelle proportion le point est cache de chaque lumiere
-            std::vector<Vec3Df> lightpoints = light.getPoints(param->get_ombresnumr(),param->get_ombresnuma());
+            Vec3Df normal = v.getPos()-light.getPos();
+            normal.normalize();
+            std::vector<Vec3Df> lightpoints;
+            if(param->get_ombresdouces())
+                lightpoints = light.getPoints(normal,param->get_ombresnumr(),param->get_ombresnuma());
+            else
+                lightpoints.push_back(light.getPos());
+
             lightprop = lightpoints.size();
             Ray rlight;
             for(int j=0; j<(int)lightpoints.size(); j++){
                 Vec3Df dir = v.getPos()-lightpoints.at(j);
                 rlight = Ray(lightpoints.at(j),dir,bgColor, param); //prevention: jamais faire des calcBRDF avec ce ray!
                 //s'il y a intersection et le triangle est entre le point et la lumiere, il cache
-                //ombres douces
-                if(param->get_ombresdouces()){
-                    if(rlight.kd_intersect(root, isv, ism, dist, FLT_MAX) && dist<(1-param->get_epsilon())*Vec3Df::distance(lightpoints.at(j),v.getPos()))
-                        lightprop--;
-                //ombres fortes
-                } else {
-                        if(rlight.kd_intersect(root, isv, ism, dist, FLT_MAX) && dist<(1-param->get_epsilon())*Vec3Df::distance(light.getPos(),v.getPos()))
-                            lightprop--;
-                }
+                if(rlight.kd_intersect(root, isv, ism, dist, FLT_MAX) && dist<(1-param->get_epsilon())*Vec3Df::distance(lightpoints.at(j),v.getPos()))
+                    lightprop--;
             }
-            lightprop = lightprop/lightpoints.size();
+
+//            if(lightprop<lightpoints.size()){
+//                cout << "lp " << lightprop << " so " << lightprop/(float)lightpoints.size() << endl;
+//            }
+
+            lightprop = lightprop/(float)lightpoints.size();
         }
 
         if(param->get_amboccactive()){
@@ -345,9 +350,8 @@ bool Ray::kd_intersect(kdnode * root, Vertex & rootisv, Material & rootism, floa
                 //Appeler la fonction qui vérifie l'intersection avec un triangle
                 Vec3Df intersectPt;
                 float iR,iU,iV;
-                bool hasIntersection = intersect(leaf.get_vertex0(),leaf.get_vertex1(),leaf.get_vertex2(),intersectPt,iR,iU,iV);
                 //Si il y a une intersection avec le triangle alors on appelle
-                if(hasIntersection){
+                if(intersect(leaf.get_vertex0(),leaf.get_vertex1(),leaf.get_vertex2(),intersectPt,iR,iU,iV)){
                     float dist = Vec3Df::distance(origin,intersectPt);
                     if(dist < rootmindist){
                         rootmindist = dist;
@@ -389,70 +393,68 @@ Vec3Df Ray::calcul_radiance(kdnode * root, int num){
 void Ray::calcPathTracing(kdnode * root,int num,Vertex & isV, Vec3Df & radiance, Material & m){
     if(param->get_pathactive() && num<param->get_pathmaxdeep()){
         Vec3Df rad_rayons;
-        for(int i=0; i<param->get_pathnray(); i++){
-            //aleatoires, direction proche a la normale
-            Vec3Df pertVect = perturbateVector(isV.getNormal(), param->get_paththeta());
-            Ray rlight(isV.getPos()+pertVect*param->get_epsilon(), pertVect, this->bgColor, param);
+        for(int i=0; i<param->get_pathnumr(); i++){
+            for(int j=0; j<param->get_pathnuma(); j++){
+                //aleatoires, direction proche a la normale
+                Vec3Df pertVect = rotateVector(isV.getNormal(), i*param->get_paththeta()/param->get_pathnumr(), j*param->get_paththeta()/param->get_pathnuma());
+                Ray rlight(isV.getPos()+pertVect*param->get_epsilon(), pertVect, this->bgColor, param);
 
-            Vec3Df wn = isV.getNormal();
-            Vec3Df wi = pertVect;
-            Vec3Df wo = -direction;
+                Vec3Df wn = isV.getNormal();
+                Vec3Df wi = pertVect;
+                Vec3Df wo = -direction;
 
-            Vec3Df radl = rlight.calcul_radiance(root, num+1);
-            rad_rayons += radl*retBRDF(wn,wi,wo,radl.getLength(),m);
+                Vec3Df radl = rlight.calcul_radiance(root, num+1);
+                rad_rayons += radl*retBRDF(wn,wi,wo,radl.getLength(),m);
+            }
         }
-        //ce sont comme des lumieres. on ne doit pas faire la moyenne. on normalisera sur RayTracer
-//        rad_rayons = rad_rayons/param->get_pathnray();
-
+        //ce sont comme des lumieres. on ne doit pas faire la moyenne. on normalisera sur RayTracer avec l'option saturation
         radiance += rad_rayons;
     }
 }
 
-//Nombre aléatoire entre -1 et 1
-float randf(){
-    return ( rand()/(double)RAND_MAX ) * 2. - 1.;
-}
 
-
-float rand1(){
-    return  rand()/(float)RAND_MAX  ;
-}
 float Ray::calcAmbOcclusion(kdnode * root, Vertex & v, float rayonSphere, float theta){
     float ratioIntersection = 0.f;
-    for(int i =0; i < param->get_amboccnray(); i++){
-        Material ism;
-        Vertex isv;
-         Ray rlight(v.getPos() + v.getNormal()*param->get_epsilon()/**rayonSphere*/, perturbateVector(v.getNormal(), theta), bgColor, param);
-
-         float mindist; //inutile
-         bool isIntersect = rlight.kd_intersect(root, isv, ism, mindist,rayonSphere);
-         //On teste si l'intersection est dans une sphère de rayon rayonsphère si il y a eu une intersection
-         if(isIntersect && mindist < rayonSphere){
-            ratioIntersection += (rayonSphere-mindist)/rayonSphere ;
-         }
+    for(int i=0; i<param->get_amboccnumr(); i++){
+        for(int j=0; j<param->get_amboccnuma(); j++){
+            Material ism;
+            Vertex isv;
+            Ray rlight(v.getPos() + v.getNormal()*param->get_epsilon()/**rayonSphere*/, rotateVector(v.getNormal(), i*theta/param->get_amboccnumr(), j*theta/param->get_amboccnuma()), bgColor, param);
+            float mindist; //inutile
+            bool isIntersect = rlight.kd_intersect(root, isv, ism, mindist,rayonSphere);
+            //On teste si l'intersection est dans une sphère de rayon rayonsphère si il y a eu une intersection
+            if(isIntersect && mindist < rayonSphere){
+               ratioIntersection += (rayonSphere-mindist)/rayonSphere ;
+            }
+        }
     }
-    return ((float) param->get_amboccnray() - ratioIntersection)/param->get_amboccnray();
+    int nray = param->get_amboccnumr()*param->get_amboccnuma();
+    return ((float) nray - ratioIntersection)/nray;
 }
 
-Vec3Df perturbateVector(const Vec3Df & originVecor, float angle){
 
-  //On definit une base par rapport au vecteur original
-  Vec3Df z = originVecor;
-  z.normalize();
-  Vec3Df x, y;
-  z.getTwoOrthogonals(x,y);
-  x.normalize();
-  y.normalize();
+Vec3Df Ray::rotateVector(const Vec3Df & originVecor, float anglephi, float angletheta){
+    //On definit une base par rapport au vecteur original
+    Vec3Df z = originVecor;
+    z.normalize();
+    Vec3Df x, y;
+    z.getTwoOrthogonals(x,y);
+    x.normalize();
+    y.normalize();
 
-  float theta = randf()*PI*angle/180;   //valeur en radians entre [-angle;angle]
-  float phi = randf()*PI*angle/180;     //valeur en radians entre [-angle;angle]
+    float theta = PI*anglephi/180;   //valeur en radians entre [-angle;angle]
+    float phi = PI*angletheta/180;     //valeur en radians entre [-angle;angle]
 
-  float coordx = sin( theta ) * cos( phi );
-  float coordy = sin( theta ) * sin( phi );
-  float coordz = cos( theta );
+    float coordx = sin( theta ) * cos( phi );
+    float coordy = sin( theta ) * sin( phi );
+    float coordz = cos( theta );
 
-  Vec3Df perturbated = x * coordx + y * coordy + z * coordz;
-  perturbated.normalize();
+    Vec3Df rotated = x * coordx + y * coordy + z * coordz;
+    rotated.normalize();
 
-  return perturbated;
+    return rotated;
+}
+
+Vec3Df Ray::perturbateVector(const Vec3Df & originVecor, float angle){
+  return rotateVector(originVecor,angle*param->randf(),angle*param->randf());
 }

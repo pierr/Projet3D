@@ -256,22 +256,21 @@ void Window::initControlWidget () {
         connect (ombresdoucesCheckBox, SIGNAL (toggled (bool)), param, SLOT (set_ombresdouces (bool)));
         shadowsLayout->addWidget (ombresdoucesCheckBox);
 
-        //numa
-        QLabel * ombresnumaLabel = new QLabel("nombres points par cercle");
-        shadowsLayout->addWidget(ombresnumaLabel);
-        QSpinBox * ombresnumaSpinBox = new QSpinBox();
-        ombresnumaSpinBox->setValue(param->get_ombresnuma());
-        connect (ombresnumaSpinBox, SIGNAL (valueChanged (int)), param, SLOT(set_ombresnuma(int)));
-        shadowsLayout->addWidget(ombresnumaSpinBox);
-
         //numr
-        QLabel * ombresnumrLabel = new QLabel("nombres points pour le rayon");
+        QLabel * ombresnumrLabel = new QLabel("nombres de points par rayon");
         shadowsLayout->addWidget(ombresnumrLabel);
         QSpinBox * ombresnumrSpinBox = new QSpinBox();
         ombresnumrSpinBox->setValue(param->get_ombresnumr());
         connect (ombresnumrSpinBox, SIGNAL (valueChanged (int)), param, SLOT(set_ombresnumr(int)));
         shadowsLayout->addWidget(ombresnumrSpinBox);
 
+        //numa
+        QLabel * ombresnumaLabel = new QLabel("nombres de points par angle");
+        shadowsLayout->addWidget(ombresnumaLabel);
+        QSpinBox * ombresnumaSpinBox = new QSpinBox();
+        ombresnumaSpinBox->setValue(param->get_ombresnuma());
+        connect (ombresnumaSpinBox, SIGNAL (valueChanged (int)), param, SLOT(set_ombresnuma(int)));
+        shadowsLayout->addWidget(ombresnumaSpinBox);
 
     /* AMBOCC */
 
@@ -285,14 +284,23 @@ void Window::initControlWidget () {
         connect (amboccCheckBox, SIGNAL (toggled (bool)), param, SLOT (set_amboccactive (bool)));
         amboccLayout->addWidget (amboccCheckBox);
 
-        //nray
-        QLabel * amboccnrayLabel = new QLabel("nray");
-        amboccLayout->addWidget(amboccnrayLabel);
-        QSpinBox * amboccnraySpinBox = new QSpinBox();
-        amboccnraySpinBox->setValue(param->get_amboccnray());
-        amboccnraySpinBox->setRange(1,1000);
-        connect (amboccnraySpinBox, SIGNAL (valueChanged (int)), param, SLOT(set_amboccnray(int)));
-        amboccLayout->addWidget(amboccnraySpinBox);
+        //numr
+        QLabel * amboccnumrLabel = new QLabel("numr");
+        amboccLayout->addWidget(amboccnumrLabel);
+        QSpinBox * amboccnumrSpinBox = new QSpinBox();
+        amboccnumrSpinBox->setValue(param->get_amboccnumr());
+        amboccnumrSpinBox->setRange(1,1000);
+        connect (amboccnumrSpinBox, SIGNAL (valueChanged (int)), param, SLOT(set_amboccnumr(int)));
+        amboccLayout->addWidget(amboccnumrSpinBox);
+
+        //numa
+        QLabel * amboccnumaLabel = new QLabel("numa");
+        amboccLayout->addWidget(amboccnumaLabel);
+        QSpinBox * amboccnumaSpinBox = new QSpinBox();
+        amboccnumaSpinBox->setValue(param->get_amboccnuma());
+        amboccnumaSpinBox->setRange(1,1000);
+        connect (amboccnumaSpinBox, SIGNAL (valueChanged (int)), param, SLOT(set_amboccnuma(int)));
+        amboccLayout->addWidget(amboccnumaSpinBox);
 
         //theta
         QLabel * amboccthetaLabel = new QLabel("angle du cone");
@@ -353,14 +361,23 @@ void Window::initControlWidget () {
         connect (paththetaSpinBox, SIGNAL (valueChanged (double)), param, SLOT(set_paththeta(double)));
         pathLayout->addWidget(paththetaSpinBox);
 
-        //nray
-        QLabel * pathnrayLabel = new QLabel("nb rays par rebondissement");
-        pathLayout->addWidget(pathnrayLabel);
-        QSpinBox * pathnraySpinBox = new QSpinBox();
-        pathnraySpinBox->setValue(param->get_pathnray());
-        pathnraySpinBox->setRange(1,1000);
-        connect (pathnraySpinBox, SIGNAL (valueChanged (int)), param, SLOT(set_pathnray(int)));
-        pathLayout->addWidget(pathnraySpinBox);
+        //numr
+        QLabel * pathnumrLabel = new QLabel("nb rays par rebondissement");
+        pathLayout->addWidget(pathnumrLabel);
+        QSpinBox * pathnumrSpinBox = new QSpinBox();
+        pathnumrSpinBox->setValue(param->get_pathnumr());
+        pathnumrSpinBox->setRange(1,1000);
+        connect (pathnumrSpinBox, SIGNAL (valueChanged (int)), param, SLOT(set_pathnumr(int)));
+        pathLayout->addWidget(pathnumrSpinBox);
+
+        //numa
+        QLabel * pathnumaLabel = new QLabel("nb rays par rebondissement");
+        pathLayout->addWidget(pathnumaLabel);
+        QSpinBox * pathnumaSpinBox = new QSpinBox();
+        pathnumaSpinBox->setValue(param->get_pathnuma());
+        pathnumaSpinBox->setRange(1,1000);
+        connect (pathnumaSpinBox, SIGNAL (valueChanged (int)), param, SLOT(set_pathnuma(int)));
+        pathLayout->addWidget(pathnumaSpinBox);
 
         //maxdeep
         QLabel * pathmaxdeepLabel = new QLabel("max reflexions");

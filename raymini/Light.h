@@ -8,6 +8,7 @@
 #ifndef LIGHT_H
 #define LIGHT_H
 
+#include <stdlib.h>
 #include <iostream>
 #include <vector>
 
@@ -18,14 +19,14 @@ public:
     inline Light () : disk(false), color (Vec3Df (1.0f, 1.0f, 1.0f)), intensity (1.0f) {}
     inline Light (const Vec3Df & pos, const Vec3Df & color, float intensity)
         : disk(false), pos (pos), color (color),                               intensity (intensity) {}
-    inline Light (const Vec3Df & pos, const Vec3Df & color, const Vec3Df & normal, float rayon, float intensity)
-        : disk(true),  pos (pos), color (color), normal(normal), rayon(rayon), intensity (intensity) {}
+    inline Light (const Vec3Df & pos, const Vec3Df & color, float rayon, float intensity)
+        : disk(true),  pos (pos), color (color), rayon(rayon), intensity (intensity) {}
     virtual ~Light () {}
 
     inline const Vec3Df & getPos () const { return pos; }
     inline const Vec3Df & getColor () const { return color; }
     inline float getIntensity () const { return intensity; }
-    const std::vector<Vec3Df> & getPoints (int numr, int numa) const;
+    const std::vector<Vec3Df> & getPoints (Vec3Df & normal, int numr, int numa) const;
 
     inline void setPos (const Vec3Df & p) { pos = p; }
     inline void setColor (const Vec3Df & c) { color = c; }
@@ -36,7 +37,6 @@ private:
     bool disk;
     Vec3Df pos;
     Vec3Df color;
-    Vec3Df normal;
     float rayon;
     float intensity;
 };

@@ -27,14 +27,14 @@ void Scene::destroyInstance () {
 }
 
 Scene::Scene () {
-   // buildDefaultScene (false);
-  // buildScene2buffleHD();
-//:buildGroundWall();
-   buildBox();
-    //  buildSceneSpheres();
-//   buildSceneManyCircles();
-//   simpleScene();
-//buildNormalGround();
+//    buildDefaultScene (false);
+//    buildScene2buffleHD();
+//    buildGroundWall();
+//    buildBox();
+   buildSceneSpheres();
+//    buildSceneManyCircles();
+//    simpleScene();
+//    buildNormalGround();
     updateBoundingBox ();
 }
 
@@ -244,18 +244,17 @@ void Scene::buildSceneSpheres() {
     string fileNameShape = getFileName(Object::sphere);//Nom du fichier à charger
     Vec3Df transShape = Vec3Df (0.f, 2.f, 1.f);// de combien on le translate
     float grandShape = 1.f; // de combien on multiplie la forme
+
     //param Ground
     string fileNameGround = "models/ground.off";
     Vec3Df transGround;//De combien on veut le translater
     float grandGround = 7.f; // de combien on multiplie le fond
-
-
     groundMesh.loadOFF(fileNameGround,transGround, grandGround,nulRot);
     Material groundMat;
     Object ground (groundMesh, groundMat);
     objects.push_back (ground);
-    Mesh ramMesh;
 
+    Mesh ramMesh;
     ramMesh.loadOFF (fileNameShape, transShape,grandShape,nulRot);
     //Material ramMat (1.f, 1.f, Vec3Df (1.f, .6f, .2f));//old rammat
     Material ramMat(0.735f,1.656f, Vec3Df (1.f, .795f, .504f));
@@ -275,11 +274,9 @@ void Scene::buildSceneSpheres() {
 }
 
 void Scene::loadLights(int type){
-    Light l (Vec3Df (3.0f, 3.0f, 3.0f), Vec3Df (1.0f, 1.0f, 1.0f), 1.0f);                                           // point
-     Light ldisk (Vec3Df (3.0f, 3.0f, 3.0f), Vec3Df (1.0f, 1.0f, 1.0f), Vec3Df(-1.0f, -1.0f, -1.0f), 0.5f, 1.0f);    // disque
-    // Light l (Vec3Df (3.0f, 0.0f, 1.0f), Vec3Df (1.0f, 1.0f, 1.0f), 1.0f);
-    //Light ldisk (Vec3Df (3.0f, 3.0f, -3.0f), Vec3Df (1.0f, 1.0f, 1.0f), Vec3Df(-3.0f, -3.0f, 10.0f), 0.5f, 10.0f);
-Light ldisk2 (Vec3Df (-3.0f, -3.0f, 3.0f), Vec3Df (1.0f, 1.0f, -1.0f), Vec3Df(-1.0f, -1.0f, 1.0f), 0.5f, 1.0f);
+    Light l (Vec3Df (3.0f, 3.0f, 3.0f), Vec3Df (1.0f, 1.0f, 1.0f), 1.0f);              // point
+    Light ldisk (Vec3Df (3.0f, 3.0f, 3.0f), Vec3Df (1.0f, 1.0f, 1.0f), 0.5f, 1.0f);    // disque
+//    Light ldisk2 (Vec3Df (-3.0f, -3.0f, 3.0f), Vec3Df (1.0f, 1.0f, -1.0f), 0.5f, 1.0f);
     lights.push_back (ldisk);
     switch(type){
     case 0:

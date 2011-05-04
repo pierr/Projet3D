@@ -65,12 +65,13 @@ QImage RayTracer::render (const Vec3Df & camPos,
 
     float pctstep = 0.01;
     float pct = -pctstep;
-
+    //param->reInitRenderCol();
     if(!param->get_renderdone()){
         #pragma omp parallel for //Pour avoir du multicore
         //On itère sur tous les pixels de l'écran
         for (unsigned int i = 0; i < screenWidth; i++){
             for (unsigned int j = 0; j < screenHeight; j++) {
+                param->render_col[i][j] = Vec3Df();
                 float tanX = tan (fieldOfView);
                 float tanY = tanX/aspectRatio;
                 for(int k1=0; k1<param->get_pixgrille(); k1++){

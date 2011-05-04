@@ -79,6 +79,7 @@ Window::~Window () {
 void Window::renderRayImage () {
     qglviewer::Camera * cam = viewer->camera ();
     RayTracer * rayTracer = RayTracer::getInstance ();
+    param->set_renderdone(false);
     rayTracer->setParametres(param);
     rayTracer->setRayButton(rayButton);
     qglviewer::Vec p = cam->position ();
@@ -379,7 +380,6 @@ void Window::initControlWidget () {
     rayButton = new QPushButton ("Render", rayGroupBox);
     rayLayout->addWidget (rayButton);
     connect (rayButton, SIGNAL (clicked ()), this, SLOT (renderRayImage ()));
-
     QPushButton * saveButton  = new QPushButton ("Save", rayGroupBox);
     connect (saveButton, SIGNAL (clicked ()) , this, SLOT (exportRayImage ()));
     rayLayout->addWidget (saveButton);

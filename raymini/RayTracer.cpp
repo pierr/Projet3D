@@ -42,6 +42,9 @@ QImage RayTracer::render (const Vec3Df & camPos,
                           float aspectRatio,
                           unsigned int screenWidth,
                           unsigned int screenHeight) {
+
+    cout << "step" << endl;
+
     time_t tstart, tstop;
     tstart = time (NULL);
   
@@ -63,32 +66,39 @@ QImage RayTracer::render (const Vec3Df & camPos,
     float pctstep = 0.01;
     float pct = -pctstep;
 
- #pragma omp parallel for //Pour avoir du multi thread
-    //On itère sur tous les pixels de l'écran
-    for (unsigned int i = 0; i < screenWidth; i++){
-        for (unsigned int j = 0; j < screenHeight; j++) {
-            float tanX = tan (fieldOfView);
-            float tanY = tanX/aspectRatio;
-            Vec3Df col;
-            for(int k1=0; k1<param->get_pixgrille(); k1++){
-                for(int k2=0; k2<param->get_pixgrille(); k2++){
-                    Vec3Df stepX = (float (i+(k1/param->get_pixgrille())) - screenWidth/2.f)/screenWidth * tanX * rightVector;
-                    Vec3Df stepY = (float (j+(k2/param->get_pixgrille())) - screenHeight/2.f)/screenHeight * tanY * upVector;
-                    Vec3Df step = stepX + stepY;
-                    Vec3Df dir = direction + step;
-                    Ray ray (camPos, dir, backgroundColor, param);//On crée le rayon à lancer
-                    col+=255.f*ray.calcul_radiance(kdt->get_root(),1);
+    if(!param->get_renderdone()){
+        #pragma omp parallel for //Pour avoir du multicore
+        //On itère sur tous les pixels de l'écran
+        for (unsigned int i = 0; i < screenWidth; i++){
+            for (unsigned int j = 0; j < screenHeight; j++) {
+                float tanX = tan (fieldOfView);
+                float tanY = tanX/aspectRatio;
+                for(int k1=0; k1<param->get_pixgrille(); k1++){
+                    for(int k2=0; k2<param->get_pixgrille(); k2++){
+                        Vec3Df stepX = (float (i+(k1/param->get_pixgrille())) - screenWidth/2.f)/screenWidth * tanX * rightVector;
+                        Vec3Df stepY = (float (j+(k2/param->get_pixgrille())) - screenHeight/2.f)/screenHeight * tanY * upVector;
+                        Vec3Df step = stepX + stepY;
+                        Vec3Df dir = direction + step;
+                        Ray ray (camPos, dir, backgroundColor, param);//On crée le rayon à lancer
+                        param->render_col[i][j]+=ray.calcul_radiance(kdt->get_root(),1);
+                    }
+                }
+                param->render_col[i][j] = 255.f*param->render_col[i][j]/(param->get_pixgrille()*param->get_pixgrille());//On normalise la couleur par le nombre rayons qu'on a lançé pour chaque pixels
+
+                if((float)(i*screenHeight+j)/(screenHeight*screenWidth) > pct){
+                    pct += pctstep;
+                    cout << pct << endl;
                 }
             }
-            col = col/(param->get_pixgrille()*param->get_pixgrille());//On normalise la couleur par le nombre rayons qu'on a lançé pour chaque pixels
+        }
+    }
+
+    for (unsigned int i = 0; i < screenWidth; i++){
+        for (unsigned int j = 0; j < screenHeight; j++) {
             //On affecte une couleur au pixel
-            image.setPixel (i, ((screenHeight-1)-j), qRgb (clamp (col[0], 0, 255), //clamp in order to deal with the > 255 value
-                                                           clamp (col[1], 0, 255),
-                                                           clamp (col[2], 0, 255)));
-            if((float)(i*screenHeight+j)/(screenHeight*screenWidth) > pct){
-                pct += pctstep;
-                cout << pct << endl;
-            }
+            image.setPixel (i, ((screenHeight-1)-j), qRgb (clamp (param->render_col[i][j][0]*param->get_saturation(), 0, 255), //clamp in order to deal with the > 255 value
+                                                           clamp (param->render_col[i][j][1]*param->get_saturation(), 0, 255),
+                                                           clamp (param->render_col[i][j][2]*param->get_saturation(), 0, 255)));
         }
     }
 

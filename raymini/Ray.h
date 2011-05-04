@@ -51,6 +51,7 @@ public:
     @param m est le material du triangle
     @param radiance est la radiance qu'on va modifier.
     */
+    float retBRDF(Vec3Df & wn, Vec3Df & wi, Vec3Df & wo, float intensity, Material & m);
     void calcBRDF(Vertex & bary,  Material & m, Vec3Df& color, kdnode * root);
     /**
       Le but de cette méthode est de calculer pour chaque rayon les triangles qui intersectent ce rayon , les triangles sont issus des objets qui composent la scène.
@@ -59,7 +60,7 @@ public:
 
     Vec3Df calcul_radiance( kdnode * root, int num);
     float calcAmbOcclusion(kdnode * root, Vertex & v, float rayonSphere, float angle);
-    void calcPathTracing(kdnode * root,int num,Vertex & isV,Vec3Df & radiance);
+    void calcPathTracing(kdnode * root,int num,Vertex & isV,Vec3Df & radiance, Material & m);
 private:
     Vec3Df origin;
     Vec3Df direction;

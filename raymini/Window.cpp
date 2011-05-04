@@ -93,6 +93,7 @@ void Window::renderRayImage () {
     float aspectRatio = cam->aspectRatio ();
     unsigned int screenWidth = cam->screenWidth ();
     unsigned int screenHeight = cam->screenHeight ();
+    cout << "step" << endl;
     rayImage = rayTracer->render (camPos, viewDirection, upVector, rightVector,
                                   fieldOfView, aspectRatio, screenWidth, screenHeight);
     imageLabel->setPixmap (QPixmap::fromImage (rayImage));
@@ -197,6 +198,16 @@ void Window::initControlWidget () {
         ambiantLSpinBox->setValue(param->get_ambiantLight());
         connect (ambiantLSpinBox, SIGNAL (valueChanged (double)), param, SLOT(set_ambiantLight(double)));
         raysLayout->addWidget(ambiantLSpinBox);
+
+        //saturation
+        QLabel * saturationLabel = new QLabel("saturation");
+        raysLayout->addWidget(saturationLabel);
+        QDoubleSpinBox * saturationSpinBox = new QDoubleSpinBox();
+        saturationSpinBox->setRange(0,100);
+        saturationSpinBox->setSingleStep(0.1);
+        saturationSpinBox->setValue(param->get_saturation());
+        connect (saturationSpinBox, SIGNAL (valueChanged (double)), this, SLOT(set_saturation(double)));
+        raysLayout->addWidget(saturationSpinBox);
 
         //material_active
         QCheckBox * materialCheckBox = new QCheckBox ("Material", paramGroupBox);
@@ -345,6 +356,7 @@ void Window::initControlWidget () {
         pathLayout->addWidget(pathnrayLabel);
         QSpinBox * pathnraySpinBox = new QSpinBox();
         pathnraySpinBox->setValue(param->get_pathnray());
+        pathnraySpinBox->setRange(1,1000);
         connect (pathnraySpinBox, SIGNAL (valueChanged (int)), param, SLOT(set_pathnray(int)));
         pathLayout->addWidget(pathnraySpinBox);
 
@@ -395,4 +407,11 @@ void Window::initControlWidget () {
 
     layout->addStretch (0);
 
+}
+
+void Window::set_saturation(double saturation){
+    param->set_saturation(saturation);
+    param->set_renderdone(true);
+    renderRayImage();
+    param->set_renderdone(false);
 }

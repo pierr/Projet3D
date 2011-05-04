@@ -199,11 +199,23 @@ float r = a/b;
    } return true;
 }
 
+float Ray::retBRDF(Vec3Df & wn, Vec3Df & wi, Vec3Df & wo, float intensity, Material & m){
+    float BRDF = 0;
+    Vec3Df h = (wi+wo);
+    h.normalize();
+    //Calcul de la partie diffuse de la brdf (Diffuse Shading)//Ajouter le terme ambiant
+    if(param->get_diffactive()){
+        BRDF += m.getDiffuse()*intensity*max(0.f,Vec3Df::dotProduct(wn,wi));//abs(Vec3Df::dotProduct(wn,wi)); si on pernait le abs ça revenait à avoir une source symétrique
+    }
+    if(param->get_specactive()){
+        BRDF += m.getSpecular()*pow(abs(Vec3Df::dotProduct(h,wn)),param->get_brillance());
+    }
+    return BRDF;
+}
+
 void Ray::calcBRDF(Vertex & v,  Material & m, Vec3Df& color, kdnode * root){
     Scene* scene = Scene::getInstance();
     std::vector<Light> lights = scene->getLights();
-    //Pour chacune des lumières on va chercher pour le triangle sa brdf
-    Vec3Df wi,wo,wn,wp, r;
     for(unsigned int i = 0; i<lights.size(); i++){
 
         Vec3Df material(1,1,1); //material
@@ -215,25 +227,15 @@ void Ray::calcBRDF(Vertex & v,  Material & m, Vec3Df& color, kdnode * root){
 
         if(param->get_materialactive()) material = m.getColor();
         if(param->get_BRDFactive()){
-            float BRDF = 1;  //BRDF
+            Vec3Df wi,wo,wn,wp;
 
             wi = Vec3Df(light.getPos() - v.getPos()); //Point in the lignt direction from the current pas
             wi.normalize();
             wo = Vec3Df(getOrigin() - v.getPos());
             wo.normalize();
             wn = v.getNormal();
-            wp = v.getPos();
-            r = wn*Vec3Df::dotProduct(wi,wn)*2-wi;
-            Vec3Df h = (wi+ wo);
-            h.normalize();
-            BRDF = 0;
-            //Calcul de la partie diffuse de la brdf (Diffuse Shading)//Ajouter le terme ambiant
-            if(param->get_diffactive()){
-                BRDF += m.getDiffuse()*light.getIntensity()*max(0.f,Vec3Df::dotProduct(wn,wi));//abs(Vec3Df::dotProduct(wn,wi)); si on pernait le abs ça revenait à avoir une source symétrique
-            }
 
-            if(param->get_specactive())
-                BRDF += m.getSpecular()*pow(abs(Vec3Df::dotProduct(h,wn)),param->get_brillance());
+            float BRDF = retBRDF(wn,wi,wo,light.getIntensity(),m);
 
             BRDFradiance = light.getColor()*BRDF;
         }
@@ -375,7 +377,7 @@ Vec3Df Ray::calcul_radiance(kdnode * root, int num){
         calcBRDF(isv, ism, radiance, root);
 
         //PATH TRACING
-        calcPathTracing(root , num, isv,radiance);
+        calcPathTracing(root , num, isv,radiance, ism);
 
         return radiance;
     //sinon le fonds d'ecran
@@ -384,15 +386,22 @@ Vec3Df Ray::calcul_radiance(kdnode * root, int num){
     }
 }
 
-void Ray::calcPathTracing(kdnode * root,int num,Vertex & isV, Vec3Df & radiance){
+void Ray::calcPathTracing(kdnode * root,int num,Vertex & isV, Vec3Df & radiance, Material & m){
     if(param->get_pathactive() && num<param->get_pathmaxdeep()){
         Vec3Df rad_rayons;
         for(int i=0; i<param->get_pathnray(); i++){
             //aleatoires, direction proche a la normale
             Vec3Df pertVect = perturbateVector(isV.getNormal(), param->get_paththeta());
             Ray rlight(isV.getPos()+pertVect*param->get_epsilon(), pertVect, this->bgColor, param);
-            rad_rayons += rlight.calcul_radiance(root, num+1);
+
+            Vec3Df wn = isV.getNormal();
+            Vec3Df wi = pertVect;
+            Vec3Df wo = -direction;
+
+            Vec3Df radl = rlight.calcul_radiance(root, num+1);
+            rad_rayons += radl*retBRDF(wn,wi,wo,radl.getLength(),m);
         }
+        //ce sont comme des lumieres. on ne doit pas faire la moyenne. on normalisera sur RayTracer. probleme: si non, ça sature...
         rad_rayons = rad_rayons/param->get_pathnray();
 
         radiance += rad_rayons;
@@ -435,8 +444,8 @@ Vec3Df perturbateVector(const Vec3Df & originVecor, float angle){
   x.normalize();
   y.normalize();
 
-  float theta = randf()*PI*angle/180;
-  float phi = randf()*PI*angle/180;
+  float theta = randf()*PI*angle/180;   //valeur en radians entre [-angle;angle]
+  float phi = randf()*PI*angle/180;     //valeur en radians entre [-angle;angle]
 
   float coordx = sin( theta ) * cos( phi );
   float coordy = sin( theta ) * sin( phi );

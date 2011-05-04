@@ -36,6 +36,7 @@ public slots :
     void exportGLImage ();
     void exportRayImage ();
     void about ();
+    void set_saturation(double saturation);
     
 private :
     

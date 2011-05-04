@@ -5,6 +5,8 @@
 #include <QCheckBox>
 #include <iostream>
 
+#include "Vec3D.h"
+
 #define PI 3.141592
 
 using namespace std;
@@ -12,14 +14,24 @@ using namespace std;
 class Parametres : public QObject {
     Q_OBJECT
 public:
+    //atributs
+    int screenheight, screenweight;
+    Vec3Df render_col[1000][1000];
+
     inline Parametres(QObject *parent = 0) : QObject(parent) {
+        for(unsigned int i=0; i<1000; i++)
+            for(unsigned int j=0; j<1000; j++)
+                render_col[i][j] = Vec3Df();
+
         pix_grille =        1;
         material_active =   true;
         BRDF_active =       true;
         diff_active =       true;
         spec_active =       true;
         brillance =         1;
-        ambiantLight = 0.;
+        ambiantLight =      0;
+        saturation =        1;
+
         ombres_active =     false;
         ombres_douces =     false;
         ombres_numa =       2;
@@ -39,18 +51,20 @@ public:
 
         kd_done = -1; //kd to do
         epsilon =           0.0001f;
-
     }
     inline virtual ~Parametres() {}
 
     //get qu'on utilise sur le GUI
+    inline bool get_renderdone()                    { return render_done; }
     inline int get_pixgrille()                      { return pix_grille; }
     inline bool get_materialactive()                { return material_active; }
     inline bool get_BRDFactive()                    { return BRDF_active; }
     inline bool get_diffactive()                    { return diff_active; }
     inline bool get_specactive()                    { return spec_active; }
     inline float get_brillance()                    { return brillance; }
-    inline float get_ambiantLight()                    { return ambiantLight; }
+    inline float get_ambiantLight()                 { return ambiantLight; }
+    inline float get_saturation()                   { return saturation; }
+
     inline bool get_ombresactive()                  { return ombres_active; }
     inline bool get_ombresdouces()                  { return ombres_douces; }
     inline int get_ombresnuma()                     { return ombres_numa; }
@@ -110,6 +124,8 @@ public:
                    << std::endl;
     }
 public slots:
+    inline void set_renderdone(bool render_done)                { this->render_done = render_done; }
+
     inline void set_pixgrille(int pix_grille)                   { this->pix_grille = pix_grille; }
 
     inline void set_materialactive(bool material_active)        { this->material_active = material_active; }
@@ -125,8 +141,10 @@ public slots:
     inline void set_diffcheckbox(QCheckBox * diffCheckBox)      { this->diffCheckBox = diffCheckBox; }
     inline void set_specactive(bool spec_active)                { this->spec_active = spec_active; }
     inline void set_speccheckbox(QCheckBox * specCheckBox)      { this->specCheckBox = specCheckBox; }
-    inline void set_brillance(double brillance)                  { this->brillance = (float)brillance; }
-    inline void set_ambiantLight(double ambiant){ this->ambiantLight = (float) ambiant ;}
+    inline void set_brillance(double brillance)                 { this->brillance = (float)brillance; }
+    inline void set_ambiantLight(double ambiant)                { this->ambiantLight = (float) ambiant; }
+    inline void set_saturation (double saturation)              { this->saturation = (float) saturation; }
+
     inline void set_ombresactive(bool ombres_active){
         this->ombres_active = ombres_active;
         if(ombres_active && !BRDF_active){
@@ -155,10 +173,14 @@ public slots:
     inline void set_epsilon(float epsilon)                      { this->epsilon = epsilon; }
 
 private:
+
+    //render
+    bool render_done;
     //rays
     int pix_grille;
     float brillance;
     float ambiantLight;
+    float saturation;
     bool material_active;
     bool BRDF_active;
     QCheckBox * BRDFCheckBox;
@@ -166,6 +188,7 @@ private:
     QCheckBox * diffCheckBox;
     bool spec_active;
     QCheckBox * specCheckBox;
+
     //ombres
     bool ombres_active;
     QCheckBox * ombresCheckBox;

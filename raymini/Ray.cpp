@@ -401,8 +401,8 @@ void Ray::calcPathTracing(kdnode * root,int num,Vertex & isV, Vec3Df & radiance,
             Vec3Df radl = rlight.calcul_radiance(root, num+1);
             rad_rayons += radl*retBRDF(wn,wi,wo,radl.getLength(),m);
         }
-        //ce sont comme des lumieres. on ne doit pas faire la moyenne. on normalisera sur RayTracer. probleme: si non, ça sature...
-        rad_rayons = rad_rayons/param->get_pathnray();
+        //ce sont comme des lumieres. on ne doit pas faire la moyenne. on normalisera sur RayTracer
+//        rad_rayons = rad_rayons/param->get_pathnray();
 
         radiance += rad_rayons;
     }

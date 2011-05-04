@@ -79,7 +79,8 @@ Window::~Window () {
 void Window::renderRayImage () {
     qglviewer::Camera * cam = viewer->camera ();
     RayTracer * rayTracer = RayTracer::getInstance ();
-    param->set_renderdone(false);
+    //mauvais! si on l'ajoute on a recalculer tout pour changer la saturation!!!
+//    param->set_renderdone(false);
     rayTracer->setParametres(param);
     rayTracer->setRayButton(rayButton);
     qglviewer::Vec p = cam->position ();
@@ -94,7 +95,6 @@ void Window::renderRayImage () {
     float aspectRatio = cam->aspectRatio ();
     unsigned int screenWidth = cam->screenWidth ();
     unsigned int screenHeight = cam->screenHeight ();
-    cout << "step" << endl;
     rayImage = rayTracer->render (camPos, viewDirection, upVector, rightVector,
                                   fieldOfView, aspectRatio, screenWidth, screenHeight);
     imageLabel->setPixmap (QPixmap::fromImage (rayImage));
@@ -205,7 +205,7 @@ void Window::initControlWidget () {
         raysLayout->addWidget(saturationLabel);
         QDoubleSpinBox * saturationSpinBox = new QDoubleSpinBox();
         saturationSpinBox->setRange(0,100);
-        saturationSpinBox->setSingleStep(0.1);
+        saturationSpinBox->setSingleStep(0.001);
         saturationSpinBox->setValue(param->get_saturation());
         connect (saturationSpinBox, SIGNAL (valueChanged (double)), this, SLOT(set_saturation(double)));
         raysLayout->addWidget(saturationSpinBox);

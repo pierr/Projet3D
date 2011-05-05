@@ -9,16 +9,21 @@
 #include <string>
 #include "Vec3D.h"
 #include "Matrix.h"
+
 using namespace std;
 
 static Scene * instance = NULL;
 
-Scene * Scene::getInstance () {
-    if (instance == NULL)
-        instance = new Scene ();
-    return instance;
+void Scene::set_param(Parametres * param){
+    this->param = param;
 }
 
+Scene * Scene::getInstance () {
+    if (instance == NULL){
+        instance = new Scene ();
+    }
+    return instance;
+}
 void Scene::destroyInstance () {
     if (instance != NULL) {
         delete instance;
@@ -31,7 +36,7 @@ Scene::Scene () {
 //    buildScene2buffleHD();
 //    buildGroundWall();
 //    buildBox();
-   buildSceneSpheres();
+    buildSceneSpheres();
 //    buildSceneManyCircles();
 //    simpleScene();
 //    buildNormalGround();
@@ -417,15 +422,15 @@ void Scene::simpleScene(){
         /*Ici on récupère ou on défini les paramêtres de chaque objet*/
         //Param Shape
         string fileNameShape = getFileName(Object::ram);//Nom du fichier à charger
-        Vec3Df transShape(0.f, 0.f, 4.f);// de combien on le translate
+        Vec3Df transShape(0.f, 0.f, 0.f);// de combien on le translate
         float grandShape = 0.01f; // de combien on multiplie la forme
         //param Ground
         string fileNameGround = "models/ground.off";
         Vec3Df transGround;//De combien on veut le translater
-//        float grandGround = 0.03f; // de combien on multiplie le fond
+        float grandGround = 0.1f; // de combien on multiplie le fond
 
-        groundMesh.loadOFF(fileNameShape);
-//       groundMesh.loadOFF(fileNameShape,transShape, grandGround,nulRot);
+//        groundMesh.loadOFF(fileNameShape);
+       groundMesh.loadOFF(fileNameShape,transShape, grandGround,nulRot);
         Material groundMat(1.f, 1.f, Vec3Df (1.f, 0.f, 0.f));
         Object ground (groundMesh, groundMat);
         objects.push_back (ground);

@@ -13,12 +13,13 @@
 #include <vector>
 
 #include "Vec3D.h"
+#include "Parametres.h"
 
 class Light {
 public:
     inline Light () : disk(false), color (Vec3Df (1.0f, 1.0f, 1.0f)), intensity (1.0f) {}
-    inline Light (const Vec3Df & pos, const Vec3Df & color, float intensity)
-        : disk(false), pos (pos), color (color),                               intensity (intensity) {}
+    inline Light (const Vec3Df & pos, const Vec3Df & color,              float intensity)
+        : disk(false), pos (pos), color (color),               intensity (intensity) {}
     inline Light (const Vec3Df & pos, const Vec3Df & color, float rayon, float intensity)
         : disk(true),  pos (pos), color (color), rayon(rayon), intensity (intensity) {}
     virtual ~Light () {}
@@ -31,7 +32,6 @@ public:
     inline void setPos (const Vec3Df & p) { pos = p; }
     inline void setColor (const Vec3Df & c) { color = c; }
     inline void setIntensity (float i) { intensity = i; }
-
     
 private:
     bool disk;
@@ -39,6 +39,7 @@ private:
     Vec3Df color;
     float rayon;
     float intensity;
+    Parametres * param;
 };
 
 

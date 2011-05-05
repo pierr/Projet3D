@@ -50,6 +50,9 @@ QImage RayTracer::render (const Vec3Df & camPos,
     
     Scene * scene = Scene::getInstance ();
 
+    //on marque les parametres
+    scene->set_param(param);
+
     //splitter l'espace en boundingbox a travers un kdtree..
     if(param->get_kddone()){
         BoundingBox scenebox = scene->getBoundingBox();
@@ -59,7 +62,7 @@ QImage RayTracer::render (const Vec3Df & camPos,
     }
 
     //On affiche les paramêtres dans la console
-    param->print();
+    //param->print();
 
     float pctstep = 0.01;
     float pct = -pctstep;

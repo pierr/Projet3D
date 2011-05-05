@@ -285,7 +285,7 @@ void Window::initControlWidget () {
         amboccLayout->addWidget (amboccCheckBox);
 
         //numr
-        QLabel * amboccnumrLabel = new QLabel("numr");
+        QLabel * amboccnumrLabel = new QLabel("nray 1");
         amboccLayout->addWidget(amboccnumrLabel);
         QSpinBox * amboccnumrSpinBox = new QSpinBox();
         amboccnumrSpinBox->setValue(param->get_amboccnumr());
@@ -294,7 +294,7 @@ void Window::initControlWidget () {
         amboccLayout->addWidget(amboccnumrSpinBox);
 
         //numa
-        QLabel * amboccnumaLabel = new QLabel("numa");
+        QLabel * amboccnumaLabel = new QLabel("nray 2");
         amboccLayout->addWidget(amboccnumaLabel);
         QSpinBox * amboccnumaSpinBox = new QSpinBox();
         amboccnumaSpinBox->setValue(param->get_amboccnuma());
@@ -362,7 +362,7 @@ void Window::initControlWidget () {
         pathLayout->addWidget(paththetaSpinBox);
 
         //numr
-        QLabel * pathnumrLabel = new QLabel("nb rays par rebondissement");
+        QLabel * pathnumrLabel = new QLabel("nray 1");
         pathLayout->addWidget(pathnumrLabel);
         QSpinBox * pathnumrSpinBox = new QSpinBox();
         pathnumrSpinBox->setValue(param->get_pathnumr());
@@ -371,7 +371,7 @@ void Window::initControlWidget () {
         pathLayout->addWidget(pathnumrSpinBox);
 
         //numa
-        QLabel * pathnumaLabel = new QLabel("nb rays par rebondissement");
+        QLabel * pathnumaLabel = new QLabel("nray 2");
         pathLayout->addWidget(pathnumaLabel);
         QSpinBox * pathnumaSpinBox = new QSpinBox();
         pathnumaSpinBox->setValue(param->get_pathnuma());

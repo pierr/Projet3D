@@ -261,11 +261,6 @@ void Ray::calcBRDF(Vertex & v,  Material & m, Vec3Df& color, kdnode * root){
                 if(rlight.kd_intersect(root, isv, ism, dist, FLT_MAX) && dist<(1-param->get_epsilon())*Vec3Df::distance(lightpoints.at(j),v.getPos()))
                     lightprop--;
             }
-
-//            if(lightprop<lightpoints.size()){
-//                cout << "lp " << lightprop << " so " << lightprop/(float)lightpoints.size() << endl;
-//            }
-
             lightprop = lightprop/(float)lightpoints.size();
         }
 
@@ -396,7 +391,7 @@ void Ray::calcPathTracing(kdnode * root,int num,Vertex & isV, Vec3Df & radiance,
         for(int i=0; i<param->get_pathnumr(); i++){
             for(int j=0; j<param->get_pathnuma(); j++){
                 //aleatoires, direction proche a la normale
-                Vec3Df pertVect = rotateVector(isV.getNormal(), i*param->get_paththeta()/param->get_pathnumr(), j*param->get_paththeta()/param->get_pathnuma());
+                Vec3Df pertVect = rotateVector(isV.getNormal(), i*2*param->get_paththeta()/(float)(param->get_pathnumr()-1)-param->get_paththeta(), j*2*param->get_paththeta()/(float)(param->get_pathnuma()-1)-param->get_paththeta());
                 Ray rlight(isV.getPos()+pertVect*param->get_epsilon(), pertVect, this->bgColor, param);
 
                 Vec3Df wn = isV.getNormal();
@@ -419,7 +414,7 @@ float Ray::calcAmbOcclusion(kdnode * root, Vertex & v, float rayonSphere, float 
         for(int j=0; j<param->get_amboccnuma(); j++){
             Material ism;
             Vertex isv;
-            Ray rlight(v.getPos() + v.getNormal()*param->get_epsilon()/**rayonSphere*/, rotateVector(v.getNormal(), i*theta/param->get_amboccnumr(), j*theta/param->get_amboccnuma()), bgColor, param);
+            Ray rlight(v.getPos() + v.getNormal()*param->get_epsilon(), rotateVector(v.getNormal(), i*2*theta/(float)(param->get_amboccnumr()-1) - theta, j*2*theta/(float)(param->get_amboccnuma()-1) - theta), bgColor, param);
             float mindist; //inutile
             bool isIntersect = rlight.kd_intersect(root, isv, ism, mindist,rayonSphere);
             //On teste si l'intersection est dans une sphère de rayon rayonsphère si il y a eu une intersection

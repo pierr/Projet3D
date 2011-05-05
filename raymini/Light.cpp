@@ -39,7 +39,6 @@ const std::vector<Vec3Df> & Light::getPoints (Vec3Df & normal, int numr, int num
         //si ce n'est pas un disque, on a seulement la position
         ret->push_back(pos);
     }
-
     //on retourne l'ensemble de points
     return * ret;
 }

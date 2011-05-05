@@ -14,9 +14,12 @@
 #include "Object.h"
 #include "Light.h"
 #include "BoundingBox.h"
+#include "Parametres.h"
 
 class Scene {
 public:
+    void set_param(Parametres * param);
+
     static Scene * getInstance ();
     static void destroyInstance ();
     
@@ -46,6 +49,7 @@ private:
     std::vector<Object> objects;
     std::vector<Light> lights;
     BoundingBox bbox;
+    Parametres * param;
 };
 
 

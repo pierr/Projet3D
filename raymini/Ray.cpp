@@ -389,6 +389,29 @@ void Ray::calcPathTracing(kdnode * root,int num,Vertex & isV, Vec3Df & radiance,
     if(param->get_pathactive() && num<param->get_pathmaxdeep()){
         Vec3Df rad_rayons;
         for(int i=0; i<param->get_pathnumr(); i++){
+            //aleatoires, direction proche a la normale
+            Vec3Df pertVect = perturbateVector(isV.getNormal(), param->get_paththeta());
+            Ray rlight(isV.getPos()+pertVect*param->get_epsilon(), pertVect, this->bgColor, param);
+
+            Vec3Df wn = isV.getNormal();
+            Vec3Df wi = pertVect;
+            Vec3Df wo = -direction;
+
+            Vec3Df radl = rlight.calcul_radiance(root, num+1);
+            rad_rayons += radl*retBRDF(wn,wi,wo,radl.getLength(),m);
+        }
+        //ce sont comme des lumieres. on ne doit pas faire la moyenne. on normalisera sur RayTracer. probleme: si non, ça sature...
+        rad_rayons = rad_rayons/param->get_pathnumr();
+
+        radiance += rad_rayons;
+    }
+}
+//Old One
+/*
+void Ray::calcPathTracing(kdnode * root,int num,Vertex & isV, Vec3Df & radiance, Material & m){
+    if(param->get_pathactive() && num<param->get_pathmaxdeep()){
+        Vec3Df rad_rayons;
+        for(int i=0; i<param->get_pathnumr(); i++){
             for(int j=0; j<param->get_pathnuma(); j++){
                 //aleatoires, direction proche a la normale
                 Vec3Df pertVect = rotateVector(isV.getNormal(), i*2*param->get_paththeta()/(float)(param->get_pathnumr()-1)-param->get_paththeta(), j*2*param->get_paththeta()/(float)(param->get_pathnuma()-1)-param->get_paththeta());
@@ -407,7 +430,7 @@ void Ray::calcPathTracing(kdnode * root,int num,Vertex & isV, Vec3Df & radiance,
     }
 }
 
-
+*/
 float Ray::calcAmbOcclusion(kdnode * root, Vertex & v, float rayonSphere, float theta){
     float ratioIntersection = 0.f;
     for(int i=0; i<param->get_amboccnumr(); i++){

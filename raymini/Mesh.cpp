@@ -206,9 +206,10 @@ void Mesh::loadOFF (const std::string & filename, Vec3Df & translatedVector, flo
         pos = rotMat*pos;
         //cout <<" pos finale " << pos  << endl;
         //cout << "pos " << pos << "After Tr";
-        pos = pos + translatedVector;
+
         //cout << " pos + tr " << pos << std::endl;
         pos = pos * grandissement;
+        pos = pos + translatedVector;
         vertices.push_back (Vertex (pos, Vec3Df (1.0, 0.0, 0.0)));
     }
     for (unsigned int i = 0; i < numOfTriangles; i++) {
@@ -228,6 +229,12 @@ void Mesh::loadOFF (const std::string & filename) {
      float z = 1.f;
      RotationMatrix rot(0., Matrix::Z);
      loadOFF(filename, zer,z, rot);
+}
+
+void Mesh::loadOFF (const std::string & filename, float & grandissement) {
+     Vec3Df zer;
+     RotationMatrix rot(0., Matrix::Z);
+     loadOFF(filename, zer,grandissement, rot);
 }
 void Mesh::loadOFFF ( std::string  filename) {
      Vec3Df zer;

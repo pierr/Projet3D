@@ -35,8 +35,8 @@ Scene::Scene () {
 //    buildDefaultScene (false);
 //    buildScene2buffleHD();
 //    buildGroundWall();
-//    buildBox();
-    buildSceneSpheres();
+   buildBox();
+ //   buildSceneSpheres();
 //    buildSceneManyCircles();
 //    simpleScene();
 //    buildNormalGround();
@@ -123,6 +123,9 @@ string getFileName(Object::objName objName){
         break;
     case Object::cubeRoof:
         out+="cubeRoof.off";
+        break;
+    case Object::pig:
+        out+="pig.off";
         break;
         /*camel_head.off   horse.off        squirrel.off
     CHERRY.OFF       double-torus.off max.off.off      tri.off
@@ -389,15 +392,58 @@ void Scene::buildSceneManyCircles(){
 }
 
 void Scene::buildBox(){
-    Mesh sol;
+    float grand = 4.f;
+    Mesh rightWall;
+    string fileRW = getFileName(Object::cubeWallRight);
+    rightWall.loadOFF(fileRW,grand);//,transGround,grandGround,nulRot);
+    Material rWMat(0.8f,0.7f, Vec3Df (255.f/255,102.f/255, 51.f/255));
+    Object rW (rightWall,rWMat);
+    objects.push_back(rW);
 
-    string fileName = getFileName(Object::cubeFloor);
-    sol.loadOFF(fileName);//,transGround,grandGround,nulRot);
-    sol.loadOFFF(getFileName(Object::cubeWallLeft));
-   // sol.loadOFFF(getFileName(Object::cubeRoof));
-    Material groundMat;//(rand2(),rand2(), Vec3Df (0.f,255.f/255, 255.f/255));
-    Object soll (sol, groundMat);
-    objects.push_back(soll);
+    Mesh backWall;
+    string fileBackWall = getFileName(Object::cubebackWall);
+    backWall.loadOFF(fileBackWall,grand);//,transGround,grandGround,nulRot);
+    Material groundMatBW(rand2(),rand2(), Vec3Df (0.f,255.f/255, 255.f/255));
+    Object bW (backWall, groundMatBW);
+    objects.push_back(bW);
+
+    Mesh leftWall;
+    string fileLeftWall = getFileName(Object::cubeWallLeft);
+    leftWall.loadOFF(fileLeftWall,grand);//,transGround,grandGround,nulRot);
+    Material groundMatLW(0.5,0.5, Vec3Df (255.f/255,51.f/255, 102.f/255));
+    Object lW (leftWall, groundMatLW);
+    objects.push_back(lW);
+
+    Mesh floorWall;
+    string fileFloorWall = getFileName(Object::cubeFloor);
+    floorWall.loadOFF(fileFloorWall,grand);//,transGround,grandGround,nulRot);
+    Material groundMatFloor(0.5,0.5, Vec3Df (255.f/255,255.f/255, 255.f/255));
+    Object fW (floorWall, groundMatFloor);
+    objects.push_back(fW);
+
+    Mesh roofWall;
+    string fileRoofWall = getFileName(Object::cubeRoof);
+    roofWall.loadOFF(fileRoofWall,grand);//,transGround,grandGround,nulRot);
+    Material groundMatRoof(0.5,0.5, Vec3Df (255.f/255,255.f/255, 255.f/255));
+    Object roW (roofWall, groundMatRoof);
+    objects.push_back(roW);
+
+    Mesh pigMesh;
+    Mesh pigMesh2;
+    RotationMatrix rot(-90.f,Matrix::X);
+    float g = 0.2f;
+    Vec3Df t(1.f,0.1f,1.f);
+    string filePig = getFileName(Object::pig);
+    pigMesh.loadOFF(filePig,t,g,rot);
+    Vec3Df tt = t+t;
+     pigMesh2.loadOFF(filePig,tt,g,rot);
+    Material pigMat(0.5,0.5, Vec3Df (255.f/255,153.f/255, 204.f/255));
+    Object pig (pigMesh, pigMat);
+    Object pig2 (pigMesh2, pigMat);
+
+    objects.push_back(pig);
+    objects.push_back(pig2);
+
     loadLights(1);
 }
 

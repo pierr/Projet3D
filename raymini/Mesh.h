@@ -47,7 +47,8 @@ public:
     void renderGL (bool flat) const;
     void loadOFFF (const std::string  filename);
     void loadOFF (const std::string & filename);
-   void loadOFF (const std::string & filename, Vec3Df & translatedVector, float & grandissement, RotationMatrix & rotMat);
+    void loadOFF (const std::string & filename, Vec3Df & translatedVector, float & grandissement, RotationMatrix & rotMat);
+    void loadOFF (const std::string & filename, float & grandissement);
     class Exception {
     private: 
         std::string msg;

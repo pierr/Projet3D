@@ -57,9 +57,29 @@ public:
       Le but de cette méthode est de calculer pour chaque rayon les triangles qui intersectent ce rayon , les triangles sont issus des objets qui composent la scène.
     */
     bool kd_intersect(kdnode * root, Vertex & isv, Material & ism, float & mindist, float maxdist);
-
+   /**
+    *Fonction qui permet de claculer le résultat pour le rayon concidéré le résultat combiné ,
+    * en fonction des paramêtres activés:de la brdf,des ombres,de l'ambiant occlusion, et du path Tracing.
+    *@param root est la racine du kdTree
+    *@param num est le niveau de profondeur (nb de rebond) car cette méthode peut être appellée réccursivement.
+    */
     Vec3Df calcul_radiance( kdnode * root, int num);
+    /**
+    * Méthode qui permet de calculer le facteur d'ambient occlusion pour le rayon.
+    * @param root est la racine du kdTree
+    * @param v est les coonnées de l'intersection du rayon  avec la scène donc le tree.
+    * @param rayonSphere représente le rayon dans lequel on veut bien accepter les triangles de la scène.
+    * @param angle représente le demi l'angle du cône à partir duquel on va tirer les rayons.
+    */
     float calcAmbOcclusion(kdnode * root, Vertex & v, float rayonSphere, float angle);
+    /**
+     *Méthode qui permet de calculer le résultat du PathTracing.(C'est une méthode réccursive).
+     * @param root est la racine du kdTree
+     * @param num est le nombre de rebond
+     * @param isV est les coordonnes de l'intersection entre le rayon et la scène.
+     * @param radiance est la couleur de la scène + lumière....
+     * @param m est le matéerial de l'objet intersecté par le rayon.
+    */
     void calcPathTracing(kdnode * root,int num,Vertex & isV,Vec3Df & radiance, Material & m);
 
     Vec3Df rotateVector(const Vec3Df & originVecor, float anglephi, float angletheta);

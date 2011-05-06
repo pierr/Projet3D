@@ -36,7 +36,7 @@ Scene::Scene () {
 //    buildScene2buffleHD();
 //    buildGroundWall();
    buildBox();
- //   buildSceneSpheres();
+   //buildSceneSpheres();
 //    buildSceneManyCircles();
 //    simpleScene();
 //    buildNormalGround();
@@ -283,7 +283,7 @@ void Scene::buildSceneSpheres() {
 
 void Scene::loadLights(int type){
     Light l (Vec3Df (3.0f, 3.0f, 3.0f), Vec3Df (1.0f, 1.0f, 1.0f), 1.0f);              // point
-    Light ldisk (Vec3Df (3.0f, 3.0f, 3.0f), Vec3Df (1.0f, 1.0f, 1.0f), 0.5f, 1.0f);    // disque
+    Light ldisk (Vec3Df (2.0f, 2.0f, 2.0f), Vec3Df (1.0f, 255.0f/255, 255.0f/255), 0.5f, 0.5f);    // disque
 //    Light ldisk2 (Vec3Df (-3.0f, -3.0f, 3.0f), Vec3Df (1.0f, 1.0f, -1.0f), 0.5f, 1.0f);
     lights.push_back (ldisk);
     switch(type){
@@ -403,7 +403,7 @@ void Scene::buildBox(){
     Mesh backWall;
     string fileBackWall = getFileName(Object::cubebackWall);
     backWall.loadOFF(fileBackWall,grand);//,transGround,grandGround,nulRot);
-    Material groundMatBW(rand2(),rand2(), Vec3Df (0.f,255.f/255, 255.f/255));
+    Material groundMatBW;//(rand2(),1.f, Vec3Df (255.f/255.f,255.f/255, 255.f/255));
     Object bW (backWall, groundMatBW);
     objects.push_back(bW);
 
@@ -417,7 +417,7 @@ void Scene::buildBox(){
     Mesh floorWall;
     string fileFloorWall = getFileName(Object::cubeFloor);
     floorWall.loadOFF(fileFloorWall,grand);//,transGround,grandGround,nulRot);
-    Material groundMatFloor(0.5,0.5, Vec3Df (255.f/255,255.f/255, 255.f/255));
+    Material groundMatFloor;//(0.5,0.5, Vec3Df (255.f/255,255.f/255, 255.f/255));
     Object fW (floorWall, groundMatFloor);
     objects.push_back(fW);
 
@@ -430,13 +430,21 @@ void Scene::buildBox(){
 
     Mesh pigMesh;
     Mesh pigMesh2;
+    Mesh sphereMesh;
     RotationMatrix rot(-90.f,Matrix::X);
     float g = 0.2f;
+    float nG = 1.f;
     Vec3Df t(1.f,0.1f,1.f);
+    string fileSphere = getFileName(Object::sphere);
+    sphereMesh.loadOFF(fileSphere,t,nG, rot);
+    Material ramMat(0.735f,1.656f, Vec3Df (1.f, .795f, .504f));
+    Object sphere(sphereMesh,ramMat);
+    objects.push_back(sphere);
     string filePig = getFileName(Object::pig);
-    pigMesh.loadOFF(filePig,t,g,rot);
     Vec3Df tt = t+t;
-     pigMesh2.loadOFF(filePig,tt,g,rot);
+    pigMesh.loadOFF(filePig,tt,g,rot);
+    Vec3Df ttt = tt+t;
+     pigMesh2.loadOFF(filePig,ttt,g,rot);
     Material pigMat(0.5,0.5, Vec3Df (255.f/255,153.f/255, 204.f/255));
     Object pig (pigMesh, pigMat);
     Object pig2 (pigMesh2, pigMat);
@@ -444,7 +452,7 @@ void Scene::buildBox(){
     objects.push_back(pig);
     objects.push_back(pig2);
 
-    loadLights(1);
+    loadLights(2);
 }
 
 void Scene::buildNormalGround(){

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>Projet3D: IntegerWidget Class Reference</title>
+<title>Ray Tracer: IntegerWidget Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Projet3D</div>
+   <div id="projectname">Ray Tracer</div>
   </td>
  </tr>
  </tbody>
@@ -66,29 +66,187 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="contents">
 <!-- doxytag: class="IntegerWidget" -->
+<p><code>#include &lt;<a class="el" href="_q_t_utils_8h_source.html">QTUtils.h</a>&gt;</code></p>
+
 <p><a href="class_integer_widget-members.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="signals"></a>
 Signals</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa03e99936c5ddade17ae797559bfbfb7"></a><!-- doxytag: member="IntegerWidget::valueChanged" ref="aa03e99936c5ddade17ae797559bfbfb7" args="(int)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>valueChanged</b> (int)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_integer_widget.html#aa03e99936c5ddade17ae797559bfbfb7">valueChanged</a> (int)</td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0b1d0695d1359eb1a2eb768ea359a23a"></a><!-- doxytag: member="IntegerWidget::IntegerWidget" ref="a0b1d0695d1359eb1a2eb768ea359a23a" args="(const QString &amp;name, int minValue, int maxValue, int value, QWidget *parent=NULL)" -->
-&#160;</td><td class="memItemRight" valign="bottom"><b>IntegerWidget</b> (const QString &amp;name, int minValue, int maxValue, int value, QWidget *parent=NULL)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adda829561fc393642baad9c79f87d2ce"></a><!-- doxytag: member="IntegerWidget::getName" ref="adda829561fc393642baad9c79f87d2ce" args="() const " -->
-QString&#160;</td><td class="memItemRight" valign="bottom"><b>getName</b> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a4633ac1169debbc71cc8bcf79c9bf94c"></a><!-- doxytag: member="IntegerWidget::getMin" ref="a4633ac1169debbc71cc8bcf79c9bf94c" args="() const " -->
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getMin</b> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae9bb5484dce29b772013b5327aabb185"></a><!-- doxytag: member="IntegerWidget::getMax" ref="ae9bb5484dce29b772013b5327aabb185" args="() const " -->
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getMax</b> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab339eb21f363158e7c92a3832d8d9d38"></a><!-- doxytag: member="IntegerWidget::getValue" ref="ab339eb21f363158e7c92a3832d8d9d38" args="() const " -->
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getValue</b> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_integer_widget.html#a0b1d0695d1359eb1a2eb768ea359a23a">IntegerWidget</a> (const QString &amp;name, int minValue, int maxValue, int value, QWidget *parent=NULL)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_integer_widget.html#a50245cc886b444e8585842e570b58107">~IntegerWidget</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">QString&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_integer_widget.html#adda829561fc393642baad9c79f87d2ce">getName</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_integer_widget.html#a4633ac1169debbc71cc8bcf79c9bf94c">getMin</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_integer_widget.html#ae9bb5484dce29b772013b5327aabb185">getMax</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_integer_widget.html#ab339eb21f363158e7c92a3832d8d9d38">getValue</a> () const </td></tr>
 </table>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock">
+<p>Definition at line <a class="el" href="_q_t_utils_8h_source.html#l00016">16</a> of file <a class="el" href="_q_t_utils_8h_source.html">QTUtils.h</a>.</p>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a0b1d0695d1359eb1a2eb768ea359a23a"></a><!-- doxytag: member="IntegerWidget::IntegerWidget" ref="a0b1d0695d1359eb1a2eb768ea359a23a" args="(const QString &amp;name, int minValue, int maxValue, int value, QWidget *parent=NULL)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IntegerWidget::IntegerWidget </td>
+          <td>(</td>
+          <td class="paramtype">const QString &amp;&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>minValue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>maxValue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>value</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">QWidget *&#160;</td>
+          <td class="paramname"><em>parent</em> = <code>NULL</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_q_t_utils_8cpp_source.html#l00014">14</a> of file <a class="el" href="_q_t_utils_8cpp_source.html">QTUtils.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a50245cc886b444e8585842e570b58107"></a><!-- doxytag: member="IntegerWidget::~IntegerWidget" ref="a50245cc886b444e8585842e570b58107" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">IntegerWidget::~IntegerWidget </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_q_t_utils_8cpp_source.html#l00043">43</a> of file <a class="el" href="_q_t_utils_8cpp_source.html">QTUtils.cpp</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="ae9bb5484dce29b772013b5327aabb185"></a><!-- doxytag: member="IntegerWidget::getMax" ref="ae9bb5484dce29b772013b5327aabb185" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int IntegerWidget::getMax </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_q_t_utils_8h_source.html#l00025">25</a> of file <a class="el" href="_q_t_utils_8h_source.html">QTUtils.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4633ac1169debbc71cc8bcf79c9bf94c"></a><!-- doxytag: member="IntegerWidget::getMin" ref="a4633ac1169debbc71cc8bcf79c9bf94c" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int IntegerWidget::getMin </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_q_t_utils_8h_source.html#l00024">24</a> of file <a class="el" href="_q_t_utils_8h_source.html">QTUtils.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adda829561fc393642baad9c79f87d2ce"></a><!-- doxytag: member="IntegerWidget::getName" ref="adda829561fc393642baad9c79f87d2ce" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">QString IntegerWidget::getName </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_q_t_utils_8h_source.html#l00023">23</a> of file <a class="el" href="_q_t_utils_8h_source.html">QTUtils.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab339eb21f363158e7c92a3832d8d9d38"></a><!-- doxytag: member="IntegerWidget::getValue" ref="ab339eb21f363158e7c92a3832d8d9d38" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int IntegerWidget::getValue </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_q_t_utils_8h_source.html#l00026">26</a> of file <a class="el" href="_q_t_utils_8h_source.html">QTUtils.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa03e99936c5ddade17ae797559bfbfb7"></a><!-- doxytag: member="IntegerWidget::valueChanged" ref="aa03e99936c5ddade17ae797559bfbfb7" args="(int)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void IntegerWidget::valueChanged </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>_t1</em></td><td>)</td>
+          <td><code> [signal]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="moc___q_t_utils_8cpp_source.html#l00081">81</a> of file <a class="el" href="moc___q_t_utils_8cpp_source.html">moc_QTUtils.cpp</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>raymini/<a class="el" href="_q_t_utils_8h_source.html">QTUtils.h</a></li>
-<li>raymini/.moc/moc_QTUtils.cpp</li>
-<li>raymini/QTUtils.cpp</li>
+<li>raymini/.moc/<a class="el" href="moc___q_t_utils_8cpp_source.html">moc_QTUtils.cpp</a></li>
+<li>raymini/<a class="el" href="_q_t_utils_8cpp_source.html">QTUtils.cpp</a></li>
 </ul>
 </div>
 <!-- window showing the filter options -->
@@ -96,7 +254,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>getValue</b> () const 
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -105,7 +263,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>getValue</b> () const 
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Mon May 2 2011 01:51:51 for Projet3D by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Sun May 8 2011 16:02:10 for Ray Tracer by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

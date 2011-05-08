@@ -2,46 +2,142 @@
 \section{IntegerWidget Class Reference}
 \label{class_integer_widget}\index{IntegerWidget@{IntegerWidget}}
 }
+
+
+{\ttfamily \#include $<$QTUtils.h$>$}
+
 \subsection*{Signals}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_integer_widget_aa03e99936c5ddade17ae797559bfbfb7}{
-void {\bfseries valueChanged} (int)}
-\label{class_integer_widget_aa03e99936c5ddade17ae797559bfbfb7}
-
+void \hyperlink{class_integer_widget_aa03e99936c5ddade17ae797559bfbfb7}{valueChanged} (int)
 \end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\hyperlink{class_integer_widget_a0b1d0695d1359eb1a2eb768ea359a23a}{IntegerWidget} (const QString \&name, int minValue, int maxValue, int value, QWidget $\ast$parent=NULL)
+\item 
+virtual \hyperlink{class_integer_widget_a50245cc886b444e8585842e570b58107}{$\sim$IntegerWidget} ()
+\item 
+QString \hyperlink{class_integer_widget_adda829561fc393642baad9c79f87d2ce}{getName} () const 
+\item 
+int \hyperlink{class_integer_widget_a4633ac1169debbc71cc8bcf79c9bf94c}{getMin} () const 
+\item 
+int \hyperlink{class_integer_widget_ae9bb5484dce29b772013b5327aabb185}{getMax} () const 
+\item 
+int \hyperlink{class_integer_widget_ab339eb21f363158e7c92a3832d8d9d38}{getValue} () const 
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 16 of file QTUtils.h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
 \hypertarget{class_integer_widget_a0b1d0695d1359eb1a2eb768ea359a23a}{
-{\bfseries IntegerWidget} (const QString \&name, int minValue, int maxValue, int value, QWidget $\ast$parent=NULL)}
+\index{IntegerWidget@{IntegerWidget}!IntegerWidget@{IntegerWidget}}
+\index{IntegerWidget@{IntegerWidget}!IntegerWidget@{IntegerWidget}}
+\subsubsection[{IntegerWidget}]{\setlength{\rightskip}{0pt plus 5cm}IntegerWidget::IntegerWidget (
+\begin{DoxyParamCaption}
+\item[{const QString \&}]{name, }
+\item[{int}]{minValue, }
+\item[{int}]{maxValue, }
+\item[{int}]{value, }
+\item[{QWidget $\ast$}]{parent = {\ttfamily NULL}}
+\end{DoxyParamCaption}
+)}}
 \label{class_integer_widget_a0b1d0695d1359eb1a2eb768ea359a23a}
 
-\item 
-\hypertarget{class_integer_widget_adda829561fc393642baad9c79f87d2ce}{
-QString {\bfseries getName} () const }
-\label{class_integer_widget_adda829561fc393642baad9c79f87d2ce}
 
-\item 
-\hypertarget{class_integer_widget_a4633ac1169debbc71cc8bcf79c9bf94c}{
-int {\bfseries getMin} () const }
-\label{class_integer_widget_a4633ac1169debbc71cc8bcf79c9bf94c}
+Definition at line 14 of file QTUtils.cpp.
 
-\item 
+\hypertarget{class_integer_widget_a50245cc886b444e8585842e570b58107}{
+\index{IntegerWidget@{IntegerWidget}!$\sim$IntegerWidget@{$\sim$IntegerWidget}}
+\index{$\sim$IntegerWidget@{$\sim$IntegerWidget}!IntegerWidget@{IntegerWidget}}
+\subsubsection[{$\sim$IntegerWidget}]{\setlength{\rightskip}{0pt plus 5cm}IntegerWidget::$\sim$IntegerWidget (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_integer_widget_a50245cc886b444e8585842e570b58107}
+
+
+Definition at line 43 of file QTUtils.cpp.
+
+
+
+\subsection{Member Function Documentation}
 \hypertarget{class_integer_widget_ae9bb5484dce29b772013b5327aabb185}{
-int {\bfseries getMax} () const }
+\index{IntegerWidget@{IntegerWidget}!getMax@{getMax}}
+\index{getMax@{getMax}!IntegerWidget@{IntegerWidget}}
+\subsubsection[{getMax}]{\setlength{\rightskip}{0pt plus 5cm}int IntegerWidget::getMax (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
 \label{class_integer_widget_ae9bb5484dce29b772013b5327aabb185}
 
-\item 
+
+Definition at line 25 of file QTUtils.h.
+
+\hypertarget{class_integer_widget_a4633ac1169debbc71cc8bcf79c9bf94c}{
+\index{IntegerWidget@{IntegerWidget}!getMin@{getMin}}
+\index{getMin@{getMin}!IntegerWidget@{IntegerWidget}}
+\subsubsection[{getMin}]{\setlength{\rightskip}{0pt plus 5cm}int IntegerWidget::getMin (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_integer_widget_a4633ac1169debbc71cc8bcf79c9bf94c}
+
+
+Definition at line 24 of file QTUtils.h.
+
+\hypertarget{class_integer_widget_adda829561fc393642baad9c79f87d2ce}{
+\index{IntegerWidget@{IntegerWidget}!getName@{getName}}
+\index{getName@{getName}!IntegerWidget@{IntegerWidget}}
+\subsubsection[{getName}]{\setlength{\rightskip}{0pt plus 5cm}QString IntegerWidget::getName (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_integer_widget_adda829561fc393642baad9c79f87d2ce}
+
+
+Definition at line 23 of file QTUtils.h.
+
 \hypertarget{class_integer_widget_ab339eb21f363158e7c92a3832d8d9d38}{
-int {\bfseries getValue} () const }
+\index{IntegerWidget@{IntegerWidget}!getValue@{getValue}}
+\index{getValue@{getValue}!IntegerWidget@{IntegerWidget}}
+\subsubsection[{getValue}]{\setlength{\rightskip}{0pt plus 5cm}int IntegerWidget::getValue (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
 \label{class_integer_widget_ab339eb21f363158e7c92a3832d8d9d38}
 
-\end{DoxyCompactItemize}
+
+Definition at line 26 of file QTUtils.h.
+
+\hypertarget{class_integer_widget_aa03e99936c5ddade17ae797559bfbfb7}{
+\index{IntegerWidget@{IntegerWidget}!valueChanged@{valueChanged}}
+\index{valueChanged@{valueChanged}!IntegerWidget@{IntegerWidget}}
+\subsubsection[{valueChanged}]{\setlength{\rightskip}{0pt plus 5cm}void IntegerWidget::valueChanged (
+\begin{DoxyParamCaption}
+\item[{int}]{\_\-t1}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}signal\mbox{]}}}}
+\label{class_integer_widget_aa03e99936c5ddade17ae797559bfbfb7}
+
+
+Definition at line 81 of file moc\_\-QTUtils.cpp.
+
 
 
 The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
 \item 
-raymini/QTUtils.h\item 
-raymini/.moc/moc\_\-QTUtils.cpp\item 
-raymini/QTUtils.cpp\end{DoxyCompactItemize}
+raymini/\hyperlink{_q_t_utils_8h}{QTUtils.h}\item 
+raymini/.moc/\hyperlink{moc___q_t_utils_8cpp}{moc\_\-QTUtils.cpp}\item 
+raymini/\hyperlink{_q_t_utils_8cpp}{QTUtils.cpp}\end{DoxyCompactItemize}

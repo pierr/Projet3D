@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>Projet3D: Member List</title>
+<title>Ray Tracer: Member List</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Projet3D</div>
+   <div id="projectname">Ray Tracer</div>
   </td>
  </tr>
  </tbody>
@@ -63,29 +63,33 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="contents">
 This is the complete list of members for <a class="el" href="class_ray.html">Ray</a>, including all inherited members.<table>
-  <tr class="memlist"><td><a class="el" href="class_ray.html#a3ba68b6180f49a8949d54f8e0f70af0a">calcAmbOcclusion</a>(kdnode *root, Vertex &amp;v, float rayonSphere, float theta)</td><td><a class="el" href="class_ray.html">Ray</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_ray.html#abbe70b4fc986cbc7fb0973dc782b3e5f">calcAmbOcclusion</a>(kdnode *root, Vertex &amp;v, float rayonSphere, float angle)</td><td><a class="el" href="class_ray.html">Ray</a></td><td></td></tr>
   <tr class="memlist"><td><a class="el" href="class_ray.html#a08e5a153b888c634ffcf6ba48fcaa5d9">calcBRDF</a>(Vertex &amp;bary, Material &amp;m, Vec3Df &amp;color, kdnode *root)</td><td><a class="el" href="class_ray.html">Ray</a></td><td></td></tr>
-  <tr bgcolor="#f0f0f0"><td><b>calcul_radiance</b>(kdnode *root, int num) (defined in <a class="el" href="class_ray.html">Ray</a>)</td><td><a class="el" href="class_ray.html">Ray</a></td><td></td></tr>
-  <tr bgcolor="#f0f0f0"><td><b>getDirection</b>() const  (defined in <a class="el" href="class_ray.html">Ray</a>)</td><td><a class="el" href="class_ray.html">Ray</a></td><td><code> [inline]</code></td></tr>
-  <tr bgcolor="#f0f0f0"><td><b>getDirection</b>() (defined in <a class="el" href="class_ray.html">Ray</a>)</td><td><a class="el" href="class_ray.html">Ray</a></td><td><code> [inline]</code></td></tr>
-  <tr bgcolor="#f0f0f0"><td><b>getOrigin</b>() const  (defined in <a class="el" href="class_ray.html">Ray</a>)</td><td><a class="el" href="class_ray.html">Ray</a></td><td><code> [inline]</code></td></tr>
-  <tr bgcolor="#f0f0f0"><td><b>getOrigin</b>() (defined in <a class="el" href="class_ray.html">Ray</a>)</td><td><a class="el" href="class_ray.html">Ray</a></td><td><code> [inline]</code></td></tr>
-  <tr bgcolor="#f0f0f0"><td><b>intersect</b>(const BoundingBox &amp;bbox, Vec3Df &amp;intersectionPoint) const  (defined in <a class="el" href="class_ray.html">Ray</a>)</td><td><a class="el" href="class_ray.html">Ray</a></td><td></td></tr>
-  <tr bgcolor="#f0f0f0"><td><b>intersect</b>(const Triangle &amp;tri, std::vector&lt; Vertex &gt; &amp;verteces, Vec3Df &amp;intersectionPoint) const  (defined in <a class="el" href="class_ray.html">Ray</a>)</td><td><a class="el" href="class_ray.html">Ray</a></td><td></td></tr>
-  <tr bgcolor="#f0f0f0"><td><b>intersect</b>(Vertex &amp;v0, Vertex &amp;v1, Vertex &amp;v2, Vec3Df &amp;intersectionPoint) const  (defined in <a class="el" href="class_ray.html">Ray</a>)</td><td><a class="el" href="class_ray.html">Ray</a></td><td></td></tr>
-  <tr bgcolor="#f0f0f0"><td><b>intersect</b>(const Vertex &amp;v0, const Vertex &amp;v1, const Vertex &amp;v2, Vec3Df &amp;intersectionPoint, float &amp;ir, float &amp;iu, float &amp;iv) const  (defined in <a class="el" href="class_ray.html">Ray</a>)</td><td><a class="el" href="class_ray.html">Ray</a></td><td></td></tr>
-  <tr class="memlist"><td><a class="el" href="class_ray.html#acefd27e81e60869cdbb8c2e4e41e930c">kd_intersect</a>(kdnode *root, Vertex &amp;isv, Material &amp;ism, float &amp;mindist)</td><td><a class="el" href="class_ray.html">Ray</a></td><td></td></tr>
-  <tr bgcolor="#f0f0f0"><td><b>Ray</b>() (defined in <a class="el" href="class_ray.html">Ray</a>)</td><td><a class="el" href="class_ray.html">Ray</a></td><td><code> [inline]</code></td></tr>
-  <tr bgcolor="#f0f0f0"><td><b>Ray</b>(const Vec3Df &amp;origin, const Vec3Df &amp;direction, const Vec3Df &amp;bgColor, Parametres *param) (defined in <a class="el" href="class_ray.html">Ray</a>)</td><td><a class="el" href="class_ray.html">Ray</a></td><td></td></tr>
-  <tr bgcolor="#f0f0f0"><td><b>setParam</b>(Parametres *param) (defined in <a class="el" href="class_ray.html">Ray</a>)</td><td><a class="el" href="class_ray.html">Ray</a></td><td><code> [inline]</code></td></tr>
-  <tr bgcolor="#f0f0f0"><td><b>~Ray</b>() (defined in <a class="el" href="class_ray.html">Ray</a>)</td><td><a class="el" href="class_ray.html">Ray</a></td><td><code> [inline, virtual]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_ray.html#a6404a6b60943eb40eb9c9abb148ab845">calcPathTracing</a>(kdnode *root, int num, Vertex &amp;isV, Vec3Df &amp;radiance, Material &amp;m)</td><td><a class="el" href="class_ray.html">Ray</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_ray.html#a62c0f1bccd99236e718ff3b5d1dc755d">calcul_radiance</a>(kdnode *root, int num)</td><td><a class="el" href="class_ray.html">Ray</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_ray.html#a1e83e988cfd711743042c49eac092006">getDirection</a>() const </td><td><a class="el" href="class_ray.html">Ray</a></td><td><code> [inline]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_ray.html#a8005eac632a3960446e3b202a89623cd">getDirection</a>()</td><td><a class="el" href="class_ray.html">Ray</a></td><td><code> [inline]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_ray.html#ae4225450cd5f59c1f2e2bc55b1cdcc9f">getOrigin</a>() const </td><td><a class="el" href="class_ray.html">Ray</a></td><td><code> [inline]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_ray.html#a4ffdcfc4d1e7fafe17f4e122856c3f87">getOrigin</a>()</td><td><a class="el" href="class_ray.html">Ray</a></td><td><code> [inline]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_ray.html#a85653d7f19e1b15783417898152d4ab9">intersect</a>(const BoundingBox &amp;bbox, Vec3Df &amp;intersectionPoint) const </td><td><a class="el" href="class_ray.html">Ray</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_ray.html#ab4ef2d8047d3061177e803c6a3b4c55a">intersect</a>(const Triangle &amp;tri, std::vector&lt; Vertex &gt; &amp;verteces, Vec3Df &amp;intersectionPoint) const </td><td><a class="el" href="class_ray.html">Ray</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_ray.html#a0f428b1df8e9ffb8c0685c24c5a02a62">intersect</a>(Vertex &amp;v0, Vertex &amp;v1, Vertex &amp;v2, Vec3Df &amp;intersectionPoint) const </td><td><a class="el" href="class_ray.html">Ray</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_ray.html#ad58816dc53730f35e03b8b738085e586">intersect</a>(const Vertex &amp;v0, const Vertex &amp;v1, const Vertex &amp;v2, Vec3Df &amp;intersectionPoint, float &amp;ir, float &amp;iu, float &amp;iv) const </td><td><a class="el" href="class_ray.html">Ray</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_ray.html#ad14dce7566be2b6eee57f4785fcb06c1">kd_intersect</a>(kdnode *root, Vertex &amp;isv, Material &amp;ism, float &amp;mindist, float maxdist)</td><td><a class="el" href="class_ray.html">Ray</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_ray.html#a08998f4ef12dfd36ca82653a2c438f04">perturbateVector</a>(const Vec3Df &amp;originVecor, float angle)</td><td><a class="el" href="class_ray.html">Ray</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_ray.html#a2e3d2c29f2df4ab3da10da79d4acb852">Ray</a>()</td><td><a class="el" href="class_ray.html">Ray</a></td><td><code> [inline]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_ray.html#abad5657e70675cb55435231e0d636979">Ray</a>(const Vec3Df &amp;origin, const Vec3Df &amp;direction, const Vec3Df &amp;bgColor, Parametres *param)</td><td><a class="el" href="class_ray.html">Ray</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_ray.html#a4c7c49a9863d8a92a231f4564ada7eed">retBRDF</a>(Vec3Df &amp;wn, Vec3Df &amp;wi, Vec3Df &amp;wo, float intensity, Material &amp;m)</td><td><a class="el" href="class_ray.html">Ray</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_ray.html#abd42f2dc0700c906987a6ca4aa99435b">rotateVector</a>(const Vec3Df &amp;originVecor, float anglephi, float angletheta)</td><td><a class="el" href="class_ray.html">Ray</a></td><td></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_ray.html#a8f49b81dd458de63f8981096d88ef8cd">setParam</a>(Parametres *param)</td><td><a class="el" href="class_ray.html">Ray</a></td><td><code> [inline]</code></td></tr>
+  <tr class="memlist"><td><a class="el" href="class_ray.html#ad8b0802f3178cb3cec5b45ea5b5a042e">~Ray</a>()</td><td><a class="el" href="class_ray.html">Ray</a></td><td><code> [inline, virtual]</code></td></tr>
 </table></div>
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -94,7 +98,7 @@ This is the complete list of members for <a class="el" href="class_ray.html">Ray
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Mon May 2 2011 01:51:51 for Projet3D by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Sun May 8 2011 16:02:10 for Ray Tracer by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

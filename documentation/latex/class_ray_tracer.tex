@@ -2,50 +2,177 @@
 \section{RayTracer Class Reference}
 \label{class_ray_tracer}\index{RayTracer@{RayTracer}}
 }
+
+
+{\ttfamily \#include $<$RayTracer.h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_ray_tracer_a8232047f622bcad4c4bcc2e9b3f994e8}{
-const \hyperlink{class_vec3_d}{Vec3Df} \& {\bfseries getBackgroundColor} () const }
-\label{class_ray_tracer_a8232047f622bcad4c4bcc2e9b3f994e8}
-
+const \hyperlink{class_vec3_d}{Vec3Df} \& \hyperlink{class_ray_tracer_a8232047f622bcad4c4bcc2e9b3f994e8}{getBackgroundColor} () const 
 \item 
-\hypertarget{class_ray_tracer_a78c48fc5448e6fdbaaa2dacc00c1f52d}{
-void {\bfseries setBackgroundColor} (const \hyperlink{class_vec3_d}{Vec3Df} \&c)}
-\label{class_ray_tracer_a78c48fc5448e6fdbaaa2dacc00c1f52d}
-
+void \hyperlink{class_ray_tracer_a78c48fc5448e6fdbaaa2dacc00c1f52d}{setBackgroundColor} (const \hyperlink{class_vec3_d}{Vec3Df} \&c)
 \item 
-\hypertarget{class_ray_tracer_a7fb36466bbdc06e9084c2af6393e71f6}{
-void {\bfseries setParametres} (\hyperlink{class_parametres}{Parametres} $\ast$param)}
-\label{class_ray_tracer_a7fb36466bbdc06e9084c2af6393e71f6}
-
+void \hyperlink{class_ray_tracer_a7fb36466bbdc06e9084c2af6393e71f6}{setParametres} (\hyperlink{class_parametres}{Parametres} $\ast$param)
 \item 
-\hypertarget{class_ray_tracer_a0fefb72c52244a0b4785d4dc595b6a04}{
-void {\bfseries setRayButton} (QPushButton $\ast$rayButton)}
-\label{class_ray_tracer_a0fefb72c52244a0b4785d4dc595b6a04}
-
+void \hyperlink{class_ray_tracer_a0fefb72c52244a0b4785d4dc595b6a04}{setRayButton} (QPushButton $\ast$rayButton)
 \item 
-\hypertarget{class_ray_tracer_a514cb132e6f69be5658c5afb5651809b}{
-QImage {\bfseries render} (const \hyperlink{class_vec3_d}{Vec3Df} \&camPos, const \hyperlink{class_vec3_d}{Vec3Df} \&viewDirection, const \hyperlink{class_vec3_d}{Vec3Df} \&upVector, const \hyperlink{class_vec3_d}{Vec3Df} \&rightVector, float fieldOfView, float aspectRatio, unsigned int screenWidth, unsigned int screenHeight)}
-\label{class_ray_tracer_a514cb132e6f69be5658c5afb5651809b}
-
+QImage \hyperlink{class_ray_tracer_a514cb132e6f69be5658c5afb5651809b}{render} (const \hyperlink{class_vec3_d}{Vec3Df} \&camPos, const \hyperlink{class_vec3_d}{Vec3Df} \&viewDirection, const \hyperlink{class_vec3_d}{Vec3Df} \&upVector, const \hyperlink{class_vec3_d}{Vec3Df} \&rightVector, float fieldOfView, float aspectRatio, unsigned int screenWidth, unsigned int screenHeight)
 \end{DoxyCompactItemize}
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_ray_tracer_af849b82f2b2c0cfe5a29e1f63c91aa8b}{
-static \hyperlink{class_ray_tracer}{RayTracer} $\ast$ {\bfseries getInstance} ()}
-\label{class_ray_tracer_af849b82f2b2c0cfe5a29e1f63c91aa8b}
-
+static \hyperlink{class_ray_tracer}{RayTracer} $\ast$ \hyperlink{class_ray_tracer_af849b82f2b2c0cfe5a29e1f63c91aa8b}{getInstance} ()
 \item 
+static void \hyperlink{class_ray_tracer_a18c26a7f9a11ddef3af7dc9431fa240b}{destroyInstance} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_ray_tracer_a7f59fcfc6b645680b6c5723df307e6e9}{RayTracer} ()
+\item 
+virtual \hyperlink{class_ray_tracer_ae4df044d612275c3923d5adabea538f5}{$\sim$RayTracer} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 22 of file RayTracer.h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_ray_tracer_a7f59fcfc6b645680b6c5723df307e6e9}{
+\index{RayTracer@{RayTracer}!RayTracer@{RayTracer}}
+\index{RayTracer@{RayTracer}!RayTracer@{RayTracer}}
+\subsubsection[{RayTracer}]{\setlength{\rightskip}{0pt plus 5cm}RayTracer::RayTracer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, protected\mbox{]}}}}
+\label{class_ray_tracer_a7f59fcfc6b645680b6c5723df307e6e9}
+
+
+Definition at line 42 of file RayTracer.h.
+
+\hypertarget{class_ray_tracer_ae4df044d612275c3923d5adabea538f5}{
+\index{RayTracer@{RayTracer}!$\sim$RayTracer@{$\sim$RayTracer}}
+\index{$\sim$RayTracer@{$\sim$RayTracer}!RayTracer@{RayTracer}}
+\subsubsection[{$\sim$RayTracer}]{\setlength{\rightskip}{0pt plus 5cm}virtual RayTracer::$\sim$RayTracer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, protected, virtual\mbox{]}}}}
+\label{class_ray_tracer_ae4df044d612275c3923d5adabea538f5}
+
+
+Definition at line 45 of file RayTracer.h.
+
+
+
+\subsection{Member Function Documentation}
 \hypertarget{class_ray_tracer_a18c26a7f9a11ddef3af7dc9431fa240b}{
-static void {\bfseries destroyInstance} ()}
+\index{RayTracer@{RayTracer}!destroyInstance@{destroyInstance}}
+\index{destroyInstance@{destroyInstance}!RayTracer@{RayTracer}}
+\subsubsection[{destroyInstance}]{\setlength{\rightskip}{0pt plus 5cm}void RayTracer::destroyInstance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
 \label{class_ray_tracer_a18c26a7f9a11ddef3af7dc9431fa240b}
 
-\end{DoxyCompactItemize}
+
+Definition at line 22 of file RayTracer.cpp.
+
+\hypertarget{class_ray_tracer_a8232047f622bcad4c4bcc2e9b3f994e8}{
+\index{RayTracer@{RayTracer}!getBackgroundColor@{getBackgroundColor}}
+\index{getBackgroundColor@{getBackgroundColor}!RayTracer@{RayTracer}}
+\subsubsection[{getBackgroundColor}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Vec3Df}\& RayTracer::getBackgroundColor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_ray_tracer_a8232047f622bcad4c4bcc2e9b3f994e8}
+
+
+Definition at line 27 of file RayTracer.h.
+
+\hypertarget{class_ray_tracer_af849b82f2b2c0cfe5a29e1f63c91aa8b}{
+\index{RayTracer@{RayTracer}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!RayTracer@{RayTracer}}
+\subsubsection[{getInstance}]{\setlength{\rightskip}{0pt plus 5cm}{\bf RayTracer} $\ast$ RayTracer::getInstance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{class_ray_tracer_af849b82f2b2c0cfe5a29e1f63c91aa8b}
+
+
+Definition at line 16 of file RayTracer.cpp.
+
+\hypertarget{class_ray_tracer_a514cb132e6f69be5658c5afb5651809b}{
+\index{RayTracer@{RayTracer}!render@{render}}
+\index{render@{render}!RayTracer@{RayTracer}}
+\subsubsection[{render}]{\setlength{\rightskip}{0pt plus 5cm}QImage RayTracer::render (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vec3Df} \&}]{camPos, }
+\item[{const {\bf Vec3Df} \&}]{viewDirection, }
+\item[{const {\bf Vec3Df} \&}]{upVector, }
+\item[{const {\bf Vec3Df} \&}]{rightVector, }
+\item[{float}]{fieldOfView, }
+\item[{float}]{aspectRatio, }
+\item[{unsigned int}]{screenWidth, }
+\item[{unsigned int}]{screenHeight}
+\end{DoxyParamCaption}
+)}}
+\label{class_ray_tracer_a514cb132e6f69be5658c5afb5651809b}
+
+
+Definition at line 37 of file RayTracer.cpp.
+
+\hypertarget{class_ray_tracer_a78c48fc5448e6fdbaaa2dacc00c1f52d}{
+\index{RayTracer@{RayTracer}!setBackgroundColor@{setBackgroundColor}}
+\index{setBackgroundColor@{setBackgroundColor}!RayTracer@{RayTracer}}
+\subsubsection[{setBackgroundColor}]{\setlength{\rightskip}{0pt plus 5cm}void RayTracer::setBackgroundColor (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vec3Df} \&}]{c}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_ray_tracer_a78c48fc5448e6fdbaaa2dacc00c1f52d}
+
+
+Definition at line 28 of file RayTracer.h.
+
+\hypertarget{class_ray_tracer_a7fb36466bbdc06e9084c2af6393e71f6}{
+\index{RayTracer@{RayTracer}!setParametres@{setParametres}}
+\index{setParametres@{setParametres}!RayTracer@{RayTracer}}
+\subsubsection[{setParametres}]{\setlength{\rightskip}{0pt plus 5cm}void RayTracer::setParametres (
+\begin{DoxyParamCaption}
+\item[{{\bf Parametres} $\ast$}]{param}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_ray_tracer_a7fb36466bbdc06e9084c2af6393e71f6}
+
+
+Definition at line 29 of file RayTracer.h.
+
+\hypertarget{class_ray_tracer_a0fefb72c52244a0b4785d4dc595b6a04}{
+\index{RayTracer@{RayTracer}!setRayButton@{setRayButton}}
+\index{setRayButton@{setRayButton}!RayTracer@{RayTracer}}
+\subsubsection[{setRayButton}]{\setlength{\rightskip}{0pt plus 5cm}void RayTracer::setRayButton (
+\begin{DoxyParamCaption}
+\item[{QPushButton $\ast$}]{rayButton}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_ray_tracer_a0fefb72c52244a0b4785d4dc595b6a04}
+
+
+Definition at line 30 of file RayTracer.h.
+
 
 
 The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
 \item 
-raymini/RayTracer.h\item 
-raymini/RayTracer.cpp\end{DoxyCompactItemize}
+raymini/\hyperlink{_ray_tracer_8h}{RayTracer.h}\item 
+raymini/\hyperlink{_ray_tracer_8cpp}{RayTracer.cpp}\end{DoxyCompactItemize}

@@ -2,55 +2,200 @@
 \section{Scene Class Reference}
 \label{class_scene}\index{Scene@{Scene}}
 }
+
+
+{\ttfamily \#include $<$Scene.h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_scene_a20c231c3b2a4f04d7f2665f7bdd67c4b}{
-std::vector$<$ \hyperlink{class_object}{Object} $>$ \& {\bfseries getObjects} ()}
-\label{class_scene_a20c231c3b2a4f04d7f2665f7bdd67c4b}
-
+void \hyperlink{class_scene_a3406376bc6366bdcc1725c389fd06c9f}{set\_\-param} (\hyperlink{class_parametres}{Parametres} $\ast$param)
 \item 
-\hypertarget{class_scene_ab71d7b7035a0e67bc51154cb98089488}{
-const std::vector$<$ \hyperlink{class_object}{Object} $>$ \& {\bfseries getObjects} () const }
-\label{class_scene_ab71d7b7035a0e67bc51154cb98089488}
-
+std::vector$<$ \hyperlink{class_object}{Object} $>$ \& \hyperlink{class_scene_a20c231c3b2a4f04d7f2665f7bdd67c4b}{getObjects} ()
 \item 
-\hypertarget{class_scene_a40077f3e775c7cbb74c2a7a69d159582}{
-std::vector$<$ \hyperlink{class_light}{Light} $>$ \& {\bfseries getLights} ()}
-\label{class_scene_a40077f3e775c7cbb74c2a7a69d159582}
-
+const std::vector$<$ \hyperlink{class_object}{Object} $>$ \& \hyperlink{class_scene_ab71d7b7035a0e67bc51154cb98089488}{getObjects} () const 
 \item 
-\hypertarget{class_scene_a25c81d0cd7c378a1f634ca2f241a9a33}{
-const std::vector$<$ \hyperlink{class_light}{Light} $>$ \& {\bfseries getLights} () const }
-\label{class_scene_a25c81d0cd7c378a1f634ca2f241a9a33}
-
+std::vector$<$ \hyperlink{class_light}{Light} $>$ \& \hyperlink{class_scene_a40077f3e775c7cbb74c2a7a69d159582}{getLights} ()
 \item 
-\hypertarget{class_scene_a207ede2c140b6ab80992aa36f8a5b2fa}{
-const \hyperlink{class_bounding_box}{BoundingBox} \& {\bfseries getBoundingBox} () const }
-\label{class_scene_a207ede2c140b6ab80992aa36f8a5b2fa}
-
+const std::vector$<$ \hyperlink{class_light}{Light} $>$ \& \hyperlink{class_scene_a25c81d0cd7c378a1f634ca2f241a9a33}{getLights} () const 
 \item 
-\hypertarget{class_scene_ae969181c5f4ae4ffd8d48956af1fa26f}{
-void {\bfseries updateBoundingBox} ()}
-\label{class_scene_ae969181c5f4ae4ffd8d48956af1fa26f}
-
+const \hyperlink{class_bounding_box}{BoundingBox} \& \hyperlink{class_scene_a207ede2c140b6ab80992aa36f8a5b2fa}{getBoundingBox} () const 
+\item 
+void \hyperlink{class_scene_ae969181c5f4ae4ffd8d48956af1fa26f}{updateBoundingBox} ()
 \end{DoxyCompactItemize}
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_scene_ae4f764527c8b962eba443129e023492c}{
-static \hyperlink{class_scene}{Scene} $\ast$ {\bfseries getInstance} ()}
-\label{class_scene_ae4f764527c8b962eba443129e023492c}
-
+static \hyperlink{class_scene}{Scene} $\ast$ \hyperlink{class_scene_ae4f764527c8b962eba443129e023492c}{getInstance} ()
 \item 
+static void \hyperlink{class_scene_ab03c74268e0dc459804753552f0eed36}{destroyInstance} ()
+\end{DoxyCompactItemize}
+\subsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_scene_ad10176d75a9cc0da56626f682d083507}{Scene} ()
+\item 
+virtual \hyperlink{class_scene_a3b8cec2e32546713915f8c6303c951f1}{$\sim$Scene} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 19 of file Scene.h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_scene_ad10176d75a9cc0da56626f682d083507}{
+\index{Scene@{Scene}!Scene@{Scene}}
+\index{Scene@{Scene}!Scene@{Scene}}
+\subsubsection[{Scene}]{\setlength{\rightskip}{0pt plus 5cm}Scene::Scene (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_scene_ad10176d75a9cc0da56626f682d083507}
+
+
+Definition at line 34 of file Scene.cpp.
+
+\hypertarget{class_scene_a3b8cec2e32546713915f8c6303c951f1}{
+\index{Scene@{Scene}!$\sim$Scene@{$\sim$Scene}}
+\index{$\sim$Scene@{$\sim$Scene}!Scene@{Scene}}
+\subsubsection[{$\sim$Scene}]{\setlength{\rightskip}{0pt plus 5cm}Scene::$\sim$Scene (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected, virtual\mbox{]}}}}
+\label{class_scene_a3b8cec2e32546713915f8c6303c951f1}
+
+
+Definition at line 48 of file Scene.cpp.
+
+
+
+\subsection{Member Function Documentation}
 \hypertarget{class_scene_ab03c74268e0dc459804753552f0eed36}{
-static void {\bfseries destroyInstance} ()}
+\index{Scene@{Scene}!destroyInstance@{destroyInstance}}
+\index{destroyInstance@{destroyInstance}!Scene@{Scene}}
+\subsubsection[{destroyInstance}]{\setlength{\rightskip}{0pt plus 5cm}void Scene::destroyInstance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
 \label{class_scene_ab03c74268e0dc459804753552f0eed36}
 
-\end{DoxyCompactItemize}
+
+Definition at line 27 of file Scene.cpp.
+
+\hypertarget{class_scene_a207ede2c140b6ab80992aa36f8a5b2fa}{
+\index{Scene@{Scene}!getBoundingBox@{getBoundingBox}}
+\index{getBoundingBox@{getBoundingBox}!Scene@{Scene}}
+\subsubsection[{getBoundingBox}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf BoundingBox}\& Scene::getBoundingBox (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_scene_a207ede2c140b6ab80992aa36f8a5b2fa}
+
+
+Definition at line 32 of file Scene.h.
+
+\hypertarget{class_scene_ae4f764527c8b962eba443129e023492c}{
+\index{Scene@{Scene}!getInstance@{getInstance}}
+\index{getInstance@{getInstance}!Scene@{Scene}}
+\subsubsection[{getInstance}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Scene} $\ast$ Scene::getInstance (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{class_scene_ae4f764527c8b962eba443129e023492c}
+
+
+Definition at line 21 of file Scene.cpp.
+
+\hypertarget{class_scene_a25c81d0cd7c378a1f634ca2f241a9a33}{
+\index{Scene@{Scene}!getLights@{getLights}}
+\index{getLights@{getLights}!Scene@{Scene}}
+\subsubsection[{getLights}]{\setlength{\rightskip}{0pt plus 5cm}const std::vector$<${\bf Light}$>$\& Scene::getLights (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_scene_a25c81d0cd7c378a1f634ca2f241a9a33}
+
+
+Definition at line 30 of file Scene.h.
+
+\hypertarget{class_scene_a40077f3e775c7cbb74c2a7a69d159582}{
+\index{Scene@{Scene}!getLights@{getLights}}
+\index{getLights@{getLights}!Scene@{Scene}}
+\subsubsection[{getLights}]{\setlength{\rightskip}{0pt plus 5cm}std::vector$<${\bf Light}$>$\& Scene::getLights (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_scene_a40077f3e775c7cbb74c2a7a69d159582}
+
+
+Definition at line 29 of file Scene.h.
+
+\hypertarget{class_scene_ab71d7b7035a0e67bc51154cb98089488}{
+\index{Scene@{Scene}!getObjects@{getObjects}}
+\index{getObjects@{getObjects}!Scene@{Scene}}
+\subsubsection[{getObjects}]{\setlength{\rightskip}{0pt plus 5cm}const std::vector$<${\bf Object}$>$\& Scene::getObjects (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_scene_ab71d7b7035a0e67bc51154cb98089488}
+
+
+Definition at line 27 of file Scene.h.
+
+\hypertarget{class_scene_a20c231c3b2a4f04d7f2665f7bdd67c4b}{
+\index{Scene@{Scene}!getObjects@{getObjects}}
+\index{getObjects@{getObjects}!Scene@{Scene}}
+\subsubsection[{getObjects}]{\setlength{\rightskip}{0pt plus 5cm}std::vector$<${\bf Object}$>$\& Scene::getObjects (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_scene_a20c231c3b2a4f04d7f2665f7bdd67c4b}
+
+
+Definition at line 26 of file Scene.h.
+
+\hypertarget{class_scene_a3406376bc6366bdcc1725c389fd06c9f}{
+\index{Scene@{Scene}!set\_\-param@{set\_\-param}}
+\index{set\_\-param@{set\_\-param}!Scene@{Scene}}
+\subsubsection[{set\_\-param}]{\setlength{\rightskip}{0pt plus 5cm}void Scene::set\_\-param (
+\begin{DoxyParamCaption}
+\item[{{\bf Parametres} $\ast$}]{param}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_a3406376bc6366bdcc1725c389fd06c9f}
+
+
+Definition at line 17 of file Scene.cpp.
+
+\hypertarget{class_scene_ae969181c5f4ae4ffd8d48956af1fa26f}{
+\index{Scene@{Scene}!updateBoundingBox@{updateBoundingBox}}
+\index{updateBoundingBox@{updateBoundingBox}!Scene@{Scene}}
+\subsubsection[{updateBoundingBox}]{\setlength{\rightskip}{0pt plus 5cm}void Scene::updateBoundingBox (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_scene_ae969181c5f4ae4ffd8d48956af1fa26f}
+
+
+Definition at line 51 of file Scene.cpp.
+
 
 
 The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
 \item 
-raymini/Scene.h\item 
-raymini/Scene.cpp\end{DoxyCompactItemize}
+raymini/\hyperlink{_scene_8h}{Scene.h}\item 
+raymini/\hyperlink{_scene_8cpp}{Scene.cpp}\end{DoxyCompactItemize}

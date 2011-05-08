@@ -2,6 +2,10 @@
 \section{GLViewer Class Reference}
 \label{class_g_l_viewer}\index{GLViewer@{GLViewer}}
 }
+
+
+{\ttfamily \#include $<$GLViewer.h$>$}
+
 \subsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -10,67 +14,226 @@ class \hyperlink{class_g_l_viewer_1_1_exception}{Exception}
 \subsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
-enum {\bfseries RenderingMode} \{ {\bfseries Flat} = 0, 
-{\bfseries Smooth} = 1
+enum \hyperlink{class_g_l_viewer_ae1added1addae5cd67c55931bf9f4cea}{RenderingMode} \{ \hyperlink{class_g_l_viewer_ae1added1addae5cd67c55931bf9f4ceaac5113eebea585439fcd768b6044c17aa}{Flat} = 0, 
+\hyperlink{class_g_l_viewer_ae1added1addae5cd67c55931bf9f4ceaa71da216e75efdb35c2ee7d0ccea57ef4}{Smooth} = 1
  \}
 \end{DoxyCompactItemize}
 \subsection*{Public Slots}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_g_l_viewer_a9fb825fd9a6e4ae542018822b16c8eee}{
-void {\bfseries setWireframe} (bool b)}
-\label{class_g_l_viewer_a9fb825fd9a6e4ae542018822b16c8eee}
-
+void \hyperlink{class_g_l_viewer_a9fb825fd9a6e4ae542018822b16c8eee}{setWireframe} (bool b)
 \item 
-\hypertarget{class_g_l_viewer_a57f4dc0af322632953bf180d804ecb19}{
-void {\bfseries setRenderingMode} (bool m)}
-\label{class_g_l_viewer_a57f4dc0af322632953bf180d804ecb19}
-
+void \hyperlink{class_g_l_viewer_a57f4dc0af322632953bf180d804ecb19}{setRenderingMode} (bool m)
 \end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_g_l_viewer_a5ea5425e2ad3333b90a82032d71bbaea}{
-bool {\bfseries isWireframe} () const }
-\label{class_g_l_viewer_a5ea5425e2ad3333b90a82032d71bbaea}
-
+\hyperlink{class_g_l_viewer_a5d434ee8e5ab893c9f97d64f2db3b986}{GLViewer} ()
 \item 
-\hypertarget{class_g_l_viewer_affe3dc7c0ffc0a626ddfd7fa46c49b00}{
-int {\bfseries getRenderingMode} () const }
-\label{class_g_l_viewer_affe3dc7c0ffc0a626ddfd7fa46c49b00}
-
+virtual \hyperlink{class_g_l_viewer_a3e91b413994c3f3d819275f44fd73dd2}{$\sim$GLViewer} ()
+\item 
+bool \hyperlink{class_g_l_viewer_a5ea5425e2ad3333b90a82032d71bbaea}{isWireframe} () const 
+\item 
+int \hyperlink{class_g_l_viewer_affe3dc7c0ffc0a626ddfd7fa46c49b00}{getRenderingMode} () const 
 \end{DoxyCompactItemize}
 \subsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_g_l_viewer_afcc998ee4646a261742b6a70d5827cb1}{
-void {\bfseries init} ()}
-\label{class_g_l_viewer_afcc998ee4646a261742b6a70d5827cb1}
-
+void \hyperlink{class_g_l_viewer_afcc998ee4646a261742b6a70d5827cb1}{init} ()
 \item 
+void \hyperlink{class_g_l_viewer_ae24326f0acdd4c6ff8b3b97ec863be85}{draw} ()
+\item 
+QString \hyperlink{class_g_l_viewer_a4d4be1953913ec2025cf856c12c9f506}{helpString} () const 
+\item 
+virtual void \hyperlink{class_g_l_viewer_adb67ff4742ee4aca60688c3cf0f05b13}{keyPressEvent} (QKeyEvent $\ast$event)
+\item 
+virtual void \hyperlink{class_g_l_viewer_a654e84b5ce36c34da9f93859afb964b9}{keyReleaseEvent} (QKeyEvent $\ast$event)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 18 of file GLViewer.h.
+
+
+
+\subsection{Member Enumeration Documentation}
+\hypertarget{class_g_l_viewer_ae1added1addae5cd67c55931bf9f4cea}{
+\index{GLViewer@{GLViewer}!RenderingMode@{RenderingMode}}
+\index{RenderingMode@{RenderingMode}!GLViewer@{GLViewer}}
+\subsubsection[{RenderingMode}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf GLViewer::RenderingMode}}}
+\label{class_g_l_viewer_ae1added1addae5cd67c55931bf9f4cea}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{Flat@{Flat}!GLViewer@{GLViewer}}\index{GLViewer@{GLViewer}!Flat@{Flat}}\item[{\em 
+\hypertarget{class_g_l_viewer_ae1added1addae5cd67c55931bf9f4ceaac5113eebea585439fcd768b6044c17aa}{
+Flat}
+\label{class_g_l_viewer_ae1added1addae5cd67c55931bf9f4ceaac5113eebea585439fcd768b6044c17aa}
+}]\index{Smooth@{Smooth}!GLViewer@{GLViewer}}\index{GLViewer@{GLViewer}!Smooth@{Smooth}}\item[{\em 
+\hypertarget{class_g_l_viewer_ae1added1addae5cd67c55931bf9f4ceaa71da216e75efdb35c2ee7d0ccea57ef4}{
+Smooth}
+\label{class_g_l_viewer_ae1added1addae5cd67c55931bf9f4ceaa71da216e75efdb35c2ee7d0ccea57ef4}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 22 of file GLViewer.h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_g_l_viewer_a5d434ee8e5ab893c9f97d64f2db3b986}{
+\index{GLViewer@{GLViewer}!GLViewer@{GLViewer}}
+\index{GLViewer@{GLViewer}!GLViewer@{GLViewer}}
+\subsubsection[{GLViewer}]{\setlength{\rightskip}{0pt plus 5cm}GLViewer::GLViewer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_g_l_viewer_a5d434ee8e5ab893c9f97d64f2db3b986}
+
+
+Definition at line 21 of file GLViewer.cpp.
+
+\hypertarget{class_g_l_viewer_a3e91b413994c3f3d819275f44fd73dd2}{
+\index{GLViewer@{GLViewer}!$\sim$GLViewer@{$\sim$GLViewer}}
+\index{$\sim$GLViewer@{$\sim$GLViewer}!GLViewer@{GLViewer}}
+\subsubsection[{$\sim$GLViewer}]{\setlength{\rightskip}{0pt plus 5cm}GLViewer::$\sim$GLViewer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_g_l_viewer_a3e91b413994c3f3d819275f44fd73dd2}
+
+
+Definition at line 26 of file GLViewer.cpp.
+
+
+
+\subsection{Member Function Documentation}
 \hypertarget{class_g_l_viewer_ae24326f0acdd4c6ff8b3b97ec863be85}{
-void {\bfseries draw} ()}
+\index{GLViewer@{GLViewer}!draw@{draw}}
+\index{draw@{draw}!GLViewer@{GLViewer}}
+\subsubsection[{draw}]{\setlength{\rightskip}{0pt plus 5cm}void GLViewer::draw (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
 \label{class_g_l_viewer_ae24326f0acdd4c6ff8b3b97ec863be85}
 
-\item 
+
+Definition at line 111 of file GLViewer.cpp.
+
+\hypertarget{class_g_l_viewer_affe3dc7c0ffc0a626ddfd7fa46c49b00}{
+\index{GLViewer@{GLViewer}!getRenderingMode@{getRenderingMode}}
+\index{getRenderingMode@{getRenderingMode}!GLViewer@{GLViewer}}
+\subsubsection[{getRenderingMode}]{\setlength{\rightskip}{0pt plus 5cm}int GLViewer::getRenderingMode (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_g_l_viewer_affe3dc7c0ffc0a626ddfd7fa46c49b00}
+
+
+Definition at line 28 of file GLViewer.h.
+
 \hypertarget{class_g_l_viewer_a4d4be1953913ec2025cf856c12c9f506}{
-QString {\bfseries helpString} () const }
+\index{GLViewer@{GLViewer}!helpString@{helpString}}
+\index{helpString@{helpString}!GLViewer@{GLViewer}}
+\subsubsection[{helpString}]{\setlength{\rightskip}{0pt plus 5cm}QString GLViewer::helpString (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
 \label{class_g_l_viewer_a4d4be1953913ec2025cf856c12c9f506}
 
-\item 
+
+Definition at line 43 of file GLViewer.cpp.
+
+\hypertarget{class_g_l_viewer_afcc998ee4646a261742b6a70d5827cb1}{
+\index{GLViewer@{GLViewer}!init@{init}}
+\index{init@{init}!GLViewer@{GLViewer}}
+\subsubsection[{init}]{\setlength{\rightskip}{0pt plus 5cm}void GLViewer::init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected\mbox{]}}}}
+\label{class_g_l_viewer_afcc998ee4646a261742b6a70d5827cb1}
+
+
+Definition at line 77 of file GLViewer.cpp.
+
+\hypertarget{class_g_l_viewer_a5ea5425e2ad3333b90a82032d71bbaea}{
+\index{GLViewer@{GLViewer}!isWireframe@{isWireframe}}
+\index{isWireframe@{isWireframe}!GLViewer@{GLViewer}}
+\subsubsection[{isWireframe}]{\setlength{\rightskip}{0pt plus 5cm}bool GLViewer::isWireframe (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_g_l_viewer_a5ea5425e2ad3333b90a82032d71bbaea}
+
+
+Definition at line 27 of file GLViewer.h.
+
 \hypertarget{class_g_l_viewer_adb67ff4742ee4aca60688c3cf0f05b13}{
-virtual void {\bfseries keyPressEvent} (QKeyEvent $\ast$event)}
+\index{GLViewer@{GLViewer}!keyPressEvent@{keyPressEvent}}
+\index{keyPressEvent@{keyPressEvent}!GLViewer@{GLViewer}}
+\subsubsection[{keyPressEvent}]{\setlength{\rightskip}{0pt plus 5cm}void GLViewer::keyPressEvent (
+\begin{DoxyParamCaption}
+\item[{QKeyEvent $\ast$}]{event}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected, virtual\mbox{]}}}}
 \label{class_g_l_viewer_adb67ff4742ee4aca60688c3cf0f05b13}
 
-\item 
+
+Definition at line 65 of file GLViewer.cpp.
+
 \hypertarget{class_g_l_viewer_a654e84b5ce36c34da9f93859afb964b9}{
-virtual void {\bfseries keyReleaseEvent} (QKeyEvent $\ast$event)}
+\index{GLViewer@{GLViewer}!keyReleaseEvent@{keyReleaseEvent}}
+\index{keyReleaseEvent@{keyReleaseEvent}!GLViewer@{GLViewer}}
+\subsubsection[{keyReleaseEvent}]{\setlength{\rightskip}{0pt plus 5cm}void GLViewer::keyReleaseEvent (
+\begin{DoxyParamCaption}
+\item[{QKeyEvent $\ast$}]{event}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}protected, virtual\mbox{]}}}}
 \label{class_g_l_viewer_a654e84b5ce36c34da9f93859afb964b9}
 
-\end{DoxyCompactItemize}
+
+Definition at line 69 of file GLViewer.cpp.
+
+\hypertarget{class_g_l_viewer_a57f4dc0af322632953bf180d804ecb19}{
+\index{GLViewer@{GLViewer}!setRenderingMode@{setRenderingMode}}
+\index{setRenderingMode@{setRenderingMode}!GLViewer@{GLViewer}}
+\subsubsection[{setRenderingMode}]{\setlength{\rightskip}{0pt plus 5cm}void GLViewer::setRenderingMode (
+\begin{DoxyParamCaption}
+\item[{bool}]{m}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}slot\mbox{]}}}}
+\label{class_g_l_viewer_a57f4dc0af322632953bf180d804ecb19}
+
+
+Definition at line 38 of file GLViewer.cpp.
+
+\hypertarget{class_g_l_viewer_a9fb825fd9a6e4ae542018822b16c8eee}{
+\index{GLViewer@{GLViewer}!setWireframe@{setWireframe}}
+\index{setWireframe@{setWireframe}!GLViewer@{GLViewer}}
+\subsubsection[{setWireframe}]{\setlength{\rightskip}{0pt plus 5cm}void GLViewer::setWireframe (
+\begin{DoxyParamCaption}
+\item[{bool}]{b}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}slot\mbox{]}}}}
+\label{class_g_l_viewer_a9fb825fd9a6e4ae542018822b16c8eee}
+
+
+Definition at line 29 of file GLViewer.cpp.
+
 
 
 The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
 \item 
-raymini/GLViewer.h\item 
-raymini/GLViewer.cpp\end{DoxyCompactItemize}
+raymini/\hyperlink{_g_l_viewer_8h}{GLViewer.h}\item 
+raymini/\hyperlink{_g_l_viewer_8cpp}{GLViewer.cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,295 @@
+\hypertarget{_vec3_d_8h}{
+\section{raymini/Vec3D.h File Reference}
+\label{_vec3_d_8h}\index{raymini/Vec3D.h@{raymini/Vec3D.h}}
+}
+{\ttfamily \#include $<$cmath$>$}\par
+{\ttfamily \#include $<$iostream$>$}\par
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{class_vec3_d}{Vec3D$<$ T $>$}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef \hyperlink{class_vec3_d}{Vec3D}$<$ float $>$ \hyperlink{_vec3_d_8h_a0ebf993128ab88add9377e452aece237}{Vec3Df}
+\item 
+typedef \hyperlink{class_vec3_d}{Vec3D}$<$ double $>$ \hyperlink{_vec3_d_8h_af047113e075fb36772e16fe9c145a4fe}{Vec3Dd}
+\item 
+typedef \hyperlink{class_vec3_d}{Vec3D}$<$ int $>$ \hyperlink{_vec3_d_8h_af3736b027b7f64754224e73797a85515}{Vec3Di}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class T $>$ }\\bool \hyperlink{_vec3_d_8h_a9af581d1640c1c92fb7677ce22564173}{operator!=} (const \hyperlink{class_vec3_d}{Vec3D}$<$ T $>$ \&p1, const \hyperlink{class_vec3_d}{Vec3D}$<$ T $>$ \&p2)
+\item 
+{\footnotesize template$<$class T $>$ }\\const \hyperlink{class_vec3_d}{Vec3D}$<$ T $>$ \hyperlink{_vec3_d_8h_aa69274072d898472d2c695d0f40908b1}{operator$\ast$} (const \hyperlink{class_vec3_d}{Vec3D}$<$ T $>$ \&p, float factor)
+\item 
+{\footnotesize template$<$class T $>$ }\\const \hyperlink{class_vec3_d}{Vec3D}$<$ T $>$ \hyperlink{_vec3_d_8h_a840a558cd52840cb6db1533aad2f750c}{operator$\ast$} (float factor, const \hyperlink{class_vec3_d}{Vec3D}$<$ T $>$ \&p)
+\item 
+{\footnotesize template$<$class T $>$ }\\const \hyperlink{class_vec3_d}{Vec3D}$<$ T $>$ \hyperlink{_vec3_d_8h_ae1faa2c1352883b281f363b193757209}{operator$\ast$} (const \hyperlink{class_vec3_d}{Vec3D}$<$ T $>$ \&p1, const \hyperlink{class_vec3_d}{Vec3D}$<$ T $>$ \&p2)
+\item 
+{\footnotesize template$<$class T $>$ }\\const \hyperlink{class_vec3_d}{Vec3D}$<$ T $>$ \hyperlink{_vec3_d_8h_afdaf61b3e1af16c19cd1e3da9cea3a3c}{operator+} (const \hyperlink{class_vec3_d}{Vec3D}$<$ T $>$ \&p1, const \hyperlink{class_vec3_d}{Vec3D}$<$ T $>$ \&p2)
+\item 
+{\footnotesize template$<$class T $>$ }\\const \hyperlink{class_vec3_d}{Vec3D}$<$ T $>$ \hyperlink{_vec3_d_8h_a4c19675b209c2bf14bf33174aca50352}{operator-\/} (const \hyperlink{class_vec3_d}{Vec3D}$<$ T $>$ \&p1, const \hyperlink{class_vec3_d}{Vec3D}$<$ T $>$ \&p2)
+\item 
+{\footnotesize template$<$class T $>$ }\\const \hyperlink{class_vec3_d}{Vec3D}$<$ T $>$ \hyperlink{_vec3_d_8h_ada40d745e3474f6f63500bb8e00ed36b}{operator-\/} (const \hyperlink{class_vec3_d}{Vec3D}$<$ T $>$ \&p)
+\item 
+{\footnotesize template$<$class T $>$ }\\const \hyperlink{class_vec3_d}{Vec3D}$<$ T $>$ \hyperlink{_vec3_d_8h_a39fdcfb6ec875f61c3d18f4445c06c16}{operator/} (const \hyperlink{class_vec3_d}{Vec3D}$<$ T $>$ \&p, float divisor)
+\item 
+{\footnotesize template$<$class T $>$ }\\const \hyperlink{class_vec3_d}{Vec3D}$<$ T $>$ \hyperlink{_vec3_d_8h_a102524dd3d5a7f2b5b5a76091a724137}{operator/} (const \hyperlink{class_vec3_d}{Vec3D}$<$ T $>$ \&p1, const \hyperlink{class_vec3_d}{Vec3D}$<$ T $>$ \&p2)
+\item 
+{\footnotesize template$<$class T $>$ }\\bool \hyperlink{_vec3_d_8h_a1b61948ed02fb50276c5fd98958f122c}{operator==} (const \hyperlink{class_vec3_d}{Vec3D}$<$ T $>$ \&p1, const \hyperlink{class_vec3_d}{Vec3D}$<$ T $>$ \&p2)
+\item 
+{\footnotesize template$<$class T $>$ }\\bool \hyperlink{_vec3_d_8h_ae82c5c9afbddb3a6f6824144393aa3b0}{operator$<$} (const \hyperlink{class_vec3_d}{Vec3D}$<$ T $>$ \&a, const \hyperlink{class_vec3_d}{Vec3D}$<$ T $>$ \&b)
+\item 
+{\footnotesize template$<$class T $>$ }\\bool \hyperlink{_vec3_d_8h_a3fa7b22deafd6a25e1245a4bc9311408}{operator$>$=} (const \hyperlink{class_vec3_d}{Vec3D}$<$ T $>$ \&a, const \hyperlink{class_vec3_d}{Vec3D}$<$ T $>$ \&b)
+\item 
+{\footnotesize template$<$class T $>$ }\\\hyperlink{class_vec3_d}{Vec3D}$<$ T $>$ \hyperlink{_vec3_d_8h_a29829d61ae29f091781a816c5a8f3cab}{swap} (\hyperlink{class_vec3_d}{Vec3D}$<$ T $>$ \&P, \hyperlink{class_vec3_d}{Vec3D}$<$ T $>$ \&Q)
+\item 
+{\footnotesize template$<$class T $>$ }\\std::ostream \& \hyperlink{_vec3_d_8h_ada154ec2d4dea1f4f7026bcdd03da463}{operator$<$$<$} (std::ostream \&output, const \hyperlink{class_vec3_d}{Vec3D}$<$ T $>$ \&v)
+\item 
+{\footnotesize template$<$class T $>$ }\\std::istream \& \hyperlink{_vec3_d_8h_a281988715ec6ae83c15381ba089280ca}{operator$>$$>$} (std::istream \&input, \hyperlink{class_vec3_d}{Vec3D}$<$ T $>$ \&v)
+\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{_vec3_d_8h_af047113e075fb36772e16fe9c145a4fe}{
+\index{Vec3D.h@{Vec3D.h}!Vec3Dd@{Vec3Dd}}
+\index{Vec3Dd@{Vec3Dd}!Vec3D.h@{Vec3D.h}}
+\subsubsection[{Vec3Dd}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Vec3D}$<$double$>$ {\bf Vec3Dd}}}
+\label{_vec3_d_8h_af047113e075fb36772e16fe9c145a4fe}
+
+
+Definition at line 335 of file Vec3D.h.
+
+\hypertarget{_vec3_d_8h_a0ebf993128ab88add9377e452aece237}{
+\index{Vec3D.h@{Vec3D.h}!Vec3Df@{Vec3Df}}
+\index{Vec3Df@{Vec3Df}!Vec3D.h@{Vec3D.h}}
+\subsubsection[{Vec3Df}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Vec3D}$<$float$>$ {\bf Vec3Df}}}
+\label{_vec3_d_8h_a0ebf993128ab88add9377e452aece237}
+
+
+Definition at line 334 of file Vec3D.h.
+
+\hypertarget{_vec3_d_8h_af3736b027b7f64754224e73797a85515}{
+\index{Vec3D.h@{Vec3D.h}!Vec3Di@{Vec3Di}}
+\index{Vec3Di@{Vec3Di}!Vec3D.h@{Vec3D.h}}
+\subsubsection[{Vec3Di}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf Vec3D}$<$int$>$ {\bf Vec3Di}}}
+\label{_vec3_d_8h_af3736b027b7f64754224e73797a85515}
+
+
+Definition at line 336 of file Vec3D.h.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_vec3_d_8h_a9af581d1640c1c92fb7677ce22564173}{
+\index{Vec3D.h@{Vec3D.h}!operator!=@{operator!=}}
+\index{operator!=@{operator!=}!Vec3D.h@{Vec3D.h}}
+\subsubsection[{operator!=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ bool operator!= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vec3D}$<$ T $>$ \&}]{p1, }
+\item[{const {\bf Vec3D}$<$ T $>$ \&}]{p2}
+\end{DoxyParamCaption}
+)}}
+\label{_vec3_d_8h_a9af581d1640c1c92fb7677ce22564173}
+
+
+Definition at line 43 of file Vec3D.h.
+
+\hypertarget{_vec3_d_8h_aa69274072d898472d2c695d0f40908b1}{
+\index{Vec3D.h@{Vec3D.h}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!Vec3D.h@{Vec3D.h}}
+\subsubsection[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ const {\bf Vec3D}$<$T$>$ operator$\ast$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vec3D}$<$ T $>$ \&}]{p, }
+\item[{float}]{factor}
+\end{DoxyParamCaption}
+)}}
+\label{_vec3_d_8h_aa69274072d898472d2c695d0f40908b1}
+
+
+Definition at line 47 of file Vec3D.h.
+
+\hypertarget{_vec3_d_8h_ae1faa2c1352883b281f363b193757209}{
+\index{Vec3D.h@{Vec3D.h}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!Vec3D.h@{Vec3D.h}}
+\subsubsection[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ const {\bf Vec3D}$<$T$>$ operator$\ast$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vec3D}$<$ T $>$ \&}]{p1, }
+\item[{const {\bf Vec3D}$<$ T $>$ \&}]{p2}
+\end{DoxyParamCaption}
+)}}
+\label{_vec3_d_8h_ae1faa2c1352883b281f363b193757209}
+
+
+Definition at line 55 of file Vec3D.h.
+
+\hypertarget{_vec3_d_8h_a840a558cd52840cb6db1533aad2f750c}{
+\index{Vec3D.h@{Vec3D.h}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!Vec3D.h@{Vec3D.h}}
+\subsubsection[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ const {\bf Vec3D}$<$T$>$ operator$\ast$ (
+\begin{DoxyParamCaption}
+\item[{float}]{factor, }
+\item[{const {\bf Vec3D}$<$ T $>$ \&}]{p}
+\end{DoxyParamCaption}
+)}}
+\label{_vec3_d_8h_a840a558cd52840cb6db1533aad2f750c}
+
+
+Definition at line 51 of file Vec3D.h.
+
+\hypertarget{_vec3_d_8h_afdaf61b3e1af16c19cd1e3da9cea3a3c}{
+\index{Vec3D.h@{Vec3D.h}!operator+@{operator+}}
+\index{operator+@{operator+}!Vec3D.h@{Vec3D.h}}
+\subsubsection[{operator+}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ const {\bf Vec3D}$<$T$>$ operator+ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vec3D}$<$ T $>$ \&}]{p1, }
+\item[{const {\bf Vec3D}$<$ T $>$ \&}]{p2}
+\end{DoxyParamCaption}
+)}}
+\label{_vec3_d_8h_afdaf61b3e1af16c19cd1e3da9cea3a3c}
+
+
+Definition at line 59 of file Vec3D.h.
+
+\hypertarget{_vec3_d_8h_a4c19675b209c2bf14bf33174aca50352}{
+\index{Vec3D.h@{Vec3D.h}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Vec3D.h@{Vec3D.h}}
+\subsubsection[{operator-\/}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ const {\bf Vec3D}$<$T$>$ operator-\/ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vec3D}$<$ T $>$ \&}]{p1, }
+\item[{const {\bf Vec3D}$<$ T $>$ \&}]{p2}
+\end{DoxyParamCaption}
+)}}
+\label{_vec3_d_8h_a4c19675b209c2bf14bf33174aca50352}
+
+
+Definition at line 63 of file Vec3D.h.
+
+\hypertarget{_vec3_d_8h_ada40d745e3474f6f63500bb8e00ed36b}{
+\index{Vec3D.h@{Vec3D.h}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!Vec3D.h@{Vec3D.h}}
+\subsubsection[{operator-\/}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ const {\bf Vec3D}$<$T$>$ operator-\/ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vec3D}$<$ T $>$ \&}]{p}
+\end{DoxyParamCaption}
+)}}
+\label{_vec3_d_8h_ada40d745e3474f6f63500bb8e00ed36b}
+
+
+Definition at line 67 of file Vec3D.h.
+
+\hypertarget{_vec3_d_8h_a39fdcfb6ec875f61c3d18f4445c06c16}{
+\index{Vec3D.h@{Vec3D.h}!operator/@{operator/}}
+\index{operator/@{operator/}!Vec3D.h@{Vec3D.h}}
+\subsubsection[{operator/}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ const {\bf Vec3D}$<$T$>$ operator/ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vec3D}$<$ T $>$ \&}]{p, }
+\item[{float}]{divisor}
+\end{DoxyParamCaption}
+)}}
+\label{_vec3_d_8h_a39fdcfb6ec875f61c3d18f4445c06c16}
+
+
+Definition at line 71 of file Vec3D.h.
+
+\hypertarget{_vec3_d_8h_a102524dd3d5a7f2b5b5a76091a724137}{
+\index{Vec3D.h@{Vec3D.h}!operator/@{operator/}}
+\index{operator/@{operator/}!Vec3D.h@{Vec3D.h}}
+\subsubsection[{operator/}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ const {\bf Vec3D}$<$T$>$ operator/ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vec3D}$<$ T $>$ \&}]{p1, }
+\item[{const {\bf Vec3D}$<$ T $>$ \&}]{p2}
+\end{DoxyParamCaption}
+)}}
+\label{_vec3_d_8h_a102524dd3d5a7f2b5b5a76091a724137}
+
+
+Definition at line 75 of file Vec3D.h.
+
+\hypertarget{_vec3_d_8h_ae82c5c9afbddb3a6f6824144393aa3b0}{
+\index{Vec3D.h@{Vec3D.h}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Vec3D.h@{Vec3D.h}}
+\subsubsection[{operator$<$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ bool operator$<$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vec3D}$<$ T $>$ \&}]{a, }
+\item[{const {\bf Vec3D}$<$ T $>$ \&}]{b}
+\end{DoxyParamCaption}
+)}}
+\label{_vec3_d_8h_ae82c5c9afbddb3a6f6824144393aa3b0}
+
+
+Definition at line 83 of file Vec3D.h.
+
+\hypertarget{_vec3_d_8h_ada154ec2d4dea1f4f7026bcdd03da463}{
+\index{Vec3D.h@{Vec3D.h}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Vec3D.h@{Vec3D.h}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ std::ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std::ostream \&}]{output, }
+\item[{const {\bf Vec3D}$<$ T $>$ \&}]{v}
+\end{DoxyParamCaption}
+)}}
+\label{_vec3_d_8h_ada154ec2d4dea1f4f7026bcdd03da463}
+
+
+Definition at line 324 of file Vec3D.h.
+
+\hypertarget{_vec3_d_8h_a1b61948ed02fb50276c5fd98958f122c}{
+\index{Vec3D.h@{Vec3D.h}!operator==@{operator==}}
+\index{operator==@{operator==}!Vec3D.h@{Vec3D.h}}
+\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ bool operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vec3D}$<$ T $>$ \&}]{p1, }
+\item[{const {\bf Vec3D}$<$ T $>$ \&}]{p2}
+\end{DoxyParamCaption}
+)}}
+\label{_vec3_d_8h_a1b61948ed02fb50276c5fd98958f122c}
+
+
+Definition at line 79 of file Vec3D.h.
+
+\hypertarget{_vec3_d_8h_a3fa7b22deafd6a25e1245a4bc9311408}{
+\index{Vec3D.h@{Vec3D.h}!operator$>$=@{operator$>$=}}
+\index{operator$>$=@{operator$>$=}!Vec3D.h@{Vec3D.h}}
+\subsubsection[{operator$>$=}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ bool operator$>$= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vec3D}$<$ T $>$ \&}]{a, }
+\item[{const {\bf Vec3D}$<$ T $>$ \&}]{b}
+\end{DoxyParamCaption}
+)}}
+\label{_vec3_d_8h_a3fa7b22deafd6a25e1245a4bc9311408}
+
+
+Definition at line 87 of file Vec3D.h.
+
+\hypertarget{_vec3_d_8h_a281988715ec6ae83c15381ba089280ca}{
+\index{Vec3D.h@{Vec3D.h}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!Vec3D.h@{Vec3D.h}}
+\subsubsection[{operator$>$$>$}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ std::istream\& operator$>$$>$ (
+\begin{DoxyParamCaption}
+\item[{std::istream \&}]{input, }
+\item[{{\bf Vec3D}$<$ T $>$ \&}]{v}
+\end{DoxyParamCaption}
+)}}
+\label{_vec3_d_8h_a281988715ec6ae83c15381ba089280ca}
+
+
+Definition at line 329 of file Vec3D.h.
+
+\hypertarget{_vec3_d_8h_a29829d61ae29f091781a816c5a8f3cab}{
+\index{Vec3D.h@{Vec3D.h}!swap@{swap}}
+\index{swap@{swap}!Vec3D.h@{Vec3D.h}}
+\subsubsection[{swap}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ {\bf Vec3D}$<$T$>$ swap (
+\begin{DoxyParamCaption}
+\item[{{\bf Vec3D}$<$ T $>$ \&}]{P, }
+\item[{{\bf Vec3D}$<$ T $>$ \&}]{Q}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{_vec3_d_8h_a29829d61ae29f091781a816c5a8f3cab}
+
+
+Definition at line 318 of file Vec3D.h.
+

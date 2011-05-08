@@ -2,57 +2,201 @@
 \section{Light Class Reference}
 \label{class_light}\index{Light@{Light}}
 }
+
+
+{\ttfamily \#include $<$Light.h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\hyperlink{class_light_aeb5df09a25a32f19fdffa761268ba24f}{Light} ()
+\item 
+\hyperlink{class_light_a5a9290bfca6e7f8909a18735dcc9da37}{Light} (const \hyperlink{class_vec3_d}{Vec3Df} \&pos, const \hyperlink{class_vec3_d}{Vec3Df} \&color, float intensity)
+\item 
+\hyperlink{class_light_ae258a834c1c4edb240533cbab46acfaf}{Light} (const \hyperlink{class_vec3_d}{Vec3Df} \&pos, const \hyperlink{class_vec3_d}{Vec3Df} \&color, float rayon, float intensity)
+\item 
+virtual \hyperlink{class_light_abe675054027c4b4a4f3e9a31d330931f}{$\sim$Light} ()
+\item 
+const \hyperlink{class_vec3_d}{Vec3Df} \& \hyperlink{class_light_a4df5adb9ce0b7766af839bda72d86d84}{getPos} () const 
+\item 
+const \hyperlink{class_vec3_d}{Vec3Df} \& \hyperlink{class_light_aa2c88eb97bbda607b4ecf0b718f57d5a}{getColor} () const 
+\item 
+float \hyperlink{class_light_ab0d1f1347856b81a7a4dba0a6833cc3c}{getIntensity} () const 
+\item 
+const std::vector$<$ \hyperlink{class_vec3_d}{Vec3Df} $>$ \& \hyperlink{class_light_a3c06b2ce14feed5b77d7a56e22109bcc}{getPoints} (\hyperlink{class_vec3_d}{Vec3Df} \&normal, int numr, int numa) const 
+\item 
+void \hyperlink{class_light_a148f99cba1ccf7a13dbe65273a090710}{setPos} (const \hyperlink{class_vec3_d}{Vec3Df} \&p)
+\item 
+void \hyperlink{class_light_ac4d6006127c6b7a36a6533650b2e5f38}{setColor} (const \hyperlink{class_vec3_d}{Vec3Df} \&c)
+\item 
+void \hyperlink{class_light_a5ab256c92798821097c687d8bfc95a40}{setIntensity} (float i)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 18 of file Light.h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_light_aeb5df09a25a32f19fdffa761268ba24f}{
+\index{Light@{Light}!Light@{Light}}
+\index{Light@{Light}!Light@{Light}}
+\subsubsection[{Light}]{\setlength{\rightskip}{0pt plus 5cm}Light::Light (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_light_aeb5df09a25a32f19fdffa761268ba24f}
+
+
+Definition at line 20 of file Light.h.
+
 \hypertarget{class_light_a5a9290bfca6e7f8909a18735dcc9da37}{
-{\bfseries Light} (const \hyperlink{class_vec3_d}{Vec3Df} \&pos, const \hyperlink{class_vec3_d}{Vec3Df} \&color, float intensity)}
+\index{Light@{Light}!Light@{Light}}
+\index{Light@{Light}!Light@{Light}}
+\subsubsection[{Light}]{\setlength{\rightskip}{0pt plus 5cm}Light::Light (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vec3Df} \&}]{pos, }
+\item[{const {\bf Vec3Df} \&}]{color, }
+\item[{float}]{intensity}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
 \label{class_light_a5a9290bfca6e7f8909a18735dcc9da37}
 
-\item 
-\hypertarget{class_light_a49fdd4c7b101ffb77c1595e7d5ff7ca2}{
-{\bfseries Light} (const \hyperlink{class_vec3_d}{Vec3Df} \&pos, const \hyperlink{class_vec3_d}{Vec3Df} \&color, const \hyperlink{class_vec3_d}{Vec3Df} \&normal, float rayon, float intensity)}
-\label{class_light_a49fdd4c7b101ffb77c1595e7d5ff7ca2}
 
-\item 
-\hypertarget{class_light_a4df5adb9ce0b7766af839bda72d86d84}{
-const \hyperlink{class_vec3_d}{Vec3Df} \& {\bfseries getPos} () const }
-\label{class_light_a4df5adb9ce0b7766af839bda72d86d84}
+Definition at line 21 of file Light.h.
 
-\item 
+\hypertarget{class_light_ae258a834c1c4edb240533cbab46acfaf}{
+\index{Light@{Light}!Light@{Light}}
+\index{Light@{Light}!Light@{Light}}
+\subsubsection[{Light}]{\setlength{\rightskip}{0pt plus 5cm}Light::Light (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vec3Df} \&}]{pos, }
+\item[{const {\bf Vec3Df} \&}]{color, }
+\item[{float}]{rayon, }
+\item[{float}]{intensity}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_light_ae258a834c1c4edb240533cbab46acfaf}
+
+
+Definition at line 23 of file Light.h.
+
+\hypertarget{class_light_abe675054027c4b4a4f3e9a31d330931f}{
+\index{Light@{Light}!$\sim$Light@{$\sim$Light}}
+\index{$\sim$Light@{$\sim$Light}!Light@{Light}}
+\subsubsection[{$\sim$Light}]{\setlength{\rightskip}{0pt plus 5cm}virtual Light::$\sim$Light (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}
+\label{class_light_abe675054027c4b4a4f3e9a31d330931f}
+
+
+Definition at line 25 of file Light.h.
+
+
+
+\subsection{Member Function Documentation}
 \hypertarget{class_light_aa2c88eb97bbda607b4ecf0b718f57d5a}{
-const \hyperlink{class_vec3_d}{Vec3Df} \& {\bfseries getColor} () const }
+\index{Light@{Light}!getColor@{getColor}}
+\index{getColor@{getColor}!Light@{Light}}
+\subsubsection[{getColor}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Vec3Df}\& Light::getColor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
 \label{class_light_aa2c88eb97bbda607b4ecf0b718f57d5a}
 
-\item 
+
+Definition at line 28 of file Light.h.
+
 \hypertarget{class_light_ab0d1f1347856b81a7a4dba0a6833cc3c}{
-float {\bfseries getIntensity} () const }
+\index{Light@{Light}!getIntensity@{getIntensity}}
+\index{getIntensity@{getIntensity}!Light@{Light}}
+\subsubsection[{getIntensity}]{\setlength{\rightskip}{0pt plus 5cm}float Light::getIntensity (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
 \label{class_light_ab0d1f1347856b81a7a4dba0a6833cc3c}
 
-\item 
-\hypertarget{class_light_ab24ff1fac909904ffd93cef1f3991637}{
-const std::vector$<$ \hyperlink{class_vec3_d}{Vec3Df} $>$ \& {\bfseries getPoints} (int numr, int numa) const }
-\label{class_light_ab24ff1fac909904ffd93cef1f3991637}
 
-\item 
-\hypertarget{class_light_a148f99cba1ccf7a13dbe65273a090710}{
-void {\bfseries setPos} (const \hyperlink{class_vec3_d}{Vec3Df} \&p)}
-\label{class_light_a148f99cba1ccf7a13dbe65273a090710}
+Definition at line 29 of file Light.h.
 
-\item 
+\hypertarget{class_light_a3c06b2ce14feed5b77d7a56e22109bcc}{
+\index{Light@{Light}!getPoints@{getPoints}}
+\index{getPoints@{getPoints}!Light@{Light}}
+\subsubsection[{getPoints}]{\setlength{\rightskip}{0pt plus 5cm}const std::vector$<$ {\bf Vec3Df} $>$ \& Light::getPoints (
+\begin{DoxyParamCaption}
+\item[{{\bf Vec3Df} \&}]{normal, }
+\item[{int}]{numr, }
+\item[{int}]{numa}
+\end{DoxyParamCaption}
+) const}}
+\label{class_light_a3c06b2ce14feed5b77d7a56e22109bcc}
+
+
+Definition at line 13 of file Light.cpp.
+
+\hypertarget{class_light_a4df5adb9ce0b7766af839bda72d86d84}{
+\index{Light@{Light}!getPos@{getPos}}
+\index{getPos@{getPos}!Light@{Light}}
+\subsubsection[{getPos}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Vec3Df}\& Light::getPos (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_light_a4df5adb9ce0b7766af839bda72d86d84}
+
+
+Definition at line 27 of file Light.h.
+
 \hypertarget{class_light_ac4d6006127c6b7a36a6533650b2e5f38}{
-void {\bfseries setColor} (const \hyperlink{class_vec3_d}{Vec3Df} \&c)}
+\index{Light@{Light}!setColor@{setColor}}
+\index{setColor@{setColor}!Light@{Light}}
+\subsubsection[{setColor}]{\setlength{\rightskip}{0pt plus 5cm}void Light::setColor (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vec3Df} \&}]{c}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
 \label{class_light_ac4d6006127c6b7a36a6533650b2e5f38}
 
-\item 
+
+Definition at line 33 of file Light.h.
+
 \hypertarget{class_light_a5ab256c92798821097c687d8bfc95a40}{
-void {\bfseries setIntensity} (float i)}
+\index{Light@{Light}!setIntensity@{setIntensity}}
+\index{setIntensity@{setIntensity}!Light@{Light}}
+\subsubsection[{setIntensity}]{\setlength{\rightskip}{0pt plus 5cm}void Light::setIntensity (
+\begin{DoxyParamCaption}
+\item[{float}]{i}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
 \label{class_light_a5ab256c92798821097c687d8bfc95a40}
 
-\end{DoxyCompactItemize}
+
+Definition at line 34 of file Light.h.
+
+\hypertarget{class_light_a148f99cba1ccf7a13dbe65273a090710}{
+\index{Light@{Light}!setPos@{setPos}}
+\index{setPos@{setPos}!Light@{Light}}
+\subsubsection[{setPos}]{\setlength{\rightskip}{0pt plus 5cm}void Light::setPos (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vec3Df} \&}]{p}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_light_a148f99cba1ccf7a13dbe65273a090710}
+
+
+Definition at line 32 of file Light.h.
+
 
 
 The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
 \item 
-raymini/Light.h\item 
-raymini/Light.cpp\end{DoxyCompactItemize}
+raymini/\hyperlink{_light_8h}{Light.h}\item 
+raymini/\hyperlink{_light_8cpp}{Light.cpp}\end{DoxyCompactItemize}

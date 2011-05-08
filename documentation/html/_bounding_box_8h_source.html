@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>Projet3D: raymini/BoundingBox.h Source File</title>
+<title>Ray Tracer: raymini/BoundingBox.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Projet3D</div>
+   <div id="projectname">Ray Tracer</div>
   </td>
  </tr>
  </tbody>
@@ -51,6 +51,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 <div class="header">
@@ -58,7 +59,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">raymini/BoundingBox.h</div>  </div>
 </div>
 <div class="contents">
-<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*</span>
+<a href="_bounding_box_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/*</span>
 <a name="l00002"></a>00002 <span class="comment">LibBoubek/BoundingBox.h</span>
 <a name="l00003"></a>00003 <span class="comment">Copyright (c) 2003-2008, Tamy Boubekeur</span>
 <a name="l00004"></a>00004 <span class="comment"></span>
@@ -97,103 +98,103 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00037"></a>00037 <span class="preprocessor">#include &lt;vector&gt;</span>
 <a name="l00038"></a>00038 <span class="preprocessor">#include &lt;algorithm&gt;</span>
 <a name="l00039"></a>00039 
-<a name="l00040"></a>00040 <span class="preprocessor">#include &quot;Vec3D.h&quot;</span>
+<a name="l00040"></a>00040 <span class="preprocessor">#include &quot;<a class="code" href="_vec3_d_8h.html">Vec3D.h</a>&quot;</span>
 <a name="l00041"></a>00041 
-<a name="l00042"></a>00042 <span class="keyword">const</span> <span class="keywordtype">float</span> BOUNDINGBOX_EPSILON = 0.0001f;
+<a name="l00042"></a><a class="code" href="_bounding_box_8h.html#a484b8443c2bf78d68241af1bdc0a6d25">00042</a> <span class="keyword">const</span> <span class="keywordtype">float</span> <a class="code" href="_bounding_box_8h.html#a484b8443c2bf78d68241af1bdc0a6d25">BOUNDINGBOX_EPSILON</a> = 0.0001f;
 <a name="l00043"></a>00043 
 <a name="l00044"></a><a class="code" href="class_bounding_box.html">00044</a> <span class="keyword">class </span><a class="code" href="class_bounding_box.html">BoundingBox</a> {
 <a name="l00045"></a>00045 <span class="keyword">public</span>:
-<a name="l00046"></a>00046     <a class="code" href="class_bounding_box.html">BoundingBox</a> () : minBb (<a class="code" href="class_vec3_d.html">Vec3Df</a> (0.0f, 0.0f, 0.0f)), maxBb (<a class="code" href="class_vec3_d.html">Vec3Df</a> (0.0f, 0.0f, 0.0f)) {}
-<a name="l00047"></a>00047     <a class="code" href="class_bounding_box.html">BoundingBox</a> (<span class="keyword">const</span> <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; p) : minBb (p), maxBb (p) {}
-<a name="l00048"></a>00048     <a class="code" href="class_bounding_box.html">BoundingBox</a> (<span class="keyword">const</span> <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; min, <span class="keyword">const</span> <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; max) : minBb (min), maxBb (max) {}
+<a name="l00046"></a><a class="code" href="class_bounding_box.html#a6e401c4da5839950f1f30c8b8c4d1208">00046</a>     <a class="code" href="class_bounding_box.html#a6e401c4da5839950f1f30c8b8c4d1208">BoundingBox</a> () : minBb (<a class="code" href="class_vec3_d.html">Vec3Df</a> (0.0f, 0.0f, 0.0f)), maxBb (<a class="code" href="class_vec3_d.html">Vec3Df</a> (0.0f, 0.0f, 0.0f)) {}
+<a name="l00047"></a><a class="code" href="class_bounding_box.html#afcd5c43bf230a10f07e6552c58db967e">00047</a>     <a class="code" href="class_bounding_box.html#afcd5c43bf230a10f07e6552c58db967e">BoundingBox</a> (<span class="keyword">const</span> <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; p) : minBb (p), maxBb (p) {}
+<a name="l00048"></a><a class="code" href="class_bounding_box.html#a5f44381ea07c9b6f65bae79dada53ce5">00048</a>     <a class="code" href="class_bounding_box.html#a5f44381ea07c9b6f65bae79dada53ce5">BoundingBox</a> (<span class="keyword">const</span> <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; min, <span class="keyword">const</span> <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; max) : minBb (min), maxBb (max) {}
 <a name="l00049"></a>00049 
-<a name="l00050"></a>00050     <span class="keyword">inline</span> <span class="keywordtype">void</span> init (<span class="keyword">const</span> <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; p) {
+<a name="l00050"></a><a class="code" href="class_bounding_box.html#a0b1b7e15c6b98752179faa396e7896f1">00050</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_bounding_box.html#a0b1b7e15c6b98752179faa396e7896f1">init</a> (<span class="keyword">const</span> <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; p) {
 <a name="l00051"></a>00051         minBb = maxBb = p;
 <a name="l00052"></a>00052     }
-<a name="l00053"></a>00053     <span class="keyword">inline</span> <span class="keywordtype">void</span> init (<span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y, <span class="keywordtype">float</span> z) {
-<a name="l00054"></a>00054         init (<a class="code" href="class_vec3_d.html">Vec3Df</a> (x, y, z));
+<a name="l00053"></a><a class="code" href="class_bounding_box.html#abb26b742738d4081aafff2c5436bf226">00053</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_bounding_box.html#abb26b742738d4081aafff2c5436bf226">init</a> (<span class="keywordtype">float</span> x, <span class="keywordtype">float</span> y, <span class="keywordtype">float</span> z) {
+<a name="l00054"></a>00054         <a class="code" href="class_bounding_box.html#a0b1b7e15c6b98752179faa396e7896f1">init</a> (<a class="code" href="class_vec3_d.html">Vec3Df</a> (x, y, z));
 <a name="l00055"></a>00055     }
-<a name="l00056"></a>00056     <span class="keyword">inline</span> <span class="keywordtype">float</span> getWidth ()<span class="keyword"> const </span>{
+<a name="l00056"></a><a class="code" href="class_bounding_box.html#acd3378928b8a9996790b22ad9f8b6404">00056</a>     <span class="keyword">inline</span> <span class="keywordtype">float</span> <a class="code" href="class_bounding_box.html#acd3378928b8a9996790b22ad9f8b6404">getWidth</a> ()<span class="keyword"> const </span>{
 <a name="l00057"></a>00057         <span class="keywordflow">return</span> (maxBb[0] - minBb[0]);
 <a name="l00058"></a>00058     }
-<a name="l00059"></a>00059     <span class="keyword">inline</span> <span class="keywordtype">float</span> getHeight ()<span class="keyword"> const </span>{
+<a name="l00059"></a><a class="code" href="class_bounding_box.html#aeb0038310316513e738f712548394d45">00059</a>     <span class="keyword">inline</span> <span class="keywordtype">float</span> <a class="code" href="class_bounding_box.html#aeb0038310316513e738f712548394d45">getHeight</a> ()<span class="keyword"> const </span>{
 <a name="l00060"></a>00060         <span class="keywordflow">return</span> (maxBb[1] - minBb[1]);
 <a name="l00061"></a>00061     }
-<a name="l00062"></a>00062     <span class="keyword">inline</span> <span class="keywordtype">float</span> getLength ()<span class="keyword"> const </span>{
+<a name="l00062"></a><a class="code" href="class_bounding_box.html#a9551e31a1a85d1dcaff9951fb05223e2">00062</a>     <span class="keyword">inline</span> <span class="keywordtype">float</span> <a class="code" href="class_bounding_box.html#a9551e31a1a85d1dcaff9951fb05223e2">getLength</a> ()<span class="keyword"> const </span>{
 <a name="l00063"></a>00063         <span class="keywordflow">return</span> (maxBb[2] - minBb[2]);
 <a name="l00064"></a>00064     }
-<a name="l00065"></a>00065     <span class="keyword">inline</span> <span class="keywordtype">float</span> getSize ()<span class="keyword"> const </span>{
-<a name="l00066"></a>00066         <span class="keywordflow">return</span> std::max (getWidth (), std::max (getHeight (), getLength ()));
+<a name="l00065"></a><a class="code" href="class_bounding_box.html#a8a89e81934b64c21bc4b825b5d695f87">00065</a>     <span class="keyword">inline</span> <span class="keywordtype">float</span> <a class="code" href="class_bounding_box.html#a8a89e81934b64c21bc4b825b5d695f87">getSize</a> ()<span class="keyword"> const </span>{
+<a name="l00066"></a>00066         <span class="keywordflow">return</span> std::max (<a class="code" href="class_bounding_box.html#acd3378928b8a9996790b22ad9f8b6404">getWidth</a> (), std::max (<a class="code" href="class_bounding_box.html#aeb0038310316513e738f712548394d45">getHeight</a> (), <a class="code" href="class_bounding_box.html#a9551e31a1a85d1dcaff9951fb05223e2">getLength</a> ()));
 <a name="l00067"></a>00067     }
-<a name="l00068"></a>00068     <span class="keyword">inline</span> <span class="keywordtype">float</span> getRadius ()<span class="keyword"> const </span>{
-<a name="l00069"></a>00069         <span class="keywordflow">return</span> Vec3Df::distance (minBb, maxBb) / 2.0;
+<a name="l00068"></a><a class="code" href="class_bounding_box.html#a8b43b3ab3ca509d5558b74d7f4899423">00068</a>     <span class="keyword">inline</span> <span class="keywordtype">float</span> <a class="code" href="class_bounding_box.html#a8b43b3ab3ca509d5558b74d7f4899423">getRadius</a> ()<span class="keyword"> const </span>{
+<a name="l00069"></a>00069         <span class="keywordflow">return</span> <a class="code" href="class_vec3_d.html#abab85e2faa41780ceb53b13c6d866d8f">Vec3Df::distance</a> (minBb, maxBb) / 2.0;
 <a name="l00070"></a>00070     }
-<a name="l00071"></a>00071     <span class="keyword">inline</span> <span class="keywordtype">void</span> extendTo (<span class="keyword">const</span> <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; p) {
+<a name="l00071"></a><a class="code" href="class_bounding_box.html#a706c118cbc1abea55312761b9096bc00">00071</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_bounding_box.html#a706c118cbc1abea55312761b9096bc00">extendTo</a> (<span class="keyword">const</span> <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; p) {
 <a name="l00072"></a>00072         <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; 3; i++) {
 <a name="l00073"></a>00073             <span class="keywordflow">if</span> (p[i] &gt; maxBb[i]) maxBb[i] = p[i];
 <a name="l00074"></a>00074             <span class="keywordflow">if</span> (p[i] &lt; minBb[i]) minBb[i] = p[i];
 <a name="l00075"></a>00075         }
 <a name="l00076"></a>00076     }
-<a name="l00077"></a>00077     <span class="keyword">inline</span> <span class="keywordtype">void</span> extendTo (<span class="keyword">const</span> <a class="code" href="class_bounding_box.html">BoundingBox</a> &amp; b) {
-<a name="l00078"></a>00078         extendTo (b.minBb);
-<a name="l00079"></a>00079         extendTo (b.maxBb);
+<a name="l00077"></a><a class="code" href="class_bounding_box.html#af1d01d2b8b878a43e7eb484a99a54a30">00077</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_bounding_box.html#af1d01d2b8b878a43e7eb484a99a54a30">extendTo</a> (<span class="keyword">const</span> <a class="code" href="class_bounding_box.html">BoundingBox</a> &amp; b) {
+<a name="l00078"></a>00078         <a class="code" href="class_bounding_box.html#a706c118cbc1abea55312761b9096bc00">extendTo</a> (b.minBb);
+<a name="l00079"></a>00079         <a class="code" href="class_bounding_box.html#a706c118cbc1abea55312761b9096bc00">extendTo</a> (b.maxBb);
 <a name="l00080"></a>00080     }
-<a name="l00081"></a>00081     <span class="keyword">inline</span> <span class="keywordtype">bool</span> contains (<span class="keyword">const</span> <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; p)<span class="keyword"> const </span>{
+<a name="l00081"></a><a class="code" href="class_bounding_box.html#aab7f3773aa3779f55a67766d8ac28488">00081</a>     <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="class_bounding_box.html#aab7f3773aa3779f55a67766d8ac28488">contains</a> (<span class="keyword">const</span> <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; p)<span class="keyword"> const </span>{
 <a name="l00082"></a>00082         <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; 3; i++)
 <a name="l00083"></a>00083             <span class="keywordflow">if</span> (!(p[i] &gt;= minBb[i] &amp;&amp; p[i] &lt;= maxBb[i]))
 <a name="l00084"></a>00084                 <span class="keywordflow">return</span> <span class="keyword">false</span>;
 <a name="l00085"></a>00085         <span class="keywordflow">return</span> <span class="keyword">true</span>;
 <a name="l00086"></a>00086     }
-<a name="l00087"></a>00087     <span class="keyword">inline</span> <span class="keywordtype">bool</span> contains (<span class="keyword">const</span> <a class="code" href="class_bounding_box.html">BoundingBox</a> &amp; b)<span class="keyword"> const </span>{
+<a name="l00087"></a><a class="code" href="class_bounding_box.html#ae9b938d02ca033840598ab03cab3859d">00087</a>     <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="class_bounding_box.html#ae9b938d02ca033840598ab03cab3859d">contains</a> (<span class="keyword">const</span> <a class="code" href="class_bounding_box.html">BoundingBox</a> &amp; b)<span class="keyword"> const </span>{
 <a name="l00088"></a>00088         <span class="keywordflow">for</span> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i = 0; i &lt; 3; i++)
-<a name="l00089"></a>00089             <span class="keywordflow">if</span> (fabs (getMiddle (i) - b.getMiddle (i)) - BOUNDINGBOX_EPSILON &gt; (getWHL (i) + b.getWHL (i)) / 2.0)
+<a name="l00089"></a>00089             <span class="keywordflow">if</span> (fabs (getMiddle (i) - b.getMiddle (i)) - <a class="code" href="_bounding_box_8h.html#a484b8443c2bf78d68241af1bdc0a6d25">BOUNDINGBOX_EPSILON</a> &gt; (getWHL (i) + b.getWHL (i)) / 2.0)
 <a name="l00090"></a>00090                 <span class="keywordflow">return</span> <span class="keyword">false</span>;
 <a name="l00091"></a>00091         <span class="keywordflow">return</span> <span class="keyword">true</span>;
 <a name="l00092"></a>00092     }
-<a name="l00093"></a>00093     <span class="keyword">inline</span> <span class="keywordtype">bool</span> scaleContains (<span class="keyword">const</span> <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; p, <span class="keywordtype">float</span> scale)<span class="keyword"> const </span>{
-<a name="l00094"></a>00094         <span class="keywordtype">float</span> limitW = scale * getWidth () / 2.0;
-<a name="l00095"></a>00095         <span class="keywordtype">float</span> limitH = scale * getHeight () / 2.0;
-<a name="l00096"></a>00096         <span class="keywordtype">float</span> limitL = scale * getLength () / 2.0;
-<a name="l00097"></a>00097         <a class="code" href="class_vec3_d.html">Vec3Df</a> c = getCenter ();
+<a name="l00093"></a><a class="code" href="class_bounding_box.html#a7522c0fca351c17de100f04a7a5430a2">00093</a>     <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="class_bounding_box.html#a7522c0fca351c17de100f04a7a5430a2">scaleContains</a> (<span class="keyword">const</span> <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; p, <span class="keywordtype">float</span> <a class="code" href="class_bounding_box.html#a3574993358ea575dfa5cab96f59cae58">scale</a>)<span class="keyword"> const </span>{
+<a name="l00094"></a>00094         <span class="keywordtype">float</span> limitW = scale * <a class="code" href="class_bounding_box.html#acd3378928b8a9996790b22ad9f8b6404">getWidth</a> () / 2.0;
+<a name="l00095"></a>00095         <span class="keywordtype">float</span> limitH = scale * <a class="code" href="class_bounding_box.html#aeb0038310316513e738f712548394d45">getHeight</a> () / 2.0;
+<a name="l00096"></a>00096         <span class="keywordtype">float</span> limitL = scale * <a class="code" href="class_bounding_box.html#a9551e31a1a85d1dcaff9951fb05223e2">getLength</a> () / 2.0;
+<a name="l00097"></a>00097         <a class="code" href="class_vec3_d.html">Vec3Df</a> c = <a class="code" href="class_bounding_box.html#acf67cd451e1d713b91b2a64e0b3d49e1">getCenter</a> ();
 <a name="l00098"></a>00098         <span class="keywordflow">if</span> ((fabs (c[0] - p[0]) &lt;= limitW) &amp;&amp; (fabs (c[1] - p[1]) &lt;= limitH) &amp;&amp; (fabs (c[2] - p[2]) &lt;= limitL))
 <a name="l00099"></a>00099             <span class="keywordflow">return</span> <span class="keyword">true</span>;
 <a name="l00100"></a>00100         <span class="keywordflow">return</span> <span class="keyword">false</span>;
 <a name="l00101"></a>00101     }
-<a name="l00102"></a>00102     <span class="keyword">inline</span> <span class="keywordtype">void</span> scale (<span class="keywordtype">float</span> factor) {
-<a name="l00103"></a>00103         <a class="code" href="class_vec3_d.html">Vec3Df</a> center = getCenter ();
+<a name="l00102"></a><a class="code" href="class_bounding_box.html#a3574993358ea575dfa5cab96f59cae58">00102</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_bounding_box.html#a3574993358ea575dfa5cab96f59cae58">scale</a> (<span class="keywordtype">float</span> factor) {
+<a name="l00103"></a>00103         <a class="code" href="class_vec3_d.html">Vec3Df</a> center = <a class="code" href="class_bounding_box.html#acf67cd451e1d713b91b2a64e0b3d49e1">getCenter</a> ();
 <a name="l00104"></a>00104         <a class="code" href="class_vec3_d.html">Vec3Df</a> diffMin, diffMax;
-<a name="l00105"></a>00105         diffMin.fromTo (center, minBb);
-<a name="l00106"></a>00106         diffMax.fromTo (center, maxBb);
+<a name="l00105"></a>00105         diffMin.<a class="code" href="class_vec3_d.html#ac7606fe09a194a91afcb371e82d32f5f">fromTo</a> (center, minBb);
+<a name="l00106"></a>00106         diffMax.<a class="code" href="class_vec3_d.html#ac7606fe09a194a91afcb371e82d32f5f">fromTo</a> (center, maxBb);
 <a name="l00107"></a>00107         diffMin *= factor;
 <a name="l00108"></a>00108         diffMax *= factor;
 <a name="l00109"></a>00109         minBb = center + diffMin;
 <a name="l00110"></a>00110         maxBb = center + diffMax;
 <a name="l00111"></a>00111     }
-<a name="l00112"></a>00112     <span class="keyword">inline</span> <a class="code" href="class_vec3_d.html">Vec3Df</a> getCenter ()<span class="keyword"> const </span>{
+<a name="l00112"></a><a class="code" href="class_bounding_box.html#acf67cd451e1d713b91b2a64e0b3d49e1">00112</a>     <span class="keyword">inline</span> <a class="code" href="class_vec3_d.html">Vec3Df</a> <a class="code" href="class_bounding_box.html#acf67cd451e1d713b91b2a64e0b3d49e1">getCenter</a> ()<span class="keyword"> const </span>{
 <a name="l00113"></a>00113         <span class="keywordflow">return</span> (minBb + maxBb) / 2;
 <a name="l00114"></a>00114     }
-<a name="l00115"></a>00115     <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; getMin ()<span class="keyword"> const </span>{
+<a name="l00115"></a><a class="code" href="class_bounding_box.html#a512de4e092aa1d13f8b79b431ec61ed6">00115</a>     <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; <a class="code" href="class_bounding_box.html#a512de4e092aa1d13f8b79b431ec61ed6">getMin</a> ()<span class="keyword"> const </span>{
 <a name="l00116"></a>00116         <span class="keywordflow">return</span> minBb;
 <a name="l00117"></a>00117     }
-<a name="l00118"></a>00118     <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; getMax ()<span class="keyword"> const </span>{
+<a name="l00118"></a><a class="code" href="class_bounding_box.html#adf165a57276c53e0dcce8e3079e78a54">00118</a>     <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; <a class="code" href="class_bounding_box.html#adf165a57276c53e0dcce8e3079e78a54">getMax</a> ()<span class="keyword"> const </span>{
 <a name="l00119"></a>00119         <span class="keywordflow">return</span> maxBb;
 <a name="l00120"></a>00120     }
-<a name="l00121"></a>00121     <span class="keyword">inline</span> <span class="keywordtype">void</span> subdivide (std::vector&lt;BoundingBox&gt; &amp; splitBoundingBoxArray)<span class="keyword"> const </span>{
+<a name="l00121"></a><a class="code" href="class_bounding_box.html#a8c308fe75ccdf49206b3f2c24841b688">00121</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_bounding_box.html#a8c308fe75ccdf49206b3f2c24841b688">subdivide</a> (std::vector&lt;BoundingBox&gt; &amp; splitBoundingBoxArray)<span class="keyword"> const </span>{
 <a name="l00122"></a>00122         <a class="code" href="class_vec3_d.html">Vec3Df</a> med = (minBb + maxBb) / 2;
 <a name="l00123"></a>00123         <span class="keywordtype">float</span> x_2 = (maxBb[0] - minBb [0]) / 2;
 <a name="l00124"></a>00124         <span class="keywordtype">float</span> y_2 = (maxBb[1] - minBb [1]) / 2;
 <a name="l00125"></a>00125         <span class="keywordtype">float</span> z_2 = (maxBb[2] - minBb [2]) / 2;
 <a name="l00126"></a>00126         splitBoundingBoxArray.resize (8);
-<a name="l00127"></a>00127         splitBoundingBoxArray[0] = <a class="code" href="class_bounding_box.html">BoundingBox</a> (minBb, med);
-<a name="l00128"></a>00128         splitBoundingBoxArray[1] = <a class="code" href="class_bounding_box.html">BoundingBox</a> (minBb + <a class="code" href="class_vec3_d.html">Vec3Df</a> (x_2, 0.0, 0.0), med + <a class="code" href="class_vec3_d.html">Vec3Df</a> (x_2, 0.0, 0.0));
-<a name="l00129"></a>00129         splitBoundingBoxArray[2] = <a class="code" href="class_bounding_box.html">BoundingBox</a> (minBb + <a class="code" href="class_vec3_d.html">Vec3Df</a> (0.0, y_2, 0.0), med + <a class="code" href="class_vec3_d.html">Vec3Df</a> (0.0, y_2, 0.0));
-<a name="l00130"></a>00130         splitBoundingBoxArray[3] = <a class="code" href="class_bounding_box.html">BoundingBox</a> (minBb + <a class="code" href="class_vec3_d.html">Vec3Df</a> (x_2, y_2, 0.0), med + <a class="code" href="class_vec3_d.html">Vec3Df</a> (x_2, y_2, 0.0));
-<a name="l00131"></a>00131         splitBoundingBoxArray[4] = <a class="code" href="class_bounding_box.html">BoundingBox</a> (minBb + <a class="code" href="class_vec3_d.html">Vec3Df</a> (0.0, 0.0, z_2), med + <a class="code" href="class_vec3_d.html">Vec3Df</a> (0.0, 0.0, z_2));
-<a name="l00132"></a>00132         splitBoundingBoxArray[5] = <a class="code" href="class_bounding_box.html">BoundingBox</a> (minBb + <a class="code" href="class_vec3_d.html">Vec3Df</a> (x_2, 0.0, z_2), med + <a class="code" href="class_vec3_d.html">Vec3Df</a> (x_2, 0.0, z_2));
-<a name="l00133"></a>00133         splitBoundingBoxArray[6] = <a class="code" href="class_bounding_box.html">BoundingBox</a> (minBb + <a class="code" href="class_vec3_d.html">Vec3Df</a> (0.0, y_2, z_2), med + <a class="code" href="class_vec3_d.html">Vec3Df</a> (0.0, y_2, z_2));
-<a name="l00134"></a>00134         splitBoundingBoxArray[7] = <a class="code" href="class_bounding_box.html">BoundingBox</a> (minBb + <a class="code" href="class_vec3_d.html">Vec3Df</a> (x_2, y_2, z_2), med + <a class="code" href="class_vec3_d.html">Vec3Df</a> (x_2, y_2, z_2));
+<a name="l00127"></a>00127         splitBoundingBoxArray[0] = <a class="code" href="class_bounding_box.html#a6e401c4da5839950f1f30c8b8c4d1208">BoundingBox</a> (minBb, med);
+<a name="l00128"></a>00128         splitBoundingBoxArray[1] = <a class="code" href="class_bounding_box.html#a6e401c4da5839950f1f30c8b8c4d1208">BoundingBox</a> (minBb + <a class="code" href="class_vec3_d.html">Vec3Df</a> (x_2, 0.0, 0.0), med + <a class="code" href="class_vec3_d.html">Vec3Df</a> (x_2, 0.0, 0.0));
+<a name="l00129"></a>00129         splitBoundingBoxArray[2] = <a class="code" href="class_bounding_box.html#a6e401c4da5839950f1f30c8b8c4d1208">BoundingBox</a> (minBb + <a class="code" href="class_vec3_d.html">Vec3Df</a> (0.0, y_2, 0.0), med + <a class="code" href="class_vec3_d.html">Vec3Df</a> (0.0, y_2, 0.0));
+<a name="l00130"></a>00130         splitBoundingBoxArray[3] = <a class="code" href="class_bounding_box.html#a6e401c4da5839950f1f30c8b8c4d1208">BoundingBox</a> (minBb + <a class="code" href="class_vec3_d.html">Vec3Df</a> (x_2, y_2, 0.0), med + <a class="code" href="class_vec3_d.html">Vec3Df</a> (x_2, y_2, 0.0));
+<a name="l00131"></a>00131         splitBoundingBoxArray[4] = <a class="code" href="class_bounding_box.html#a6e401c4da5839950f1f30c8b8c4d1208">BoundingBox</a> (minBb + <a class="code" href="class_vec3_d.html">Vec3Df</a> (0.0, 0.0, z_2), med + <a class="code" href="class_vec3_d.html">Vec3Df</a> (0.0, 0.0, z_2));
+<a name="l00132"></a>00132         splitBoundingBoxArray[5] = <a class="code" href="class_bounding_box.html#a6e401c4da5839950f1f30c8b8c4d1208">BoundingBox</a> (minBb + <a class="code" href="class_vec3_d.html">Vec3Df</a> (x_2, 0.0, z_2), med + <a class="code" href="class_vec3_d.html">Vec3Df</a> (x_2, 0.0, z_2));
+<a name="l00133"></a>00133         splitBoundingBoxArray[6] = <a class="code" href="class_bounding_box.html#a6e401c4da5839950f1f30c8b8c4d1208">BoundingBox</a> (minBb + <a class="code" href="class_vec3_d.html">Vec3Df</a> (0.0, y_2, z_2), med + <a class="code" href="class_vec3_d.html">Vec3Df</a> (0.0, y_2, z_2));
+<a name="l00134"></a>00134         splitBoundingBoxArray[7] = <a class="code" href="class_bounding_box.html#a6e401c4da5839950f1f30c8b8c4d1208">BoundingBox</a> (minBb + <a class="code" href="class_vec3_d.html">Vec3Df</a> (x_2, y_2, z_2), med + <a class="code" href="class_vec3_d.html">Vec3Df</a> (x_2, y_2, z_2));
 <a name="l00135"></a>00135     }
-<a name="l00136"></a>00136     <span class="keywordtype">bool</span> intersectRay (<span class="keyword">const</span> <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; origin, <span class="keyword">const</span> <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; direction, <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; intersection) <span class="keyword">const</span>;
+<a name="l00136"></a>00136     <span class="keywordtype">bool</span> <a class="code" href="class_bounding_box.html#aa14554dfd5978b6cfcdd948929aa673b">intersectRay</a> (<span class="keyword">const</span> <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; origin, <span class="keyword">const</span> <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; direction, <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; intersection) <span class="keyword">const</span>;
 <a name="l00137"></a>00137 
 <a name="l00138"></a>00138 <span class="keyword">private</span>:
 <a name="l00139"></a>00139     <span class="keyword">inline</span> <span class="keywordtype">float</span> getWHL (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i)<span class="keyword"> const </span>{
@@ -224,7 +225,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -233,7 +234,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Mon May 2 2011 01:51:51 for Projet3D by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Sun May 8 2011 16:02:09 for Ray Tracer by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

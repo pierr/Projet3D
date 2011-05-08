@@ -2,6 +2,10 @@
 \section{Mesh Class Reference}
 \label{class_mesh}\index{Mesh@{Mesh}}
 }
+
+
+{\ttfamily \#include $<$Mesh.h$>$}
+
 \subsection*{Classes}
 \begin{DoxyCompactItemize}
 \item 
@@ -10,109 +14,388 @@ class \hyperlink{class_mesh_1_1_exception}{Exception}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\hyperlink{class_mesh_a2af137f1571af89172b9c102302c416b}{Mesh} ()
+\item 
+\hyperlink{class_mesh_adb9316d7dace57df26ff1fe78b8f8c0a}{Mesh} (const std::vector$<$ \hyperlink{class_vertex}{Vertex} $>$ \&v)
+\item 
+\hyperlink{class_mesh_a341fbc5393e30d8f391961e57d27f01f}{Mesh} (const std::vector$<$ \hyperlink{class_vertex}{Vertex} $>$ \&v, const std::vector$<$ \hyperlink{class_triangle}{Triangle} $>$ \&t)
+\item 
+\hyperlink{class_mesh_ad0260249329b621d4d91c66293baef8d}{Mesh} (const \hyperlink{class_mesh}{Mesh} \&mesh)
+\item 
+virtual \hyperlink{class_mesh_ad6a041191ed55c693254e945ce2869ff}{$\sim$Mesh} ()
+\item 
+std::vector$<$ \hyperlink{class_vertex}{Vertex} $>$ \& \hyperlink{class_mesh_a42f498162d3a1c2dc33673aaf0e13bbe}{getVertices} ()
+\item 
+const std::vector$<$ \hyperlink{class_vertex}{Vertex} $>$ \& \hyperlink{class_mesh_a012af8d734e4b24c9e4455460a309f39}{getVertices} () const 
+\item 
+std::vector$<$ \hyperlink{class_triangle}{Triangle} $>$ \& \hyperlink{class_mesh_ad8028e3925807b895700685d20d8d068}{getTriangles} ()
+\item 
+const std::vector$<$ \hyperlink{class_triangle}{Triangle} $>$ \& \hyperlink{class_mesh_a0ed54e18cd41d1464e9856870c0517af}{getTriangles} () const 
+\item 
+void \hyperlink{class_mesh_a7008e23cbaacd2878b7e81a01ac5d96b}{clear} ()
+\item 
+void \hyperlink{class_mesh_a1f53f5b1ea374096e87549bb34527627}{clearGeometry} ()
+\item 
+void \hyperlink{class_mesh_aa23a3186392b0285ff3cd5577a58a7eb}{clearTopology} ()
+\item 
+void \hyperlink{class_mesh_a5bf95f9557c71f7397b5d468e8c081e1}{unmarkAllVertices} ()
+\item 
+void \hyperlink{class_mesh_a9cb470310ac2300d068cace3b9ddf222}{recomputeSmoothVertexNormals} (unsigned int weight)
+\item 
+void \hyperlink{class_mesh_adb597894886af67deefb9abce6833c95}{computeTriangleNormals} (std::vector$<$ \hyperlink{class_vec3_d}{Vec3Df} $>$ \&triangleNormals)
+\item 
+void \hyperlink{class_mesh_ad615ce139902c658b6afa192e04e60a0}{collectOneRing} (std::vector$<$ std::vector$<$ unsigned int $>$ $>$ \&oneRing) const 
+\item 
+void \hyperlink{class_mesh_abd301b4995d59fdd09b631c1162d97f1}{collectOrderedOneRing} (std::vector$<$ std::vector$<$ unsigned int $>$ $>$ \&oneRing) const 
+\item 
+void \hyperlink{class_mesh_a2734381378be9cb9c8349e7bbfb6f2e9}{computeDualEdgeMap} (\hyperlink{_edge_8h_abe548ff04bebd42f343defbeac98fa2d}{EdgeMapIndex} \&dualVMap1, \hyperlink{_edge_8h_abe548ff04bebd42f343defbeac98fa2d}{EdgeMapIndex} \&dualVMap2)
+\item 
+void \hyperlink{class_mesh_ac461b001aa91580cc939e0ad15d7bdb6}{markBorderEdges} (\hyperlink{_edge_8h_abe548ff04bebd42f343defbeac98fa2d}{EdgeMapIndex} \&edgeMap)
+\item 
+void \hyperlink{class_mesh_a454105bfe72190b81331641be2edf3ec}{renderGL} (bool flat) const 
+\item 
+void \hyperlink{class_mesh_a04d240f35402702c60e742adf0b22bbc}{loadOFFF} (const std::string filename)
+\item 
+void \hyperlink{class_mesh_a1b9cb544aed0779cd165703979b83315}{loadOFF} (const std::string \&filename)
+\item 
+void \hyperlink{class_mesh_ad440dee62af2c492a89255310d8068bd}{loadOFF} (const std::string \&filename, \hyperlink{class_vec3_d}{Vec3Df} \&translatedVector, float \&grandissement, \hyperlink{class_rotation_matrix}{RotationMatrix} \&rotMat)
+\item 
+void \hyperlink{class_mesh_a4113a6c26d167af163593217b3cdb4f9}{loadOFF} (const std::string \&filename, float \&grandissement)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 19 of file Mesh.h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_mesh_a2af137f1571af89172b9c102302c416b}{
+\index{Mesh@{Mesh}!Mesh@{Mesh}}
+\index{Mesh@{Mesh}!Mesh@{Mesh}}
+\subsubsection[{Mesh}]{\setlength{\rightskip}{0pt plus 5cm}Mesh::Mesh (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_mesh_a2af137f1571af89172b9c102302c416b}
+
+
+Definition at line 21 of file Mesh.h.
+
 \hypertarget{class_mesh_adb9316d7dace57df26ff1fe78b8f8c0a}{
-{\bfseries Mesh} (const std::vector$<$ \hyperlink{class_vertex}{Vertex} $>$ \&v)}
+\index{Mesh@{Mesh}!Mesh@{Mesh}}
+\index{Mesh@{Mesh}!Mesh@{Mesh}}
+\subsubsection[{Mesh}]{\setlength{\rightskip}{0pt plus 5cm}Mesh::Mesh (
+\begin{DoxyParamCaption}
+\item[{const std::vector$<$ {\bf Vertex} $>$ \&}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
 \label{class_mesh_adb9316d7dace57df26ff1fe78b8f8c0a}
 
-\item 
+
+Definition at line 22 of file Mesh.h.
+
 \hypertarget{class_mesh_a341fbc5393e30d8f391961e57d27f01f}{
-{\bfseries Mesh} (const std::vector$<$ \hyperlink{class_vertex}{Vertex} $>$ \&v, const std::vector$<$ \hyperlink{class_triangle}{Triangle} $>$ \&t)}
+\index{Mesh@{Mesh}!Mesh@{Mesh}}
+\index{Mesh@{Mesh}!Mesh@{Mesh}}
+\subsubsection[{Mesh}]{\setlength{\rightskip}{0pt plus 5cm}Mesh::Mesh (
+\begin{DoxyParamCaption}
+\item[{const std::vector$<$ {\bf Vertex} $>$ \&}]{v, }
+\item[{const std::vector$<$ {\bf Triangle} $>$ \&}]{t}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
 \label{class_mesh_a341fbc5393e30d8f391961e57d27f01f}
 
-\item 
+
+Definition at line 24 of file Mesh.h.
+
 \hypertarget{class_mesh_ad0260249329b621d4d91c66293baef8d}{
-{\bfseries Mesh} (const \hyperlink{class_mesh}{Mesh} \&mesh)}
+\index{Mesh@{Mesh}!Mesh@{Mesh}}
+\index{Mesh@{Mesh}!Mesh@{Mesh}}
+\subsubsection[{Mesh}]{\setlength{\rightskip}{0pt plus 5cm}Mesh::Mesh (
+\begin{DoxyParamCaption}
+\item[{const {\bf Mesh} \&}]{mesh}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
 \label{class_mesh_ad0260249329b621d4d91c66293baef8d}
 
-\item 
-\hypertarget{class_mesh_a42f498162d3a1c2dc33673aaf0e13bbe}{
-std::vector$<$ \hyperlink{class_vertex}{Vertex} $>$ \& {\bfseries getVertices} ()}
-\label{class_mesh_a42f498162d3a1c2dc33673aaf0e13bbe}
 
-\item 
-\hypertarget{class_mesh_a012af8d734e4b24c9e4455460a309f39}{
-const std::vector$<$ \hyperlink{class_vertex}{Vertex} $>$ \& {\bfseries getVertices} () const }
-\label{class_mesh_a012af8d734e4b24c9e4455460a309f39}
+Definition at line 27 of file Mesh.h.
 
-\item 
-\hypertarget{class_mesh_ad8028e3925807b895700685d20d8d068}{
-std::vector$<$ \hyperlink{class_triangle}{Triangle} $>$ \& {\bfseries getTriangles} ()}
-\label{class_mesh_ad8028e3925807b895700685d20d8d068}
+\hypertarget{class_mesh_ad6a041191ed55c693254e945ce2869ff}{
+\index{Mesh@{Mesh}!$\sim$Mesh@{$\sim$Mesh}}
+\index{$\sim$Mesh@{$\sim$Mesh}!Mesh@{Mesh}}
+\subsubsection[{$\sim$Mesh}]{\setlength{\rightskip}{0pt plus 5cm}virtual Mesh::$\sim$Mesh (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}
+\label{class_mesh_ad6a041191ed55c693254e945ce2869ff}
 
-\item 
-\hypertarget{class_mesh_a0ed54e18cd41d1464e9856870c0517af}{
-const std::vector$<$ \hyperlink{class_triangle}{Triangle} $>$ \& {\bfseries getTriangles} () const }
-\label{class_mesh_a0ed54e18cd41d1464e9856870c0517af}
 
-\item 
+Definition at line 31 of file Mesh.h.
+
+
+
+\subsection{Member Function Documentation}
 \hypertarget{class_mesh_a7008e23cbaacd2878b7e81a01ac5d96b}{
-void {\bfseries clear} ()}
+\index{Mesh@{Mesh}!clear@{clear}}
+\index{clear@{clear}!Mesh@{Mesh}}
+\subsubsection[{clear}]{\setlength{\rightskip}{0pt plus 5cm}void Mesh::clear (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
 \label{class_mesh_a7008e23cbaacd2878b7e81a01ac5d96b}
 
-\item 
+
+Definition at line 22 of file Mesh.cpp.
+
 \hypertarget{class_mesh_a1f53f5b1ea374096e87549bb34527627}{
-void {\bfseries clearGeometry} ()}
+\index{Mesh@{Mesh}!clearGeometry@{clearGeometry}}
+\index{clearGeometry@{clearGeometry}!Mesh@{Mesh}}
+\subsubsection[{clearGeometry}]{\setlength{\rightskip}{0pt plus 5cm}void Mesh::clearGeometry (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
 \label{class_mesh_a1f53f5b1ea374096e87549bb34527627}
 
-\item 
+
+Definition at line 27 of file Mesh.cpp.
+
 \hypertarget{class_mesh_aa23a3186392b0285ff3cd5577a58a7eb}{
-void {\bfseries clearTopology} ()}
+\index{Mesh@{Mesh}!clearTopology@{clearTopology}}
+\index{clearTopology@{clearTopology}!Mesh@{Mesh}}
+\subsubsection[{clearTopology}]{\setlength{\rightskip}{0pt plus 5cm}void Mesh::clearTopology (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
 \label{class_mesh_aa23a3186392b0285ff3cd5577a58a7eb}
 
-\item 
-\hypertarget{class_mesh_a5bf95f9557c71f7397b5d468e8c081e1}{
-void {\bfseries unmarkAllVertices} ()}
-\label{class_mesh_a5bf95f9557c71f7397b5d468e8c081e1}
 
-\item 
-\hypertarget{class_mesh_a9cb470310ac2300d068cace3b9ddf222}{
-void {\bfseries recomputeSmoothVertexNormals} (unsigned int weight)}
-\label{class_mesh_a9cb470310ac2300d068cace3b9ddf222}
+Definition at line 31 of file Mesh.cpp.
 
-\item 
-\hypertarget{class_mesh_adb597894886af67deefb9abce6833c95}{
-void {\bfseries computeTriangleNormals} (std::vector$<$ \hyperlink{class_vec3_d}{Vec3Df} $>$ \&triangleNormals)}
-\label{class_mesh_adb597894886af67deefb9abce6833c95}
-
-\item 
 \hypertarget{class_mesh_ad615ce139902c658b6afa192e04e60a0}{
-void {\bfseries collectOneRing} (std::vector$<$ std::vector$<$ unsigned int $>$ $>$ \&oneRing) const }
+\index{Mesh@{Mesh}!collectOneRing@{collectOneRing}}
+\index{collectOneRing@{collectOneRing}!Mesh@{Mesh}}
+\subsubsection[{collectOneRing}]{\setlength{\rightskip}{0pt plus 5cm}void Mesh::collectOneRing (
+\begin{DoxyParamCaption}
+\item[{std::vector$<$ std::vector$<$ unsigned int $>$ $>$ \&}]{oneRing}
+\end{DoxyParamCaption}
+) const}}
 \label{class_mesh_ad615ce139902c658b6afa192e04e60a0}
 
-\item 
+
+Definition at line 79 of file Mesh.cpp.
+
 \hypertarget{class_mesh_abd301b4995d59fdd09b631c1162d97f1}{
-void {\bfseries collectOrderedOneRing} (std::vector$<$ std::vector$<$ unsigned int $>$ $>$ \&oneRing) const }
+\index{Mesh@{Mesh}!collectOrderedOneRing@{collectOrderedOneRing}}
+\index{collectOrderedOneRing@{collectOrderedOneRing}!Mesh@{Mesh}}
+\subsubsection[{collectOrderedOneRing}]{\setlength{\rightskip}{0pt plus 5cm}void Mesh::collectOrderedOneRing (
+\begin{DoxyParamCaption}
+\item[{std::vector$<$ std::vector$<$ unsigned int $>$ $>$ \&}]{oneRing}
+\end{DoxyParamCaption}
+) const}}
 \label{class_mesh_abd301b4995d59fdd09b631c1162d97f1}
 
-\item 
+
+Definition at line 94 of file Mesh.cpp.
+
 \hypertarget{class_mesh_a2734381378be9cb9c8349e7bbfb6f2e9}{
-void {\bfseries computeDualEdgeMap} (EdgeMapIndex \&dualVMap1, EdgeMapIndex \&dualVMap2)}
+\index{Mesh@{Mesh}!computeDualEdgeMap@{computeDualEdgeMap}}
+\index{computeDualEdgeMap@{computeDualEdgeMap}!Mesh@{Mesh}}
+\subsubsection[{computeDualEdgeMap}]{\setlength{\rightskip}{0pt plus 5cm}void Mesh::computeDualEdgeMap (
+\begin{DoxyParamCaption}
+\item[{{\bf EdgeMapIndex} \&}]{dualVMap1, }
+\item[{{\bf EdgeMapIndex} \&}]{dualVMap2}
+\end{DoxyParamCaption}
+)}}
 \label{class_mesh_a2734381378be9cb9c8349e7bbfb6f2e9}
 
-\item 
-\hypertarget{class_mesh_ac461b001aa91580cc939e0ad15d7bdb6}{
-void {\bfseries markBorderEdges} (EdgeMapIndex \&edgeMap)}
-\label{class_mesh_ac461b001aa91580cc939e0ad15d7bdb6}
 
-\item 
-\hypertarget{class_mesh_a454105bfe72190b81331641be2edf3ec}{
-void {\bfseries renderGL} (bool flat) const }
-\label{class_mesh_a454105bfe72190b81331641be2edf3ec}
+Definition at line 122 of file Mesh.cpp.
 
-\item 
+\hypertarget{class_mesh_adb597894886af67deefb9abce6833c95}{
+\index{Mesh@{Mesh}!computeTriangleNormals@{computeTriangleNormals}}
+\index{computeTriangleNormals@{computeTriangleNormals}!Mesh@{Mesh}}
+\subsubsection[{computeTriangleNormals}]{\setlength{\rightskip}{0pt plus 5cm}void Mesh::computeTriangleNormals (
+\begin{DoxyParamCaption}
+\item[{std::vector$<$ {\bf Vec3Df} $>$ \&}]{triangleNormals}
+\end{DoxyParamCaption}
+)}}
+\label{class_mesh_adb597894886af67deefb9abce6833c95}
+
+
+Definition at line 40 of file Mesh.cpp.
+
+\hypertarget{class_mesh_a0ed54e18cd41d1464e9856870c0517af}{
+\index{Mesh@{Mesh}!getTriangles@{getTriangles}}
+\index{getTriangles@{getTriangles}!Mesh@{Mesh}}
+\subsubsection[{getTriangles}]{\setlength{\rightskip}{0pt plus 5cm}const std::vector$<${\bf Triangle}$>$\& Mesh::getTriangles (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_mesh_a0ed54e18cd41d1464e9856870c0517af}
+
+
+Definition at line 35 of file Mesh.h.
+
+\hypertarget{class_mesh_ad8028e3925807b895700685d20d8d068}{
+\index{Mesh@{Mesh}!getTriangles@{getTriangles}}
+\index{getTriangles@{getTriangles}!Mesh@{Mesh}}
+\subsubsection[{getTriangles}]{\setlength{\rightskip}{0pt plus 5cm}std::vector$<${\bf Triangle}$>$\& Mesh::getTriangles (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_mesh_ad8028e3925807b895700685d20d8d068}
+
+
+Definition at line 34 of file Mesh.h.
+
+\hypertarget{class_mesh_a012af8d734e4b24c9e4455460a309f39}{
+\index{Mesh@{Mesh}!getVertices@{getVertices}}
+\index{getVertices@{getVertices}!Mesh@{Mesh}}
+\subsubsection[{getVertices}]{\setlength{\rightskip}{0pt plus 5cm}const std::vector$<${\bf Vertex}$>$\& Mesh::getVertices (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_mesh_a012af8d734e4b24c9e4455460a309f39}
+
+
+Definition at line 33 of file Mesh.h.
+
+\hypertarget{class_mesh_a42f498162d3a1c2dc33673aaf0e13bbe}{
+\index{Mesh@{Mesh}!getVertices@{getVertices}}
+\index{getVertices@{getVertices}!Mesh@{Mesh}}
+\subsubsection[{getVertices}]{\setlength{\rightskip}{0pt plus 5cm}std::vector$<${\bf Vertex}$>$\& Mesh::getVertices (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_mesh_a42f498162d3a1c2dc33673aaf0e13bbe}
+
+
+Definition at line 32 of file Mesh.h.
+
 \hypertarget{class_mesh_a1b9cb544aed0779cd165703979b83315}{
-void {\bfseries loadOFF} (const std::string \&filename)}
+\index{Mesh@{Mesh}!loadOFF@{loadOFF}}
+\index{loadOFF@{loadOFF}!Mesh@{Mesh}}
+\subsubsection[{loadOFF}]{\setlength{\rightskip}{0pt plus 5cm}void Mesh::loadOFF (
+\begin{DoxyParamCaption}
+\item[{const std::string \&}]{filename}
+\end{DoxyParamCaption}
+)}}
 \label{class_mesh_a1b9cb544aed0779cd165703979b83315}
 
-\item 
+
+Definition at line 227 of file Mesh.cpp.
+
 \hypertarget{class_mesh_ad440dee62af2c492a89255310d8068bd}{
-void {\bfseries loadOFF} (const std::string \&filename, \hyperlink{class_vec3_d}{Vec3Df} \&translatedVector, float \&grandissement, \hyperlink{class_rotation_matrix}{RotationMatrix} \&rotMat)}
+\index{Mesh@{Mesh}!loadOFF@{loadOFF}}
+\index{loadOFF@{loadOFF}!Mesh@{Mesh}}
+\subsubsection[{loadOFF}]{\setlength{\rightskip}{0pt plus 5cm}void Mesh::loadOFF (
+\begin{DoxyParamCaption}
+\item[{const std::string \&}]{filename, }
+\item[{{\bf Vec3Df} \&}]{translatedVector, }
+\item[{float \&}]{grandissement, }
+\item[{{\bf RotationMatrix} \&}]{rotMat}
+\end{DoxyParamCaption}
+)}}
 \label{class_mesh_ad440dee62af2c492a89255310d8068bd}
 
-\end{DoxyCompactItemize}
+
+Definition at line 189 of file Mesh.cpp.
+
+\hypertarget{class_mesh_a4113a6c26d167af163593217b3cdb4f9}{
+\index{Mesh@{Mesh}!loadOFF@{loadOFF}}
+\index{loadOFF@{loadOFF}!Mesh@{Mesh}}
+\subsubsection[{loadOFF}]{\setlength{\rightskip}{0pt plus 5cm}void Mesh::loadOFF (
+\begin{DoxyParamCaption}
+\item[{const std::string \&}]{filename, }
+\item[{float \&}]{grandissement}
+\end{DoxyParamCaption}
+)}}
+\label{class_mesh_a4113a6c26d167af163593217b3cdb4f9}
+
+
+Definition at line 234 of file Mesh.cpp.
+
+\hypertarget{class_mesh_a04d240f35402702c60e742adf0b22bbc}{
+\index{Mesh@{Mesh}!loadOFFF@{loadOFFF}}
+\index{loadOFFF@{loadOFFF}!Mesh@{Mesh}}
+\subsubsection[{loadOFFF}]{\setlength{\rightskip}{0pt plus 5cm}void Mesh::loadOFFF (
+\begin{DoxyParamCaption}
+\item[{const std::string}]{filename}
+\end{DoxyParamCaption}
+)}}
+\label{class_mesh_a04d240f35402702c60e742adf0b22bbc}
+
+
+Definition at line 239 of file Mesh.cpp.
+
+\hypertarget{class_mesh_ac461b001aa91580cc939e0ad15d7bdb6}{
+\index{Mesh@{Mesh}!markBorderEdges@{markBorderEdges}}
+\index{markBorderEdges@{markBorderEdges}!Mesh@{Mesh}}
+\subsubsection[{markBorderEdges}]{\setlength{\rightskip}{0pt plus 5cm}void Mesh::markBorderEdges (
+\begin{DoxyParamCaption}
+\item[{{\bf EdgeMapIndex} \&}]{edgeMap}
+\end{DoxyParamCaption}
+)}}
+\label{class_mesh_ac461b001aa91580cc939e0ad15d7bdb6}
+
+
+Definition at line 135 of file Mesh.cpp.
+
+\hypertarget{class_mesh_a9cb470310ac2300d068cace3b9ddf222}{
+\index{Mesh@{Mesh}!recomputeSmoothVertexNormals@{recomputeSmoothVertexNormals}}
+\index{recomputeSmoothVertexNormals@{recomputeSmoothVertexNormals}!Mesh@{Mesh}}
+\subsubsection[{recomputeSmoothVertexNormals}]{\setlength{\rightskip}{0pt plus 5cm}void Mesh::recomputeSmoothVertexNormals (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{weight}
+\end{DoxyParamCaption}
+)}}
+\label{class_mesh_a9cb470310ac2300d068cace3b9ddf222}
+
+
+Definition at line 52 of file Mesh.cpp.
+
+\hypertarget{class_mesh_a454105bfe72190b81331641be2edf3ec}{
+\index{Mesh@{Mesh}!renderGL@{renderGL}}
+\index{renderGL@{renderGL}!Mesh@{Mesh}}
+\subsubsection[{renderGL}]{\setlength{\rightskip}{0pt plus 5cm}void Mesh::renderGL (
+\begin{DoxyParamCaption}
+\item[{bool}]{flat}
+\end{DoxyParamCaption}
+) const}}
+\label{class_mesh_a454105bfe72190b81331641be2edf3ec}
+
+
+Definition at line 166 of file Mesh.cpp.
+
+\hypertarget{class_mesh_a5bf95f9557c71f7397b5d468e8c081e1}{
+\index{Mesh@{Mesh}!unmarkAllVertices@{unmarkAllVertices}}
+\index{unmarkAllVertices@{unmarkAllVertices}!Mesh@{Mesh}}
+\subsubsection[{unmarkAllVertices}]{\setlength{\rightskip}{0pt plus 5cm}void Mesh::unmarkAllVertices (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_mesh_a5bf95f9557c71f7397b5d468e8c081e1}
+
+
+Definition at line 35 of file Mesh.cpp.
+
 
 
 The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
 \item 
-raymini/Mesh.h\item 
-raymini/Mesh.cpp\end{DoxyCompactItemize}
+raymini/\hyperlink{_mesh_8h}{Mesh.h}\item 
+raymini/\hyperlink{_mesh_8cpp}{Mesh.cpp}\end{DoxyCompactItemize}

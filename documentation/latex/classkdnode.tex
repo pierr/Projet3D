@@ -2,47 +2,151 @@
 \section{kdnode Class Reference}
 \label{classkdnode}\index{kdnode@{kdnode}}
 }
+
+
+{\ttfamily \#include $<$kdnode.h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\hyperlink{classkdnode_a3aec676536bed609f0badb4caed8589b}{kdnode} ()
+\item 
+\hyperlink{classkdnode_a2532657ec48279c0a88612802725f537}{kdnode} (int deep, std::vector$<$ \hyperlink{classkdleaf}{kdleaf} $>$ \&leafs, \hyperlink{class_bounding_box}{BoundingBox} \&box)
+\item 
+void \hyperlink{classkdnode_a49bdc6fb34ef685e555404a19805946f}{split} (int max\_\-deep)
+\item 
+bool \hyperlink{classkdnode_ad7ef1f57c055c196fcb29b0fd005b4dc}{get\_\-deepest} ()
+\item 
+std::vector$<$ \hyperlink{classkdleaf}{kdleaf} $>$ \& \hyperlink{classkdnode_a8cabbc55f36a391030e9ea4260d8a261}{get\_\-leafs} ()
+\item 
+\hyperlink{class_bounding_box}{BoundingBox} \& \hyperlink{classkdnode_a102eca21308077d05d24ffa2d6d89106}{get\_\-box} ()
+\item 
+\hyperlink{classkdnode}{kdnode} $\ast$ \hyperlink{classkdnode_aa853003afe7a7883b6243f27b02102dc}{get\_\-supnode} ()
+\item 
+\hyperlink{classkdnode}{kdnode} $\ast$ \hyperlink{classkdnode_a5e58bb6724b2bab5c092c04b58276daa}{get\_\-infnode} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 12 of file kdnode.h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classkdnode_a3aec676536bed609f0badb4caed8589b}{
+\index{kdnode@{kdnode}!kdnode@{kdnode}}
+\index{kdnode@{kdnode}!kdnode@{kdnode}}
+\subsubsection[{kdnode}]{\setlength{\rightskip}{0pt plus 5cm}kdnode::kdnode (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classkdnode_a3aec676536bed609f0badb4caed8589b}
+
+
+Definition at line 15 of file kdnode.h.
+
 \hypertarget{classkdnode_a2532657ec48279c0a88612802725f537}{
-{\bfseries kdnode} (int deep, std::vector$<$ \hyperlink{classkdleaf}{kdleaf} $>$ \&leafs, \hyperlink{class_bounding_box}{BoundingBox} \&box)}
+\index{kdnode@{kdnode}!kdnode@{kdnode}}
+\index{kdnode@{kdnode}!kdnode@{kdnode}}
+\subsubsection[{kdnode}]{\setlength{\rightskip}{0pt plus 5cm}kdnode::kdnode (
+\begin{DoxyParamCaption}
+\item[{int}]{deep, }
+\item[{std::vector$<$ {\bf kdleaf} $>$ \&}]{leafs, }
+\item[{{\bf BoundingBox} \&}]{box}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
 \label{classkdnode_a2532657ec48279c0a88612802725f537}
 
-\item 
-\hypertarget{classkdnode_a49bdc6fb34ef685e555404a19805946f}{
-void {\bfseries split} (int max\_\-deep)}
-\label{classkdnode_a49bdc6fb34ef685e555404a19805946f}
 
-\item 
-\hypertarget{classkdnode_ad7ef1f57c055c196fcb29b0fd005b4dc}{
-bool {\bfseries get\_\-deepest} ()}
-\label{classkdnode_ad7ef1f57c055c196fcb29b0fd005b4dc}
+Definition at line 16 of file kdnode.h.
 
-\item 
-\hypertarget{classkdnode_a8cabbc55f36a391030e9ea4260d8a261}{
-std::vector$<$ \hyperlink{classkdleaf}{kdleaf} $>$ \& {\bfseries get\_\-leafs} ()}
-\label{classkdnode_a8cabbc55f36a391030e9ea4260d8a261}
 
-\item 
+
+\subsection{Member Function Documentation}
 \hypertarget{classkdnode_a102eca21308077d05d24ffa2d6d89106}{
-\hyperlink{class_bounding_box}{BoundingBox} \& {\bfseries get\_\-box} ()}
+\index{kdnode@{kdnode}!get\_\-box@{get\_\-box}}
+\index{get\_\-box@{get\_\-box}!kdnode@{kdnode}}
+\subsubsection[{get\_\-box}]{\setlength{\rightskip}{0pt plus 5cm}{\bf BoundingBox}\& kdnode::get\_\-box (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
 \label{classkdnode_a102eca21308077d05d24ffa2d6d89106}
 
-\item 
-\hypertarget{classkdnode_aa853003afe7a7883b6243f27b02102dc}{
-\hyperlink{classkdnode}{kdnode} $\ast$ {\bfseries get\_\-supnode} ()}
-\label{classkdnode_aa853003afe7a7883b6243f27b02102dc}
 
-\item 
+Definition at line 20 of file kdnode.h.
+
+\hypertarget{classkdnode_ad7ef1f57c055c196fcb29b0fd005b4dc}{
+\index{kdnode@{kdnode}!get\_\-deepest@{get\_\-deepest}}
+\index{get\_\-deepest@{get\_\-deepest}!kdnode@{kdnode}}
+\subsubsection[{get\_\-deepest}]{\setlength{\rightskip}{0pt plus 5cm}bool kdnode::get\_\-deepest (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classkdnode_ad7ef1f57c055c196fcb29b0fd005b4dc}
+
+
+Definition at line 18 of file kdnode.h.
+
 \hypertarget{classkdnode_a5e58bb6724b2bab5c092c04b58276daa}{
-\hyperlink{classkdnode}{kdnode} $\ast$ {\bfseries get\_\-infnode} ()}
+\index{kdnode@{kdnode}!get\_\-infnode@{get\_\-infnode}}
+\index{get\_\-infnode@{get\_\-infnode}!kdnode@{kdnode}}
+\subsubsection[{get\_\-infnode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf kdnode}$\ast$ kdnode::get\_\-infnode (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
 \label{classkdnode_a5e58bb6724b2bab5c092c04b58276daa}
 
-\end{DoxyCompactItemize}
+
+Definition at line 22 of file kdnode.h.
+
+\hypertarget{classkdnode_a8cabbc55f36a391030e9ea4260d8a261}{
+\index{kdnode@{kdnode}!get\_\-leafs@{get\_\-leafs}}
+\index{get\_\-leafs@{get\_\-leafs}!kdnode@{kdnode}}
+\subsubsection[{get\_\-leafs}]{\setlength{\rightskip}{0pt plus 5cm}std::vector$<${\bf kdleaf}$>$\& kdnode::get\_\-leafs (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classkdnode_a8cabbc55f36a391030e9ea4260d8a261}
+
+
+Definition at line 19 of file kdnode.h.
+
+\hypertarget{classkdnode_aa853003afe7a7883b6243f27b02102dc}{
+\index{kdnode@{kdnode}!get\_\-supnode@{get\_\-supnode}}
+\index{get\_\-supnode@{get\_\-supnode}!kdnode@{kdnode}}
+\subsubsection[{get\_\-supnode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf kdnode}$\ast$ kdnode::get\_\-supnode (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{classkdnode_aa853003afe7a7883b6243f27b02102dc}
+
+
+Definition at line 21 of file kdnode.h.
+
+\hypertarget{classkdnode_a49bdc6fb34ef685e555404a19805946f}{
+\index{kdnode@{kdnode}!split@{split}}
+\index{split@{split}!kdnode@{kdnode}}
+\subsubsection[{split}]{\setlength{\rightskip}{0pt plus 5cm}void kdnode::split (
+\begin{DoxyParamCaption}
+\item[{int}]{max\_\-deep}
+\end{DoxyParamCaption}
+)}}
+\label{classkdnode_a49bdc6fb34ef685e555404a19805946f}
+
+
+Definition at line 8 of file kdnode.cpp.
+
 
 
 The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
 \item 
-raymini/kdnode.h\item 
-raymini/kdnode.cpp\end{DoxyCompactItemize}
+raymini/\hyperlink{kdnode_8h}{kdnode.h}\item 
+raymini/\hyperlink{kdnode_8cpp}{kdnode.cpp}\end{DoxyCompactItemize}

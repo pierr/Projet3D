@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>Projet3D: raymini/Parametres.h Source File</title>
+<title>Ray Tracer: raymini/Parametres.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Projet3D</div>
+   <div id="projectname">Ray Tracer</div>
   </td>
  </tr>
  </tbody>
@@ -51,6 +51,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 <div class="header">
@@ -58,201 +59,244 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">raymini/Parametres.h</div>  </div>
 </div>
 <div class="contents">
-<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef PARAMETRES_H</span>
+<a href="_parametres_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef PARAMETRES_H</span>
 <a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define PARAMETRES_H</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span>
 <a name="l00004"></a>00004 <span class="preprocessor">#include &lt;QObject&gt;</span>
 <a name="l00005"></a>00005 <span class="preprocessor">#include &lt;QCheckBox&gt;</span>
 <a name="l00006"></a>00006 <span class="preprocessor">#include &lt;iostream&gt;</span>
 <a name="l00007"></a>00007 
-<a name="l00008"></a>00008 <span class="preprocessor">#define PI 3.141592</span>
-<a name="l00009"></a>00009 <span class="preprocessor"></span>
-<a name="l00010"></a>00010 <span class="keyword">using namespace </span>std;
-<a name="l00011"></a>00011 
-<a name="l00012"></a><a class="code" href="class_parametres.html">00012</a> <span class="keyword">class </span><a class="code" href="class_parametres.html">Parametres</a> : <span class="keyword">public</span> QObject {
-<a name="l00013"></a>00013     Q_OBJECT
-<a name="l00014"></a>00014 <span class="keyword">public</span>:
-<a name="l00015"></a>00015     <span class="keyword">inline</span> <a class="code" href="class_parametres.html">Parametres</a>(QObject *parent = 0) : QObject(parent) {
-<a name="l00016"></a>00016         pix_grille =        1;
-<a name="l00017"></a>00017         material_active =   <span class="keyword">true</span>;
-<a name="l00018"></a>00018         BRDF_active =       <span class="keyword">true</span>;
-<a name="l00019"></a>00019         diff_active =       <span class="keyword">true</span>;
-<a name="l00020"></a>00020         spec_active =       <span class="keyword">true</span>;
-<a name="l00021"></a>00021         brillance =         1;
-<a name="l00022"></a>00022         ambiantLight = 0.;
-<a name="l00023"></a>00023         ombres_active =     <span class="keyword">false</span>;
-<a name="l00024"></a>00024         ombres_douces =     <span class="keyword">false</span>;
-<a name="l00025"></a>00025         ombres_numa =       2;
-<a name="l00026"></a>00026         ombres_numr =       2;
-<a name="l00027"></a>00027 
-<a name="l00028"></a>00028         ambocc_active =     <span class="keyword">false</span>;
-<a name="l00029"></a>00029         ambocc_nray =       30;
-<a name="l00030"></a>00030         ambocc_theta =      90;
-<a name="l00031"></a>00031         ambocc_rayon =      0.05f;
-<a name="l00032"></a>00032 
-<a name="l00033"></a>00033         kd_propdeep =       0.05;
+<a name="l00008"></a>00008 <span class="preprocessor">#include &quot;<a class="code" href="_vec3_d_8h.html">Vec3D.h</a>&quot;</span>
+<a name="l00009"></a>00009 
+<a name="l00010"></a><a class="code" href="_parametres_8h.html#a598a3330b3c21701223ee0ca14316eca">00010</a> <span class="preprocessor">#define PI 3.141592</span>
+<a name="l00011"></a>00011 <span class="preprocessor"></span>
+<a name="l00012"></a>00012 <span class="keyword">using namespace </span>std;
+<a name="l00013"></a>00013 
+<a name="l00014"></a><a class="code" href="class_parametres.html">00014</a> <span class="keyword">class </span><a class="code" href="class_parametres.html">Parametres</a> : <span class="keyword">public</span> QObject {
+<a name="l00015"></a>00015     Q_OBJECT
+<a name="l00016"></a>00016 <span class="keyword">public</span>:
+<a name="l00017"></a>00017     <span class="comment">//atributs</span>
+<a name="l00018"></a><a class="code" href="class_parametres.html#a27f7c42bbf966d9f0752c8462d246c1e">00018</a>     <span class="keywordtype">int</span> screenheight, <a class="code" href="class_parametres.html#a27f7c42bbf966d9f0752c8462d246c1e">screenweight</a>;
+<a name="l00019"></a><a class="code" href="class_parametres.html#a279a98495f098f4705ad95bbe9c02654">00019</a>     <a class="code" href="class_vec3_d.html">Vec3Df</a> render_col[1000][1000];
+<a name="l00020"></a>00020 
+<a name="l00021"></a><a class="code" href="class_parametres.html#a6a6a5bb49949914fdfe977178ebd953a">00021</a>     <span class="keyword">inline</span> <a class="code" href="class_parametres.html#a6a6a5bb49949914fdfe977178ebd953a">Parametres</a>(QObject *parent = 0) : QObject(parent) {
+<a name="l00022"></a>00022         <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> i=0; i&lt;1000; i++)
+<a name="l00023"></a>00023             <span class="keywordflow">for</span>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> j=0; j&lt;1000; j++)
+<a name="l00024"></a>00024                 render_col[i][j] = <a class="code" href="_vec3_d_8h.html#a0ebf993128ab88add9377e452aece237">Vec3Df</a>();
+<a name="l00025"></a>00025 
+<a name="l00026"></a>00026         pix_grille =        1;
+<a name="l00027"></a>00027         material_active =   <span class="keyword">true</span>;
+<a name="l00028"></a>00028         BRDF_active =       <span class="keyword">true</span>;
+<a name="l00029"></a>00029         diff_active =       <span class="keyword">true</span>;
+<a name="l00030"></a>00030         spec_active =       <span class="keyword">true</span>;
+<a name="l00031"></a>00031         brillance =         1;
+<a name="l00032"></a>00032         ambiantLight =      0;
+<a name="l00033"></a>00033         saturation =        1;
 <a name="l00034"></a>00034 
-<a name="l00035"></a>00035         path_active =       <span class="keyword">false</span>;
-<a name="l00036"></a>00036         path_theta =        8;
-<a name="l00037"></a>00037         path_nray =         1;
-<a name="l00038"></a>00038         path_maxdeep =      2;
+<a name="l00035"></a>00035         ombres_active =     <span class="keyword">false</span>;
+<a name="l00036"></a>00036         ombres_douces =     <span class="keyword">false</span>;
+<a name="l00037"></a>00037         ombres_numr =       4;
+<a name="l00038"></a>00038         ombres_numa =       4;
 <a name="l00039"></a>00039 
-<a name="l00040"></a>00040         kd_done = -1; <span class="comment">//kd to do</span>
-<a name="l00041"></a>00041         epsilon =           0.0001f;
-<a name="l00042"></a>00042 
-<a name="l00043"></a>00043     }
-<a name="l00044"></a>00044     <span class="keyword">inline</span> <span class="keyword">virtual</span> ~<a class="code" href="class_parametres.html">Parametres</a>() {}
+<a name="l00040"></a>00040         ambocc_active =     <span class="keyword">false</span>;
+<a name="l00041"></a>00041         ambocc_numr =       4;
+<a name="l00042"></a>00042         ambocc_numa =       4;
+<a name="l00043"></a>00043         ambocc_theta =      90;
+<a name="l00044"></a>00044         ambocc_rayon =      1.0f;
 <a name="l00045"></a>00045 
-<a name="l00046"></a>00046     <span class="comment">//get qu&#39;on utilise sur le GUI</span>
-<a name="l00047"></a>00047     <span class="keyword">inline</span> <span class="keywordtype">int</span> get_pixgrille()                      { <span class="keywordflow">return</span> pix_grille; }
-<a name="l00048"></a>00048     <span class="keyword">inline</span> <span class="keywordtype">bool</span> get_materialactive()                { <span class="keywordflow">return</span> material_active; }
-<a name="l00049"></a>00049     <span class="keyword">inline</span> <span class="keywordtype">bool</span> get_BRDFactive()                    { <span class="keywordflow">return</span> BRDF_active; }
-<a name="l00050"></a>00050     <span class="keyword">inline</span> <span class="keywordtype">bool</span> get_diffactive()                    { <span class="keywordflow">return</span> diff_active; }
-<a name="l00051"></a>00051     <span class="keyword">inline</span> <span class="keywordtype">bool</span> get_specactive()                    { <span class="keywordflow">return</span> spec_active; }
-<a name="l00052"></a>00052     <span class="keyword">inline</span> <span class="keywordtype">float</span> get_brillance()                    { <span class="keywordflow">return</span> brillance; }
-<a name="l00053"></a>00053     <span class="keyword">inline</span> <span class="keywordtype">float</span> get_ambiantLight()                    { <span class="keywordflow">return</span> ambiantLight; }
-<a name="l00054"></a>00054     <span class="keyword">inline</span> <span class="keywordtype">bool</span> get_ombresactive()                  { <span class="keywordflow">return</span> ombres_active; }
-<a name="l00055"></a>00055     <span class="keyword">inline</span> <span class="keywordtype">bool</span> get_ombresdouces()                  { <span class="keywordflow">return</span> ombres_douces; }
-<a name="l00056"></a>00056     <span class="keyword">inline</span> <span class="keywordtype">int</span> get_ombresnuma()                     { <span class="keywordflow">return</span> ombres_numa; }
-<a name="l00057"></a>00057     <span class="keyword">inline</span> <span class="keywordtype">int</span> get_ombresnumr()                     { <span class="keywordflow">return</span> ombres_numr; }
+<a name="l00046"></a>00046         kd_propdeep =       0.05;
+<a name="l00047"></a>00047 
+<a name="l00048"></a>00048         path_active =       <span class="keyword">false</span>;
+<a name="l00049"></a>00049         path_theta =        90;
+<a name="l00050"></a>00050         path_numr =         4;
+<a name="l00051"></a>00051         path_numr =         4;
+<a name="l00052"></a>00052         path_maxdeep =      2;
+<a name="l00053"></a>00053 
+<a name="l00054"></a>00054         kd_done = -1; <span class="comment">//kd to do</span>
+<a name="l00055"></a>00055         epsilon =           0.0001f;
+<a name="l00056"></a>00056     }
+<a name="l00057"></a><a class="code" href="class_parametres.html#aca179db31f6a3856cbd2945a8133109b">00057</a>     <span class="keyword">inline</span> <span class="keyword">virtual</span> <a class="code" href="class_parametres.html#aca179db31f6a3856cbd2945a8133109b">~Parametres</a>() {}
 <a name="l00058"></a>00058 
-<a name="l00059"></a>00059     <span class="keyword">inline</span> <span class="keywordtype">bool</span> get_amboccactive()                  { <span class="keywordflow">return</span> ambocc_active; }
-<a name="l00060"></a>00060     <span class="keyword">inline</span> <span class="keywordtype">int</span> get_amboccnray()                     { <span class="keywordflow">return</span> ambocc_nray; }
-<a name="l00061"></a>00061     <span class="keyword">inline</span> <span class="keywordtype">float</span> get_ambocctheta()                  { <span class="keywordflow">return</span> ambocc_theta; }
-<a name="l00062"></a>00062     <span class="keyword">inline</span> <span class="keywordtype">float</span> get_amboccrayon()                  { <span class="keywordflow">return</span> ambocc_rayon; }
-<a name="l00063"></a>00063 
-<a name="l00064"></a>00064     <span class="keyword">inline</span> <span class="keywordtype">bool</span> get_kddone()                        { <span class="keywordflow">return</span> kd_done!=kd_propdeep; }
-<a name="l00065"></a>00065     <span class="keyword">inline</span> <span class="keywordtype">float</span> get_kdpropdeep()                   { <span class="keywordflow">return</span> kd_propdeep; }
-<a name="l00066"></a>00066 
-<a name="l00067"></a>00067     <span class="keyword">inline</span> <span class="keywordtype">bool</span> get_pathactive()                    { <span class="keywordflow">return</span> path_active; }
-<a name="l00068"></a>00068     <span class="keyword">inline</span> <span class="keywordtype">float</span> get_paththeta()                    { <span class="keywordflow">return</span> path_theta; }
-<a name="l00069"></a>00069     <span class="keyword">inline</span> <span class="keywordtype">int</span> get_pathnray()                       { <span class="keywordflow">return</span> path_nray; }
-<a name="l00070"></a>00070     <span class="keyword">inline</span> <span class="keywordtype">float</span> get_pathmaxdeep()                  { <span class="keywordflow">return</span> path_maxdeep; }
-<a name="l00071"></a>00071 
-<a name="l00072"></a>00072     <span class="comment">//get internes</span>
-<a name="l00073"></a>00073     <span class="keyword">inline</span> <span class="keywordtype">float</span> get_epsilon() { <span class="keywordflow">return</span> epsilon; }
-<a name="l00074"></a>00074     <span class="keyword">inline</span> <span class="keywordtype">void</span> print(){
-<a name="l00075"></a>00075 
-<a name="l00076"></a>00076         std::cout  &lt;&lt; <span class="stringliteral">&quot;RAYS PARAMETERS &quot;</span> &lt;&lt; std::endl
-<a name="l00077"></a>00077                    &lt;&lt; <span class="stringliteral">&quot;nombre de pixel par grille&quot;</span>&lt;&lt; pix_grille &lt;&lt; std::endl
-<a name="l00078"></a>00078                    &lt;&lt; <span class="stringliteral">&quot;is Material &quot;</span> &lt;&lt; material_active &lt;&lt; std::endl
-<a name="l00079"></a>00079                    &lt;&lt; <span class="stringliteral">&quot;is BRDF &quot;</span> &lt;&lt; BRDF_active &lt;&lt; std::endl
-<a name="l00080"></a>00080                    &lt;&lt; <span class="stringliteral">&quot;briallance &quot;</span>&lt;&lt; brillance &lt;&lt; std::endl
-<a name="l00081"></a>00081                    &lt;&lt; <span class="stringliteral">&quot;ambiant Light&quot;</span> &lt;&lt; ambiantLight &lt;&lt; std::endl
-<a name="l00082"></a>00082                    &lt;&lt; <span class="stringliteral">&quot;diff active &quot;</span> &lt;&lt; diff_active &lt;&lt; std::endl
-<a name="l00083"></a>00083                    &lt;&lt; <span class="stringliteral">&quot;spec active&quot;</span> &lt;&lt; std::endl
-<a name="l00084"></a>00084                    &lt;&lt;<span class="stringliteral">&quot;AMBIANT OCCLUSION PARAMETERS &quot;</span> &lt;&lt; std::endl
-<a name="l00085"></a>00085                    &lt;&lt; <span class="stringliteral">&quot;ao active &quot;</span> &lt;&lt; ambocc_active &lt;&lt; std::endl
-<a name="l00086"></a>00086                    &lt;&lt; <span class="stringliteral">&quot;ao nRay &quot;</span> &lt;&lt; ambocc_nray &lt;&lt; std::endl
-<a name="l00087"></a>00087                    &lt;&lt; <span class="stringliteral">&quot;ao rayon &quot;</span>  &lt;&lt; ambocc_rayon &lt;&lt; std::endl
-<a name="l00088"></a>00088                    &lt;&lt; <span class="stringliteral">&quot;ao teta  &quot;</span> &lt;&lt; ambocc_theta &lt;&lt; std::endl
-<a name="l00089"></a>00089                    &lt;&lt; std::endl
-<a name="l00090"></a>00090 
-<a name="l00091"></a>00091 
-<a name="l00092"></a>00092                    &lt;&lt;<span class="stringliteral">&quot;OMBRES PARAMETERS &quot;</span>&lt;&lt; std::endl
-<a name="l00093"></a>00093                    &lt;&lt; <span class="stringliteral">&quot;isOmbres &quot;</span>&lt;&lt; ombres_active &lt;&lt; std::endl
-<a name="l00094"></a>00094                    &lt;&lt; <span class="stringliteral">&quot;isOmbres douce &quot;</span>&lt;&lt; ombres_douces &lt;&lt; std::endl
-<a name="l00095"></a>00095                    &lt;&lt; <span class="stringliteral">&quot;Ombres numA &quot;</span>  &lt;&lt; ombres_numa &lt;&lt; std::endl
-<a name="l00096"></a>00096                    &lt;&lt; <span class="stringliteral">&quot;Ombres numR&quot;</span> &lt;&lt; ombres_numr &lt;&lt;  std::endl
-<a name="l00097"></a>00097 
-<a name="l00098"></a>00098                    &lt;&lt; <span class="stringliteral">&quot;KD TREE PARAMETERS&quot;</span> &lt;&lt; std::endl
-<a name="l00099"></a>00099                    &lt;&lt; <span class="stringliteral">&quot;kD Tree prof max &quot;</span> &lt;&lt; kd_propdeep &lt;&lt;  std::endl
-<a name="l00100"></a>00100                    &lt;&lt; <span class="stringliteral">&quot;KD done &quot;</span> &lt;&lt; kd_done &lt;&lt; std::endl
-<a name="l00101"></a>00101                    &lt;&lt; <span class="stringliteral">&quot;epsilon &quot;</span>&lt;&lt; epsilon &lt;&lt; std::endl
-<a name="l00102"></a>00102                    &lt;&lt; std::endl
-<a name="l00103"></a>00103                    &lt;&lt; <span class="stringliteral">&quot;PATH TRACING PARAMETERS&quot;</span> &lt;&lt; std::endl
-<a name="l00104"></a>00104                    &lt;&lt; <span class="stringliteral">&quot;is Active &quot;</span>&lt;&lt; path_active &lt;&lt; std::endl
-<a name="l00105"></a>00105                       <span class="comment">//&lt;&lt; &quot;is diff coeff &quot; &lt;&lt; path_diff &lt;&lt; std::endl</span>
-<a name="l00106"></a>00106                       <span class="comment">//&lt;&lt; &quot;is spec coeff &quot;&lt;&lt;  path_spec &lt;&lt; std::endl</span>
-<a name="l00107"></a>00107                    &lt;&lt; <span class="stringliteral">&quot;path teta cone&quot;</span> &lt;&lt;  path_theta &lt;&lt; std::endl
-<a name="l00108"></a>00108                    &lt;&lt; <span class="stringliteral">&quot;num Ray&quot;</span> &lt;&lt; path_nray &lt;&lt; std::endl
-<a name="l00109"></a>00109                    &lt;&lt; <span class="stringliteral">&quot;path max deep&quot;</span> &lt;&lt;  path_maxdeep &lt;&lt; std::endl
-<a name="l00110"></a>00110                    &lt;&lt; std::endl;
-<a name="l00111"></a>00111     }
-<a name="l00112"></a>00112 <span class="keyword">public</span> slots:
-<a name="l00113"></a>00113     <span class="keyword">inline</span> <span class="keywordtype">void</span> set_pixgrille(<span class="keywordtype">int</span> pix_grille)                   { this-&gt;pix_grille = pix_grille; }
-<a name="l00114"></a>00114 
-<a name="l00115"></a>00115     <span class="keyword">inline</span> <span class="keywordtype">void</span> set_materialactive(<span class="keywordtype">bool</span> material_active)        { this-&gt;material_active = material_active; }
-<a name="l00116"></a>00116     <span class="keyword">inline</span> <span class="keywordtype">void</span> set_BRDFactive(<span class="keywordtype">bool</span> BRDF_active){
-<a name="l00117"></a>00117         this-&gt;BRDF_active = BRDF_active;
-<a name="l00118"></a>00118         <span class="keywordflow">if</span>(ombres_active &amp;&amp; !BRDF_active){
-<a name="l00119"></a>00119             ombres_active = <span class="keyword">false</span>;
-<a name="l00120"></a>00120             ombresCheckBox-&gt;setChecked(<span class="keyword">false</span>);
-<a name="l00121"></a>00121         }
-<a name="l00122"></a>00122     }
-<a name="l00123"></a>00123     <span class="keyword">inline</span> <span class="keywordtype">void</span> set_BRDFcheckbox(QCheckBox * BRDFCheckBox)      { this-&gt;BRDFCheckBox = BRDFCheckBox; }
-<a name="l00124"></a>00124     <span class="keyword">inline</span> <span class="keywordtype">void</span> set_diffactive(<span class="keywordtype">bool</span> diff_active)                { this-&gt;diff_active = diff_active; }
-<a name="l00125"></a>00125     <span class="keyword">inline</span> <span class="keywordtype">void</span> set_diffcheckbox(QCheckBox * diffCheckBox)      { this-&gt;diffCheckBox = diffCheckBox; }
-<a name="l00126"></a>00126     <span class="keyword">inline</span> <span class="keywordtype">void</span> set_specactive(<span class="keywordtype">bool</span> spec_active)                { this-&gt;spec_active = spec_active; }
-<a name="l00127"></a>00127     <span class="keyword">inline</span> <span class="keywordtype">void</span> set_speccheckbox(QCheckBox * specCheckBox)      { this-&gt;specCheckBox = specCheckBox; }
-<a name="l00128"></a>00128     <span class="keyword">inline</span> <span class="keywordtype">void</span> set_brillance(<span class="keywordtype">double</span> brillance)                  { this-&gt;brillance = (float)brillance; }
-<a name="l00129"></a>00129     <span class="keyword">inline</span> <span class="keywordtype">void</span> set_ambiantLight(<span class="keywordtype">double</span> ambiant){ this-&gt;ambiantLight = (float) ambiant ;}
-<a name="l00130"></a>00130     <span class="keyword">inline</span> <span class="keywordtype">void</span> set_ombresactive(<span class="keywordtype">bool</span> ombres_active){
-<a name="l00131"></a>00131         this-&gt;ombres_active = ombres_active;
-<a name="l00132"></a>00132         <span class="keywordflow">if</span>(ombres_active &amp;&amp; !BRDF_active){
-<a name="l00133"></a>00133             BRDF_active = <span class="keyword">true</span>;
-<a name="l00134"></a>00134             BRDFCheckBox-&gt;setChecked(<span class="keyword">true</span>);
-<a name="l00135"></a>00135         }
+<a name="l00059"></a>00059     <span class="comment">//get qu&#39;on utilise sur le GUI</span>
+<a name="l00060"></a><a class="code" href="class_parametres.html#adc7d6eb7b6a62666ad22f81729a3989f">00060</a>     <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="class_parametres.html#adc7d6eb7b6a62666ad22f81729a3989f">get_renderdone</a>()                    { <span class="keywordflow">return</span> render_done; }
+<a name="l00061"></a><a class="code" href="class_parametres.html#a00cbd2fea9fcc5d9288cfaf24ff17a49">00061</a>     <span class="keyword">inline</span> <span class="keywordtype">int</span> <a class="code" href="class_parametres.html#a00cbd2fea9fcc5d9288cfaf24ff17a49">get_pixgrille</a>()                      { <span class="keywordflow">return</span> pix_grille; }
+<a name="l00062"></a><a class="code" href="class_parametres.html#a0e31b234e6bc1959c8f6f16f5786214b">00062</a>     <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="class_parametres.html#a0e31b234e6bc1959c8f6f16f5786214b">get_materialactive</a>()                { <span class="keywordflow">return</span> material_active; }
+<a name="l00063"></a><a class="code" href="class_parametres.html#aa418f7387004508a7f07567cce4c9081">00063</a>     <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="class_parametres.html#aa418f7387004508a7f07567cce4c9081">get_BRDFactive</a>()                    { <span class="keywordflow">return</span> BRDF_active; }
+<a name="l00064"></a><a class="code" href="class_parametres.html#a02303ef51a9f3942134932186815e35d">00064</a>     <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="class_parametres.html#a02303ef51a9f3942134932186815e35d">get_diffactive</a>()                    { <span class="keywordflow">return</span> diff_active; }
+<a name="l00065"></a><a class="code" href="class_parametres.html#ad7f074c9be240e8b6b9b7ea52c900f6f">00065</a>     <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="class_parametres.html#ad7f074c9be240e8b6b9b7ea52c900f6f">get_specactive</a>()                    { <span class="keywordflow">return</span> spec_active; }
+<a name="l00066"></a><a class="code" href="class_parametres.html#ac31e2d824e16ca40fd437edfe17bf05e">00066</a>     <span class="keyword">inline</span> <span class="keywordtype">float</span> <a class="code" href="class_parametres.html#ac31e2d824e16ca40fd437edfe17bf05e">get_brillance</a>()                    { <span class="keywordflow">return</span> brillance; }
+<a name="l00067"></a><a class="code" href="class_parametres.html#abb90eb326ba23eaf17a5a62e3dfd1288">00067</a>     <span class="keyword">inline</span> <span class="keywordtype">float</span> <a class="code" href="class_parametres.html#abb90eb326ba23eaf17a5a62e3dfd1288">get_ambiantLight</a>()                 { <span class="keywordflow">return</span> ambiantLight; }
+<a name="l00068"></a><a class="code" href="class_parametres.html#afc7f64ed128bcd9a3dbec7e955dde1c4">00068</a>     <span class="keyword">inline</span> <span class="keywordtype">float</span> <a class="code" href="class_parametres.html#afc7f64ed128bcd9a3dbec7e955dde1c4">get_saturation</a>()                   { <span class="keywordflow">return</span> saturation; }
+<a name="l00069"></a>00069 
+<a name="l00070"></a><a class="code" href="class_parametres.html#a4c86c1342c7be51975c5d1c11c9a5db4">00070</a>     <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="class_parametres.html#a4c86c1342c7be51975c5d1c11c9a5db4">get_ombresactive</a>()                  { <span class="keywordflow">return</span> ombres_active; }
+<a name="l00071"></a><a class="code" href="class_parametres.html#a3ee0b77acd375580b468862aefa98688">00071</a>     <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="class_parametres.html#a3ee0b77acd375580b468862aefa98688">get_ombresdouces</a>()                  { <span class="keywordflow">return</span> ombres_douces; }
+<a name="l00072"></a><a class="code" href="class_parametres.html#a2b54d04b69c844a370fee57120cc3b3b">00072</a>     <span class="keyword">inline</span> <span class="keywordtype">int</span> <a class="code" href="class_parametres.html#a2b54d04b69c844a370fee57120cc3b3b">get_ombresnumr</a>()                     { <span class="keywordflow">return</span> ombres_numr; }
+<a name="l00073"></a><a class="code" href="class_parametres.html#a1487e008f5b781f3d307ff579a0ad5c6">00073</a>     <span class="keyword">inline</span> <span class="keywordtype">int</span> <a class="code" href="class_parametres.html#a1487e008f5b781f3d307ff579a0ad5c6">get_ombresnuma</a>()                     { <span class="keywordflow">return</span> ombres_numa; }
+<a name="l00074"></a>00074 
+<a name="l00075"></a><a class="code" href="class_parametres.html#a1c6ef7c75429dde0dccd85e25041b47b">00075</a>     <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="class_parametres.html#a1c6ef7c75429dde0dccd85e25041b47b">get_amboccactive</a>()                  { <span class="keywordflow">return</span> ambocc_active; }
+<a name="l00076"></a><a class="code" href="class_parametres.html#a2cd522560d3e202264d99bcd2cff650e">00076</a>     <span class="keyword">inline</span> <span class="keywordtype">int</span> <a class="code" href="class_parametres.html#a2cd522560d3e202264d99bcd2cff650e">get_amboccnumr</a>()                     { <span class="keywordflow">return</span> ambocc_numr; }
+<a name="l00077"></a><a class="code" href="class_parametres.html#a19da565d9d264a24ad2201efae989dc1">00077</a>     <span class="keyword">inline</span> <span class="keywordtype">int</span> <a class="code" href="class_parametres.html#a19da565d9d264a24ad2201efae989dc1">get_amboccnuma</a>()                     { <span class="keywordflow">return</span> ambocc_numa; }
+<a name="l00078"></a><a class="code" href="class_parametres.html#a2337c8b33e63313c93bf41fdc7aaa93b">00078</a>     <span class="keyword">inline</span> <span class="keywordtype">float</span> <a class="code" href="class_parametres.html#a2337c8b33e63313c93bf41fdc7aaa93b">get_ambocctheta</a>()                  { <span class="keywordflow">return</span> ambocc_theta; }
+<a name="l00079"></a><a class="code" href="class_parametres.html#a312a7325db6de52c0e541359021677be">00079</a>     <span class="keyword">inline</span> <span class="keywordtype">float</span> <a class="code" href="class_parametres.html#a312a7325db6de52c0e541359021677be">get_amboccrayon</a>()                  { <span class="keywordflow">return</span> ambocc_rayon; }
+<a name="l00080"></a>00080 
+<a name="l00081"></a><a class="code" href="class_parametres.html#a1f1a91d29699a92b3e7d1c77092d28dc">00081</a>     <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="class_parametres.html#a1f1a91d29699a92b3e7d1c77092d28dc">get_kddone</a>()                        { <span class="keywordflow">return</span> kd_done!=kd_propdeep; }
+<a name="l00082"></a><a class="code" href="class_parametres.html#a3b699b59ed367aa62666ed0c7637735e">00082</a>     <span class="keyword">inline</span> <span class="keywordtype">float</span> <a class="code" href="class_parametres.html#a3b699b59ed367aa62666ed0c7637735e">get_kdpropdeep</a>()                   { <span class="keywordflow">return</span> kd_propdeep; }
+<a name="l00083"></a>00083 
+<a name="l00084"></a><a class="code" href="class_parametres.html#a8e7949eba0bad092780e12fd8a130910">00084</a>     <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="class_parametres.html#a8e7949eba0bad092780e12fd8a130910">get_pathactive</a>()                    { <span class="keywordflow">return</span> path_active; }
+<a name="l00085"></a><a class="code" href="class_parametres.html#a2b96600e3d2422fd48aabaded43ece22">00085</a>     <span class="keyword">inline</span> <span class="keywordtype">float</span> <a class="code" href="class_parametres.html#a2b96600e3d2422fd48aabaded43ece22">get_paththeta</a>()                    { <span class="keywordflow">return</span> path_theta; }
+<a name="l00086"></a><a class="code" href="class_parametres.html#ad7b3482fe5afd3575bc2617c2c6dbe6c">00086</a>     <span class="keyword">inline</span> <span class="keywordtype">int</span> <a class="code" href="class_parametres.html#ad7b3482fe5afd3575bc2617c2c6dbe6c">get_pathnumr</a>()                       { <span class="keywordflow">return</span> path_numr; }
+<a name="l00087"></a><a class="code" href="class_parametres.html#a9a46269a028a5b44a01cebcf5a97452a">00087</a>     <span class="keyword">inline</span> <span class="keywordtype">int</span> <a class="code" href="class_parametres.html#a9a46269a028a5b44a01cebcf5a97452a">get_pathnuma</a>()                       { <span class="keywordflow">return</span> path_numa; }
+<a name="l00088"></a><a class="code" href="class_parametres.html#a6add96f7906219121944a60e297e6dc8">00088</a>     <span class="keyword">inline</span> <span class="keywordtype">float</span> <a class="code" href="class_parametres.html#a6add96f7906219121944a60e297e6dc8">get_pathmaxdeep</a>()                  { <span class="keywordflow">return</span> path_maxdeep; }
+<a name="l00089"></a>00089 
+<a name="l00090"></a>00090     <span class="comment">//get internes</span>
+<a name="l00091"></a><a class="code" href="class_parametres.html#a7af9392cc0faf43820fd1a2cb6aee9c7">00091</a>     <span class="keyword">inline</span> <span class="keywordtype">float</span> <a class="code" href="class_parametres.html#a7af9392cc0faf43820fd1a2cb6aee9c7">get_epsilon</a>() { <span class="keywordflow">return</span> epsilon; }
+<a name="l00092"></a><a class="code" href="class_parametres.html#abee627ef4465381952390cba771ff6b4">00092</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_parametres.html#abee627ef4465381952390cba771ff6b4">print</a>(){
+<a name="l00093"></a>00093 
+<a name="l00094"></a>00094         std::cout  &lt;&lt; <span class="stringliteral">&quot;RAYS PARAMETERS &quot;</span> &lt;&lt; std::endl
+<a name="l00095"></a>00095                    &lt;&lt; <span class="stringliteral">&quot;nombre de pixel par grille&quot;</span>&lt;&lt; pix_grille &lt;&lt; std::endl
+<a name="l00096"></a>00096                    &lt;&lt; <span class="stringliteral">&quot;is Material &quot;</span> &lt;&lt; material_active &lt;&lt; std::endl
+<a name="l00097"></a>00097                    &lt;&lt; <span class="stringliteral">&quot;is BRDF &quot;</span> &lt;&lt; BRDF_active &lt;&lt; std::endl
+<a name="l00098"></a>00098                    &lt;&lt; <span class="stringliteral">&quot;briallance &quot;</span>&lt;&lt; brillance &lt;&lt; std::endl
+<a name="l00099"></a>00099                    &lt;&lt; <span class="stringliteral">&quot;ambiant Light&quot;</span> &lt;&lt; ambiantLight &lt;&lt; std::endl
+<a name="l00100"></a>00100                    &lt;&lt; <span class="stringliteral">&quot;diff active &quot;</span> &lt;&lt; diff_active &lt;&lt; std::endl
+<a name="l00101"></a>00101                    &lt;&lt; <span class="stringliteral">&quot;spec active&quot;</span> &lt;&lt; std::endl
+<a name="l00102"></a>00102                    &lt;&lt;<span class="stringliteral">&quot;AMBIANT OCCLUSION PARAMETERS &quot;</span> &lt;&lt; std::endl
+<a name="l00103"></a>00103                    &lt;&lt; <span class="stringliteral">&quot;ao active &quot;</span> &lt;&lt; ambocc_active &lt;&lt; std::endl
+<a name="l00104"></a>00104                    &lt;&lt; <span class="stringliteral">&quot;ao numr &quot;</span> &lt;&lt; ambocc_numr &lt;&lt; std::endl
+<a name="l00105"></a>00105                    &lt;&lt; <span class="stringliteral">&quot;ao numa &quot;</span> &lt;&lt; ambocc_numa &lt;&lt; std::endl
+<a name="l00106"></a>00106                    &lt;&lt; <span class="stringliteral">&quot;ao rayon &quot;</span>  &lt;&lt; ambocc_rayon &lt;&lt; std::endl
+<a name="l00107"></a>00107                    &lt;&lt; <span class="stringliteral">&quot;ao teta  &quot;</span> &lt;&lt; ambocc_theta &lt;&lt; std::endl
+<a name="l00108"></a>00108                    &lt;&lt; std::endl
+<a name="l00109"></a>00109 
+<a name="l00110"></a>00110 
+<a name="l00111"></a>00111                    &lt;&lt;<span class="stringliteral">&quot;OMBRES PARAMETERS &quot;</span>&lt;&lt; std::endl
+<a name="l00112"></a>00112                    &lt;&lt; <span class="stringliteral">&quot;isOmbres &quot;</span>&lt;&lt; ombres_active &lt;&lt; std::endl
+<a name="l00113"></a>00113                    &lt;&lt; <span class="stringliteral">&quot;isOmbres douce &quot;</span>&lt;&lt; ombres_douces &lt;&lt; std::endl
+<a name="l00114"></a>00114                    &lt;&lt; <span class="stringliteral">&quot;Ombres numr &quot;</span>  &lt;&lt; ombres_numr &lt;&lt; std::endl
+<a name="l00115"></a>00115                    &lt;&lt; <span class="stringliteral">&quot;Ombres numa &quot;</span>  &lt;&lt; ombres_numa &lt;&lt; std::endl
+<a name="l00116"></a>00116 
+<a name="l00117"></a>00117                    &lt;&lt; <span class="stringliteral">&quot;KD TREE PARAMETERS&quot;</span> &lt;&lt; std::endl
+<a name="l00118"></a>00118                    &lt;&lt; <span class="stringliteral">&quot;kD Tree prof max &quot;</span> &lt;&lt; kd_propdeep &lt;&lt;  std::endl
+<a name="l00119"></a>00119                    &lt;&lt; <span class="stringliteral">&quot;KD done &quot;</span> &lt;&lt; kd_done &lt;&lt; std::endl
+<a name="l00120"></a>00120                    &lt;&lt; <span class="stringliteral">&quot;epsilon &quot;</span>&lt;&lt; epsilon &lt;&lt; std::endl
+<a name="l00121"></a>00121                    &lt;&lt; std::endl
+<a name="l00122"></a>00122                    &lt;&lt; <span class="stringliteral">&quot;PATH TRACING PARAMETERS&quot;</span> &lt;&lt; std::endl
+<a name="l00123"></a>00123                    &lt;&lt; <span class="stringliteral">&quot;is Active &quot;</span>&lt;&lt; path_active &lt;&lt; std::endl
+<a name="l00124"></a>00124                       <span class="comment">//&lt;&lt; &quot;is diff coeff &quot; &lt;&lt; path_diff &lt;&lt; std::endl</span>
+<a name="l00125"></a>00125                       <span class="comment">//&lt;&lt; &quot;is spec coeff &quot;&lt;&lt;  path_spec &lt;&lt; std::endl</span>
+<a name="l00126"></a>00126                    &lt;&lt; <span class="stringliteral">&quot;path teta cone&quot;</span> &lt;&lt;  path_theta &lt;&lt; std::endl
+<a name="l00127"></a>00127                    &lt;&lt; <span class="stringliteral">&quot;numr&quot;</span> &lt;&lt; path_numr &lt;&lt; std::endl
+<a name="l00128"></a>00128                    &lt;&lt; <span class="stringliteral">&quot;numa&quot;</span> &lt;&lt; path_numa &lt;&lt; std::endl
+<a name="l00129"></a>00129                    &lt;&lt; <span class="stringliteral">&quot;path max deep&quot;</span> &lt;&lt;  path_maxdeep &lt;&lt; std::endl
+<a name="l00130"></a>00130                    &lt;&lt; std::endl;
+<a name="l00131"></a>00131     }
+<a name="l00132"></a>00132 
+<a name="l00133"></a>00133     <span class="comment">//Nombre aléatoire entre -1 et 1</span>
+<a name="l00134"></a><a class="code" href="class_parametres.html#abb4433de2cf4af2ed4fd5acf7df0cfe7">00134</a>     <span class="keyword">inline</span> <span class="keywordtype">float</span> <a class="code" href="class_parametres.html#abb4433de2cf4af2ed4fd5acf7df0cfe7">randf</a>(){
+<a name="l00135"></a>00135         <span class="keywordflow">return</span> ( rand()/(<span class="keywordtype">double</span>)RAND_MAX ) * 2. - 1.;
 <a name="l00136"></a>00136     }
-<a name="l00137"></a>00137     <span class="keyword">inline</span> <span class="keywordtype">void</span> set_ombrescheckbox(QCheckBox * ombresCheckBox)  { this-&gt;ombresCheckBox = ombresCheckBox; }
-<a name="l00138"></a>00138     <span class="keyword">inline</span> <span class="keywordtype">void</span> set_ombresdouces(<span class="keywordtype">bool</span> ombres_douces)            { this-&gt;ombres_douces = ombres_douces; }
-<a name="l00139"></a>00139     <span class="keyword">inline</span> <span class="keywordtype">void</span> set_ombresnuma(<span class="keywordtype">int</span> ombres_numa)                 { this-&gt;ombres_numa = ombres_numa; }
-<a name="l00140"></a>00140     <span class="keyword">inline</span> <span class="keywordtype">void</span> set_ombresnumr(<span class="keywordtype">int</span> ombres_numr)                 { this-&gt;ombres_numr = ombres_numr; }
-<a name="l00141"></a>00141 
-<a name="l00142"></a>00142     <span class="keyword">inline</span> <span class="keywordtype">void</span> set_amboccactive(<span class="keywordtype">bool</span> ambocc_active)            { this-&gt;ambocc_active = ambocc_active; }
-<a name="l00143"></a>00143     <span class="keyword">inline</span> <span class="keywordtype">void</span> set_amboccnray(<span class="keywordtype">int</span> ambocc_nray)                 { this-&gt;ambocc_nray = ambocc_nray; }
-<a name="l00144"></a>00144     <span class="keyword">inline</span> <span class="keywordtype">void</span> set_ambocctheta(<span class="keywordtype">double</span> ambocc_theta)            { this-&gt;ambocc_theta = (float)ambocc_theta; }
-<a name="l00145"></a>00145     <span class="keyword">inline</span> <span class="keywordtype">void</span> set_amboccrayon(<span class="keywordtype">double</span> ambocc_rayon)            { this-&gt;ambocc_rayon = (float)ambocc_rayon; }
+<a name="l00137"></a>00137 
+<a name="l00138"></a>00138 
+<a name="l00139"></a><a class="code" href="class_parametres.html#aac8d969901d37f2ce874afc22dbf1575">00139</a>     <span class="keyword">inline</span> <span class="keywordtype">float</span> <a class="code" href="class_parametres.html#aac8d969901d37f2ce874afc22dbf1575">rand1</a>(){
+<a name="l00140"></a>00140         <span class="keywordflow">return</span>  rand()/(float)RAND_MAX  ;
+<a name="l00141"></a>00141     }
+<a name="l00142"></a>00142 <span class="keyword">public</span> slots:
+<a name="l00143"></a><a class="code" href="class_parametres.html#a008e9463ee7fa5acdbee45d781c7cdea">00143</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_parametres.html#a008e9463ee7fa5acdbee45d781c7cdea">set_renderdone</a>(<span class="keywordtype">bool</span> render_done)                { this-&gt;render_done = render_done; }
+<a name="l00144"></a>00144 
+<a name="l00145"></a><a class="code" href="class_parametres.html#a658b32829e5c44fef51dd3810da54269">00145</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_parametres.html#a658b32829e5c44fef51dd3810da54269">set_pixgrille</a>(<span class="keywordtype">int</span> pix_grille)                   { this-&gt;pix_grille = pix_grille; }
 <a name="l00146"></a>00146 
-<a name="l00147"></a>00147     <span class="keyword">inline</span> <span class="keywordtype">void</span> set_kddone()                                    { this-&gt;kd_done = this-&gt;kd_propdeep; }
-<a name="l00148"></a>00148     <span class="keyword">inline</span> <span class="keywordtype">void</span> set_kdpropdeep(<span class="keywordtype">double</span> kd_propdeep)              { this-&gt;kd_propdeep = (float)kd_propdeep; }
-<a name="l00149"></a>00149 
-<a name="l00150"></a>00150     <span class="keyword">inline</span> <span class="keywordtype">void</span> set_pathactive(<span class="keywordtype">bool</span> path_active)                { this-&gt;path_active = path_active; }
-<a name="l00151"></a>00151     <span class="keyword">inline</span> <span class="keywordtype">void</span> set_paththeta(<span class="keywordtype">double</span> path_theta)                { this-&gt;path_theta = (float) path_theta; }
-<a name="l00152"></a>00152     <span class="keyword">inline</span> <span class="keywordtype">void</span> set_pathnray(<span class="keywordtype">int</span> path_nray)                     { this-&gt;path_nray = path_nray; }
-<a name="l00153"></a>00153     <span class="keyword">inline</span> <span class="keywordtype">void</span> set_pathmaxdeep(<span class="keywordtype">int</span> path_maxdeep)               { this-&gt;path_maxdeep = path_maxdeep; }
-<a name="l00154"></a>00154 
-<a name="l00155"></a>00155     <span class="keyword">inline</span> <span class="keywordtype">void</span> set_epsilon(<span class="keywordtype">float</span> epsilon)                      { this-&gt;epsilon = epsilon; }
-<a name="l00156"></a>00156 
-<a name="l00157"></a>00157 <span class="keyword">private</span>:
-<a name="l00158"></a>00158     <span class="comment">//rays</span>
-<a name="l00159"></a>00159     <span class="keywordtype">int</span> pix_grille;
-<a name="l00160"></a>00160     <span class="keywordtype">float</span> brillance;
-<a name="l00161"></a>00161     <span class="keywordtype">float</span> ambiantLight;
-<a name="l00162"></a>00162     <span class="keywordtype">bool</span> material_active;
-<a name="l00163"></a>00163     <span class="keywordtype">bool</span> BRDF_active;
-<a name="l00164"></a>00164     QCheckBox * BRDFCheckBox;
-<a name="l00165"></a>00165     <span class="keywordtype">bool</span> diff_active;
-<a name="l00166"></a>00166     QCheckBox * diffCheckBox;
-<a name="l00167"></a>00167     <span class="keywordtype">bool</span> spec_active;
-<a name="l00168"></a>00168     QCheckBox * specCheckBox;
-<a name="l00169"></a>00169     <span class="comment">//ombres</span>
-<a name="l00170"></a>00170     <span class="keywordtype">bool</span> ombres_active;
-<a name="l00171"></a>00171     QCheckBox * ombresCheckBox;
-<a name="l00172"></a>00172     <span class="keywordtype">bool</span> ombres_douces;
-<a name="l00173"></a>00173     <span class="keywordtype">int</span> ombres_numa;
-<a name="l00174"></a>00174     <span class="keywordtype">int</span> ombres_numr;
+<a name="l00147"></a><a class="code" href="class_parametres.html#a67257ac62859abe9b12e73e2855584ed">00147</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_parametres.html#a67257ac62859abe9b12e73e2855584ed">set_materialactive</a>(<span class="keywordtype">bool</span> material_active)        { this-&gt;material_active = material_active; }
+<a name="l00148"></a><a class="code" href="class_parametres.html#ad72016ae73392130bc0847aeb052049e">00148</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_parametres.html#ad72016ae73392130bc0847aeb052049e">set_BRDFactive</a>(<span class="keywordtype">bool</span> BRDF_active){
+<a name="l00149"></a>00149         this-&gt;BRDF_active = BRDF_active;
+<a name="l00150"></a>00150         <span class="keywordflow">if</span>(ombres_active &amp;&amp; !BRDF_active){
+<a name="l00151"></a>00151             ombres_active = <span class="keyword">false</span>;
+<a name="l00152"></a>00152             ombresCheckBox-&gt;setChecked(<span class="keyword">false</span>);
+<a name="l00153"></a>00153         }
+<a name="l00154"></a>00154     }
+<a name="l00155"></a><a class="code" href="class_parametres.html#a4787a8e8f4c9fac76f064838cfede189">00155</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_parametres.html#a4787a8e8f4c9fac76f064838cfede189">set_BRDFcheckbox</a>(QCheckBox * BRDFCheckBox)      { this-&gt;BRDFCheckBox = BRDFCheckBox; }
+<a name="l00156"></a><a class="code" href="class_parametres.html#a61fc37779e0be7f9d5945d3738b83bf0">00156</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_parametres.html#a61fc37779e0be7f9d5945d3738b83bf0">set_diffactive</a>(<span class="keywordtype">bool</span> diff_active)                { this-&gt;diff_active = diff_active; }
+<a name="l00157"></a><a class="code" href="class_parametres.html#aa4cd01d40258b81c871b5e1d9fc958b3">00157</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_parametres.html#aa4cd01d40258b81c871b5e1d9fc958b3">set_diffcheckbox</a>(QCheckBox * diffCheckBox)      { this-&gt;diffCheckBox = diffCheckBox; }
+<a name="l00158"></a><a class="code" href="class_parametres.html#ab83000ae05b6f433af197b627365b0c4">00158</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_parametres.html#ab83000ae05b6f433af197b627365b0c4">set_specactive</a>(<span class="keywordtype">bool</span> spec_active)                { this-&gt;spec_active = spec_active; }
+<a name="l00159"></a><a class="code" href="class_parametres.html#a4fdf6b1e4788d891d907dfa555ab6aa2">00159</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_parametres.html#a4fdf6b1e4788d891d907dfa555ab6aa2">set_speccheckbox</a>(QCheckBox * specCheckBox)      { this-&gt;specCheckBox = specCheckBox; }
+<a name="l00160"></a><a class="code" href="class_parametres.html#a17447abf099f7ef44783d8a1b79c7729">00160</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_parametres.html#a17447abf099f7ef44783d8a1b79c7729">set_brillance</a>(<span class="keywordtype">double</span> brillance)                 { this-&gt;brillance = (float)brillance; }
+<a name="l00161"></a><a class="code" href="class_parametres.html#a5fd6b4913140b491889ca6948b9f5b7c">00161</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_parametres.html#a5fd6b4913140b491889ca6948b9f5b7c">set_ambiantLight</a>(<span class="keywordtype">double</span> ambiant)                { this-&gt;ambiantLight = (float) ambiant; }
+<a name="l00162"></a><a class="code" href="class_parametres.html#a3b21807288cc65248affd45b271cdf5e">00162</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_parametres.html#a3b21807288cc65248affd45b271cdf5e">set_saturation</a> (<span class="keywordtype">double</span> saturation)              { this-&gt;saturation = (float) saturation; }
+<a name="l00163"></a>00163 
+<a name="l00164"></a><a class="code" href="class_parametres.html#afa57983a81ff63ac1af4142f3a676f28">00164</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_parametres.html#afa57983a81ff63ac1af4142f3a676f28">set_ombresactive</a>(<span class="keywordtype">bool</span> ombres_active){
+<a name="l00165"></a>00165         this-&gt;ombres_active = ombres_active;
+<a name="l00166"></a>00166         <span class="keywordflow">if</span>(ombres_active &amp;&amp; !BRDF_active){
+<a name="l00167"></a>00167             BRDF_active = <span class="keyword">true</span>;
+<a name="l00168"></a>00168             BRDFCheckBox-&gt;setChecked(<span class="keyword">true</span>);
+<a name="l00169"></a>00169         }
+<a name="l00170"></a>00170     }
+<a name="l00171"></a><a class="code" href="class_parametres.html#a9d8652c7ebc7ffb6dc8f7b66c71b328a">00171</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_parametres.html#a9d8652c7ebc7ffb6dc8f7b66c71b328a">set_ombrescheckbox</a>(QCheckBox * ombresCheckBox)  { this-&gt;ombresCheckBox = ombresCheckBox; }
+<a name="l00172"></a><a class="code" href="class_parametres.html#a32056c34e447ec31004c6ab9a126f31c">00172</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_parametres.html#a32056c34e447ec31004c6ab9a126f31c">set_ombresdouces</a>(<span class="keywordtype">bool</span> ombres_douces)            { this-&gt;ombres_douces = ombres_douces; }
+<a name="l00173"></a><a class="code" href="class_parametres.html#a005d77bcbbe1e9e9edb6c4c55aa7e599">00173</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_parametres.html#a005d77bcbbe1e9e9edb6c4c55aa7e599">set_ombresnumr</a>(<span class="keywordtype">int</span> ombres_numr)                 { this-&gt;ombres_numr = ombres_numr; }
+<a name="l00174"></a><a class="code" href="class_parametres.html#aef061b9c1b2dbd3f5b9cad492a97fc6e">00174</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_parametres.html#aef061b9c1b2dbd3f5b9cad492a97fc6e">set_ombresnuma</a>(<span class="keywordtype">int</span> ombres_numa)                 { this-&gt;ombres_numa = ombres_numa; }
 <a name="l00175"></a>00175 
-<a name="l00176"></a>00176     <span class="comment">//ambocc</span>
-<a name="l00177"></a>00177     <span class="keywordtype">bool</span> ambocc_active;
-<a name="l00178"></a>00178     <span class="keywordtype">int</span> ambocc_nray;
-<a name="l00179"></a>00179     <span class="keywordtype">float</span> ambocc_theta;
-<a name="l00180"></a>00180     <span class="keywordtype">float</span> ambocc_rayon;
+<a name="l00176"></a><a class="code" href="class_parametres.html#acf90351c8a8f03784389a4003d64b87a">00176</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_parametres.html#acf90351c8a8f03784389a4003d64b87a">set_amboccactive</a>(<span class="keywordtype">bool</span> ambocc_active)            { this-&gt;ambocc_active = ambocc_active; }
+<a name="l00177"></a><a class="code" href="class_parametres.html#a2c979aeb40e91cbbf0e6fccdb8a01001">00177</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_parametres.html#a2c979aeb40e91cbbf0e6fccdb8a01001">set_amboccnumr</a>(<span class="keywordtype">int</span> ambocc_numr)                 { this-&gt;ambocc_numr = ambocc_numr; }
+<a name="l00178"></a><a class="code" href="class_parametres.html#a378bb23f3e9ecb3ee8536b4acd8bf179">00178</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_parametres.html#a378bb23f3e9ecb3ee8536b4acd8bf179">set_amboccnuma</a>(<span class="keywordtype">int</span> ambocc_numa)                 { this-&gt;ambocc_numa = ambocc_numa; }
+<a name="l00179"></a><a class="code" href="class_parametres.html#a95265a8deb7db5b8d510254c055655a6">00179</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_parametres.html#a95265a8deb7db5b8d510254c055655a6">set_ambocctheta</a>(<span class="keywordtype">double</span> ambocc_theta)            { this-&gt;ambocc_theta = (float)ambocc_theta; }
+<a name="l00180"></a><a class="code" href="class_parametres.html#a5e947f26065405848f81daab4f5776b8">00180</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_parametres.html#a5e947f26065405848f81daab4f5776b8">set_amboccrayon</a>(<span class="keywordtype">double</span> ambocc_rayon)            { this-&gt;ambocc_rayon = (float)ambocc_rayon; }
 <a name="l00181"></a>00181 
-<a name="l00182"></a>00182     <span class="comment">//kdtree</span>
-<a name="l00183"></a>00183     <span class="keywordtype">float</span> kd_done; <span class="comment">//pour voir si on doit refaire le kdtree</span>
-<a name="l00184"></a>00184     <span class="keywordtype">float</span> kd_propdeep;
-<a name="l00185"></a>00185     <span class="comment">//pathtracing</span>
-<a name="l00186"></a>00186     <span class="keywordtype">bool</span> path_active;
-<a name="l00187"></a>00187     QCheckBox * pathCheckBox;
-<a name="l00188"></a>00188     <span class="keywordtype">int</span> path_nray;
-<a name="l00189"></a>00189     <span class="keywordtype">float</span> path_theta;
-<a name="l00190"></a>00190     <span class="keywordtype">int</span> path_maxdeep;
-<a name="l00191"></a>00191     <span class="comment">//autres</span>
-<a name="l00192"></a>00192     <span class="keywordtype">float</span> epsilon; <span class="comment">//pour le ambocc et les ombres</span>
-<a name="l00193"></a>00193 };
+<a name="l00182"></a><a class="code" href="class_parametres.html#afb0e12a70eb75b0130e2916ad09561a3">00182</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_parametres.html#afb0e12a70eb75b0130e2916ad09561a3">set_kddone</a>()                                    { this-&gt;kd_done = this-&gt;kd_propdeep; }
+<a name="l00183"></a><a class="code" href="class_parametres.html#a4016ae48aeccb8b1d301a86a9524357f">00183</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_parametres.html#a4016ae48aeccb8b1d301a86a9524357f">set_kdpropdeep</a>(<span class="keywordtype">double</span> kd_propdeep)              { this-&gt;kd_propdeep = (float)kd_propdeep; }
+<a name="l00184"></a>00184 
+<a name="l00185"></a><a class="code" href="class_parametres.html#ae90dda8e314e35eee52a471d0f510666">00185</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_parametres.html#ae90dda8e314e35eee52a471d0f510666">set_pathactive</a>(<span class="keywordtype">bool</span> path_active)                { this-&gt;path_active = path_active; }
+<a name="l00186"></a><a class="code" href="class_parametres.html#ac1c443e33d67bc68228fcf19d1f4b5ec">00186</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_parametres.html#ac1c443e33d67bc68228fcf19d1f4b5ec">set_paththeta</a>(<span class="keywordtype">double</span> path_theta)                { this-&gt;path_theta = (float) path_theta; }
+<a name="l00187"></a><a class="code" href="class_parametres.html#a5ea4115f59da12fb8fd6d66292cc028c">00187</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_parametres.html#a5ea4115f59da12fb8fd6d66292cc028c">set_pathnumr</a>(<span class="keywordtype">int</span> path_numr)                     { this-&gt;path_numr = path_numr; }
+<a name="l00188"></a><a class="code" href="class_parametres.html#aee46786f481889f2e474198b647b92a3">00188</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_parametres.html#aee46786f481889f2e474198b647b92a3">set_pathnuma</a>(<span class="keywordtype">int</span> path_numa)                     { this-&gt;path_numa = path_numa; }
+<a name="l00189"></a><a class="code" href="class_parametres.html#a528f6b2771b80c7383caea140382ce2f">00189</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_parametres.html#a528f6b2771b80c7383caea140382ce2f">set_pathmaxdeep</a>(<span class="keywordtype">int</span> path_maxdeep)               { this-&gt;path_maxdeep = path_maxdeep; }
+<a name="l00190"></a>00190 
+<a name="l00191"></a><a class="code" href="class_parametres.html#a92c94f1a5c3626acad645f3066b84854">00191</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_parametres.html#a92c94f1a5c3626acad645f3066b84854">set_epsilon</a>(<span class="keywordtype">float</span> epsilon)                      { this-&gt;epsilon = epsilon; }
+<a name="l00192"></a>00192 
+<a name="l00193"></a>00193 <span class="keyword">private</span>:
 <a name="l00194"></a>00194 
-<a name="l00195"></a>00195 <span class="preprocessor">#endif // PARAMETRES_H</span>
+<a name="l00195"></a>00195     <span class="comment">//render</span>
+<a name="l00196"></a>00196     <span class="keywordtype">bool</span> render_done;
+<a name="l00197"></a>00197     <span class="comment">//rays</span>
+<a name="l00198"></a>00198     <span class="keywordtype">int</span> pix_grille;
+<a name="l00199"></a>00199     <span class="keywordtype">float</span> brillance;
+<a name="l00200"></a>00200     <span class="keywordtype">float</span> ambiantLight;
+<a name="l00201"></a>00201     <span class="keywordtype">float</span> saturation;
+<a name="l00202"></a>00202     <span class="keywordtype">bool</span> material_active;
+<a name="l00203"></a>00203     <span class="keywordtype">bool</span> BRDF_active;
+<a name="l00204"></a>00204     QCheckBox * BRDFCheckBox;
+<a name="l00205"></a>00205     <span class="keywordtype">bool</span> diff_active;
+<a name="l00206"></a>00206     QCheckBox * diffCheckBox;
+<a name="l00207"></a>00207     <span class="keywordtype">bool</span> spec_active;
+<a name="l00208"></a>00208     QCheckBox * specCheckBox;
+<a name="l00209"></a>00209 
+<a name="l00210"></a>00210     <span class="comment">//ombres</span>
+<a name="l00211"></a>00211     <span class="keywordtype">bool</span> ombres_active;
+<a name="l00212"></a>00212     QCheckBox * ombresCheckBox;
+<a name="l00213"></a>00213     <span class="keywordtype">bool</span> ombres_douces;
+<a name="l00214"></a>00214     <span class="keywordtype">int</span> ombres_numr;
+<a name="l00215"></a>00215     <span class="keywordtype">int</span> ombres_numa;
+<a name="l00216"></a>00216 
+<a name="l00217"></a>00217     <span class="comment">//ambocc</span>
+<a name="l00218"></a>00218     <span class="keywordtype">bool</span> ambocc_active;
+<a name="l00219"></a>00219     <span class="keywordtype">int</span> ambocc_numr;
+<a name="l00220"></a>00220     <span class="keywordtype">int</span> ambocc_numa;
+<a name="l00221"></a>00221     <span class="keywordtype">float</span> ambocc_theta;
+<a name="l00222"></a>00222     <span class="keywordtype">float</span> ambocc_rayon;
+<a name="l00223"></a>00223 
+<a name="l00224"></a>00224     <span class="comment">//kdtree</span>
+<a name="l00225"></a>00225     <span class="keywordtype">float</span> kd_done; <span class="comment">//pour voir si on doit refaire le kdtree</span>
+<a name="l00226"></a>00226     <span class="keywordtype">float</span> kd_propdeep;
+<a name="l00227"></a>00227     <span class="comment">//pathtracing</span>
+<a name="l00228"></a>00228     <span class="keywordtype">bool</span> path_active;
+<a name="l00229"></a>00229     QCheckBox * pathCheckBox;
+<a name="l00230"></a>00230     <span class="keywordtype">int</span> path_numr;
+<a name="l00231"></a>00231     <span class="keywordtype">int</span> path_numa;
+<a name="l00232"></a>00232     <span class="keywordtype">float</span> path_theta;
+<a name="l00233"></a>00233     <span class="keywordtype">int</span> path_maxdeep;
+<a name="l00234"></a>00234     <span class="comment">//autres</span>
+<a name="l00235"></a>00235     <span class="keywordtype">float</span> epsilon; <span class="comment">//pour le ambocc et les ombres</span>
+<a name="l00236"></a>00236 };
+<a name="l00237"></a>00237 
+<a name="l00238"></a>00238 <span class="preprocessor">#endif // PARAMETRES_H</span>
 </pre></div></div>
 </div>
 <!-- window showing the filter options -->
@@ -260,7 +304,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -269,7 +313,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Mon May 2 2011 01:51:51 for Projet3D by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Sun May 8 2011 16:02:09 for Ray Tracer by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>Projet3D: raymini/Object.h Source File</title>
+<title>Ray Tracer: raymini/Object.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Projet3D</div>
+   <div id="projectname">Ray Tracer</div>
   </td>
  </tr>
  </tbody>
@@ -51,6 +51,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 <div class="header">
@@ -58,7 +59,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">raymini/Object.h</div>  </div>
 </div>
 <div class="contents">
-<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">// *********************************************************</span>
+<a href="_object_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">// *********************************************************</span>
 <a name="l00002"></a>00002 <span class="comment">// Object Class</span>
 <a name="l00003"></a>00003 <span class="comment">// Author : Tamy Boubekeur (boubek@gmail.com).</span>
 <a name="l00004"></a>00004 <span class="comment">// Copyright (C) 2010 Tamy Boubekeur.</span>
@@ -71,74 +72,82 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00011"></a>00011 <span class="preprocessor">#include &lt;iostream&gt;</span>
 <a name="l00012"></a>00012 <span class="preprocessor">#include &lt;vector&gt;</span>
 <a name="l00013"></a>00013 
-<a name="l00014"></a>00014 <span class="preprocessor">#include &quot;Mesh.h&quot;</span>
-<a name="l00015"></a>00015 <span class="preprocessor">#include &quot;Material.h&quot;</span>
-<a name="l00016"></a>00016 <span class="preprocessor">#include &quot;BoundingBox.h&quot;</span>
+<a name="l00014"></a>00014 <span class="preprocessor">#include &quot;<a class="code" href="_mesh_8h.html">Mesh.h</a>&quot;</span>
+<a name="l00015"></a>00015 <span class="preprocessor">#include &quot;<a class="code" href="_material_8h.html">Material.h</a>&quot;</span>
+<a name="l00016"></a>00016 <span class="preprocessor">#include &quot;<a class="code" href="_bounding_box_8h.html">BoundingBox.h</a>&quot;</span>
 <a name="l00017"></a>00017 
 <a name="l00018"></a><a class="code" href="class_object.html">00018</a> <span class="keyword">class </span><a class="code" href="class_object.html">Object</a> {
 <a name="l00019"></a>00019 <span class="keyword">public</span>:
-<a name="l00020"></a>00020     <span class="keyword">inline</span> <a class="code" href="class_object.html">Object</a> () {}
-<a name="l00021"></a>00021     <span class="keyword">inline</span> <a class="code" href="class_object.html">Object</a> (<span class="keyword">const</span> <a class="code" href="class_mesh.html">Mesh</a> &amp; mesh, <span class="keyword">const</span> <a class="code" href="class_material.html">Material</a> &amp; mat) :mesh (mesh), mat (mat) {
-<a name="l00022"></a>00022         updateBoundingBox ();
+<a name="l00020"></a><a class="code" href="class_object.html#a40860402e64d8008fb42329df7097cdb">00020</a>     <span class="keyword">inline</span> <a class="code" href="class_object.html#a40860402e64d8008fb42329df7097cdb">Object</a> () {}
+<a name="l00021"></a><a class="code" href="class_object.html#a76be6ce9d41e65e06f231ba122c4c6f1">00021</a>     <span class="keyword">inline</span> <a class="code" href="class_object.html#a76be6ce9d41e65e06f231ba122c4c6f1">Object</a> (<span class="keyword">const</span> <a class="code" href="class_mesh.html">Mesh</a> &amp; mesh, <span class="keyword">const</span> <a class="code" href="class_material.html">Material</a> &amp; mat) :mesh (mesh), mat (mat) {
+<a name="l00022"></a>00022         <a class="code" href="class_object.html#a8b5067250bb4000f2e2abc79a5c0f0ef">updateBoundingBox</a> ();
 <a name="l00023"></a>00023     }
-<a name="l00024"></a>00024     <span class="keyword">virtual</span> ~<a class="code" href="class_object.html">Object</a> () {}
+<a name="l00024"></a><a class="code" href="class_object.html#aa3e791419d84c4c346ef9499513b8e00">00024</a>     <span class="keyword">virtual</span> <a class="code" href="class_object.html#aa3e791419d84c4c346ef9499513b8e00">~Object</a> () {}
 <a name="l00025"></a>00025 
-<a name="l00026"></a>00026     <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="class_mesh.html">Mesh</a> &amp; getMesh ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> mesh; }
-<a name="l00027"></a>00027     <span class="keyword">inline</span> <a class="code" href="class_mesh.html">Mesh</a> &amp; getMesh () { <span class="keywordflow">return</span> mesh; }
+<a name="l00026"></a><a class="code" href="class_object.html#aca85febe503b1feffdd61cc22777816d">00026</a>     <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="class_mesh.html">Mesh</a> &amp; <a class="code" href="class_object.html#aca85febe503b1feffdd61cc22777816d">getMesh</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> mesh; }
+<a name="l00027"></a><a class="code" href="class_object.html#a2c80996c263bb223ff6a5395d452b2a7">00027</a>     <span class="keyword">inline</span> <a class="code" href="class_mesh.html">Mesh</a> &amp; <a class="code" href="class_object.html#a2c80996c263bb223ff6a5395d452b2a7">getMesh</a> () { <span class="keywordflow">return</span> mesh; }
 <a name="l00028"></a>00028     
-<a name="l00029"></a>00029     <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="class_material.html">Material</a> &amp; getMaterial ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> mat; }
-<a name="l00030"></a>00030     <span class="keyword">inline</span> <a class="code" href="class_material.html">Material</a> &amp; getMaterial () { <span class="keywordflow">return</span> mat; }
+<a name="l00029"></a><a class="code" href="class_object.html#a8b4f09c5a0ab51e58a1d1c2da6f33a18">00029</a>     <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="class_material.html">Material</a> &amp; <a class="code" href="class_object.html#a8b4f09c5a0ab51e58a1d1c2da6f33a18">getMaterial</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> mat; }
+<a name="l00030"></a><a class="code" href="class_object.html#acda0cee83fc08cc69bdc3f72b8e8b3a7">00030</a>     <span class="keyword">inline</span> <a class="code" href="class_material.html">Material</a> &amp; <a class="code" href="class_object.html#acda0cee83fc08cc69bdc3f72b8e8b3a7">getMaterial</a> () { <span class="keywordflow">return</span> mat; }
 <a name="l00031"></a>00031 
-<a name="l00032"></a>00032     <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="class_bounding_box.html">BoundingBox</a> &amp; getBoundingBox ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> bbox; }
-<a name="l00033"></a>00033     <span class="keywordtype">void</span> updateBoundingBox ();
-<a name="l00034"></a>00034     <span class="keyword">enum</span> objName {
-<a name="l00035"></a>00035         threeD,
-<a name="l00036"></a>00036         camel_head,
-<a name="l00037"></a>00037         max,
-<a name="l00038"></a>00038         sphere,
-<a name="l00039"></a>00039         apple,
-<a name="l00040"></a>00040         dbtorus,
-<a name="l00041"></a>00041         max_50K,
-<a name="l00042"></a>00042         squirrel,
-<a name="l00043"></a>00043         cherry,
-<a name="l00044"></a>00044         double_ram,
-<a name="l00045"></a>00045         monkey,
-<a name="l00046"></a>00046         tri,
-<a name="l00047"></a>00047         dauphin,
-<a name="l00048"></a>00048         fandisk,
-<a name="l00049"></a>00049         paysage,
-<a name="l00050"></a>00050         triceratops,
-<a name="l00051"></a>00051         theiere,
-<a name="l00052"></a>00052         gargoyle,
-<a name="l00053"></a>00053         ram,
-<a name="l00054"></a>00054         tweety,
-<a name="l00055"></a>00055         armadillo,
-<a name="l00056"></a>00056         ground,
-<a name="l00057"></a>00057         ram_HD,
-<a name="l00058"></a>00058         bunny,
-<a name="l00059"></a>00059         ground_HD,
-<a name="l00060"></a>00060         room,
-<a name="l00061"></a>00061         bunny2,
-<a name="l00062"></a>00062         horse,
-<a name="l00063"></a>00063         room_f,
-<a name="l00064"></a>00064         coloredGlass,
-<a name="l00065"></a>00065         opened_cube
-<a name="l00066"></a>00066     };
-<a name="l00067"></a>00067 <span class="keyword">private</span>:
-<a name="l00068"></a>00068     <a class="code" href="class_mesh.html">Mesh</a> mesh;
-<a name="l00069"></a>00069     <a class="code" href="class_material.html">Material</a> mat;
-<a name="l00070"></a>00070     <a class="code" href="class_bounding_box.html">BoundingBox</a> bbox;
-<a name="l00071"></a>00071 };
-<a name="l00072"></a>00072 
-<a name="l00073"></a>00073 
-<a name="l00074"></a>00074 <span class="preprocessor">#endif // OBJECT_H</span>
-<a name="l00075"></a>00075 <span class="preprocessor"></span>
-<a name="l00076"></a>00076 <span class="comment">// Some Emacs-Hints -- please don&#39;t remove:</span>
-<a name="l00077"></a>00077 <span class="comment">//</span>
-<a name="l00078"></a>00078 <span class="comment">//  Local Variables:</span>
-<a name="l00079"></a>00079 <span class="comment">//  mode:C++</span>
-<a name="l00080"></a>00080 <span class="comment">//  tab-width:4</span>
-<a name="l00081"></a>00081 <span class="comment">//  End:</span>
+<a name="l00032"></a><a class="code" href="class_object.html#a39c1127b2bd6ced2ec79bb80f129301b">00032</a>     <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="class_bounding_box.html">BoundingBox</a> &amp; <a class="code" href="class_object.html#a39c1127b2bd6ced2ec79bb80f129301b">getBoundingBox</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> bbox; }
+<a name="l00033"></a>00033     <span class="keywordtype">void</span> <a class="code" href="class_object.html#a8b5067250bb4000f2e2abc79a5c0f0ef">updateBoundingBox</a> ();
+<a name="l00034"></a><a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbb">00034</a>     <span class="keyword">enum</span> <a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbb">objName</a> {
+<a name="l00035"></a><a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbbaae797a9c75bbb99ee517aaa0e07f1a1f">00035</a>         <a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbbaae797a9c75bbb99ee517aaa0e07f1a1f">threeD</a>,
+<a name="l00036"></a><a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbba2e8ca1af39c26042b29301b749b43b6e">00036</a>         <a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbba2e8ca1af39c26042b29301b749b43b6e">camel_head</a>,
+<a name="l00037"></a><a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbba1545239226f69a79ecff8e70a646b40c">00037</a>         <a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbba1545239226f69a79ecff8e70a646b40c">max</a>,
+<a name="l00038"></a><a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbba5a57120441f836ff1c9f2fde5a630736">00038</a>         <a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbba5a57120441f836ff1c9f2fde5a630736">sphere</a>,
+<a name="l00039"></a><a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbbaeba7d642386203ffa4e9e248118ea60e">00039</a>         <a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbbaeba7d642386203ffa4e9e248118ea60e">apple</a>,
+<a name="l00040"></a><a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbba6ec42563e9fd2963d1e20d906f6cf3df">00040</a>         <a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbba6ec42563e9fd2963d1e20d906f6cf3df">dbtorus</a>,
+<a name="l00041"></a><a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbbaba653416cf777357edee417679e8cb9f">00041</a>         <a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbbaba653416cf777357edee417679e8cb9f">max_50K</a>,
+<a name="l00042"></a><a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbba40742213a11dc49032c63a9d4969dd89">00042</a>         <a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbba40742213a11dc49032c63a9d4969dd89">squirrel</a>,
+<a name="l00043"></a><a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbba71e77d8ebd4d94561315216576ba4e95">00043</a>         <a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbba71e77d8ebd4d94561315216576ba4e95">cherry</a>,
+<a name="l00044"></a><a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbba65138f9c29560a09fef487a7d91c10b3">00044</a>         <a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbba65138f9c29560a09fef487a7d91c10b3">double_ram</a>,
+<a name="l00045"></a><a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbba3c78743907b66e87d9a4750f84b1e8cf">00045</a>         <a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbba3c78743907b66e87d9a4750f84b1e8cf">monkey</a>,
+<a name="l00046"></a><a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbba276c9188f1a319940c2820b03d5bb15d">00046</a>         <a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbba276c9188f1a319940c2820b03d5bb15d">tri</a>,
+<a name="l00047"></a><a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbba3671e783b5600d8d8805759ad2d879d3">00047</a>         <a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbba3671e783b5600d8d8805759ad2d879d3">dauphin</a>,
+<a name="l00048"></a><a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbbaf5e777b627396b36d3dadcf498425dcd">00048</a>         <a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbbaf5e777b627396b36d3dadcf498425dcd">fandisk</a>,
+<a name="l00049"></a><a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbba6eb110a273d61a900fefb53bc1e34750">00049</a>         <a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbba6eb110a273d61a900fefb53bc1e34750">paysage</a>,
+<a name="l00050"></a><a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbba5e90e5098fd75a8eb88fae7d753cb53b">00050</a>         <a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbba5e90e5098fd75a8eb88fae7d753cb53b">triceratops</a>,
+<a name="l00051"></a><a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbbac7c1aed6a1afb965fd938631d405cb44">00051</a>         <a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbbac7c1aed6a1afb965fd938631d405cb44">theiere</a>,
+<a name="l00052"></a><a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbba61938c6348d8061c951c70f46fcbeb48">00052</a>         <a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbba61938c6348d8061c951c70f46fcbeb48">gargoyle</a>,
+<a name="l00053"></a><a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbba06d5b6aafa1bdc707dc411f6c0510590">00053</a>         <a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbba06d5b6aafa1bdc707dc411f6c0510590">ram</a>,
+<a name="l00054"></a><a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbba6c99d125ad59dd3c5f1c66b7a15e895b">00054</a>         <a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbba6c99d125ad59dd3c5f1c66b7a15e895b">tweety</a>,
+<a name="l00055"></a><a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbbace0d89bebb12d9a53bfb623dab5de5d5">00055</a>         <a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbbace0d89bebb12d9a53bfb623dab5de5d5">armadillo</a>,
+<a name="l00056"></a><a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbbabe845afcd8fd0c28aba1d43082b31ebb">00056</a>         <a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbbabe845afcd8fd0c28aba1d43082b31ebb">ground</a>,
+<a name="l00057"></a><a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbba1bb2de8da7cacf9e017b267bc45ab96c">00057</a>         <a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbba1bb2de8da7cacf9e017b267bc45ab96c">ram_HD</a>,
+<a name="l00058"></a><a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbbaca33bc4a6e5d1ced16efc9ad33904f0f">00058</a>         <a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbbaca33bc4a6e5d1ced16efc9ad33904f0f">bunny</a>,
+<a name="l00059"></a><a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbba5547a62e5181bb04815796ea0daf0cf6">00059</a>         <a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbba5547a62e5181bb04815796ea0daf0cf6">ground_HD</a>,
+<a name="l00060"></a><a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbba24b1231f62e74b2cab19d91443cd22f4">00060</a>         <a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbba24b1231f62e74b2cab19d91443cd22f4">room</a>,
+<a name="l00061"></a><a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbba143cef0461eea2fb1a8d37284297f2d6">00061</a>         <a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbba143cef0461eea2fb1a8d37284297f2d6">bunny2</a>,
+<a name="l00062"></a><a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbbab4a1caacc2a8dafefa25a2f2a74af108">00062</a>         <a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbbab4a1caacc2a8dafefa25a2f2a74af108">horse</a>,
+<a name="l00063"></a><a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbbab7db057a2cb63661f71c6511f9fc968a">00063</a>         <a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbbab7db057a2cb63661f71c6511f9fc968a">room_f</a>,
+<a name="l00064"></a><a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbba61d7d283c55675d1c7139b222fdd6ff3">00064</a>         <a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbba61d7d283c55675d1c7139b222fdd6ff3">coloredGlass</a>,
+<a name="l00065"></a><a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbba28f401c82e5c1bc445161cf72f3f5a76">00065</a>         <a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbba28f401c82e5c1bc445161cf72f3f5a76">opened_cube</a>,
+<a name="l00066"></a><a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbbada05a4805ce33097c387c4d9f3369dbd">00066</a>         <a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbbada05a4805ce33097c387c4d9f3369dbd">cubeoff</a>,
+<a name="l00067"></a><a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbbaefdfbd4a330e7e0db256370ebb3bd309">00067</a>         <a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbbaefdfbd4a330e7e0db256370ebb3bd309">cubeFloor</a>,
+<a name="l00068"></a><a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbbacfacb4860a50f0d9805d143a717aaab8">00068</a>         <a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbbacfacb4860a50f0d9805d143a717aaab8">cubeWallRight</a>,
+<a name="l00069"></a><a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbba16ad3675946e2f9d8bf8d610dbeaa616">00069</a>         <a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbba16ad3675946e2f9d8bf8d610dbeaa616">cubeWallLeft</a>,
+<a name="l00070"></a><a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbba045a653167256e0613107dab0adc1bfb">00070</a>         <a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbba045a653167256e0613107dab0adc1bfb">cubebackWall</a>,
+<a name="l00071"></a><a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbbaa215a842c7785541d07a615e8b961591">00071</a>         <a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbbaa215a842c7785541d07a615e8b961591">cubeFaceWall</a>,
+<a name="l00072"></a><a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbbad7cb19167b22d21e801206cc04f8775f">00072</a>         <a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbbad7cb19167b22d21e801206cc04f8775f">cubeRoof</a>,
+<a name="l00073"></a><a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbba2cbeade773c4694d21f5f2fdd402f45b">00073</a>         <a class="code" href="class_object.html#aa59c8c464c60ded4291b3e0f0ef20bbba2cbeade773c4694d21f5f2fdd402f45b">pig</a>,
+<a name="l00074"></a>00074     };
+<a name="l00075"></a>00075 <span class="keyword">private</span>:
+<a name="l00076"></a>00076     <a class="code" href="class_mesh.html">Mesh</a> mesh;
+<a name="l00077"></a>00077     <a class="code" href="class_material.html">Material</a> mat;
+<a name="l00078"></a>00078     <a class="code" href="class_bounding_box.html">BoundingBox</a> bbox;
+<a name="l00079"></a>00079 };
+<a name="l00080"></a>00080 
+<a name="l00081"></a>00081 
+<a name="l00082"></a>00082 <span class="preprocessor">#endif // OBJECT_H</span>
+<a name="l00083"></a>00083 <span class="preprocessor"></span>
+<a name="l00084"></a>00084 <span class="comment">// Some Emacs-Hints -- please don&#39;t remove:</span>
+<a name="l00085"></a>00085 <span class="comment">//</span>
+<a name="l00086"></a>00086 <span class="comment">//  Local Variables:</span>
+<a name="l00087"></a>00087 <span class="comment">//  mode:C++</span>
+<a name="l00088"></a>00088 <span class="comment">//  tab-width:4</span>
+<a name="l00089"></a>00089 <span class="comment">//  End:</span>
 </pre></div></div>
 </div>
 <!-- window showing the filter options -->
@@ -146,7 +155,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -155,7 +164,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Mon May 2 2011 01:51:51 for Projet3D by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Sun May 8 2011 16:02:09 for Ray Tracer by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

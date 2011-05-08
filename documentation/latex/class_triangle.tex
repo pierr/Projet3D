@@ -2,59 +2,201 @@
 \section{Triangle Class Reference}
 \label{class_triangle}\index{Triangle@{Triangle}}
 }
+
+
+{\ttfamily \#include $<$Triangle.h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_triangle_ac855aa7c9164458725b26d358c51540a}{
-{\bfseries Triangle} (unsigned int v0, unsigned int v1, unsigned int v2)}
-\label{class_triangle_ac855aa7c9164458725b26d358c51540a}
-
+\hyperlink{class_triangle_aaefe4ed500c07918d30c6f0e286332c5}{Triangle} ()
 \item 
-\hypertarget{class_triangle_abaf08403a27a26dbc47a5d70c5bb00eb}{
-{\bfseries Triangle} (const unsigned int $\ast$vp)}
-\label{class_triangle_abaf08403a27a26dbc47a5d70c5bb00eb}
-
+\hyperlink{class_triangle_ac855aa7c9164458725b26d358c51540a}{Triangle} (unsigned int v0, unsigned int v1, unsigned int v2)
 \item 
-\hypertarget{class_triangle_a66d993754ef093c2c1319a733eee0523}{
-{\bfseries Triangle} (const \hyperlink{class_triangle}{Triangle} \&it)}
-\label{class_triangle_a66d993754ef093c2c1319a733eee0523}
-
+\hyperlink{class_triangle_abaf08403a27a26dbc47a5d70c5bb00eb}{Triangle} (const unsigned int $\ast$vp)
 \item 
-\hypertarget{class_triangle_a0397ff9605ee5119c97d491f2c26555f}{
-\hyperlink{class_triangle}{Triangle} \& {\bfseries operator=} (const \hyperlink{class_triangle}{Triangle} \&it)}
-\label{class_triangle_a0397ff9605ee5119c97d491f2c26555f}
-
+\hyperlink{class_triangle_a66d993754ef093c2c1319a733eee0523}{Triangle} (const \hyperlink{class_triangle}{Triangle} \&it)
 \item 
-\hypertarget{class_triangle_a8a28087139b044277e66bcf61d95f067}{
-bool {\bfseries operator==} (const \hyperlink{class_triangle}{Triangle} \&t) const }
-\label{class_triangle_a8a28087139b044277e66bcf61d95f067}
-
+virtual \hyperlink{class_triangle_a81dbbf1be60e083d3d92be4d0291b3b5}{$\sim$Triangle} ()
 \item 
-\hypertarget{class_triangle_a82674aa7f7a2b316848f0a6743e29921}{
-unsigned int {\bfseries getVertex} (unsigned int i) const }
-\label{class_triangle_a82674aa7f7a2b316848f0a6743e29921}
-
+\hyperlink{class_triangle}{Triangle} \& \hyperlink{class_triangle_a0397ff9605ee5119c97d491f2c26555f}{operator=} (const \hyperlink{class_triangle}{Triangle} \&it)
 \item 
-\hypertarget{class_triangle_a5b2a044f6079b68a9d840f8ffeffd4e1}{
-void {\bfseries setVertex} (unsigned int i, unsigned int vertex)}
-\label{class_triangle_a5b2a044f6079b68a9d840f8ffeffd4e1}
-
+bool \hyperlink{class_triangle_a8a28087139b044277e66bcf61d95f067}{operator==} (const \hyperlink{class_triangle}{Triangle} \&t) const 
 \item 
-\hypertarget{class_triangle_a04e94a20f7e63d33495d163f5a059e9b}{
-bool {\bfseries contains} (unsigned int vertex) const }
-\label{class_triangle_a04e94a20f7e63d33495d163f5a059e9b}
-
+unsigned int \hyperlink{class_triangle_a82674aa7f7a2b316848f0a6743e29921}{getVertex} (unsigned int i) const 
+\item 
+void \hyperlink{class_triangle_a5b2a044f6079b68a9d840f8ffeffd4e1}{setVertex} (unsigned int i, unsigned int vertex)
+\item 
+bool \hyperlink{class_triangle_a04e94a20f7e63d33495d163f5a059e9b}{contains} (unsigned int vertex) const 
 \end{DoxyCompactItemize}
 \subsection*{Protected Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+void \hyperlink{class_triangle_a2f86c57f50a7d9f0678485ba38a8063c}{init} (unsigned int v0, unsigned int v1, unsigned int v2)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 14 of file Triangle.h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_triangle_aaefe4ed500c07918d30c6f0e286332c5}{
+\index{Triangle@{Triangle}!Triangle@{Triangle}}
+\index{Triangle@{Triangle}!Triangle@{Triangle}}
+\subsubsection[{Triangle}]{\setlength{\rightskip}{0pt plus 5cm}Triangle::Triangle (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_triangle_aaefe4ed500c07918d30c6f0e286332c5}
+
+
+Definition at line 16 of file Triangle.h.
+
+\hypertarget{class_triangle_ac855aa7c9164458725b26d358c51540a}{
+\index{Triangle@{Triangle}!Triangle@{Triangle}}
+\index{Triangle@{Triangle}!Triangle@{Triangle}}
+\subsubsection[{Triangle}]{\setlength{\rightskip}{0pt plus 5cm}Triangle::Triangle (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{v0, }
+\item[{unsigned int}]{v1, }
+\item[{unsigned int}]{v2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_triangle_ac855aa7c9164458725b26d358c51540a}
+
+
+Definition at line 17 of file Triangle.h.
+
+\hypertarget{class_triangle_abaf08403a27a26dbc47a5d70c5bb00eb}{
+\index{Triangle@{Triangle}!Triangle@{Triangle}}
+\index{Triangle@{Triangle}!Triangle@{Triangle}}
+\subsubsection[{Triangle}]{\setlength{\rightskip}{0pt plus 5cm}Triangle::Triangle (
+\begin{DoxyParamCaption}
+\item[{const unsigned int $\ast$}]{vp}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_triangle_abaf08403a27a26dbc47a5d70c5bb00eb}
+
+
+Definition at line 18 of file Triangle.h.
+
+\hypertarget{class_triangle_a66d993754ef093c2c1319a733eee0523}{
+\index{Triangle@{Triangle}!Triangle@{Triangle}}
+\index{Triangle@{Triangle}!Triangle@{Triangle}}
+\subsubsection[{Triangle}]{\setlength{\rightskip}{0pt plus 5cm}Triangle::Triangle (
+\begin{DoxyParamCaption}
+\item[{const {\bf Triangle} \&}]{it}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_triangle_a66d993754ef093c2c1319a733eee0523}
+
+
+Definition at line 19 of file Triangle.h.
+
+\hypertarget{class_triangle_a81dbbf1be60e083d3d92be4d0291b3b5}{
+\index{Triangle@{Triangle}!$\sim$Triangle@{$\sim$Triangle}}
+\index{$\sim$Triangle@{$\sim$Triangle}!Triangle@{Triangle}}
+\subsubsection[{$\sim$Triangle}]{\setlength{\rightskip}{0pt plus 5cm}virtual Triangle::$\sim$Triangle (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}
+\label{class_triangle_a81dbbf1be60e083d3d92be4d0291b3b5}
+
+
+Definition at line 20 of file Triangle.h.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_triangle_a04e94a20f7e63d33495d163f5a059e9b}{
+\index{Triangle@{Triangle}!contains@{contains}}
+\index{contains@{contains}!Triangle@{Triangle}}
+\subsubsection[{contains}]{\setlength{\rightskip}{0pt plus 5cm}bool Triangle::contains (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{vertex}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_triangle_a04e94a20f7e63d33495d163f5a059e9b}
+
+
+Definition at line 25 of file Triangle.h.
+
+\hypertarget{class_triangle_a82674aa7f7a2b316848f0a6743e29921}{
+\index{Triangle@{Triangle}!getVertex@{getVertex}}
+\index{getVertex@{getVertex}!Triangle@{Triangle}}
+\subsubsection[{getVertex}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int Triangle::getVertex (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{i}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_triangle_a82674aa7f7a2b316848f0a6743e29921}
+
+
+Definition at line 23 of file Triangle.h.
+
 \hypertarget{class_triangle_a2f86c57f50a7d9f0678485ba38a8063c}{
-void {\bfseries init} (unsigned int v0, unsigned int v1, unsigned int v2)}
+\index{Triangle@{Triangle}!init@{init}}
+\index{init@{init}!Triangle@{Triangle}}
+\subsubsection[{init}]{\setlength{\rightskip}{0pt plus 5cm}void Triangle::init (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{v0, }
+\item[{unsigned int}]{v1, }
+\item[{unsigned int}]{v2}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, protected\mbox{]}}}}
 \label{class_triangle_a2f86c57f50a7d9f0678485ba38a8063c}
 
-\end{DoxyCompactItemize}
+
+Definition at line 28 of file Triangle.h.
+
+\hypertarget{class_triangle_a0397ff9605ee5119c97d491f2c26555f}{
+\index{Triangle@{Triangle}!operator=@{operator=}}
+\index{operator=@{operator=}!Triangle@{Triangle}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Triangle}\& Triangle::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Triangle} \&}]{it}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_triangle_a0397ff9605ee5119c97d491f2c26555f}
+
+
+Definition at line 21 of file Triangle.h.
+
+\hypertarget{class_triangle_a8a28087139b044277e66bcf61d95f067}{
+\index{Triangle@{Triangle}!operator==@{operator==}}
+\index{operator==@{operator==}!Triangle@{Triangle}}
+\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}bool Triangle::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf Triangle} \&}]{t}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_triangle_a8a28087139b044277e66bcf61d95f067}
+
+
+Definition at line 22 of file Triangle.h.
+
+\hypertarget{class_triangle_a5b2a044f6079b68a9d840f8ffeffd4e1}{
+\index{Triangle@{Triangle}!setVertex@{setVertex}}
+\index{setVertex@{setVertex}!Triangle@{Triangle}}
+\subsubsection[{setVertex}]{\setlength{\rightskip}{0pt plus 5cm}void Triangle::setVertex (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{i, }
+\item[{unsigned int}]{vertex}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_triangle_a5b2a044f6079b68a9d840f8ffeffd4e1}
+
+
+Definition at line 24 of file Triangle.h.
+
 
 
 The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
 \item 
-raymini/Triangle.h\end{DoxyCompactItemize}
+raymini/\hyperlink{_triangle_8h}{Triangle.h}\end{DoxyCompactItemize}

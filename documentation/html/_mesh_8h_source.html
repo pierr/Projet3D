@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>Projet3D: raymini/Mesh.h Source File</title>
+<title>Ray Tracer: raymini/Mesh.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Projet3D</div>
+   <div id="projectname">Ray Tracer</div>
   </td>
  </tr>
  </tbody>
@@ -51,6 +51,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 <div class="header">
@@ -58,7 +59,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">raymini/Mesh.h</div>  </div>
 </div>
 <div class="contents">
-<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">// ---------------------------------------------------------</span>
+<a href="_mesh_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">// ---------------------------------------------------------</span>
 <a name="l00002"></a>00002 <span class="comment">// Mesh Class</span>
 <a name="l00003"></a>00003 <span class="comment">// Author : Tamy Boubekeur (boubek@gmail.com).</span>
 <a name="l00004"></a>00004 <span class="comment">// Copyright (C) 2008 Tamy Boubekeur.</span>
@@ -71,65 +72,66 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00011"></a>00011 <span class="preprocessor">#include &lt;vector&gt;</span>
 <a name="l00012"></a>00012 <span class="preprocessor">#include &lt;string&gt;</span>
 <a name="l00013"></a>00013 
-<a name="l00014"></a>00014 <span class="preprocessor">#include &quot;Vertex.h&quot;</span>
-<a name="l00015"></a>00015 <span class="preprocessor">#include &quot;Triangle.h&quot;</span>
-<a name="l00016"></a>00016 <span class="preprocessor">#include &quot;Edge.h&quot;</span>
-<a name="l00017"></a>00017 <span class="preprocessor">#include &quot;RotationMatrix.h&quot;</span>
+<a name="l00014"></a>00014 <span class="preprocessor">#include &quot;<a class="code" href="_vertex_8h.html">Vertex.h</a>&quot;</span>
+<a name="l00015"></a>00015 <span class="preprocessor">#include &quot;<a class="code" href="_triangle_8h.html">Triangle.h</a>&quot;</span>
+<a name="l00016"></a>00016 <span class="preprocessor">#include &quot;<a class="code" href="_edge_8h.html">Edge.h</a>&quot;</span>
+<a name="l00017"></a>00017 <span class="preprocessor">#include &quot;<a class="code" href="_rotation_matrix_8h.html">RotationMatrix.h</a>&quot;</span>
 <a name="l00018"></a>00018 
 <a name="l00019"></a><a class="code" href="class_mesh.html">00019</a> <span class="keyword">class </span><a class="code" href="class_mesh.html">Mesh</a> {
 <a name="l00020"></a>00020 <span class="keyword">public</span>:
-<a name="l00021"></a>00021     <span class="keyword">inline</span> <a class="code" href="class_mesh.html">Mesh</a> () {} 
-<a name="l00022"></a>00022     <span class="keyword">inline</span> <a class="code" href="class_mesh.html">Mesh</a> (<span class="keyword">const</span> std::vector&lt;Vertex&gt; &amp; v) 
+<a name="l00021"></a><a class="code" href="class_mesh.html#a2af137f1571af89172b9c102302c416b">00021</a>     <span class="keyword">inline</span> <a class="code" href="class_mesh.html#a2af137f1571af89172b9c102302c416b">Mesh</a> () {} 
+<a name="l00022"></a><a class="code" href="class_mesh.html#adb9316d7dace57df26ff1fe78b8f8c0a">00022</a>     <span class="keyword">inline</span> <a class="code" href="class_mesh.html#a2af137f1571af89172b9c102302c416b">Mesh</a> (<span class="keyword">const</span> std::vector&lt;Vertex&gt; &amp; v) 
 <a name="l00023"></a>00023         : vertices (v) {}
-<a name="l00024"></a>00024     <span class="keyword">inline</span> <a class="code" href="class_mesh.html">Mesh</a> (<span class="keyword">const</span> std::vector&lt;Vertex&gt; &amp; v, 
+<a name="l00024"></a><a class="code" href="class_mesh.html#a341fbc5393e30d8f391961e57d27f01f">00024</a>     <span class="keyword">inline</span> <a class="code" href="class_mesh.html#a2af137f1571af89172b9c102302c416b">Mesh</a> (<span class="keyword">const</span> std::vector&lt;Vertex&gt; &amp; v, 
 <a name="l00025"></a>00025                  <span class="keyword">const</span> std::vector&lt;Triangle&gt; &amp; t) 
 <a name="l00026"></a>00026         : vertices (v), triangles (t)  {}
-<a name="l00027"></a>00027     <span class="keyword">inline</span> <a class="code" href="class_mesh.html">Mesh</a> (<span class="keyword">const</span> <a class="code" href="class_mesh.html">Mesh</a> &amp; mesh) 
+<a name="l00027"></a><a class="code" href="class_mesh.html#ad0260249329b621d4d91c66293baef8d">00027</a>     <span class="keyword">inline</span> <a class="code" href="class_mesh.html#a2af137f1571af89172b9c102302c416b">Mesh</a> (<span class="keyword">const</span> <a class="code" href="class_mesh.html">Mesh</a> &amp; mesh) 
 <a name="l00028"></a>00028         : vertices (mesh.vertices), 
 <a name="l00029"></a>00029           triangles (mesh.triangles) {}
 <a name="l00030"></a>00030         
-<a name="l00031"></a>00031     <span class="keyword">inline</span> <span class="keyword">virtual</span> ~<a class="code" href="class_mesh.html">Mesh</a> () {}
-<a name="l00032"></a>00032     std::vector&lt;Vertex&gt; &amp; getVertices () { <span class="keywordflow">return</span> vertices; }
-<a name="l00033"></a>00033     <span class="keyword">const</span> std::vector&lt;Vertex&gt; &amp; getVertices ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> vertices; }
-<a name="l00034"></a>00034     std::vector&lt;Triangle&gt; &amp; getTriangles () { <span class="keywordflow">return</span> triangles; }
-<a name="l00035"></a>00035     <span class="keyword">const</span> std::vector&lt;Triangle&gt; &amp; getTriangles ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> triangles; }
-<a name="l00036"></a>00036     <span class="keywordtype">void</span> clear ();
-<a name="l00037"></a>00037     <span class="keywordtype">void</span> clearGeometry ();
-<a name="l00038"></a>00038     <span class="keywordtype">void</span> clearTopology ();
-<a name="l00039"></a>00039     <span class="keywordtype">void</span> unmarkAllVertices ();
-<a name="l00040"></a>00040     <span class="keywordtype">void</span> recomputeSmoothVertexNormals (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> weight);
-<a name="l00041"></a>00041     <span class="keywordtype">void</span> computeTriangleNormals (std::vector&lt;Vec3Df&gt; &amp; triangleNormals);  
-<a name="l00042"></a>00042     <span class="keywordtype">void</span> collectOneRing (std::vector&lt;std::vector&lt;unsigned int&gt; &gt; &amp; oneRing) <span class="keyword">const</span>;
-<a name="l00043"></a>00043     <span class="keywordtype">void</span> collectOrderedOneRing (std::vector&lt;std::vector&lt;unsigned int&gt; &gt; &amp; oneRing) <span class="keyword">const</span>;
-<a name="l00044"></a>00044     <span class="keywordtype">void</span> computeDualEdgeMap (EdgeMapIndex &amp; dualVMap1, EdgeMapIndex &amp; dualVMap2);
-<a name="l00045"></a>00045     <span class="keywordtype">void</span> markBorderEdges (EdgeMapIndex &amp; edgeMap);
+<a name="l00031"></a><a class="code" href="class_mesh.html#ad6a041191ed55c693254e945ce2869ff">00031</a>     <span class="keyword">inline</span> <span class="keyword">virtual</span> <a class="code" href="class_mesh.html#ad6a041191ed55c693254e945ce2869ff">~Mesh</a> () {}
+<a name="l00032"></a><a class="code" href="class_mesh.html#a42f498162d3a1c2dc33673aaf0e13bbe">00032</a>     std::vector&lt;Vertex&gt; &amp; <a class="code" href="class_mesh.html#a42f498162d3a1c2dc33673aaf0e13bbe">getVertices</a> () { <span class="keywordflow">return</span> vertices; }
+<a name="l00033"></a><a class="code" href="class_mesh.html#a012af8d734e4b24c9e4455460a309f39">00033</a>     <span class="keyword">const</span> std::vector&lt;Vertex&gt; &amp; <a class="code" href="class_mesh.html#a012af8d734e4b24c9e4455460a309f39">getVertices</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> vertices; }
+<a name="l00034"></a><a class="code" href="class_mesh.html#ad8028e3925807b895700685d20d8d068">00034</a>     std::vector&lt;Triangle&gt; &amp; <a class="code" href="class_mesh.html#ad8028e3925807b895700685d20d8d068">getTriangles</a> () { <span class="keywordflow">return</span> triangles; }
+<a name="l00035"></a><a class="code" href="class_mesh.html#a0ed54e18cd41d1464e9856870c0517af">00035</a>     <span class="keyword">const</span> std::vector&lt;Triangle&gt; &amp; <a class="code" href="class_mesh.html#a0ed54e18cd41d1464e9856870c0517af">getTriangles</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> triangles; }
+<a name="l00036"></a>00036     <span class="keywordtype">void</span> <a class="code" href="class_mesh.html#a7008e23cbaacd2878b7e81a01ac5d96b">clear</a> ();
+<a name="l00037"></a>00037     <span class="keywordtype">void</span> <a class="code" href="class_mesh.html#a1f53f5b1ea374096e87549bb34527627">clearGeometry</a> ();
+<a name="l00038"></a>00038     <span class="keywordtype">void</span> <a class="code" href="class_mesh.html#aa23a3186392b0285ff3cd5577a58a7eb">clearTopology</a> ();
+<a name="l00039"></a>00039     <span class="keywordtype">void</span> <a class="code" href="class_mesh.html#a5bf95f9557c71f7397b5d468e8c081e1">unmarkAllVertices</a> ();
+<a name="l00040"></a>00040     <span class="keywordtype">void</span> <a class="code" href="class_mesh.html#a9cb470310ac2300d068cace3b9ddf222">recomputeSmoothVertexNormals</a> (<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> weight);
+<a name="l00041"></a>00041     <span class="keywordtype">void</span> <a class="code" href="class_mesh.html#adb597894886af67deefb9abce6833c95">computeTriangleNormals</a> (std::vector&lt;Vec3Df&gt; &amp; triangleNormals);  
+<a name="l00042"></a>00042     <span class="keywordtype">void</span> <a class="code" href="class_mesh.html#ad615ce139902c658b6afa192e04e60a0">collectOneRing</a> (std::vector&lt;std::vector&lt;unsigned int&gt; &gt; &amp; oneRing) <span class="keyword">const</span>;
+<a name="l00043"></a>00043     <span class="keywordtype">void</span> <a class="code" href="class_mesh.html#abd301b4995d59fdd09b631c1162d97f1">collectOrderedOneRing</a> (std::vector&lt;std::vector&lt;unsigned int&gt; &gt; &amp; oneRing) <span class="keyword">const</span>;
+<a name="l00044"></a>00044     <span class="keywordtype">void</span> <a class="code" href="class_mesh.html#a2734381378be9cb9c8349e7bbfb6f2e9">computeDualEdgeMap</a> (<a class="code" href="_edge_8h.html#abe548ff04bebd42f343defbeac98fa2d">EdgeMapIndex</a> &amp; dualVMap1, <a class="code" href="_edge_8h.html#abe548ff04bebd42f343defbeac98fa2d">EdgeMapIndex</a> &amp; dualVMap2);
+<a name="l00045"></a>00045     <span class="keywordtype">void</span> <a class="code" href="class_mesh.html#ac461b001aa91580cc939e0ad15d7bdb6">markBorderEdges</a> (<a class="code" href="_edge_8h.html#abe548ff04bebd42f343defbeac98fa2d">EdgeMapIndex</a> &amp; edgeMap);
 <a name="l00046"></a>00046     
-<a name="l00047"></a>00047     <span class="keywordtype">void</span> renderGL (<span class="keywordtype">bool</span> flat) <span class="keyword">const</span>;
-<a name="l00048"></a>00048 
-<a name="l00049"></a>00049     <span class="keywordtype">void</span> loadOFF (<span class="keyword">const</span> std::string &amp; filename);
-<a name="l00050"></a>00050    <span class="keywordtype">void</span> loadOFF (<span class="keyword">const</span> std::string &amp; filename, <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; translatedVector, <span class="keywordtype">float</span> &amp; grandissement, <a class="code" href="class_rotation_matrix.html">RotationMatrix</a> &amp; rotMat);
-<a name="l00051"></a><a class="code" href="class_mesh_1_1_exception.html">00051</a>     <span class="keyword">class </span><a class="code" href="class_mesh_1_1_exception.html">Exception</a> {
-<a name="l00052"></a>00052     <span class="keyword">private</span>: 
-<a name="l00053"></a>00053         std::string msg;
-<a name="l00054"></a>00054     <span class="keyword">public</span>:
-<a name="l00055"></a>00055         <a class="code" href="class_mesh_1_1_exception.html">Exception</a> (<span class="keyword">const</span> std::string &amp; msg) : msg (<span class="stringliteral">&quot;[Mesh Exception]&quot;</span> + msg) {}
-<a name="l00056"></a>00056         <span class="keyword">virtual</span> ~<a class="code" href="class_mesh_1_1_exception.html">Exception</a> () {}
-<a name="l00057"></a>00057         <span class="keyword">inline</span> <span class="keyword">const</span> std::string &amp; getMessage ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> msg; }
-<a name="l00058"></a>00058     };
-<a name="l00059"></a>00059 
-<a name="l00060"></a>00060 <span class="keyword">private</span>:
-<a name="l00061"></a>00061     std::vector&lt;Vertex&gt; vertices;
-<a name="l00062"></a>00062     std::vector&lt;Triangle&gt; triangles;
-<a name="l00063"></a>00063 };
-<a name="l00064"></a>00064 
-<a name="l00065"></a>00065 <span class="preprocessor">#endif // MESH_H</span>
-<a name="l00066"></a>00066 <span class="preprocessor"></span>
-<a name="l00067"></a>00067 <span class="comment">// Some Emacs-Hints -- please don&#39;t remove:</span>
-<a name="l00068"></a>00068 <span class="comment">//</span>
-<a name="l00069"></a>00069 <span class="comment">//  Local Variables:</span>
-<a name="l00070"></a>00070 <span class="comment">//  mode:C++</span>
-<a name="l00071"></a>00071 <span class="comment">//  tab-width:4</span>
-<a name="l00072"></a>00072 <span class="comment">//  End:</span>
+<a name="l00047"></a>00047     <span class="keywordtype">void</span> <a class="code" href="class_mesh.html#a454105bfe72190b81331641be2edf3ec">renderGL</a> (<span class="keywordtype">bool</span> flat) <span class="keyword">const</span>;
+<a name="l00048"></a>00048     <span class="keywordtype">void</span> <a class="code" href="class_mesh.html#a04d240f35402702c60e742adf0b22bbc">loadOFFF</a> (<span class="keyword">const</span> std::string  filename);
+<a name="l00049"></a>00049     <span class="keywordtype">void</span> <a class="code" href="class_mesh.html#a1b9cb544aed0779cd165703979b83315">loadOFF</a> (<span class="keyword">const</span> std::string &amp; filename);
+<a name="l00050"></a>00050     <span class="keywordtype">void</span> <a class="code" href="class_mesh.html#a1b9cb544aed0779cd165703979b83315">loadOFF</a> (<span class="keyword">const</span> std::string &amp; filename, <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; translatedVector, <span class="keywordtype">float</span> &amp; grandissement, <a class="code" href="class_rotation_matrix.html">RotationMatrix</a> &amp; rotMat);
+<a name="l00051"></a>00051     <span class="keywordtype">void</span> <a class="code" href="class_mesh.html#a1b9cb544aed0779cd165703979b83315">loadOFF</a> (<span class="keyword">const</span> std::string &amp; filename, <span class="keywordtype">float</span> &amp; grandissement);
+<a name="l00052"></a><a class="code" href="class_mesh_1_1_exception.html">00052</a>     <span class="keyword">class </span><a class="code" href="class_mesh_1_1_exception.html">Exception</a> {
+<a name="l00053"></a>00053     <span class="keyword">private</span>: 
+<a name="l00054"></a>00054         std::string msg;
+<a name="l00055"></a>00055     <span class="keyword">public</span>:
+<a name="l00056"></a><a class="code" href="class_mesh_1_1_exception.html#aca0704da9d071bb4d946d0056f454832">00056</a>         <a class="code" href="class_mesh_1_1_exception.html#aca0704da9d071bb4d946d0056f454832">Exception</a> (<span class="keyword">const</span> std::string &amp; msg) : msg (<span class="stringliteral">&quot;[Mesh Exception]&quot;</span> + msg) {}
+<a name="l00057"></a><a class="code" href="class_mesh_1_1_exception.html#a855e2a0516e083a60e06e7f078679c91">00057</a>         <span class="keyword">virtual</span> <a class="code" href="class_mesh_1_1_exception.html#a855e2a0516e083a60e06e7f078679c91">~Exception</a> () {}
+<a name="l00058"></a><a class="code" href="class_mesh_1_1_exception.html#a739346738adb332d436e4cd02a710cc9">00058</a>         <span class="keyword">inline</span> <span class="keyword">const</span> std::string &amp; <a class="code" href="class_mesh_1_1_exception.html#a739346738adb332d436e4cd02a710cc9">getMessage</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> msg; }
+<a name="l00059"></a>00059     };
+<a name="l00060"></a>00060 
+<a name="l00061"></a>00061 <span class="keyword">private</span>:
+<a name="l00062"></a>00062     std::vector&lt;Vertex&gt; vertices;
+<a name="l00063"></a>00063     std::vector&lt;Triangle&gt; triangles;
+<a name="l00064"></a>00064 };
+<a name="l00065"></a>00065 
+<a name="l00066"></a>00066 <span class="preprocessor">#endif // MESH_H</span>
+<a name="l00067"></a>00067 <span class="preprocessor"></span>
+<a name="l00068"></a>00068 <span class="comment">// Some Emacs-Hints -- please don&#39;t remove:</span>
+<a name="l00069"></a>00069 <span class="comment">//</span>
+<a name="l00070"></a>00070 <span class="comment">//  Local Variables:</span>
+<a name="l00071"></a>00071 <span class="comment">//  mode:C++</span>
+<a name="l00072"></a>00072 <span class="comment">//  tab-width:4</span>
+<a name="l00073"></a>00073 <span class="comment">//  End:</span>
 </pre></div></div>
 </div>
 <!-- window showing the filter options -->
@@ -137,7 +139,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -146,7 +148,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Mon May 2 2011 01:51:51 for Projet3D by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Sun May 8 2011 16:02:09 for Ray Tracer by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

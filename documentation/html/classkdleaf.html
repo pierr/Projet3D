@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>Projet3D: kdleaf Class Reference</title>
+<title>Ray Tracer: kdleaf Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Projet3D</div>
+   <div id="projectname">Ray Tracer</div>
   </td>
  </tr>
  </tbody>
@@ -65,40 +65,315 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="contents">
 <!-- doxytag: class="kdleaf" -->
+<p><code>#include &lt;<a class="el" href="kdleaf_8h_source.html">kdleaf.h</a>&gt;</code></p>
+
 <p><a href="classkdleaf-members.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a61f8dc444b059efc74a8407ea22c64b6"></a><!-- doxytag: member="kdleaf::kdleaf" ref="a61f8dc444b059efc74a8407ea22c64b6" args="(int object, int triangle, Material material, Vertex vertex0, Vertex vertex1, Vertex vertex2, Vec3Df normal, Vec3Df camPos)" -->
-&#160;</td><td class="memItemRight" valign="bottom"><b>kdleaf</b> (int object, int triangle, <a class="el" href="class_material.html">Material</a> material, <a class="el" href="class_vertex.html">Vertex</a> vertex0, <a class="el" href="class_vertex.html">Vertex</a> vertex1, <a class="el" href="class_vertex.html">Vertex</a> vertex2, <a class="el" href="class_vec3_d.html">Vec3Df</a> normal, <a class="el" href="class_vec3_d.html">Vec3Df</a> camPos)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a21e06e09640a9d8142874916b98a37a9"></a><!-- doxytag: member="kdleaf::get_object" ref="a21e06e09640a9d8142874916b98a37a9" args="()" -->
-int&#160;</td><td class="memItemRight" valign="bottom"><b>get_object</b> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3d9647e804925ed89db806d6dcbd61bc"></a><!-- doxytag: member="kdleaf::get_triangle" ref="a3d9647e804925ed89db806d6dcbd61bc" args="()" -->
-int&#160;</td><td class="memItemRight" valign="bottom"><b>get_triangle</b> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a37dd9e3906892e5fe500ef483d70f915"></a><!-- doxytag: member="kdleaf::get_Material" ref="a37dd9e3906892e5fe500ef483d70f915" args="()" -->
-<a class="el" href="class_material.html">Material</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>get_Material</b> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a54a1ee1595eef900d154b2e1311c75ff"></a><!-- doxytag: member="kdleaf::get_vertex0" ref="a54a1ee1595eef900d154b2e1311c75ff" args="()" -->
-<a class="el" href="class_vertex.html">Vertex</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>get_vertex0</b> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8e59b65dc9de0d6c4d26f3658388497f"></a><!-- doxytag: member="kdleaf::get_vertex1" ref="a8e59b65dc9de0d6c4d26f3658388497f" args="()" -->
-<a class="el" href="class_vertex.html">Vertex</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>get_vertex1</b> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afe839295836ac154b0c6cc953c487148"></a><!-- doxytag: member="kdleaf::get_vertex2" ref="afe839295836ac154b0c6cc953c487148" args="()" -->
-<a class="el" href="class_vertex.html">Vertex</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>get_vertex2</b> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a22bd977d3771ad4c1cd2e44e51583ed3"></a><!-- doxytag: member="kdleaf::get_p0" ref="a22bd977d3771ad4c1cd2e44e51583ed3" args="()" -->
-const <a class="el" href="class_vec3_d.html">Vec3Df</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>get_p0</b> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a96acefe5b601f195bd9def7481a73693"></a><!-- doxytag: member="kdleaf::get_p1" ref="a96acefe5b601f195bd9def7481a73693" args="()" -->
-const <a class="el" href="class_vec3_d.html">Vec3Df</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>get_p1</b> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab1bae043e7f280a7df9fc181c400d894"></a><!-- doxytag: member="kdleaf::get_p2" ref="ab1bae043e7f280a7df9fc181c400d894" args="()" -->
-const <a class="el" href="class_vec3_d.html">Vec3Df</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>get_p2</b> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac666a00919ebe62e28a07859958e819e"></a><!-- doxytag: member="kdleaf::get_barycentre" ref="ac666a00919ebe62e28a07859958e819e" args="()" -->
-<a class="el" href="class_vec3_d.html">Vec3Df</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>get_barycentre</b> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aad846bf2b18442b770dc4be9291402c9"></a><!-- doxytag: member="kdleaf::get_normal" ref="aad846bf2b18442b770dc4be9291402c9" args="()" -->
-<a class="el" href="class_vec3_d.html">Vec3Df</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>get_normal</b> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa47457a9b7916bd6bcae50b4b77722c4"></a><!-- doxytag: member="kdleaf::get_distance" ref="aa47457a9b7916bd6bcae50b4b77722c4" args="()" -->
-float&#160;</td><td class="memItemRight" valign="bottom"><b>get_distance</b> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classkdleaf.html#a61f8dc444b059efc74a8407ea22c64b6">kdleaf</a> (int object, int triangle, <a class="el" href="class_material.html">Material</a> material, <a class="el" href="class_vertex.html">Vertex</a> vertex0, <a class="el" href="class_vertex.html">Vertex</a> vertex1, <a class="el" href="class_vertex.html">Vertex</a> vertex2, <a class="el" href="class_vec3_d.html">Vec3Df</a> normal, <a class="el" href="class_vec3_d.html">Vec3Df</a> camPos)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classkdleaf.html#a21e06e09640a9d8142874916b98a37a9">get_object</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classkdleaf.html#a3d9647e804925ed89db806d6dcbd61bc">get_triangle</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_material.html">Material</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classkdleaf.html#a37dd9e3906892e5fe500ef483d70f915">get_Material</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vertex.html">Vertex</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classkdleaf.html#a54a1ee1595eef900d154b2e1311c75ff">get_vertex0</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vertex.html">Vertex</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classkdleaf.html#a8e59b65dc9de0d6c4d26f3658388497f">get_vertex1</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vertex.html">Vertex</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classkdleaf.html#afe839295836ac154b0c6cc953c487148">get_vertex2</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_vec3_d.html">Vec3Df</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classkdleaf.html#a22bd977d3771ad4c1cd2e44e51583ed3">get_p0</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_vec3_d.html">Vec3Df</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classkdleaf.html#a96acefe5b601f195bd9def7481a73693">get_p1</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_vec3_d.html">Vec3Df</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classkdleaf.html#ab1bae043e7f280a7df9fc181c400d894">get_p2</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vec3_d.html">Vec3Df</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classkdleaf.html#ac666a00919ebe62e28a07859958e819e">get_barycentre</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vec3_d.html">Vec3Df</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classkdleaf.html#aad846bf2b18442b770dc4be9291402c9">get_normal</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classkdleaf.html#aa47457a9b7916bd6bcae50b4b77722c4">get_distance</a> ()</td></tr>
 </table>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock">
+<p>Definition at line <a class="el" href="kdleaf_8h_source.html#l00010">10</a> of file <a class="el" href="kdleaf_8h_source.html">kdleaf.h</a>.</p>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a61f8dc444b059efc74a8407ea22c64b6"></a><!-- doxytag: member="kdleaf::kdleaf" ref="a61f8dc444b059efc74a8407ea22c64b6" args="(int object, int triangle, Material material, Vertex vertex0, Vertex vertex1, Vertex vertex2, Vec3Df normal, Vec3Df camPos)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">kdleaf::kdleaf </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>object</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>triangle</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_material.html">Material</a>&#160;</td>
+          <td class="paramname"><em>material</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_vertex.html">Vertex</a>&#160;</td>
+          <td class="paramname"><em>vertex0</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_vertex.html">Vertex</a>&#160;</td>
+          <td class="paramname"><em>vertex1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_vertex.html">Vertex</a>&#160;</td>
+          <td class="paramname"><em>vertex2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_vec3_d.html">Vec3Df</a>&#160;</td>
+          <td class="paramname"><em>normal</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_vec3_d.html">Vec3Df</a>&#160;</td>
+          <td class="paramname"><em>camPos</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="kdleaf_8cpp_source.html#l00003">3</a> of file <a class="el" href="kdleaf_8cpp_source.html">kdleaf.cpp</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="ac666a00919ebe62e28a07859958e819e"></a><!-- doxytag: member="kdleaf::get_barycentre" ref="ac666a00919ebe62e28a07859958e819e" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_vec3_d.html">Vec3Df</a>&amp; kdleaf::get_barycentre </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="kdleaf_8h_source.html#l00023">23</a> of file <a class="el" href="kdleaf_8h_source.html">kdleaf.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa47457a9b7916bd6bcae50b4b77722c4"></a><!-- doxytag: member="kdleaf::get_distance" ref="aa47457a9b7916bd6bcae50b4b77722c4" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float kdleaf::get_distance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="kdleaf_8h_source.html#l00025">25</a> of file <a class="el" href="kdleaf_8h_source.html">kdleaf.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a37dd9e3906892e5fe500ef483d70f915"></a><!-- doxytag: member="kdleaf::get_Material" ref="a37dd9e3906892e5fe500ef483d70f915" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_material.html">Material</a>&amp; kdleaf::get_Material </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="kdleaf_8h_source.html#l00016">16</a> of file <a class="el" href="kdleaf_8h_source.html">kdleaf.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aad846bf2b18442b770dc4be9291402c9"></a><!-- doxytag: member="kdleaf::get_normal" ref="aad846bf2b18442b770dc4be9291402c9" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_vec3_d.html">Vec3Df</a>&amp; kdleaf::get_normal </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="kdleaf_8h_source.html#l00024">24</a> of file <a class="el" href="kdleaf_8h_source.html">kdleaf.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a21e06e09640a9d8142874916b98a37a9"></a><!-- doxytag: member="kdleaf::get_object" ref="a21e06e09640a9d8142874916b98a37a9" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int kdleaf::get_object </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="kdleaf_8h_source.html#l00014">14</a> of file <a class="el" href="kdleaf_8h_source.html">kdleaf.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a22bd977d3771ad4c1cd2e44e51583ed3"></a><!-- doxytag: member="kdleaf::get_p0" ref="a22bd977d3771ad4c1cd2e44e51583ed3" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="class_vec3_d.html">Vec3Df</a>&amp; kdleaf::get_p0 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="kdleaf_8h_source.html#l00020">20</a> of file <a class="el" href="kdleaf_8h_source.html">kdleaf.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a96acefe5b601f195bd9def7481a73693"></a><!-- doxytag: member="kdleaf::get_p1" ref="a96acefe5b601f195bd9def7481a73693" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="class_vec3_d.html">Vec3Df</a>&amp; kdleaf::get_p1 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="kdleaf_8h_source.html#l00021">21</a> of file <a class="el" href="kdleaf_8h_source.html">kdleaf.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab1bae043e7f280a7df9fc181c400d894"></a><!-- doxytag: member="kdleaf::get_p2" ref="ab1bae043e7f280a7df9fc181c400d894" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="class_vec3_d.html">Vec3Df</a>&amp; kdleaf::get_p2 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="kdleaf_8h_source.html#l00022">22</a> of file <a class="el" href="kdleaf_8h_source.html">kdleaf.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3d9647e804925ed89db806d6dcbd61bc"></a><!-- doxytag: member="kdleaf::get_triangle" ref="a3d9647e804925ed89db806d6dcbd61bc" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int kdleaf::get_triangle </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="kdleaf_8h_source.html#l00015">15</a> of file <a class="el" href="kdleaf_8h_source.html">kdleaf.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a54a1ee1595eef900d154b2e1311c75ff"></a><!-- doxytag: member="kdleaf::get_vertex0" ref="a54a1ee1595eef900d154b2e1311c75ff" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_vertex.html">Vertex</a>&amp; kdleaf::get_vertex0 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="kdleaf_8h_source.html#l00017">17</a> of file <a class="el" href="kdleaf_8h_source.html">kdleaf.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8e59b65dc9de0d6c4d26f3658388497f"></a><!-- doxytag: member="kdleaf::get_vertex1" ref="a8e59b65dc9de0d6c4d26f3658388497f" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_vertex.html">Vertex</a>&amp; kdleaf::get_vertex1 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="kdleaf_8h_source.html#l00018">18</a> of file <a class="el" href="kdleaf_8h_source.html">kdleaf.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afe839295836ac154b0c6cc953c487148"></a><!-- doxytag: member="kdleaf::get_vertex2" ref="afe839295836ac154b0c6cc953c487148" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_vertex.html">Vertex</a>&amp; kdleaf::get_vertex2 </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="kdleaf_8h_source.html#l00019">19</a> of file <a class="el" href="kdleaf_8h_source.html">kdleaf.h</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>raymini/<a class="el" href="kdleaf_8h_source.html">kdleaf.h</a></li>
-<li>raymini/kdleaf.cpp</li>
+<li>raymini/<a class="el" href="kdleaf_8cpp_source.html">kdleaf.cpp</a></li>
 </ul>
 </div>
 <!-- window showing the filter options -->
@@ -106,7 +381,7 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>get_distance</b> ()<
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -115,7 +390,7 @@ float&#160;</td><td class="memItemRight" valign="bottom"><b>get_distance</b> ()<
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Mon May 2 2011 01:51:51 for Projet3D by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Sun May 8 2011 16:02:10 for Ray Tracer by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

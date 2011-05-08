@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>Projet3D: Vertex Class Reference</title>
+<title>Ray Tracer: Vertex Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Projet3D</div>
+   <div id="projectname">Ray Tracer</div>
   </td>
  </tr>
  </tbody>
@@ -66,52 +66,473 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="contents">
 <!-- doxytag: class="Vertex" -->
+<p><code>#include &lt;<a class="el" href="_vertex_8h_source.html">Vertex.h</a>&gt;</code></p>
+
 <p><a href="class_vertex-members.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af7a13faf027010bf791afeab4b7e5334"></a><!-- doxytag: member="Vertex::Vertex" ref="af7a13faf027010bf791afeab4b7e5334" args="(const Vec3Df &amp;pos)" -->
-&#160;</td><td class="memItemRight" valign="bottom"><b>Vertex</b> (const <a class="el" href="class_vec3_d.html">Vec3Df</a> &amp;pos)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a27a83fd914a9c3356e1a91175af9dcb2"></a><!-- doxytag: member="Vertex::Vertex" ref="a27a83fd914a9c3356e1a91175af9dcb2" args="(const Vec3Df &amp;pos, const Vec3Df &amp;normal)" -->
-&#160;</td><td class="memItemRight" valign="bottom"><b>Vertex</b> (const <a class="el" href="class_vec3_d.html">Vec3Df</a> &amp;pos, const <a class="el" href="class_vec3_d.html">Vec3Df</a> &amp;normal)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2cd575cac73be8dba0f87dfc38fe20e7"></a><!-- doxytag: member="Vertex::Vertex" ref="a2cd575cac73be8dba0f87dfc38fe20e7" args="(const Vertex &amp;v)" -->
-&#160;</td><td class="memItemRight" valign="bottom"><b>Vertex</b> (const <a class="el" href="class_vertex.html">Vertex</a> &amp;v)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0a25587d8b6e15e799bd4384a9f443cf"></a><!-- doxytag: member="Vertex::operator=" ref="a0a25587d8b6e15e799bd4384a9f443cf" args="(const Vertex &amp;vertex)" -->
-<a class="el" href="class_vertex.html">Vertex</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>operator=</b> (const <a class="el" href="class_vertex.html">Vertex</a> &amp;vertex)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abc85a4fa1297c23dbb5bd99c3b410943"></a><!-- doxytag: member="Vertex::getPos" ref="abc85a4fa1297c23dbb5bd99c3b410943" args="() const " -->
-const <a class="el" href="class_vec3_d.html">Vec3Df</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getPos</b> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad35a48e6284848d838dc57fe8876beea"></a><!-- doxytag: member="Vertex::getNormal" ref="ad35a48e6284848d838dc57fe8876beea" args="() const " -->
-const <a class="el" href="class_vec3_d.html">Vec3Df</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getNormal</b> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="afa6b3258a4e1702a9335c1bd65dc1f39"></a><!-- doxytag: member="Vertex::isMarked" ref="afa6b3258a4e1702a9335c1bd65dc1f39" args="() const " -->
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isMarked</b> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa61ee83bfe1b0c80f0b554663bdbd2da"></a><!-- doxytag: member="Vertex::getId" ref="aa61ee83bfe1b0c80f0b554663bdbd2da" args="() const " -->
-int&#160;</td><td class="memItemRight" valign="bottom"><b>getId</b> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2e70cf74099095e6dcbf1cb0b6c36a60"></a><!-- doxytag: member="Vertex::setPos" ref="a2e70cf74099095e6dcbf1cb0b6c36a60" args="(const Vec3Df &amp;newPos)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setPos</b> (const <a class="el" href="class_vec3_d.html">Vec3Df</a> &amp;newPos)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8a7525b1dbd634e704d298cb4b49a6e8"></a><!-- doxytag: member="Vertex::setNormal" ref="a8a7525b1dbd634e704d298cb4b49a6e8" args="(const Vec3Df &amp;newNormal)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setNormal</b> (const <a class="el" href="class_vec3_d.html">Vec3Df</a> &amp;newNormal)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a35c96268d32fe84af664a2d3beb0c6ca"></a><!-- doxytag: member="Vertex::mark" ref="a35c96268d32fe84af664a2d3beb0c6ca" args="()" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>mark</b> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0b8c2a69595f86592e9538386d82125b"></a><!-- doxytag: member="Vertex::unmark" ref="a0b8c2a69595f86592e9538386d82125b" args="()" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>unmark</b> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a022e5d3151c7525ca5663b9fcd62ea52"></a><!-- doxytag: member="Vertex::setId" ref="a022e5d3151c7525ca5663b9fcd62ea52" args="(int newId)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setId</b> (int newId)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a50c7b9747e7c6eb761d0559dbfd9847d"></a><!-- doxytag: member="Vertex::operator==" ref="a50c7b9747e7c6eb761d0559dbfd9847d" args="(const Vertex &amp;v)" -->
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operator==</b> (const <a class="el" href="class_vertex.html">Vertex</a> &amp;v)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac00a06d538fca792d8aa14b559ed21b0"></a><!-- doxytag: member="Vertex::interpolate" ref="ac00a06d538fca792d8aa14b559ed21b0" args="(const Vertex &amp;u, const Vertex &amp;v, float alpha=0.5)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>interpolate</b> (const <a class="el" href="class_vertex.html">Vertex</a> &amp;u, const <a class="el" href="class_vertex.html">Vertex</a> &amp;v, float alpha=0.5)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vertex.html#a97488994a2482d70da74e1b91d40e169">Vertex</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vertex.html#af7a13faf027010bf791afeab4b7e5334">Vertex</a> (const <a class="el" href="class_vec3_d.html">Vec3Df</a> &amp;pos)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vertex.html#a27a83fd914a9c3356e1a91175af9dcb2">Vertex</a> (const <a class="el" href="class_vec3_d.html">Vec3Df</a> &amp;pos, const <a class="el" href="class_vec3_d.html">Vec3Df</a> &amp;normal)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vertex.html#a2cd575cac73be8dba0f87dfc38fe20e7">Vertex</a> (const <a class="el" href="class_vertex.html">Vertex</a> &amp;v)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vertex.html#abc07e7e9ea84be7a07dd1b0e70de579e">~Vertex</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_vertex.html">Vertex</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vertex.html#a0a25587d8b6e15e799bd4384a9f443cf">operator=</a> (const <a class="el" href="class_vertex.html">Vertex</a> &amp;vertex)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_vec3_d.html">Vec3Df</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vertex.html#abc85a4fa1297c23dbb5bd99c3b410943">getPos</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_vec3_d.html">Vec3Df</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vertex.html#ad35a48e6284848d838dc57fe8876beea">getNormal</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vertex.html#afa6b3258a4e1702a9335c1bd65dc1f39">isMarked</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vertex.html#aa61ee83bfe1b0c80f0b554663bdbd2da">getId</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vertex.html#a2e70cf74099095e6dcbf1cb0b6c36a60">setPos</a> (const <a class="el" href="class_vec3_d.html">Vec3Df</a> &amp;newPos)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vertex.html#a8a7525b1dbd634e704d298cb4b49a6e8">setNormal</a> (const <a class="el" href="class_vec3_d.html">Vec3Df</a> &amp;newNormal)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vertex.html#a35c96268d32fe84af664a2d3beb0c6ca">mark</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vertex.html#a0b8c2a69595f86592e9538386d82125b">unmark</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vertex.html#a022e5d3151c7525ca5663b9fcd62ea52">setId</a> (int newId)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vertex.html#a50c7b9747e7c6eb761d0559dbfd9847d">operator==</a> (const <a class="el" href="class_vertex.html">Vertex</a> &amp;v)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vertex.html#ac00a06d538fca792d8aa14b559ed21b0">interpolate</a> (const <a class="el" href="class_vertex.html">Vertex</a> &amp;u, const <a class="el" href="class_vertex.html">Vertex</a> &amp;v, float alpha=0.5)</td></tr>
 <tr><td colspan="2"><h2><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab7d3c50b63d26fcaa3b473ff9635e8d1"></a><!-- doxytag: member="Vertex::computeAveragePosAndRadius" ref="ab7d3c50b63d26fcaa3b473ff9635e8d1" args="(std::vector&lt; Vertex &gt; &amp;vertices, Vec3Df &amp;center, float &amp;radius)" -->
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>computeAveragePosAndRadius</b> (std::vector&lt; <a class="el" href="class_vertex.html">Vertex</a> &gt; &amp;vertices, <a class="el" href="class_vec3_d.html">Vec3Df</a> &amp;center, float &amp;radius)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3d88aa3bcab9a1e745694725a65214bc"></a><!-- doxytag: member="Vertex::scaleToUnitBox" ref="a3d88aa3bcab9a1e745694725a65214bc" args="(std::vector&lt; Vertex &gt; &amp;vertices, Vec3Df &amp;center, float &amp;scaleToUnitBox)" -->
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>scaleToUnitBox</b> (std::vector&lt; <a class="el" href="class_vertex.html">Vertex</a> &gt; &amp;vertices, <a class="el" href="class_vec3_d.html">Vec3Df</a> &amp;center, float &amp;scaleToUnitBox)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac71b7a76430abbb2ce0ae8d4af706881"></a><!-- doxytag: member="Vertex::normalizeNormals" ref="ac71b7a76430abbb2ce0ae8d4af706881" args="(std::vector&lt; Vertex &gt; &amp;vertices)" -->
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>normalizeNormals</b> (std::vector&lt; <a class="el" href="class_vertex.html">Vertex</a> &gt; &amp;vertices)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vertex.html#ab7d3c50b63d26fcaa3b473ff9635e8d1">computeAveragePosAndRadius</a> (std::vector&lt; <a class="el" href="class_vertex.html">Vertex</a> &gt; &amp;vertices, <a class="el" href="class_vec3_d.html">Vec3Df</a> &amp;center, float &amp;radius)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vertex.html#a3d88aa3bcab9a1e745694725a65214bc">scaleToUnitBox</a> (std::vector&lt; <a class="el" href="class_vertex.html">Vertex</a> &gt; &amp;vertices, <a class="el" href="class_vec3_d.html">Vec3Df</a> &amp;center, float &amp;scaleToUnitBox)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_vertex.html#ac71b7a76430abbb2ce0ae8d4af706881">normalizeNormals</a> (std::vector&lt; <a class="el" href="class_vertex.html">Vertex</a> &gt; &amp;vertices)</td></tr>
 </table>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock">
+<p>Definition at line <a class="el" href="_vertex_8h_source.html#l00016">16</a> of file <a class="el" href="_vertex_8h_source.html">Vertex.h</a>.</p>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a97488994a2482d70da74e1b91d40e169"></a><!-- doxytag: member="Vertex::Vertex" ref="a97488994a2482d70da74e1b91d40e169" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Vertex::Vertex </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_vertex_8h_source.html#l00018">18</a> of file <a class="el" href="_vertex_8h_source.html">Vertex.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="af7a13faf027010bf791afeab4b7e5334"></a><!-- doxytag: member="Vertex::Vertex" ref="af7a13faf027010bf791afeab4b7e5334" args="(const Vec3Df &amp;pos)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Vertex::Vertex </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_vec3_d.html">Vec3Df</a> &amp;&#160;</td>
+          <td class="paramname"><em>pos</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_vertex_8h_source.html#l00021">21</a> of file <a class="el" href="_vertex_8h_source.html">Vertex.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a27a83fd914a9c3356e1a91175af9dcb2"></a><!-- doxytag: member="Vertex::Vertex" ref="a27a83fd914a9c3356e1a91175af9dcb2" args="(const Vec3Df &amp;pos, const Vec3Df &amp;normal)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Vertex::Vertex </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_vec3_d.html">Vec3Df</a> &amp;&#160;</td>
+          <td class="paramname"><em>pos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_vec3_d.html">Vec3Df</a> &amp;&#160;</td>
+          <td class="paramname"><em>normal</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_vertex_8h_source.html#l00024">24</a> of file <a class="el" href="_vertex_8h_source.html">Vertex.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2cd575cac73be8dba0f87dfc38fe20e7"></a><!-- doxytag: member="Vertex::Vertex" ref="a2cd575cac73be8dba0f87dfc38fe20e7" args="(const Vertex &amp;v)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Vertex::Vertex </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_vertex.html">Vertex</a> &amp;&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_vertex_8h_source.html#l00027">27</a> of file <a class="el" href="_vertex_8h_source.html">Vertex.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abc07e7e9ea84be7a07dd1b0e70de579e"></a><!-- doxytag: member="Vertex::~Vertex" ref="abc07e7e9ea84be7a07dd1b0e70de579e" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual Vertex::~Vertex </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_vertex_8h_source.html#l00029">29</a> of file <a class="el" href="_vertex_8h_source.html">Vertex.h</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="ab7d3c50b63d26fcaa3b473ff9635e8d1"></a><!-- doxytag: member="Vertex::computeAveragePosAndRadius" ref="ab7d3c50b63d26fcaa3b473ff9635e8d1" args="(std::vector&lt; Vertex &gt; &amp;vertices, Vec3Df &amp;center, float &amp;radius)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Vertex::computeAveragePosAndRadius </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="class_vertex.html">Vertex</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>vertices</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_vec3_d.html">Vec3Df</a> &amp;&#160;</td>
+          <td class="paramname"><em>center</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float &amp;&#160;</td>
+          <td class="paramname"><em>radius</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_vertex_8cpp_source.html#l00033">33</a> of file <a class="el" href="_vertex_8cpp_source.html">Vertex.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa61ee83bfe1b0c80f0b554663bdbd2da"></a><!-- doxytag: member="Vertex::getId" ref="aa61ee83bfe1b0c80f0b554663bdbd2da" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int Vertex::getId </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_vertex_8h_source.html#l00040">40</a> of file <a class="el" href="_vertex_8h_source.html">Vertex.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad35a48e6284848d838dc57fe8876beea"></a><!-- doxytag: member="Vertex::getNormal" ref="ad35a48e6284848d838dc57fe8876beea" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="class_vec3_d.html">Vec3Df</a>&amp; Vertex::getNormal </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_vertex_8h_source.html#l00038">38</a> of file <a class="el" href="_vertex_8h_source.html">Vertex.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abc85a4fa1297c23dbb5bd99c3b410943"></a><!-- doxytag: member="Vertex::getPos" ref="abc85a4fa1297c23dbb5bd99c3b410943" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="class_vec3_d.html">Vec3Df</a>&amp; Vertex::getPos </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_vertex_8h_source.html#l00037">37</a> of file <a class="el" href="_vertex_8h_source.html">Vertex.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac00a06d538fca792d8aa14b559ed21b0"></a><!-- doxytag: member="Vertex::interpolate" ref="ac00a06d538fca792d8aa14b559ed21b0" args="(const Vertex &amp;u, const Vertex &amp;v, float alpha=0.5)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Vertex::interpolate </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_vertex.html">Vertex</a> &amp;&#160;</td>
+          <td class="paramname"><em>u</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="class_vertex.html">Vertex</a> &amp;&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>alpha</em> = <code>0.5</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_vertex_8cpp_source.html#l00022">22</a> of file <a class="el" href="_vertex_8cpp_source.html">Vertex.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="afa6b3258a4e1702a9335c1bd65dc1f39"></a><!-- doxytag: member="Vertex::isMarked" ref="afa6b3258a4e1702a9335c1bd65dc1f39" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Vertex::isMarked </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_vertex_8h_source.html#l00039">39</a> of file <a class="el" href="_vertex_8h_source.html">Vertex.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a35c96268d32fe84af664a2d3beb0c6ca"></a><!-- doxytag: member="Vertex::mark" ref="a35c96268d32fe84af664a2d3beb0c6ca" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Vertex::mark </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_vertex_8h_source.html#l00043">43</a> of file <a class="el" href="_vertex_8h_source.html">Vertex.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac71b7a76430abbb2ce0ae8d4af706881"></a><!-- doxytag: member="Vertex::normalizeNormals" ref="ac71b7a76430abbb2ce0ae8d4af706881" args="(std::vector&lt; Vertex &gt; &amp;vertices)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Vertex::normalizeNormals </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="class_vertex.html">Vertex</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>vertices</em></td><td>)</td>
+          <td><code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_vertex_8cpp_source.html#l00054">54</a> of file <a class="el" href="_vertex_8cpp_source.html">Vertex.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0a25587d8b6e15e799bd4384a9f443cf"></a><!-- doxytag: member="Vertex::operator=" ref="a0a25587d8b6e15e799bd4384a9f443cf" args="(const Vertex &amp;vertex)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_vertex.html">Vertex</a>&amp; Vertex::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_vertex.html">Vertex</a> &amp;&#160;</td>
+          <td class="paramname"><em>vertex</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_vertex_8h_source.html#l00030">30</a> of file <a class="el" href="_vertex_8h_source.html">Vertex.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a50c7b9747e7c6eb761d0559dbfd9847d"></a><!-- doxytag: member="Vertex::operator==" ref="a50c7b9747e7c6eb761d0559dbfd9847d" args="(const Vertex &amp;v)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Vertex::operator== </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_vertex.html">Vertex</a> &amp;&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_vertex_8h_source.html#l00046">46</a> of file <a class="el" href="_vertex_8h_source.html">Vertex.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3d88aa3bcab9a1e745694725a65214bc"></a><!-- doxytag: member="Vertex::scaleToUnitBox" ref="a3d88aa3bcab9a1e745694725a65214bc" args="(std::vector&lt; Vertex &gt; &amp;vertices, Vec3Df &amp;center, float &amp;scaleToUnitBox)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Vertex::scaleToUnitBox </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="class_vertex.html">Vertex</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>vertices</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_vec3_d.html">Vec3Df</a> &amp;&#160;</td>
+          <td class="paramname"><em>center</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float &amp;&#160;</td>
+          <td class="paramname"><em>scaleToUnitBox</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_vertex_8cpp_source.html#l00047">47</a> of file <a class="el" href="_vertex_8cpp_source.html">Vertex.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a022e5d3151c7525ca5663b9fcd62ea52"></a><!-- doxytag: member="Vertex::setId" ref="a022e5d3151c7525ca5663b9fcd62ea52" args="(int newId)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Vertex::setId </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>newId</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_vertex_8h_source.html#l00045">45</a> of file <a class="el" href="_vertex_8h_source.html">Vertex.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8a7525b1dbd634e704d298cb4b49a6e8"></a><!-- doxytag: member="Vertex::setNormal" ref="a8a7525b1dbd634e704d298cb4b49a6e8" args="(const Vec3Df &amp;newNormal)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Vertex::setNormal </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_vec3_d.html">Vec3Df</a> &amp;&#160;</td>
+          <td class="paramname"><em>newNormal</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_vertex_8h_source.html#l00042">42</a> of file <a class="el" href="_vertex_8h_source.html">Vertex.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2e70cf74099095e6dcbf1cb0b6c36a60"></a><!-- doxytag: member="Vertex::setPos" ref="a2e70cf74099095e6dcbf1cb0b6c36a60" args="(const Vec3Df &amp;newPos)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Vertex::setPos </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_vec3_d.html">Vec3Df</a> &amp;&#160;</td>
+          <td class="paramname"><em>newPos</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_vertex_8h_source.html#l00041">41</a> of file <a class="el" href="_vertex_8h_source.html">Vertex.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0b8c2a69595f86592e9538386d82125b"></a><!-- doxytag: member="Vertex::unmark" ref="a0b8c2a69595f86592e9538386d82125b" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Vertex::unmark </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_vertex_8h_source.html#l00044">44</a> of file <a class="el" href="_vertex_8h_source.html">Vertex.h</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>raymini/<a class="el" href="_vertex_8h_source.html">Vertex.h</a></li>
-<li>raymini/Vertex.cpp</li>
+<li>raymini/<a class="el" href="_vertex_8cpp_source.html">Vertex.cpp</a></li>
 </ul>
 </div>
 <!-- window showing the filter options -->
@@ -119,7 +540,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>normalizeNorma
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -128,7 +549,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>normalizeNorma
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Mon May 2 2011 01:51:51 for Projet3D by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Sun May 8 2011 16:02:10 for Ray Tracer by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

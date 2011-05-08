@@ -4,98 +4,126 @@
 }
 
 
-Inherited by \hyperlink{class_rotation_matrix}{RotationMatrix}.
+{\ttfamily \#include $<$Matrix.h$>$}
 
+Inheritance diagram for Matrix:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_matrix}
+\end{center}
+\end{figure}
 \subsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
-enum {\bfseries Axis} \{ {\bfseries X}, 
-{\bfseries Y}, 
-{\bfseries Z}, 
-{\bfseries Other}
+enum \hyperlink{class_matrix_af69237b098cb1876beaa3375f7dacbc1}{Axis} \{ \hyperlink{class_matrix_af69237b098cb1876beaa3375f7dacbc1a7408a491f6d7e46bf3a2e4f7376953cb}{X}, 
+\hyperlink{class_matrix_af69237b098cb1876beaa3375f7dacbc1a9ab9a64e4e572730b025b8af91a834d2}{Y}, 
+\hyperlink{class_matrix_af69237b098cb1876beaa3375f7dacbc1a5460a997f774f5f9f8e989c9936150c8}{Z}, 
+\hyperlink{class_matrix_af69237b098cb1876beaa3375f7dacbc1a63c7b6500c0a31b34d40fdc5ea341195}{Other}
  \}
 \end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\hyperlink{class_matrix_a2dba13c45127354c9f75ef576f49269b}{Matrix} ()
+\item 
 \hyperlink{class_matrix_a7fc5559ca322edcad4e74748cc21a212}{Matrix} (double valeur)
 \item 
-\hypertarget{class_matrix_a1852c311c6669c1d7073ca79db5fced3}{
-{\bfseries Matrix} (const \hyperlink{class_matrix}{Matrix} \&source)}
-\label{class_matrix_a1852c311c6669c1d7073ca79db5fced3}
-
+\hyperlink{class_matrix_a1852c311c6669c1d7073ca79db5fced3}{Matrix} (const \hyperlink{class_matrix}{Matrix} \&source)
 \item 
 \hyperlink{class_matrix_aae556b9970532484d24ac438b94d9e14}{Matrix} (double l0v0, double l0v1, double l0v2, double l0v3, double l1v0, double l1v1, double l1v2, double l1v3, double l2v0, double l2v1, double l2v2, double l2v3, double l3v0, double l3v1, double l3v2, double l3v3)
 \item 
-\hypertarget{class_matrix_a0945de041689d520fb614b6af735ab90}{
-void {\bfseries setValue} (int line, int col, double value)}
-\label{class_matrix_a0945de041689d520fb614b6af735ab90}
-
+virtual \hyperlink{class_matrix_a9b1c3627f573d78a2f08623fdfef990f}{$\sim$Matrix} ()
 \item 
-\hypertarget{class_matrix_a3655359b1f9451cb7b589c3a9bc5c7f0}{
-\hyperlink{class_matrix}{Matrix} \& {\bfseries operator=} (const \hyperlink{class_matrix}{Matrix} \&mat)}
-\label{class_matrix_a3655359b1f9451cb7b589c3a9bc5c7f0}
-
+void \hyperlink{class_matrix_a0945de041689d520fb614b6af735ab90}{setValue} (int line, int col, double value)
 \item 
-\hypertarget{class_matrix_a51f8f6f7eca7e0a03b93d7e9594fa08b}{
-\hyperlink{class_matrix}{Matrix} \& {\bfseries operator$\ast$=} (const \hyperlink{class_matrix}{Matrix} \&mat)}
-\label{class_matrix_a51f8f6f7eca7e0a03b93d7e9594fa08b}
-
+\hyperlink{class_matrix}{Matrix} \& \hyperlink{class_matrix_a3655359b1f9451cb7b589c3a9bc5c7f0}{operator=} (const \hyperlink{class_matrix}{Matrix} \&mat)
 \item 
-\hypertarget{class_matrix_af36b762320602082b82e7b8b7d4a93c8}{
-\hyperlink{class_matrix}{Matrix} {\bfseries operator$\ast$} (const \hyperlink{class_matrix}{Matrix} \&mat)}
-\label{class_matrix_af36b762320602082b82e7b8b7d4a93c8}
-
+\hyperlink{class_matrix}{Matrix} \& \hyperlink{class_matrix_a51f8f6f7eca7e0a03b93d7e9594fa08b}{operator$\ast$=} (const \hyperlink{class_matrix}{Matrix} \&mat)
+\item 
+\hyperlink{class_matrix}{Matrix} \hyperlink{class_matrix_af36b762320602082b82e7b8b7d4a93c8}{operator$\ast$} (const \hyperlink{class_matrix}{Matrix} \&mat)
 \item 
 \hyperlink{class_vec3_d}{Vec3Df} \hyperlink{class_matrix_aba65fb54d9b60c6cc6738b45c88cada0}{operator$\ast$} (\hyperlink{class_vec3_d}{Vec3Df} \&vec)
 \item 
-\hypertarget{class_matrix_a270dd27392c9508623e254e490768f73}{
-\hyperlink{class_matrix}{Matrix} \& {\bfseries operator$\ast$=} (const double nb)}
-\label{class_matrix_a270dd27392c9508623e254e490768f73}
-
+\hyperlink{class_matrix}{Matrix} \& \hyperlink{class_matrix_a270dd27392c9508623e254e490768f73}{operator$\ast$=} (const double nb)
 \item 
-\hypertarget{class_matrix_a925081e50122da1db2fe6a200035f665}{
-\hyperlink{class_matrix}{Matrix} \& {\bfseries operator+=} (const \hyperlink{class_matrix}{Matrix} \&mat)}
-\label{class_matrix_a925081e50122da1db2fe6a200035f665}
-
+\hyperlink{class_matrix}{Matrix} \& \hyperlink{class_matrix_a925081e50122da1db2fe6a200035f665}{operator+=} (const \hyperlink{class_matrix}{Matrix} \&mat)
 \item 
-\hypertarget{class_matrix_aa4364ebd7bb6a94176c7b7a79ab42c16}{
-\hyperlink{class_matrix}{Matrix} \& {\bfseries operator-\/=} (const \hyperlink{class_matrix}{Matrix} \&mat)}
-\label{class_matrix_aa4364ebd7bb6a94176c7b7a79ab42c16}
-
+\hyperlink{class_matrix}{Matrix} \& \hyperlink{class_matrix_aa4364ebd7bb6a94176c7b7a79ab42c16}{operator-\/=} (const \hyperlink{class_matrix}{Matrix} \&mat)
 \item 
-\hypertarget{class_matrix_a3507ab550914cdd7170e138a0cbd823a}{
-int {\bfseries getDim} ()}
-\label{class_matrix_a3507ab550914cdd7170e138a0cbd823a}
-
+int \hyperlink{class_matrix_a3507ab550914cdd7170e138a0cbd823a}{getDim} ()
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_matrix_a7262fb79344386da3983a61a0074f754}{
-double {\bfseries matrix} \mbox{[}4\mbox{]}\mbox{[}4\mbox{]}}
-\label{class_matrix_a7262fb79344386da3983a61a0074f754}
-
+double \hyperlink{class_matrix_a7262fb79344386da3983a61a0074f754}{matrix} \mbox{[}4\mbox{]}\mbox{[}4\mbox{]}
 \end{DoxyCompactItemize}
 \subsection*{Static Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_matrix_a44f940fc5a7552347943f5e3c9c96b8f}{
-static int const {\bfseries dim} = 4}
-\label{class_matrix_a44f940fc5a7552347943f5e3c9c96b8f}
-
+static int const \hyperlink{class_matrix_a44f940fc5a7552347943f5e3c9c96b8f}{dim} = 4
 \end{DoxyCompactItemize}
 \subsection*{Friends}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_matrix_a6c0087f550d6b94e3b9d6d7bf0e846a6}{
-std::ostream \& {\bfseries operator$<$$<$} (std::ostream \&os, const \hyperlink{class_matrix}{Matrix} \&mat)}
-\label{class_matrix_a6c0087f550d6b94e3b9d6d7bf0e846a6}
-
+std::ostream \& \hyperlink{class_matrix_a6c0087f550d6b94e3b9d6d7bf0e846a6}{operator$<$$<$} (std::ostream \&os, const \hyperlink{class_matrix}{Matrix} \&mat)
 \end{DoxyCompactItemize}
 
 
+\subsection{Detailed Description}
+
+
+Definition at line 12 of file Matrix.h.
+
+
+
+\subsection{Member Enumeration Documentation}
+\hypertarget{class_matrix_af69237b098cb1876beaa3375f7dacbc1}{
+\index{Matrix@{Matrix}!Axis@{Axis}}
+\index{Axis@{Axis}!Matrix@{Matrix}}
+\subsubsection[{Axis}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Matrix::Axis}}}
+\label{class_matrix_af69237b098cb1876beaa3375f7dacbc1}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{X@{X}!Matrix@{Matrix}}\index{Matrix@{Matrix}!X@{X}}\item[{\em 
+\hypertarget{class_matrix_af69237b098cb1876beaa3375f7dacbc1a7408a491f6d7e46bf3a2e4f7376953cb}{
+X}
+\label{class_matrix_af69237b098cb1876beaa3375f7dacbc1a7408a491f6d7e46bf3a2e4f7376953cb}
+}]\index{Y@{Y}!Matrix@{Matrix}}\index{Matrix@{Matrix}!Y@{Y}}\item[{\em 
+\hypertarget{class_matrix_af69237b098cb1876beaa3375f7dacbc1a9ab9a64e4e572730b025b8af91a834d2}{
+Y}
+\label{class_matrix_af69237b098cb1876beaa3375f7dacbc1a9ab9a64e4e572730b025b8af91a834d2}
+}]\index{Z@{Z}!Matrix@{Matrix}}\index{Matrix@{Matrix}!Z@{Z}}\item[{\em 
+\hypertarget{class_matrix_af69237b098cb1876beaa3375f7dacbc1a5460a997f774f5f9f8e989c9936150c8}{
+Z}
+\label{class_matrix_af69237b098cb1876beaa3375f7dacbc1a5460a997f774f5f9f8e989c9936150c8}
+}]\index{Other@{Other}!Matrix@{Matrix}}\index{Matrix@{Matrix}!Other@{Other}}\item[{\em 
+\hypertarget{class_matrix_af69237b098cb1876beaa3375f7dacbc1a63c7b6500c0a31b34d40fdc5ea341195}{
+Other}
+\label{class_matrix_af69237b098cb1876beaa3375f7dacbc1a63c7b6500c0a31b34d40fdc5ea341195}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 19 of file Matrix.h.
+
+
+
 \subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_matrix_a2dba13c45127354c9f75ef576f49269b}{
+\index{Matrix@{Matrix}!Matrix@{Matrix}}
+\index{Matrix@{Matrix}!Matrix@{Matrix}}
+\subsubsection[{Matrix}]{\setlength{\rightskip}{0pt plus 5cm}Matrix::Matrix (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_matrix_a2dba13c45127354c9f75ef576f49269b}
+
+
+Definition at line 9 of file Matrix.cpp.
+
 \hypertarget{class_matrix_a7fc5559ca322edcad4e74748cc21a212}{
 \index{Matrix@{Matrix}!Matrix@{Matrix}}
 \index{Matrix@{Matrix}!Matrix@{Matrix}}
@@ -105,7 +133,24 @@ std::ostream \& {\bfseries operator$<$$<$} (std::ostream \&os, const \hyperlink{
 \end{DoxyParamCaption}
 )}}
 \label{class_matrix_a7fc5559ca322edcad4e74748cc21a212}
-Constructeur qui initialise une matrice 4$\ast$4 non nulle \hypertarget{class_matrix_aae556b9970532484d24ac438b94d9e14}{
+Constructeur qui initialise une matrice 4$\ast$4 non nulle 
+
+Definition at line 15 of file Matrix.cpp.
+
+\hypertarget{class_matrix_a1852c311c6669c1d7073ca79db5fced3}{
+\index{Matrix@{Matrix}!Matrix@{Matrix}}
+\index{Matrix@{Matrix}!Matrix@{Matrix}}
+\subsubsection[{Matrix}]{\setlength{\rightskip}{0pt plus 5cm}Matrix::Matrix (
+\begin{DoxyParamCaption}
+\item[{const {\bf Matrix} \&}]{source}
+\end{DoxyParamCaption}
+)}}
+\label{class_matrix_a1852c311c6669c1d7073ca79db5fced3}
+
+
+Definition at line 25 of file Matrix.cpp.
+
+\hypertarget{class_matrix_aae556b9970532484d24ac438b94d9e14}{
 \index{Matrix@{Matrix}!Matrix@{Matrix}}
 \index{Matrix@{Matrix}!Matrix@{Matrix}}
 \subsubsection[{Matrix}]{\setlength{\rightskip}{0pt plus 5cm}Matrix::Matrix (
@@ -131,7 +176,50 @@ Constructeur qui initialise une matrice 4$\ast$4 non nulle \hypertarget{class_ma
 \label{class_matrix_aae556b9970532484d24ac438b94d9e14}
 Constructeur qui initialise une matrice avce la valeur de chacun de ces coeffs 
 
+Definition at line 35 of file Matrix.cpp.
+
+\hypertarget{class_matrix_a9b1c3627f573d78a2f08623fdfef990f}{
+\index{Matrix@{Matrix}!$\sim$Matrix@{$\sim$Matrix}}
+\index{$\sim$Matrix@{$\sim$Matrix}!Matrix@{Matrix}}
+\subsubsection[{$\sim$Matrix}]{\setlength{\rightskip}{0pt plus 5cm}Matrix::$\sim$Matrix (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_matrix_a9b1c3627f573d78a2f08623fdfef990f}
+
+
+Definition at line 64 of file Matrix.cpp.
+
+
+
 \subsection{Member Function Documentation}
+\hypertarget{class_matrix_a3507ab550914cdd7170e138a0cbd823a}{
+\index{Matrix@{Matrix}!getDim@{getDim}}
+\index{getDim@{getDim}!Matrix@{Matrix}}
+\subsubsection[{getDim}]{\setlength{\rightskip}{0pt plus 5cm}int Matrix::getDim (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{class_matrix_a3507ab550914cdd7170e138a0cbd823a}
+
+
+Definition at line 176 of file Matrix.cpp.
+
+\hypertarget{class_matrix_af36b762320602082b82e7b8b7d4a93c8}{
+\index{Matrix@{Matrix}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!Matrix@{Matrix}}
+\subsubsection[{operator$\ast$}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix} Matrix::operator$\ast$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Matrix} \&}]{mat}
+\end{DoxyParamCaption}
+)}}
+\label{class_matrix_af36b762320602082b82e7b8b7d4a93c8}
+
+
+Definition at line 91 of file Matrix.cpp.
+
 \hypertarget{class_matrix_aba65fb54d9b60c6cc6738b45c88cada0}{
 \index{Matrix@{Matrix}!operator$\ast$@{operator$\ast$}}
 \index{operator$\ast$@{operator$\ast$}!Matrix@{Matrix}}
@@ -143,7 +231,129 @@ Constructeur qui initialise une matrice avce la valeur de chacun de ces coeffs
 \label{class_matrix_aba65fb54d9b60c6cc6738b45c88cada0}
 PROJECTION D'UN VECTEUR 
 
+Definition at line 108 of file Matrix.cpp.
+
+\hypertarget{class_matrix_a51f8f6f7eca7e0a03b93d7e9594fa08b}{
+\index{Matrix@{Matrix}!operator$\ast$=@{operator$\ast$=}}
+\index{operator$\ast$=@{operator$\ast$=}!Matrix@{Matrix}}
+\subsubsection[{operator$\ast$=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix} \& Matrix::operator$\ast$= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Matrix} \&}]{mat}
+\end{DoxyParamCaption}
+)}}
+\label{class_matrix_a51f8f6f7eca7e0a03b93d7e9594fa08b}
+
+
+Definition at line 78 of file Matrix.cpp.
+
+\hypertarget{class_matrix_a270dd27392c9508623e254e490768f73}{
+\index{Matrix@{Matrix}!operator$\ast$=@{operator$\ast$=}}
+\index{operator$\ast$=@{operator$\ast$=}!Matrix@{Matrix}}
+\subsubsection[{operator$\ast$=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix} \& Matrix::operator$\ast$= (
+\begin{DoxyParamCaption}
+\item[{const double}]{nb}
+\end{DoxyParamCaption}
+)}}
+\label{class_matrix_a270dd27392c9508623e254e490768f73}
+
+
+Definition at line 130 of file Matrix.cpp.
+
+\hypertarget{class_matrix_a925081e50122da1db2fe6a200035f665}{
+\index{Matrix@{Matrix}!operator+=@{operator+=}}
+\index{operator+=@{operator+=}!Matrix@{Matrix}}
+\subsubsection[{operator+=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix} \& Matrix::operator+= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Matrix} \&}]{mat}
+\end{DoxyParamCaption}
+)}}
+\label{class_matrix_a925081e50122da1db2fe6a200035f665}
+
+
+Definition at line 141 of file Matrix.cpp.
+
+\hypertarget{class_matrix_aa4364ebd7bb6a94176c7b7a79ab42c16}{
+\index{Matrix@{Matrix}!operator-\/=@{operator-\/=}}
+\index{operator-\/=@{operator-\/=}!Matrix@{Matrix}}
+\subsubsection[{operator-\/=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix} \& Matrix::operator-\/= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Matrix} \&}]{mat}
+\end{DoxyParamCaption}
+)}}
+\label{class_matrix_aa4364ebd7bb6a94176c7b7a79ab42c16}
+
+
+Definition at line 152 of file Matrix.cpp.
+
+\hypertarget{class_matrix_a3655359b1f9451cb7b589c3a9bc5c7f0}{
+\index{Matrix@{Matrix}!operator=@{operator=}}
+\index{operator=@{operator=}!Matrix@{Matrix}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Matrix} \& Matrix::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Matrix} \&}]{mat}
+\end{DoxyParamCaption}
+)}}
+\label{class_matrix_a3655359b1f9451cb7b589c3a9bc5c7f0}
+
+
+Definition at line 123 of file Matrix.cpp.
+
+\hypertarget{class_matrix_a0945de041689d520fb614b6af735ab90}{
+\index{Matrix@{Matrix}!setValue@{setValue}}
+\index{setValue@{setValue}!Matrix@{Matrix}}
+\subsubsection[{setValue}]{\setlength{\rightskip}{0pt plus 5cm}void Matrix::setValue (
+\begin{DoxyParamCaption}
+\item[{int}]{line, }
+\item[{int}]{col, }
+\item[{double}]{value}
+\end{DoxyParamCaption}
+)}}
+\label{class_matrix_a0945de041689d520fb614b6af735ab90}
+
+
+Definition at line 73 of file Matrix.cpp.
+
+
+
+\subsection{Friends And Related Function Documentation}
+\hypertarget{class_matrix_a6c0087f550d6b94e3b9d6d7bf0e846a6}{
+\index{Matrix@{Matrix}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!Matrix@{Matrix}}
+\subsubsection[{operator$<$$<$}]{\setlength{\rightskip}{0pt plus 5cm}std::ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{std::ostream \&}]{os, }
+\item[{const {\bf Matrix} \&}]{mat}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}friend\mbox{]}}}}
+\label{class_matrix_a6c0087f550d6b94e3b9d6d7bf0e846a6}
+
+
+Definition at line 163 of file Matrix.cpp.
+
+
+
+\subsection{Member Data Documentation}
+\hypertarget{class_matrix_a44f940fc5a7552347943f5e3c9c96b8f}{
+\index{Matrix@{Matrix}!dim@{dim}}
+\index{dim@{dim}!Matrix@{Matrix}}
+\subsubsection[{dim}]{\setlength{\rightskip}{0pt plus 5cm}int const {\bf Matrix::dim} = 4\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{class_matrix_a44f940fc5a7552347943f5e3c9c96b8f}
+
+
+Definition at line 18 of file Matrix.h.
+
+\hypertarget{class_matrix_a7262fb79344386da3983a61a0074f754}{
+\index{Matrix@{Matrix}!matrix@{matrix}}
+\index{matrix@{matrix}!Matrix@{Matrix}}
+\subsubsection[{matrix}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf Matrix::matrix}\mbox{[}4\mbox{]}\mbox{[}4\mbox{]}}}
+\label{class_matrix_a7262fb79344386da3983a61a0074f754}
+
+
+Definition at line 16 of file Matrix.h.
+
+
+
 The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
 \item 
-raymini/Matrix.h\item 
-raymini/Matrix.cpp\end{DoxyCompactItemize}
+raymini/\hyperlink{_matrix_8h}{Matrix.h}\item 
+raymini/\hyperlink{_matrix_8cpp}{Matrix.cpp}\end{DoxyCompactItemize}

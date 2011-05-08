@@ -2,46 +2,165 @@
 \section{Material Class Reference}
 \label{class_material}\index{Material@{Material}}
 }
+
+
+{\ttfamily \#include $<$Material.h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\hyperlink{class_material_a137e987401b63eb7c6c27c3e38bc74b5}{Material} ()
+\item 
+\hyperlink{class_material_a6f4c1b3b6c16c6eb620f383fcbf6218c}{Material} (float diffuse, float specular, const \hyperlink{class_vec3_d}{Vec3Df} \&color)
+\item 
+virtual \hyperlink{class_material_a179e16d6a1bd4a0f039b8e4cbf2ade30}{$\sim$Material} ()
+\item 
+float \hyperlink{class_material_adcdb21b40c66d4357620249053d9f5fa}{getDiffuse} () const 
+\item 
+float \hyperlink{class_material_a9e098344c42b4f7cae2261493a28907d}{getSpecular} () const 
+\item 
+\hyperlink{class_vec3_d}{Vec3Df} \hyperlink{class_material_a1ce700a9471d85af491af127fd2e2438}{getColor} () const 
+\item 
+void \hyperlink{class_material_a1fbb936f30d31f89ffb7f0f673956c9a}{setDiffuse} (float d)
+\item 
+void \hyperlink{class_material_a64c810f51cda4ea76b189172b2b51b2c}{setSpecular} (float s)
+\item 
+void \hyperlink{class_material_af29e9b69f2ce692850a75d0c138304aa}{setColor} (const \hyperlink{class_vec3_d}{Vec3Df} \&c)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 18 of file Material.h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_material_a137e987401b63eb7c6c27c3e38bc74b5}{
+\index{Material@{Material}!Material@{Material}}
+\index{Material@{Material}!Material@{Material}}
+\subsubsection[{Material}]{\setlength{\rightskip}{0pt plus 5cm}Material::Material (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_material_a137e987401b63eb7c6c27c3e38bc74b5}
+
+
+Definition at line 20 of file Material.h.
+
 \hypertarget{class_material_a6f4c1b3b6c16c6eb620f383fcbf6218c}{
-{\bfseries Material} (float diffuse, float specular, const \hyperlink{class_vec3_d}{Vec3Df} \&color)}
+\index{Material@{Material}!Material@{Material}}
+\index{Material@{Material}!Material@{Material}}
+\subsubsection[{Material}]{\setlength{\rightskip}{0pt plus 5cm}Material::Material (
+\begin{DoxyParamCaption}
+\item[{float}]{diffuse, }
+\item[{float}]{specular, }
+\item[{const {\bf Vec3Df} \&}]{color}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
 \label{class_material_a6f4c1b3b6c16c6eb620f383fcbf6218c}
 
-\item 
-\hypertarget{class_material_adcdb21b40c66d4357620249053d9f5fa}{
-float {\bfseries getDiffuse} () const }
-\label{class_material_adcdb21b40c66d4357620249053d9f5fa}
 
-\item 
-\hypertarget{class_material_a9e098344c42b4f7cae2261493a28907d}{
-float {\bfseries getSpecular} () const }
-\label{class_material_a9e098344c42b4f7cae2261493a28907d}
+Definition at line 21 of file Material.h.
 
-\item 
+\hypertarget{class_material_a179e16d6a1bd4a0f039b8e4cbf2ade30}{
+\index{Material@{Material}!$\sim$Material@{$\sim$Material}}
+\index{$\sim$Material@{$\sim$Material}!Material@{Material}}
+\subsubsection[{$\sim$Material}]{\setlength{\rightskip}{0pt plus 5cm}virtual Material::$\sim$Material (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}
+\label{class_material_a179e16d6a1bd4a0f039b8e4cbf2ade30}
+
+
+Definition at line 23 of file Material.h.
+
+
+
+\subsection{Member Function Documentation}
 \hypertarget{class_material_a1ce700a9471d85af491af127fd2e2438}{
-\hyperlink{class_vec3_d}{Vec3Df} {\bfseries getColor} () const }
+\index{Material@{Material}!getColor@{getColor}}
+\index{getColor@{getColor}!Material@{Material}}
+\subsubsection[{getColor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vec3Df} Material::getColor (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
 \label{class_material_a1ce700a9471d85af491af127fd2e2438}
 
-\item 
-\hypertarget{class_material_a1fbb936f30d31f89ffb7f0f673956c9a}{
-void {\bfseries setDiffuse} (float d)}
-\label{class_material_a1fbb936f30d31f89ffb7f0f673956c9a}
 
-\item 
-\hypertarget{class_material_a64c810f51cda4ea76b189172b2b51b2c}{
-void {\bfseries setSpecular} (float s)}
-\label{class_material_a64c810f51cda4ea76b189172b2b51b2c}
+Definition at line 27 of file Material.h.
 
-\item 
+\hypertarget{class_material_adcdb21b40c66d4357620249053d9f5fa}{
+\index{Material@{Material}!getDiffuse@{getDiffuse}}
+\index{getDiffuse@{getDiffuse}!Material@{Material}}
+\subsubsection[{getDiffuse}]{\setlength{\rightskip}{0pt plus 5cm}float Material::getDiffuse (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_material_adcdb21b40c66d4357620249053d9f5fa}
+
+
+Definition at line 25 of file Material.h.
+
+\hypertarget{class_material_a9e098344c42b4f7cae2261493a28907d}{
+\index{Material@{Material}!getSpecular@{getSpecular}}
+\index{getSpecular@{getSpecular}!Material@{Material}}
+\subsubsection[{getSpecular}]{\setlength{\rightskip}{0pt plus 5cm}float Material::getSpecular (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_material_a9e098344c42b4f7cae2261493a28907d}
+
+
+Definition at line 26 of file Material.h.
+
 \hypertarget{class_material_af29e9b69f2ce692850a75d0c138304aa}{
-void {\bfseries setColor} (const \hyperlink{class_vec3_d}{Vec3Df} \&c)}
+\index{Material@{Material}!setColor@{setColor}}
+\index{setColor@{setColor}!Material@{Material}}
+\subsubsection[{setColor}]{\setlength{\rightskip}{0pt plus 5cm}void Material::setColor (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vec3Df} \&}]{c}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
 \label{class_material_af29e9b69f2ce692850a75d0c138304aa}
 
-\end{DoxyCompactItemize}
+
+Definition at line 31 of file Material.h.
+
+\hypertarget{class_material_a1fbb936f30d31f89ffb7f0f673956c9a}{
+\index{Material@{Material}!setDiffuse@{setDiffuse}}
+\index{setDiffuse@{setDiffuse}!Material@{Material}}
+\subsubsection[{setDiffuse}]{\setlength{\rightskip}{0pt plus 5cm}void Material::setDiffuse (
+\begin{DoxyParamCaption}
+\item[{float}]{d}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_material_a1fbb936f30d31f89ffb7f0f673956c9a}
+
+
+Definition at line 29 of file Material.h.
+
+\hypertarget{class_material_a64c810f51cda4ea76b189172b2b51b2c}{
+\index{Material@{Material}!setSpecular@{setSpecular}}
+\index{setSpecular@{setSpecular}!Material@{Material}}
+\subsubsection[{setSpecular}]{\setlength{\rightskip}{0pt plus 5cm}void Material::setSpecular (
+\begin{DoxyParamCaption}
+\item[{float}]{s}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_material_a64c810f51cda4ea76b189172b2b51b2c}
+
+
+Definition at line 30 of file Material.h.
+
 
 
 The documentation for this class was generated from the following file:\begin{DoxyCompactItemize}
 \item 
-raymini/Material.h\end{DoxyCompactItemize}
+raymini/\hyperlink{_material_8h}{Material.h}\end{DoxyCompactItemize}

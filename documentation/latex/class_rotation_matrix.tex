@@ -4,37 +4,125 @@
 }
 
 
-Inherits \hyperlink{class_matrix}{Matrix}.
+{\ttfamily \#include $<$RotationMatrix.h$>$}
 
+Inheritance diagram for RotationMatrix:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_rotation_matrix}
+\end{center}
+\end{figure}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_rotation_matrix_a43bae532c9142e771f42b304f0f5d558}{
-{\bfseries RotationMatrix} (double \_\-teta, Matrix::Axis axis)}
-\label{class_rotation_matrix_a43bae532c9142e771f42b304f0f5d558}
-
+\hyperlink{class_rotation_matrix_a43bae532c9142e771f42b304f0f5d558}{RotationMatrix} (double \_\-teta, \hyperlink{class_matrix_af69237b098cb1876beaa3375f7dacbc1}{Matrix::Axis} axis)
 \item 
-\hypertarget{class_rotation_matrix_ac4b890d0566925a5ee7890defe1b5926}{
-{\bfseries RotationMatrix} (double \_\-teta, \hyperlink{class_vec3_d}{Vec3Df} axis)}
-\label{class_rotation_matrix_ac4b890d0566925a5ee7890defe1b5926}
-
+\hyperlink{class_rotation_matrix_ac4b890d0566925a5ee7890defe1b5926}{RotationMatrix} (double \_\-teta, \hyperlink{class_vec3_d}{Vec3Df} axis)
 \item 
-\hypertarget{class_rotation_matrix_a0fbd7c33d9c6840f47b3c0b7479c682d}{
-{\bfseries RotationMatrix} (double l0v0, double l0v1, double l0v2, double l0v3, double l1v0, double l1v1, double l1v2, double l1v3, double l2v0, double l2v1, double l2v2, double l2v3, double l3v0, double l3v1, double l3v2, double l3v3, double \_\-teta)}
-\label{class_rotation_matrix_a0fbd7c33d9c6840f47b3c0b7479c682d}
-
+\hyperlink{class_rotation_matrix_a0fbd7c33d9c6840f47b3c0b7479c682d}{RotationMatrix} (double l0v0, double l0v1, double l0v2, double l0v3, double l1v0, double l1v1, double l1v2, double l1v3, double l2v0, double l2v1, double l2v2, double l2v3, double l3v0, double l3v1, double l3v2, double l3v3, double \_\-teta)
+\item 
+virtual \hyperlink{class_rotation_matrix_acfb2b663eb18a3b604dc3d07afae16f6}{$\sim$RotationMatrix} ()
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
+double \hyperlink{class_rotation_matrix_aec9f847b2b39893132122cc6da4d9cd7}{teta}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 14 of file RotationMatrix.h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_rotation_matrix_a43bae532c9142e771f42b304f0f5d558}{
+\index{RotationMatrix@{RotationMatrix}!RotationMatrix@{RotationMatrix}}
+\index{RotationMatrix@{RotationMatrix}!RotationMatrix@{RotationMatrix}}
+\subsubsection[{RotationMatrix}]{\setlength{\rightskip}{0pt plus 5cm}RotationMatrix::RotationMatrix (
+\begin{DoxyParamCaption}
+\item[{double}]{\_\-teta, }
+\item[{{\bf Matrix::Axis}}]{axis}
+\end{DoxyParamCaption}
+)}}
+\label{class_rotation_matrix_a43bae532c9142e771f42b304f0f5d558}
+
+
+Definition at line 11 of file RotationMatrix.cpp.
+
+\hypertarget{class_rotation_matrix_ac4b890d0566925a5ee7890defe1b5926}{
+\index{RotationMatrix@{RotationMatrix}!RotationMatrix@{RotationMatrix}}
+\index{RotationMatrix@{RotationMatrix}!RotationMatrix@{RotationMatrix}}
+\subsubsection[{RotationMatrix}]{\setlength{\rightskip}{0pt plus 5cm}RotationMatrix::RotationMatrix (
+\begin{DoxyParamCaption}
+\item[{double}]{\_\-teta, }
+\item[{{\bf Vec3Df}}]{axis}
+\end{DoxyParamCaption}
+)}}
+\label{class_rotation_matrix_ac4b890d0566925a5ee7890defe1b5926}
+
+
+Definition at line 44 of file RotationMatrix.cpp.
+
+\hypertarget{class_rotation_matrix_a0fbd7c33d9c6840f47b3c0b7479c682d}{
+\index{RotationMatrix@{RotationMatrix}!RotationMatrix@{RotationMatrix}}
+\index{RotationMatrix@{RotationMatrix}!RotationMatrix@{RotationMatrix}}
+\subsubsection[{RotationMatrix}]{\setlength{\rightskip}{0pt plus 5cm}RotationMatrix::RotationMatrix (
+\begin{DoxyParamCaption}
+\item[{double}]{l0v0, }
+\item[{double}]{l0v1, }
+\item[{double}]{l0v2, }
+\item[{double}]{l0v3, }
+\item[{double}]{l1v0, }
+\item[{double}]{l1v1, }
+\item[{double}]{l1v2, }
+\item[{double}]{l1v3, }
+\item[{double}]{l2v0, }
+\item[{double}]{l2v1, }
+\item[{double}]{l2v2, }
+\item[{double}]{l2v3, }
+\item[{double}]{l3v0, }
+\item[{double}]{l3v1, }
+\item[{double}]{l3v2, }
+\item[{double}]{l3v3, }
+\item[{double}]{\_\-teta}
+\end{DoxyParamCaption}
+)}}
+\label{class_rotation_matrix_a0fbd7c33d9c6840f47b3c0b7479c682d}
+
+
+Definition at line 58 of file RotationMatrix.cpp.
+
+\hypertarget{class_rotation_matrix_acfb2b663eb18a3b604dc3d07afae16f6}{
+\index{RotationMatrix@{RotationMatrix}!$\sim$RotationMatrix@{$\sim$RotationMatrix}}
+\index{$\sim$RotationMatrix@{$\sim$RotationMatrix}!RotationMatrix@{RotationMatrix}}
+\subsubsection[{$\sim$RotationMatrix}]{\setlength{\rightskip}{0pt plus 5cm}RotationMatrix::$\sim$RotationMatrix (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}virtual\mbox{]}}}}
+\label{class_rotation_matrix_acfb2b663eb18a3b604dc3d07afae16f6}
+
+
+Definition at line 71 of file RotationMatrix.cpp.
+
+
+
+\subsection{Member Data Documentation}
 \hypertarget{class_rotation_matrix_aec9f847b2b39893132122cc6da4d9cd7}{
-double {\bfseries teta}}
+\index{RotationMatrix@{RotationMatrix}!teta@{teta}}
+\index{teta@{teta}!RotationMatrix@{RotationMatrix}}
+\subsubsection[{teta}]{\setlength{\rightskip}{0pt plus 5cm}double {\bf RotationMatrix::teta}}}
 \label{class_rotation_matrix_aec9f847b2b39893132122cc6da4d9cd7}
 
-\end{DoxyCompactItemize}
+
+Definition at line 16 of file RotationMatrix.h.
+
 
 
 The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
 \item 
-raymini/RotationMatrix.h\item 
-raymini/RotationMatrix.cpp\end{DoxyCompactItemize}
+raymini/\hyperlink{_rotation_matrix_8h}{RotationMatrix.h}\item 
+raymini/\hyperlink{_rotation_matrix_8cpp}{RotationMatrix.cpp}\end{DoxyCompactItemize}

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>Projet3D: raymini/Window.h Source File</title>
+<title>Ray Tracer: raymini/Window.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Projet3D</div>
+   <div id="projectname">Ray Tracer</div>
   </td>
  </tr>
  </tbody>
@@ -51,6 +51,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 <div class="header">
@@ -58,7 +59,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">raymini/Window.h</div>  </div>
 </div>
 <div class="contents">
-<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef WINDOW_H</span>
+<a href="_window_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef WINDOW_H</span>
 <a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define WINDOW_H</span>
 <a name="l00003"></a>00003 <span class="preprocessor"></span>
 <a name="l00004"></a>00004 <span class="preprocessor">#include &lt;QMainWindow&gt;</span>
@@ -77,51 +78,52 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00017"></a>00017 <span class="preprocessor">#include &lt;vector&gt;</span>
 <a name="l00018"></a>00018 <span class="preprocessor">#include &lt;string&gt;</span>
 <a name="l00019"></a>00019 
-<a name="l00020"></a>00020 <span class="preprocessor">#include &quot;QTUtils.h&quot;</span>
-<a name="l00021"></a>00021 <span class="preprocessor">#include &quot;GLViewer.h&quot;</span>
+<a name="l00020"></a>00020 <span class="preprocessor">#include &quot;<a class="code" href="_q_t_utils_8h.html">QTUtils.h</a>&quot;</span>
+<a name="l00021"></a>00021 <span class="preprocessor">#include &quot;<a class="code" href="_g_l_viewer_8h.html">GLViewer.h</a>&quot;</span>
 <a name="l00022"></a>00022 
-<a name="l00023"></a>00023 <span class="preprocessor">#include &quot;Parametres.h&quot;</span>
+<a name="l00023"></a>00023 <span class="preprocessor">#include &quot;<a class="code" href="_parametres_8h.html">Parametres.h</a>&quot;</span>
 <a name="l00024"></a>00024 
 <a name="l00025"></a><a class="code" href="class_window.html">00025</a> <span class="keyword">class </span><a class="code" href="class_window.html">Window</a> : <span class="keyword">public</span> QMainWindow {
 <a name="l00026"></a>00026     Q_OBJECT
 <a name="l00027"></a>00027 <span class="keyword">public</span>:
-<a name="l00028"></a>00028     <a class="code" href="class_window.html">Window</a>();
-<a name="l00029"></a>00029     <span class="keyword">virtual</span> ~<a class="code" href="class_window.html">Window</a>();
+<a name="l00028"></a>00028     <a class="code" href="class_window.html#a74e6087da23d3c24e9fac0245e5ec92c">Window</a>();
+<a name="l00029"></a>00029     <span class="keyword">virtual</span> <a class="code" href="class_window.html#a245d821e6016fa1f6970ccbbedd635f6">~Window</a>();
 <a name="l00030"></a>00030 
-<a name="l00031"></a>00031     <span class="keyword">static</span> <span class="keywordtype">void</span> showStatusMessage (<span class="keyword">const</span> QString &amp; msg);  
+<a name="l00031"></a>00031     <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_window.html#a073d51b06af057dd881a7dbe452d3842">showStatusMessage</a> (<span class="keyword">const</span> QString &amp; msg);  
 <a name="l00032"></a>00032     
 <a name="l00033"></a>00033 <span class="keyword">public</span> slots :
-<a name="l00034"></a>00034     <span class="keywordtype">void</span> renderRayImage ();
-<a name="l00035"></a>00035     <span class="keywordtype">void</span> setBGColor ();
-<a name="l00036"></a>00036     <span class="keywordtype">void</span> exportGLImage ();
-<a name="l00037"></a>00037     <span class="keywordtype">void</span> exportRayImage ();
-<a name="l00038"></a>00038     <span class="keywordtype">void</span> about ();
-<a name="l00039"></a>00039     
-<a name="l00040"></a>00040 <span class="keyword">private</span> :
-<a name="l00041"></a>00041     
-<a name="l00042"></a>00042     <span class="keywordtype">void</span> initControlWidget ();
-<a name="l00043"></a>00043         
-<a name="l00044"></a>00044     QActionGroup * actionGroup;
-<a name="l00045"></a>00045     QGroupBox * controlWidget;
-<a name="l00046"></a>00046     QString currentDirectory;
-<a name="l00047"></a>00047 
-<a name="l00048"></a>00048     <a class="code" href="class_g_l_viewer.html">GLViewer</a> * viewer;
-<a name="l00049"></a>00049     QLabel * imageLabel;
-<a name="l00050"></a>00050     QImage rayImage;
-<a name="l00051"></a>00051 
-<a name="l00052"></a>00052     <a class="code" href="class_parametres.html">Parametres</a> * param;
-<a name="l00053"></a>00053     QPushButton * rayButton;
-<a name="l00054"></a>00054 };
-<a name="l00055"></a>00055 
-<a name="l00056"></a>00056 <span class="preprocessor">#endif // WINDOW_H</span>
-<a name="l00057"></a>00057 <span class="preprocessor"></span>
-<a name="l00058"></a>00058 
-<a name="l00059"></a>00059 <span class="comment">// Some Emacs-Hints -- please don&#39;t remove:</span>
-<a name="l00060"></a>00060 <span class="comment">//</span>
-<a name="l00061"></a>00061 <span class="comment">//  Local Variables:</span>
-<a name="l00062"></a>00062 <span class="comment">//  mode:C++</span>
-<a name="l00063"></a>00063 <span class="comment">//  tab-width:4</span>
-<a name="l00064"></a>00064 <span class="comment">//  End:</span>
+<a name="l00034"></a>00034     <span class="keywordtype">void</span> <a class="code" href="class_window.html#a324ff57fb0133df279d95f42b6fba94f">renderRayImage</a> ();
+<a name="l00035"></a>00035     <span class="keywordtype">void</span> <a class="code" href="class_window.html#accf48a27fa734a601de2193502b5db51">setBGColor</a> ();
+<a name="l00036"></a>00036     <span class="keywordtype">void</span> <a class="code" href="class_window.html#a486276a193d634bc33ea2e0b105b72b6">exportGLImage</a> ();
+<a name="l00037"></a>00037     <span class="keywordtype">void</span> <a class="code" href="class_window.html#a1ff6807e4c77f8a943ad4dd6bf5c953f">exportRayImage</a> ();
+<a name="l00038"></a>00038     <span class="keywordtype">void</span> <a class="code" href="class_window.html#a0c39da3e21969b8862f73fd30dd2009c">about</a> ();
+<a name="l00039"></a>00039     <span class="keywordtype">void</span> <a class="code" href="class_window.html#aefdec1faa3a4e36bc62be3ea48867bbd">set_saturation</a>(<span class="keywordtype">double</span> saturation);
+<a name="l00040"></a>00040     
+<a name="l00041"></a>00041 <span class="keyword">private</span> :
+<a name="l00042"></a>00042     
+<a name="l00043"></a>00043     <span class="keywordtype">void</span> initControlWidget ();
+<a name="l00044"></a>00044         
+<a name="l00045"></a>00045     QActionGroup * actionGroup;
+<a name="l00046"></a>00046     QGroupBox * controlWidget;
+<a name="l00047"></a>00047     QString currentDirectory;
+<a name="l00048"></a>00048 
+<a name="l00049"></a>00049     <a class="code" href="class_g_l_viewer.html">GLViewer</a> * viewer;
+<a name="l00050"></a>00050     QLabel * imageLabel;
+<a name="l00051"></a>00051     QImage rayImage;
+<a name="l00052"></a>00052 
+<a name="l00053"></a>00053     <a class="code" href="class_parametres.html">Parametres</a> * param;
+<a name="l00054"></a>00054     QPushButton * rayButton;
+<a name="l00055"></a>00055 };
+<a name="l00056"></a>00056 
+<a name="l00057"></a>00057 <span class="preprocessor">#endif // WINDOW_H</span>
+<a name="l00058"></a>00058 <span class="preprocessor"></span>
+<a name="l00059"></a>00059 
+<a name="l00060"></a>00060 <span class="comment">// Some Emacs-Hints -- please don&#39;t remove:</span>
+<a name="l00061"></a>00061 <span class="comment">//</span>
+<a name="l00062"></a>00062 <span class="comment">//  Local Variables:</span>
+<a name="l00063"></a>00063 <span class="comment">//  mode:C++</span>
+<a name="l00064"></a>00064 <span class="comment">//  tab-width:4</span>
+<a name="l00065"></a>00065 <span class="comment">//  End:</span>
 </pre></div></div>
 </div>
 <!-- window showing the filter options -->
@@ -129,7 +131,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -138,7 +140,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Mon May 2 2011 01:51:51 for Projet3D by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Sun May 8 2011 16:02:10 for Ray Tracer by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

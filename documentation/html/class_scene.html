@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>Projet3D: Scene Class Reference</title>
+<title>Ray Tracer: Scene Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Projet3D</div>
+   <div id="projectname">Ray Tracer</div>
   </td>
  </tr>
  </tbody>
@@ -60,38 +60,242 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a>  </div>
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a>  </div>
   <div class="headertitle">
 <div class="title">Scene Class Reference</div>  </div>
 </div>
 <div class="contents">
 <!-- doxytag: class="Scene" -->
+<p><code>#include &lt;<a class="el" href="_scene_8h_source.html">Scene.h</a>&gt;</code></p>
+
 <p><a href="class_scene-members.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a20c231c3b2a4f04d7f2665f7bdd67c4b"></a><!-- doxytag: member="Scene::getObjects" ref="a20c231c3b2a4f04d7f2665f7bdd67c4b" args="()" -->
-std::vector&lt; <a class="el" href="class_object.html">Object</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getObjects</b> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab71d7b7035a0e67bc51154cb98089488"></a><!-- doxytag: member="Scene::getObjects" ref="ab71d7b7035a0e67bc51154cb98089488" args="() const " -->
-const std::vector&lt; <a class="el" href="class_object.html">Object</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getObjects</b> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a40077f3e775c7cbb74c2a7a69d159582"></a><!-- doxytag: member="Scene::getLights" ref="a40077f3e775c7cbb74c2a7a69d159582" args="()" -->
-std::vector&lt; <a class="el" href="class_light.html">Light</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getLights</b> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a25c81d0cd7c378a1f634ca2f241a9a33"></a><!-- doxytag: member="Scene::getLights" ref="a25c81d0cd7c378a1f634ca2f241a9a33" args="() const " -->
-const std::vector&lt; <a class="el" href="class_light.html">Light</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getLights</b> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a207ede2c140b6ab80992aa36f8a5b2fa"></a><!-- doxytag: member="Scene::getBoundingBox" ref="a207ede2c140b6ab80992aa36f8a5b2fa" args="() const " -->
-const <a class="el" href="class_bounding_box.html">BoundingBox</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getBoundingBox</b> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae969181c5f4ae4ffd8d48956af1fa26f"></a><!-- doxytag: member="Scene::updateBoundingBox" ref="ae969181c5f4ae4ffd8d48956af1fa26f" args="()" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>updateBoundingBox</b> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a3406376bc6366bdcc1725c389fd06c9f">set_param</a> (<a class="el" href="class_parametres.html">Parametres</a> *param)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_object.html">Object</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a20c231c3b2a4f04d7f2665f7bdd67c4b">getObjects</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="class_object.html">Object</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#ab71d7b7035a0e67bc51154cb98089488">getObjects</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_light.html">Light</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a40077f3e775c7cbb74c2a7a69d159582">getLights</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="class_light.html">Light</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a25c81d0cd7c378a1f634ca2f241a9a33">getLights</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const <a class="el" href="class_bounding_box.html">BoundingBox</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a207ede2c140b6ab80992aa36f8a5b2fa">getBoundingBox</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#ae969181c5f4ae4ffd8d48956af1fa26f">updateBoundingBox</a> ()</td></tr>
 <tr><td colspan="2"><h2><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae4f764527c8b962eba443129e023492c"></a><!-- doxytag: member="Scene::getInstance" ref="ae4f764527c8b962eba443129e023492c" args="()" -->
-static <a class="el" href="class_scene.html">Scene</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getInstance</b> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ab03c74268e0dc459804753552f0eed36"></a><!-- doxytag: member="Scene::destroyInstance" ref="ab03c74268e0dc459804753552f0eed36" args="()" -->
-static void&#160;</td><td class="memItemRight" valign="bottom"><b>destroyInstance</b> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static <a class="el" href="class_scene.html">Scene</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#ae4f764527c8b962eba443129e023492c">getInstance</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#ab03c74268e0dc459804753552f0eed36">destroyInstance</a> ()</td></tr>
+<tr><td colspan="2"><h2><a name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#ad10176d75a9cc0da56626f682d083507">Scene</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_scene.html#a3b8cec2e32546713915f8c6303c951f1">~Scene</a> ()</td></tr>
 </table>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock">
+<p>Definition at line <a class="el" href="_scene_8h_source.html#l00019">19</a> of file <a class="el" href="_scene_8h_source.html">Scene.h</a>.</p>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="ad10176d75a9cc0da56626f682d083507"></a><!-- doxytag: member="Scene::Scene" ref="ad10176d75a9cc0da56626f682d083507" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Scene::Scene </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [protected]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_scene_8cpp_source.html#l00034">34</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3b8cec2e32546713915f8c6303c951f1"></a><!-- doxytag: member="Scene::~Scene" ref="a3b8cec2e32546713915f8c6303c951f1" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Scene::~Scene </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [protected, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_scene_8cpp_source.html#l00048">48</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="ab03c74268e0dc459804753552f0eed36"></a><!-- doxytag: member="Scene::destroyInstance" ref="ab03c74268e0dc459804753552f0eed36" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Scene::destroyInstance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_scene_8cpp_source.html#l00027">27</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a207ede2c140b6ab80992aa36f8a5b2fa"></a><!-- doxytag: member="Scene::getBoundingBox" ref="a207ede2c140b6ab80992aa36f8a5b2fa" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="class_bounding_box.html">BoundingBox</a>&amp; Scene::getBoundingBox </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_scene_8h_source.html#l00032">32</a> of file <a class="el" href="_scene_8h_source.html">Scene.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae4f764527c8b962eba443129e023492c"></a><!-- doxytag: member="Scene::getInstance" ref="ae4f764527c8b962eba443129e023492c" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_scene.html">Scene</a> * Scene::getInstance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [static]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_scene_8cpp_source.html#l00021">21</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a25c81d0cd7c378a1f634ca2f241a9a33"></a><!-- doxytag: member="Scene::getLights" ref="a25c81d0cd7c378a1f634ca2f241a9a33" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt;<a class="el" href="class_light.html">Light</a>&gt;&amp; Scene::getLights </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_scene_8h_source.html#l00030">30</a> of file <a class="el" href="_scene_8h_source.html">Scene.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a40077f3e775c7cbb74c2a7a69d159582"></a><!-- doxytag: member="Scene::getLights" ref="a40077f3e775c7cbb74c2a7a69d159582" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="class_light.html">Light</a>&gt;&amp; Scene::getLights </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_scene_8h_source.html#l00029">29</a> of file <a class="el" href="_scene_8h_source.html">Scene.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ab71d7b7035a0e67bc51154cb98089488"></a><!-- doxytag: member="Scene::getObjects" ref="ab71d7b7035a0e67bc51154cb98089488" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt;<a class="el" href="class_object.html">Object</a>&gt;&amp; Scene::getObjects </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_scene_8h_source.html#l00027">27</a> of file <a class="el" href="_scene_8h_source.html">Scene.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a20c231c3b2a4f04d7f2665f7bdd67c4b"></a><!-- doxytag: member="Scene::getObjects" ref="a20c231c3b2a4f04d7f2665f7bdd67c4b" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="class_object.html">Object</a>&gt;&amp; Scene::getObjects </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_scene_8h_source.html#l00026">26</a> of file <a class="el" href="_scene_8h_source.html">Scene.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a3406376bc6366bdcc1725c389fd06c9f"></a><!-- doxytag: member="Scene::set_param" ref="a3406376bc6366bdcc1725c389fd06c9f" args="(Parametres *param)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Scene::set_param </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_parametres.html">Parametres</a> *&#160;</td>
+          <td class="paramname"><em>param</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_scene_8cpp_source.html#l00017">17</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ae969181c5f4ae4ffd8d48956af1fa26f"></a><!-- doxytag: member="Scene::updateBoundingBox" ref="ae969181c5f4ae4ffd8d48956af1fa26f" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Scene::updateBoundingBox </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_scene_8cpp_source.html#l00051">51</a> of file <a class="el" href="_scene_8cpp_source.html">Scene.cpp</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>raymini/<a class="el" href="_scene_8h_source.html">Scene.h</a></li>
-<li>raymini/Scene.cpp</li>
+<li>raymini/<a class="el" href="_scene_8cpp_source.html">Scene.cpp</a></li>
 </ul>
 </div>
 <!-- window showing the filter options -->
@@ -99,7 +303,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>destroyInstanc
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -108,7 +312,7 @@ static void&#160;</td><td class="memItemRight" valign="bottom"><b>destroyInstanc
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Mon May 2 2011 01:51:51 for Projet3D by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Sun May 8 2011 16:02:10 for Ray Tracer by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

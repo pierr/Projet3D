@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>Projet3D: kdtree Class Reference</title>
+<title>Ray Tracer: kdtree Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Projet3D</div>
+   <div id="projectname">Ray Tracer</div>
   </td>
  </tr>
  </tbody>
@@ -65,20 +65,96 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="contents">
 <!-- doxytag: class="kdtree" -->
+<p><code>#include &lt;<a class="el" href="kdtree_8h_source.html">kdtree.h</a>&gt;</code></p>
+
 <p><a href="classkdtree-members.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a38aacc294beed5947ad5e668da4b92a8"></a><!-- doxytag: member="kdtree::kdtree" ref="a38aacc294beed5947ad5e668da4b92a8" args="(std::vector&lt; Object &gt; objects, Vec3Df camPos, BoundingBox &amp;scenebox)" -->
-&#160;</td><td class="memItemRight" valign="bottom"><b>kdtree</b> (std::vector&lt; <a class="el" href="class_object.html">Object</a> &gt; objects, <a class="el" href="class_vec3_d.html">Vec3Df</a> camPos, <a class="el" href="class_bounding_box.html">BoundingBox</a> &amp;scenebox)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a05ea05935fe6595da4be7ee3e90bd99b"></a><!-- doxytag: member="kdtree::split" ref="a05ea05935fe6595da4be7ee3e90bd99b" args="(float propdeep)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>split</b> (float propdeep)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7e7fbee37714c8110147cd49fe8d0d68"></a><!-- doxytag: member="kdtree::get_root" ref="a7e7fbee37714c8110147cd49fe8d0d68" args="()" -->
-<a class="el" href="classkdnode.html">kdnode</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>get_root</b> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classkdtree.html#a38aacc294beed5947ad5e668da4b92a8">kdtree</a> (std::vector&lt; <a class="el" href="class_object.html">Object</a> &gt; objects, <a class="el" href="class_vec3_d.html">Vec3Df</a> camPos, <a class="el" href="class_bounding_box.html">BoundingBox</a> &amp;scenebox)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classkdtree.html#a05ea05935fe6595da4be7ee3e90bd99b">split</a> (float propdeep)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classkdnode.html">kdnode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classkdtree.html#a7e7fbee37714c8110147cd49fe8d0d68">get_root</a> ()</td></tr>
 </table>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock">
+<p>Definition at line <a class="el" href="kdtree_8h_source.html#l00012">12</a> of file <a class="el" href="kdtree_8h_source.html">kdtree.h</a>.</p>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a38aacc294beed5947ad5e668da4b92a8"></a><!-- doxytag: member="kdtree::kdtree" ref="a38aacc294beed5947ad5e668da4b92a8" args="(std::vector&lt; Object &gt; objects, Vec3Df camPos, BoundingBox &amp;scenebox)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">kdtree::kdtree </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="class_object.html">Object</a> &gt;&#160;</td>
+          <td class="paramname"><em>objects</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_vec3_d.html">Vec3Df</a>&#160;</td>
+          <td class="paramname"><em>camPos</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_bounding_box.html">BoundingBox</a> &amp;&#160;</td>
+          <td class="paramname"><em>scenebox</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="kdtree_8cpp_source.html#l00005">5</a> of file <a class="el" href="kdtree_8cpp_source.html">kdtree.cpp</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a7e7fbee37714c8110147cd49fe8d0d68"></a><!-- doxytag: member="kdtree::get_root" ref="a7e7fbee37714c8110147cd49fe8d0d68" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classkdnode.html">kdnode</a>* kdtree::get_root </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="kdtree_8h_source.html#l00017">17</a> of file <a class="el" href="kdtree_8h_source.html">kdtree.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a05ea05935fe6595da4be7ee3e90bd99b"></a><!-- doxytag: member="kdtree::split" ref="a05ea05935fe6595da4be7ee3e90bd99b" args="(float propdeep)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void kdtree::split </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>propdeep</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="kdtree_8cpp_source.html#l00030">30</a> of file <a class="el" href="kdtree_8cpp_source.html">kdtree.cpp</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>raymini/<a class="el" href="kdtree_8h_source.html">kdtree.h</a></li>
-<li>raymini/kdtree.cpp</li>
+<li>raymini/<a class="el" href="kdtree_8cpp_source.html">kdtree.cpp</a></li>
 </ul>
 </div>
 <!-- window showing the filter options -->
@@ -86,7 +162,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>split</b> (float prop
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -95,7 +171,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>split</b> (float prop
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Mon May 2 2011 01:51:51 for Projet3D by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Sun May 8 2011 16:02:10 for Ray Tracer by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

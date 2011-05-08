@@ -2,91 +2,393 @@
 \section{Object Class Reference}
 \label{class_object}\index{Object@{Object}}
 }
+
+
+{\ttfamily \#include $<$Object.h$>$}
+
 \subsection*{Public Types}
 \begin{DoxyCompactItemize}
 \item 
-enum {\bfseries objName} \{ \par
-{\bfseries threeD}, 
-{\bfseries camel\_\-head}, 
-{\bfseries max}, 
-{\bfseries sphere}, 
+enum \hyperlink{class_object_aa59c8c464c60ded4291b3e0f0ef20bbb}{objName} \{ \par
+\hyperlink{class_object_aa59c8c464c60ded4291b3e0f0ef20bbbaae797a9c75bbb99ee517aaa0e07f1a1f}{threeD}, 
+\hyperlink{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba2e8ca1af39c26042b29301b749b43b6e}{camel\_\-head}, 
+\hyperlink{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba1545239226f69a79ecff8e70a646b40c}{max}, 
+\hyperlink{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba5a57120441f836ff1c9f2fde5a630736}{sphere}, 
 \par
-{\bfseries apple}, 
-{\bfseries dbtorus}, 
-{\bfseries max\_\-50K}, 
-{\bfseries squirrel}, 
+\hyperlink{class_object_aa59c8c464c60ded4291b3e0f0ef20bbbaeba7d642386203ffa4e9e248118ea60e}{apple}, 
+\hyperlink{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba6ec42563e9fd2963d1e20d906f6cf3df}{dbtorus}, 
+\hyperlink{class_object_aa59c8c464c60ded4291b3e0f0ef20bbbaba653416cf777357edee417679e8cb9f}{max\_\-50K}, 
+\hyperlink{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba40742213a11dc49032c63a9d4969dd89}{squirrel}, 
 \par
-{\bfseries cherry}, 
-{\bfseries double\_\-ram}, 
-{\bfseries monkey}, 
-{\bfseries tri}, 
+\hyperlink{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba71e77d8ebd4d94561315216576ba4e95}{cherry}, 
+\hyperlink{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba65138f9c29560a09fef487a7d91c10b3}{double\_\-ram}, 
+\hyperlink{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba3c78743907b66e87d9a4750f84b1e8cf}{monkey}, 
+\hyperlink{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba276c9188f1a319940c2820b03d5bb15d}{tri}, 
 \par
-{\bfseries dauphin}, 
-{\bfseries fandisk}, 
-{\bfseries paysage}, 
-{\bfseries triceratops}, 
+\hyperlink{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba3671e783b5600d8d8805759ad2d879d3}{dauphin}, 
+\hyperlink{class_object_aa59c8c464c60ded4291b3e0f0ef20bbbaf5e777b627396b36d3dadcf498425dcd}{fandisk}, 
+\hyperlink{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba6eb110a273d61a900fefb53bc1e34750}{paysage}, 
+\hyperlink{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba5e90e5098fd75a8eb88fae7d753cb53b}{triceratops}, 
 \par
-{\bfseries theiere}, 
-{\bfseries gargoyle}, 
-{\bfseries ram}, 
-{\bfseries tweety}, 
+\hyperlink{class_object_aa59c8c464c60ded4291b3e0f0ef20bbbac7c1aed6a1afb965fd938631d405cb44}{theiere}, 
+\hyperlink{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba61938c6348d8061c951c70f46fcbeb48}{gargoyle}, 
+\hyperlink{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba06d5b6aafa1bdc707dc411f6c0510590}{ram}, 
+\hyperlink{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba6c99d125ad59dd3c5f1c66b7a15e895b}{tweety}, 
 \par
-{\bfseries armadillo}, 
-{\bfseries ground}, 
-{\bfseries ram\_\-HD}, 
-{\bfseries bunny}, 
+\hyperlink{class_object_aa59c8c464c60ded4291b3e0f0ef20bbbace0d89bebb12d9a53bfb623dab5de5d5}{armadillo}, 
+\hyperlink{class_object_aa59c8c464c60ded4291b3e0f0ef20bbbabe845afcd8fd0c28aba1d43082b31ebb}{ground}, 
+\hyperlink{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba1bb2de8da7cacf9e017b267bc45ab96c}{ram\_\-HD}, 
+\hyperlink{class_object_aa59c8c464c60ded4291b3e0f0ef20bbbaca33bc4a6e5d1ced16efc9ad33904f0f}{bunny}, 
 \par
-{\bfseries ground\_\-HD}, 
-{\bfseries room}, 
-{\bfseries bunny2}, 
-{\bfseries horse}, 
+\hyperlink{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba5547a62e5181bb04815796ea0daf0cf6}{ground\_\-HD}, 
+\hyperlink{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba24b1231f62e74b2cab19d91443cd22f4}{room}, 
+\hyperlink{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba143cef0461eea2fb1a8d37284297f2d6}{bunny2}, 
+\hyperlink{class_object_aa59c8c464c60ded4291b3e0f0ef20bbbab4a1caacc2a8dafefa25a2f2a74af108}{horse}, 
 \par
-{\bfseries room\_\-f}, 
-{\bfseries coloredGlass}, 
-{\bfseries opened\_\-cube}
+\hyperlink{class_object_aa59c8c464c60ded4291b3e0f0ef20bbbab7db057a2cb63661f71c6511f9fc968a}{room\_\-f}, 
+\hyperlink{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba61d7d283c55675d1c7139b222fdd6ff3}{coloredGlass}, 
+\hyperlink{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba28f401c82e5c1bc445161cf72f3f5a76}{opened\_\-cube}, 
+\hyperlink{class_object_aa59c8c464c60ded4291b3e0f0ef20bbbada05a4805ce33097c387c4d9f3369dbd}{cubeoff}, 
+\par
+\hyperlink{class_object_aa59c8c464c60ded4291b3e0f0ef20bbbaefdfbd4a330e7e0db256370ebb3bd309}{cubeFloor}, 
+\hyperlink{class_object_aa59c8c464c60ded4291b3e0f0ef20bbbacfacb4860a50f0d9805d143a717aaab8}{cubeWallRight}, 
+\hyperlink{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba16ad3675946e2f9d8bf8d610dbeaa616}{cubeWallLeft}, 
+\hyperlink{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba045a653167256e0613107dab0adc1bfb}{cubebackWall}, 
+\par
+\hyperlink{class_object_aa59c8c464c60ded4291b3e0f0ef20bbbaa215a842c7785541d07a615e8b961591}{cubeFaceWall}, 
+\hyperlink{class_object_aa59c8c464c60ded4291b3e0f0ef20bbbad7cb19167b22d21e801206cc04f8775f}{cubeRoof}, 
+\hyperlink{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba2cbeade773c4694d21f5f2fdd402f45b}{pig}
  \}
 \end{DoxyCompactItemize}
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\hyperlink{class_object_a40860402e64d8008fb42329df7097cdb}{Object} ()
+\item 
+\hyperlink{class_object_a76be6ce9d41e65e06f231ba122c4c6f1}{Object} (const \hyperlink{class_mesh}{Mesh} \&mesh, const \hyperlink{class_material}{Material} \&mat)
+\item 
+virtual \hyperlink{class_object_aa3e791419d84c4c346ef9499513b8e00}{$\sim$Object} ()
+\item 
+const \hyperlink{class_mesh}{Mesh} \& \hyperlink{class_object_aca85febe503b1feffdd61cc22777816d}{getMesh} () const 
+\item 
+\hyperlink{class_mesh}{Mesh} \& \hyperlink{class_object_a2c80996c263bb223ff6a5395d452b2a7}{getMesh} ()
+\item 
+const \hyperlink{class_material}{Material} \& \hyperlink{class_object_a8b4f09c5a0ab51e58a1d1c2da6f33a18}{getMaterial} () const 
+\item 
+\hyperlink{class_material}{Material} \& \hyperlink{class_object_acda0cee83fc08cc69bdc3f72b8e8b3a7}{getMaterial} ()
+\item 
+const \hyperlink{class_bounding_box}{BoundingBox} \& \hyperlink{class_object_a39c1127b2bd6ced2ec79bb80f129301b}{getBoundingBox} () const 
+\item 
+void \hyperlink{class_object_a8b5067250bb4000f2e2abc79a5c0f0ef}{updateBoundingBox} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 18 of file Object.h.
+
+
+
+\subsection{Member Enumeration Documentation}
+\hypertarget{class_object_aa59c8c464c60ded4291b3e0f0ef20bbb}{
+\index{Object@{Object}!objName@{objName}}
+\index{objName@{objName}!Object@{Object}}
+\subsubsection[{objName}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf Object::objName}}}
+\label{class_object_aa59c8c464c60ded4291b3e0f0ef20bbb}
+\begin{Desc}
+\item[Enumerator: ]\par
+\begin{description}
+\index{threeD@{threeD}!Object@{Object}}\index{Object@{Object}!threeD@{threeD}}\item[{\em 
+\hypertarget{class_object_aa59c8c464c60ded4291b3e0f0ef20bbbaae797a9c75bbb99ee517aaa0e07f1a1f}{
+threeD}
+\label{class_object_aa59c8c464c60ded4291b3e0f0ef20bbbaae797a9c75bbb99ee517aaa0e07f1a1f}
+}]\index{camel\_\-head@{camel\_\-head}!Object@{Object}}\index{Object@{Object}!camel\_\-head@{camel\_\-head}}\item[{\em 
+\hypertarget{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba2e8ca1af39c26042b29301b749b43b6e}{
+camel\_\-head}
+\label{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba2e8ca1af39c26042b29301b749b43b6e}
+}]\index{max@{max}!Object@{Object}}\index{Object@{Object}!max@{max}}\item[{\em 
+\hypertarget{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba1545239226f69a79ecff8e70a646b40c}{
+max}
+\label{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba1545239226f69a79ecff8e70a646b40c}
+}]\index{sphere@{sphere}!Object@{Object}}\index{Object@{Object}!sphere@{sphere}}\item[{\em 
+\hypertarget{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba5a57120441f836ff1c9f2fde5a630736}{
+sphere}
+\label{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba5a57120441f836ff1c9f2fde5a630736}
+}]\index{apple@{apple}!Object@{Object}}\index{Object@{Object}!apple@{apple}}\item[{\em 
+\hypertarget{class_object_aa59c8c464c60ded4291b3e0f0ef20bbbaeba7d642386203ffa4e9e248118ea60e}{
+apple}
+\label{class_object_aa59c8c464c60ded4291b3e0f0ef20bbbaeba7d642386203ffa4e9e248118ea60e}
+}]\index{dbtorus@{dbtorus}!Object@{Object}}\index{Object@{Object}!dbtorus@{dbtorus}}\item[{\em 
+\hypertarget{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba6ec42563e9fd2963d1e20d906f6cf3df}{
+dbtorus}
+\label{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba6ec42563e9fd2963d1e20d906f6cf3df}
+}]\index{max\_\-50K@{max\_\-50K}!Object@{Object}}\index{Object@{Object}!max\_\-50K@{max\_\-50K}}\item[{\em 
+\hypertarget{class_object_aa59c8c464c60ded4291b3e0f0ef20bbbaba653416cf777357edee417679e8cb9f}{
+max\_\-50K}
+\label{class_object_aa59c8c464c60ded4291b3e0f0ef20bbbaba653416cf777357edee417679e8cb9f}
+}]\index{squirrel@{squirrel}!Object@{Object}}\index{Object@{Object}!squirrel@{squirrel}}\item[{\em 
+\hypertarget{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba40742213a11dc49032c63a9d4969dd89}{
+squirrel}
+\label{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba40742213a11dc49032c63a9d4969dd89}
+}]\index{cherry@{cherry}!Object@{Object}}\index{Object@{Object}!cherry@{cherry}}\item[{\em 
+\hypertarget{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba71e77d8ebd4d94561315216576ba4e95}{
+cherry}
+\label{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba71e77d8ebd4d94561315216576ba4e95}
+}]\index{double\_\-ram@{double\_\-ram}!Object@{Object}}\index{Object@{Object}!double\_\-ram@{double\_\-ram}}\item[{\em 
+\hypertarget{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba65138f9c29560a09fef487a7d91c10b3}{
+double\_\-ram}
+\label{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba65138f9c29560a09fef487a7d91c10b3}
+}]\index{monkey@{monkey}!Object@{Object}}\index{Object@{Object}!monkey@{monkey}}\item[{\em 
+\hypertarget{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba3c78743907b66e87d9a4750f84b1e8cf}{
+monkey}
+\label{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba3c78743907b66e87d9a4750f84b1e8cf}
+}]\index{tri@{tri}!Object@{Object}}\index{Object@{Object}!tri@{tri}}\item[{\em 
+\hypertarget{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba276c9188f1a319940c2820b03d5bb15d}{
+tri}
+\label{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba276c9188f1a319940c2820b03d5bb15d}
+}]\index{dauphin@{dauphin}!Object@{Object}}\index{Object@{Object}!dauphin@{dauphin}}\item[{\em 
+\hypertarget{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba3671e783b5600d8d8805759ad2d879d3}{
+dauphin}
+\label{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba3671e783b5600d8d8805759ad2d879d3}
+}]\index{fandisk@{fandisk}!Object@{Object}}\index{Object@{Object}!fandisk@{fandisk}}\item[{\em 
+\hypertarget{class_object_aa59c8c464c60ded4291b3e0f0ef20bbbaf5e777b627396b36d3dadcf498425dcd}{
+fandisk}
+\label{class_object_aa59c8c464c60ded4291b3e0f0ef20bbbaf5e777b627396b36d3dadcf498425dcd}
+}]\index{paysage@{paysage}!Object@{Object}}\index{Object@{Object}!paysage@{paysage}}\item[{\em 
+\hypertarget{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba6eb110a273d61a900fefb53bc1e34750}{
+paysage}
+\label{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba6eb110a273d61a900fefb53bc1e34750}
+}]\index{triceratops@{triceratops}!Object@{Object}}\index{Object@{Object}!triceratops@{triceratops}}\item[{\em 
+\hypertarget{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba5e90e5098fd75a8eb88fae7d753cb53b}{
+triceratops}
+\label{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba5e90e5098fd75a8eb88fae7d753cb53b}
+}]\index{theiere@{theiere}!Object@{Object}}\index{Object@{Object}!theiere@{theiere}}\item[{\em 
+\hypertarget{class_object_aa59c8c464c60ded4291b3e0f0ef20bbbac7c1aed6a1afb965fd938631d405cb44}{
+theiere}
+\label{class_object_aa59c8c464c60ded4291b3e0f0ef20bbbac7c1aed6a1afb965fd938631d405cb44}
+}]\index{gargoyle@{gargoyle}!Object@{Object}}\index{Object@{Object}!gargoyle@{gargoyle}}\item[{\em 
+\hypertarget{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba61938c6348d8061c951c70f46fcbeb48}{
+gargoyle}
+\label{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba61938c6348d8061c951c70f46fcbeb48}
+}]\index{ram@{ram}!Object@{Object}}\index{Object@{Object}!ram@{ram}}\item[{\em 
+\hypertarget{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba06d5b6aafa1bdc707dc411f6c0510590}{
+ram}
+\label{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba06d5b6aafa1bdc707dc411f6c0510590}
+}]\index{tweety@{tweety}!Object@{Object}}\index{Object@{Object}!tweety@{tweety}}\item[{\em 
+\hypertarget{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba6c99d125ad59dd3c5f1c66b7a15e895b}{
+tweety}
+\label{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba6c99d125ad59dd3c5f1c66b7a15e895b}
+}]\index{armadillo@{armadillo}!Object@{Object}}\index{Object@{Object}!armadillo@{armadillo}}\item[{\em 
+\hypertarget{class_object_aa59c8c464c60ded4291b3e0f0ef20bbbace0d89bebb12d9a53bfb623dab5de5d5}{
+armadillo}
+\label{class_object_aa59c8c464c60ded4291b3e0f0ef20bbbace0d89bebb12d9a53bfb623dab5de5d5}
+}]\index{ground@{ground}!Object@{Object}}\index{Object@{Object}!ground@{ground}}\item[{\em 
+\hypertarget{class_object_aa59c8c464c60ded4291b3e0f0ef20bbbabe845afcd8fd0c28aba1d43082b31ebb}{
+ground}
+\label{class_object_aa59c8c464c60ded4291b3e0f0ef20bbbabe845afcd8fd0c28aba1d43082b31ebb}
+}]\index{ram\_\-HD@{ram\_\-HD}!Object@{Object}}\index{Object@{Object}!ram\_\-HD@{ram\_\-HD}}\item[{\em 
+\hypertarget{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba1bb2de8da7cacf9e017b267bc45ab96c}{
+ram\_\-HD}
+\label{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba1bb2de8da7cacf9e017b267bc45ab96c}
+}]\index{bunny@{bunny}!Object@{Object}}\index{Object@{Object}!bunny@{bunny}}\item[{\em 
+\hypertarget{class_object_aa59c8c464c60ded4291b3e0f0ef20bbbaca33bc4a6e5d1ced16efc9ad33904f0f}{
+bunny}
+\label{class_object_aa59c8c464c60ded4291b3e0f0ef20bbbaca33bc4a6e5d1ced16efc9ad33904f0f}
+}]\index{ground\_\-HD@{ground\_\-HD}!Object@{Object}}\index{Object@{Object}!ground\_\-HD@{ground\_\-HD}}\item[{\em 
+\hypertarget{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba5547a62e5181bb04815796ea0daf0cf6}{
+ground\_\-HD}
+\label{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba5547a62e5181bb04815796ea0daf0cf6}
+}]\index{room@{room}!Object@{Object}}\index{Object@{Object}!room@{room}}\item[{\em 
+\hypertarget{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba24b1231f62e74b2cab19d91443cd22f4}{
+room}
+\label{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba24b1231f62e74b2cab19d91443cd22f4}
+}]\index{bunny2@{bunny2}!Object@{Object}}\index{Object@{Object}!bunny2@{bunny2}}\item[{\em 
+\hypertarget{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba143cef0461eea2fb1a8d37284297f2d6}{
+bunny2}
+\label{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba143cef0461eea2fb1a8d37284297f2d6}
+}]\index{horse@{horse}!Object@{Object}}\index{Object@{Object}!horse@{horse}}\item[{\em 
+\hypertarget{class_object_aa59c8c464c60ded4291b3e0f0ef20bbbab4a1caacc2a8dafefa25a2f2a74af108}{
+horse}
+\label{class_object_aa59c8c464c60ded4291b3e0f0ef20bbbab4a1caacc2a8dafefa25a2f2a74af108}
+}]\index{room\_\-f@{room\_\-f}!Object@{Object}}\index{Object@{Object}!room\_\-f@{room\_\-f}}\item[{\em 
+\hypertarget{class_object_aa59c8c464c60ded4291b3e0f0ef20bbbab7db057a2cb63661f71c6511f9fc968a}{
+room\_\-f}
+\label{class_object_aa59c8c464c60ded4291b3e0f0ef20bbbab7db057a2cb63661f71c6511f9fc968a}
+}]\index{coloredGlass@{coloredGlass}!Object@{Object}}\index{Object@{Object}!coloredGlass@{coloredGlass}}\item[{\em 
+\hypertarget{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba61d7d283c55675d1c7139b222fdd6ff3}{
+coloredGlass}
+\label{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba61d7d283c55675d1c7139b222fdd6ff3}
+}]\index{opened\_\-cube@{opened\_\-cube}!Object@{Object}}\index{Object@{Object}!opened\_\-cube@{opened\_\-cube}}\item[{\em 
+\hypertarget{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba28f401c82e5c1bc445161cf72f3f5a76}{
+opened\_\-cube}
+\label{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba28f401c82e5c1bc445161cf72f3f5a76}
+}]\index{cubeoff@{cubeoff}!Object@{Object}}\index{Object@{Object}!cubeoff@{cubeoff}}\item[{\em 
+\hypertarget{class_object_aa59c8c464c60ded4291b3e0f0ef20bbbada05a4805ce33097c387c4d9f3369dbd}{
+cubeoff}
+\label{class_object_aa59c8c464c60ded4291b3e0f0ef20bbbada05a4805ce33097c387c4d9f3369dbd}
+}]\index{cubeFloor@{cubeFloor}!Object@{Object}}\index{Object@{Object}!cubeFloor@{cubeFloor}}\item[{\em 
+\hypertarget{class_object_aa59c8c464c60ded4291b3e0f0ef20bbbaefdfbd4a330e7e0db256370ebb3bd309}{
+cubeFloor}
+\label{class_object_aa59c8c464c60ded4291b3e0f0ef20bbbaefdfbd4a330e7e0db256370ebb3bd309}
+}]\index{cubeWallRight@{cubeWallRight}!Object@{Object}}\index{Object@{Object}!cubeWallRight@{cubeWallRight}}\item[{\em 
+\hypertarget{class_object_aa59c8c464c60ded4291b3e0f0ef20bbbacfacb4860a50f0d9805d143a717aaab8}{
+cubeWallRight}
+\label{class_object_aa59c8c464c60ded4291b3e0f0ef20bbbacfacb4860a50f0d9805d143a717aaab8}
+}]\index{cubeWallLeft@{cubeWallLeft}!Object@{Object}}\index{Object@{Object}!cubeWallLeft@{cubeWallLeft}}\item[{\em 
+\hypertarget{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba16ad3675946e2f9d8bf8d610dbeaa616}{
+cubeWallLeft}
+\label{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba16ad3675946e2f9d8bf8d610dbeaa616}
+}]\index{cubebackWall@{cubebackWall}!Object@{Object}}\index{Object@{Object}!cubebackWall@{cubebackWall}}\item[{\em 
+\hypertarget{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba045a653167256e0613107dab0adc1bfb}{
+cubebackWall}
+\label{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba045a653167256e0613107dab0adc1bfb}
+}]\index{cubeFaceWall@{cubeFaceWall}!Object@{Object}}\index{Object@{Object}!cubeFaceWall@{cubeFaceWall}}\item[{\em 
+\hypertarget{class_object_aa59c8c464c60ded4291b3e0f0ef20bbbaa215a842c7785541d07a615e8b961591}{
+cubeFaceWall}
+\label{class_object_aa59c8c464c60ded4291b3e0f0ef20bbbaa215a842c7785541d07a615e8b961591}
+}]\index{cubeRoof@{cubeRoof}!Object@{Object}}\index{Object@{Object}!cubeRoof@{cubeRoof}}\item[{\em 
+\hypertarget{class_object_aa59c8c464c60ded4291b3e0f0ef20bbbad7cb19167b22d21e801206cc04f8775f}{
+cubeRoof}
+\label{class_object_aa59c8c464c60ded4291b3e0f0ef20bbbad7cb19167b22d21e801206cc04f8775f}
+}]\index{pig@{pig}!Object@{Object}}\index{Object@{Object}!pig@{pig}}\item[{\em 
+\hypertarget{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba2cbeade773c4694d21f5f2fdd402f45b}{
+pig}
+\label{class_object_aa59c8c464c60ded4291b3e0f0ef20bbba2cbeade773c4694d21f5f2fdd402f45b}
+}]\end{description}
+\end{Desc}
+
+
+
+Definition at line 34 of file Object.h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_object_a40860402e64d8008fb42329df7097cdb}{
+\index{Object@{Object}!Object@{Object}}
+\index{Object@{Object}!Object@{Object}}
+\subsubsection[{Object}]{\setlength{\rightskip}{0pt plus 5cm}Object::Object (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_object_a40860402e64d8008fb42329df7097cdb}
+
+
+Definition at line 20 of file Object.h.
+
 \hypertarget{class_object_a76be6ce9d41e65e06f231ba122c4c6f1}{
-{\bfseries Object} (const \hyperlink{class_mesh}{Mesh} \&mesh, const \hyperlink{class_material}{Material} \&mat)}
+\index{Object@{Object}!Object@{Object}}
+\index{Object@{Object}!Object@{Object}}
+\subsubsection[{Object}]{\setlength{\rightskip}{0pt plus 5cm}Object::Object (
+\begin{DoxyParamCaption}
+\item[{const {\bf Mesh} \&}]{mesh, }
+\item[{const {\bf Material} \&}]{mat}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
 \label{class_object_a76be6ce9d41e65e06f231ba122c4c6f1}
 
-\item 
-\hypertarget{class_object_aca85febe503b1feffdd61cc22777816d}{
-const \hyperlink{class_mesh}{Mesh} \& {\bfseries getMesh} () const }
-\label{class_object_aca85febe503b1feffdd61cc22777816d}
 
-\item 
-\hypertarget{class_object_a2c80996c263bb223ff6a5395d452b2a7}{
-\hyperlink{class_mesh}{Mesh} \& {\bfseries getMesh} ()}
-\label{class_object_a2c80996c263bb223ff6a5395d452b2a7}
+Definition at line 21 of file Object.h.
 
-\item 
-\hypertarget{class_object_a8b4f09c5a0ab51e58a1d1c2da6f33a18}{
-const \hyperlink{class_material}{Material} \& {\bfseries getMaterial} () const }
-\label{class_object_a8b4f09c5a0ab51e58a1d1c2da6f33a18}
+\hypertarget{class_object_aa3e791419d84c4c346ef9499513b8e00}{
+\index{Object@{Object}!$\sim$Object@{$\sim$Object}}
+\index{$\sim$Object@{$\sim$Object}!Object@{Object}}
+\subsubsection[{$\sim$Object}]{\setlength{\rightskip}{0pt plus 5cm}virtual Object::$\sim$Object (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}
+\label{class_object_aa3e791419d84c4c346ef9499513b8e00}
 
-\item 
-\hypertarget{class_object_acda0cee83fc08cc69bdc3f72b8e8b3a7}{
-\hyperlink{class_material}{Material} \& {\bfseries getMaterial} ()}
-\label{class_object_acda0cee83fc08cc69bdc3f72b8e8b3a7}
 
-\item 
+Definition at line 24 of file Object.h.
+
+
+
+\subsection{Member Function Documentation}
 \hypertarget{class_object_a39c1127b2bd6ced2ec79bb80f129301b}{
-const \hyperlink{class_bounding_box}{BoundingBox} \& {\bfseries getBoundingBox} () const }
+\index{Object@{Object}!getBoundingBox@{getBoundingBox}}
+\index{getBoundingBox@{getBoundingBox}!Object@{Object}}
+\subsubsection[{getBoundingBox}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf BoundingBox}\& Object::getBoundingBox (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
 \label{class_object_a39c1127b2bd6ced2ec79bb80f129301b}
 
-\item 
+
+Definition at line 32 of file Object.h.
+
+\hypertarget{class_object_a8b4f09c5a0ab51e58a1d1c2da6f33a18}{
+\index{Object@{Object}!getMaterial@{getMaterial}}
+\index{getMaterial@{getMaterial}!Object@{Object}}
+\subsubsection[{getMaterial}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Material}\& Object::getMaterial (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_object_a8b4f09c5a0ab51e58a1d1c2da6f33a18}
+
+
+Definition at line 29 of file Object.h.
+
+\hypertarget{class_object_acda0cee83fc08cc69bdc3f72b8e8b3a7}{
+\index{Object@{Object}!getMaterial@{getMaterial}}
+\index{getMaterial@{getMaterial}!Object@{Object}}
+\subsubsection[{getMaterial}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Material}\& Object::getMaterial (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_object_acda0cee83fc08cc69bdc3f72b8e8b3a7}
+
+
+Definition at line 30 of file Object.h.
+
+\hypertarget{class_object_a2c80996c263bb223ff6a5395d452b2a7}{
+\index{Object@{Object}!getMesh@{getMesh}}
+\index{getMesh@{getMesh}!Object@{Object}}
+\subsubsection[{getMesh}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Mesh}\& Object::getMesh (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_object_a2c80996c263bb223ff6a5395d452b2a7}
+
+
+Definition at line 27 of file Object.h.
+
+\hypertarget{class_object_aca85febe503b1feffdd61cc22777816d}{
+\index{Object@{Object}!getMesh@{getMesh}}
+\index{getMesh@{getMesh}!Object@{Object}}
+\subsubsection[{getMesh}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Mesh}\& Object::getMesh (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_object_aca85febe503b1feffdd61cc22777816d}
+
+
+Definition at line 26 of file Object.h.
+
 \hypertarget{class_object_a8b5067250bb4000f2e2abc79a5c0f0ef}{
-void {\bfseries updateBoundingBox} ()}
+\index{Object@{Object}!updateBoundingBox@{updateBoundingBox}}
+\index{updateBoundingBox@{updateBoundingBox}!Object@{Object}}
+\subsubsection[{updateBoundingBox}]{\setlength{\rightskip}{0pt plus 5cm}void Object::updateBoundingBox (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
 \label{class_object_a8b5067250bb4000f2e2abc79a5c0f0ef}
 
-\end{DoxyCompactItemize}
+
+Definition at line 12 of file Object.cpp.
+
 
 
 The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
 \item 
-raymini/Object.h\item 
-raymini/Object.cpp\end{DoxyCompactItemize}
+raymini/\hyperlink{_object_8h}{Object.h}\item 
+raymini/\hyperlink{_object_8cpp}{Object.cpp}\end{DoxyCompactItemize}

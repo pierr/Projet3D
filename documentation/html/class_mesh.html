@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>Projet3D: Mesh Class Reference</title>
+<title>Ray Tracer: Mesh Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Projet3D</div>
+   <div id="projectname">Ray Tracer</div>
   </td>
  </tr>
  </tbody>
@@ -66,6 +66,8 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="contents">
 <!-- doxytag: class="Mesh" -->
+<p><code>#include &lt;<a class="el" href="_mesh_8h_source.html">Mesh.h</a>&gt;</code></p>
+
 <p><a href="class_mesh-members.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="nested-classes"></a>
@@ -73,50 +75,537 @@ Classes</h2></td></tr>
 <tr><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh_1_1_exception.html">Exception</a></td></tr>
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adb9316d7dace57df26ff1fe78b8f8c0a"></a><!-- doxytag: member="Mesh::Mesh" ref="adb9316d7dace57df26ff1fe78b8f8c0a" args="(const std::vector&lt; Vertex &gt; &amp;v)" -->
-&#160;</td><td class="memItemRight" valign="bottom"><b>Mesh</b> (const std::vector&lt; <a class="el" href="class_vertex.html">Vertex</a> &gt; &amp;v)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a341fbc5393e30d8f391961e57d27f01f"></a><!-- doxytag: member="Mesh::Mesh" ref="a341fbc5393e30d8f391961e57d27f01f" args="(const std::vector&lt; Vertex &gt; &amp;v, const std::vector&lt; Triangle &gt; &amp;t)" -->
-&#160;</td><td class="memItemRight" valign="bottom"><b>Mesh</b> (const std::vector&lt; <a class="el" href="class_vertex.html">Vertex</a> &gt; &amp;v, const std::vector&lt; <a class="el" href="class_triangle.html">Triangle</a> &gt; &amp;t)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad0260249329b621d4d91c66293baef8d"></a><!-- doxytag: member="Mesh::Mesh" ref="ad0260249329b621d4d91c66293baef8d" args="(const Mesh &amp;mesh)" -->
-&#160;</td><td class="memItemRight" valign="bottom"><b>Mesh</b> (const <a class="el" href="class_mesh.html">Mesh</a> &amp;mesh)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a42f498162d3a1c2dc33673aaf0e13bbe"></a><!-- doxytag: member="Mesh::getVertices" ref="a42f498162d3a1c2dc33673aaf0e13bbe" args="()" -->
-std::vector&lt; <a class="el" href="class_vertex.html">Vertex</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getVertices</b> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a012af8d734e4b24c9e4455460a309f39"></a><!-- doxytag: member="Mesh::getVertices" ref="a012af8d734e4b24c9e4455460a309f39" args="() const " -->
-const std::vector&lt; <a class="el" href="class_vertex.html">Vertex</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getVertices</b> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad8028e3925807b895700685d20d8d068"></a><!-- doxytag: member="Mesh::getTriangles" ref="ad8028e3925807b895700685d20d8d068" args="()" -->
-std::vector&lt; <a class="el" href="class_triangle.html">Triangle</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getTriangles</b> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0ed54e18cd41d1464e9856870c0517af"></a><!-- doxytag: member="Mesh::getTriangles" ref="a0ed54e18cd41d1464e9856870c0517af" args="() const " -->
-const std::vector&lt; <a class="el" href="class_triangle.html">Triangle</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>getTriangles</b> () const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a7008e23cbaacd2878b7e81a01ac5d96b"></a><!-- doxytag: member="Mesh::clear" ref="a7008e23cbaacd2878b7e81a01ac5d96b" args="()" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>clear</b> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1f53f5b1ea374096e87549bb34527627"></a><!-- doxytag: member="Mesh::clearGeometry" ref="a1f53f5b1ea374096e87549bb34527627" args="()" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>clearGeometry</b> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa23a3186392b0285ff3cd5577a58a7eb"></a><!-- doxytag: member="Mesh::clearTopology" ref="aa23a3186392b0285ff3cd5577a58a7eb" args="()" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>clearTopology</b> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5bf95f9557c71f7397b5d468e8c081e1"></a><!-- doxytag: member="Mesh::unmarkAllVertices" ref="a5bf95f9557c71f7397b5d468e8c081e1" args="()" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>unmarkAllVertices</b> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a9cb470310ac2300d068cace3b9ddf222"></a><!-- doxytag: member="Mesh::recomputeSmoothVertexNormals" ref="a9cb470310ac2300d068cace3b9ddf222" args="(unsigned int weight)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>recomputeSmoothVertexNormals</b> (unsigned int weight)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="adb597894886af67deefb9abce6833c95"></a><!-- doxytag: member="Mesh::computeTriangleNormals" ref="adb597894886af67deefb9abce6833c95" args="(std::vector&lt; Vec3Df &gt; &amp;triangleNormals)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>computeTriangleNormals</b> (std::vector&lt; <a class="el" href="class_vec3_d.html">Vec3Df</a> &gt; &amp;triangleNormals)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad615ce139902c658b6afa192e04e60a0"></a><!-- doxytag: member="Mesh::collectOneRing" ref="ad615ce139902c658b6afa192e04e60a0" args="(std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &amp;oneRing) const " -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>collectOneRing</b> (std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &amp;oneRing) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="abd301b4995d59fdd09b631c1162d97f1"></a><!-- doxytag: member="Mesh::collectOrderedOneRing" ref="abd301b4995d59fdd09b631c1162d97f1" args="(std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &amp;oneRing) const " -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>collectOrderedOneRing</b> (std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &amp;oneRing) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2734381378be9cb9c8349e7bbfb6f2e9"></a><!-- doxytag: member="Mesh::computeDualEdgeMap" ref="a2734381378be9cb9c8349e7bbfb6f2e9" args="(EdgeMapIndex &amp;dualVMap1, EdgeMapIndex &amp;dualVMap2)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>computeDualEdgeMap</b> (EdgeMapIndex &amp;dualVMap1, EdgeMapIndex &amp;dualVMap2)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac461b001aa91580cc939e0ad15d7bdb6"></a><!-- doxytag: member="Mesh::markBorderEdges" ref="ac461b001aa91580cc939e0ad15d7bdb6" args="(EdgeMapIndex &amp;edgeMap)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>markBorderEdges</b> (EdgeMapIndex &amp;edgeMap)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a454105bfe72190b81331641be2edf3ec"></a><!-- doxytag: member="Mesh::renderGL" ref="a454105bfe72190b81331641be2edf3ec" args="(bool flat) const " -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>renderGL</b> (bool flat) const </td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a1b9cb544aed0779cd165703979b83315"></a><!-- doxytag: member="Mesh::loadOFF" ref="a1b9cb544aed0779cd165703979b83315" args="(const std::string &amp;filename)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>loadOFF</b> (const std::string &amp;filename)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad440dee62af2c492a89255310d8068bd"></a><!-- doxytag: member="Mesh::loadOFF" ref="ad440dee62af2c492a89255310d8068bd" args="(const std::string &amp;filename, Vec3Df &amp;translatedVector, float &amp;grandissement, RotationMatrix &amp;rotMat)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>loadOFF</b> (const std::string &amp;filename, <a class="el" href="class_vec3_d.html">Vec3Df</a> &amp;translatedVector, float &amp;grandissement, <a class="el" href="class_rotation_matrix.html">RotationMatrix</a> &amp;rotMat)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#a2af137f1571af89172b9c102302c416b">Mesh</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#adb9316d7dace57df26ff1fe78b8f8c0a">Mesh</a> (const std::vector&lt; <a class="el" href="class_vertex.html">Vertex</a> &gt; &amp;v)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#a341fbc5393e30d8f391961e57d27f01f">Mesh</a> (const std::vector&lt; <a class="el" href="class_vertex.html">Vertex</a> &gt; &amp;v, const std::vector&lt; <a class="el" href="class_triangle.html">Triangle</a> &gt; &amp;t)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#ad0260249329b621d4d91c66293baef8d">Mesh</a> (const <a class="el" href="class_mesh.html">Mesh</a> &amp;mesh)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#ad6a041191ed55c693254e945ce2869ff">~Mesh</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_vertex.html">Vertex</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#a42f498162d3a1c2dc33673aaf0e13bbe">getVertices</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="class_vertex.html">Vertex</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#a012af8d734e4b24c9e4455460a309f39">getVertices</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="class_triangle.html">Triangle</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#ad8028e3925807b895700685d20d8d068">getTriangles</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">const std::vector&lt; <a class="el" href="class_triangle.html">Triangle</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#a0ed54e18cd41d1464e9856870c0517af">getTriangles</a> () const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#a7008e23cbaacd2878b7e81a01ac5d96b">clear</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#a1f53f5b1ea374096e87549bb34527627">clearGeometry</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#aa23a3186392b0285ff3cd5577a58a7eb">clearTopology</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#a5bf95f9557c71f7397b5d468e8c081e1">unmarkAllVertices</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#a9cb470310ac2300d068cace3b9ddf222">recomputeSmoothVertexNormals</a> (unsigned int weight)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#adb597894886af67deefb9abce6833c95">computeTriangleNormals</a> (std::vector&lt; <a class="el" href="class_vec3_d.html">Vec3Df</a> &gt; &amp;triangleNormals)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#ad615ce139902c658b6afa192e04e60a0">collectOneRing</a> (std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &amp;oneRing) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#abd301b4995d59fdd09b631c1162d97f1">collectOrderedOneRing</a> (std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &amp;oneRing) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#a2734381378be9cb9c8349e7bbfb6f2e9">computeDualEdgeMap</a> (<a class="el" href="_edge_8h.html#abe548ff04bebd42f343defbeac98fa2d">EdgeMapIndex</a> &amp;dualVMap1, <a class="el" href="_edge_8h.html#abe548ff04bebd42f343defbeac98fa2d">EdgeMapIndex</a> &amp;dualVMap2)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#ac461b001aa91580cc939e0ad15d7bdb6">markBorderEdges</a> (<a class="el" href="_edge_8h.html#abe548ff04bebd42f343defbeac98fa2d">EdgeMapIndex</a> &amp;edgeMap)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#a454105bfe72190b81331641be2edf3ec">renderGL</a> (bool flat) const </td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#a04d240f35402702c60e742adf0b22bbc">loadOFFF</a> (const std::string filename)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#a1b9cb544aed0779cd165703979b83315">loadOFF</a> (const std::string &amp;filename)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#ad440dee62af2c492a89255310d8068bd">loadOFF</a> (const std::string &amp;filename, <a class="el" href="class_vec3_d.html">Vec3Df</a> &amp;translatedVector, float &amp;grandissement, <a class="el" href="class_rotation_matrix.html">RotationMatrix</a> &amp;rotMat)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_mesh.html#a4113a6c26d167af163593217b3cdb4f9">loadOFF</a> (const std::string &amp;filename, float &amp;grandissement)</td></tr>
 </table>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock">
+<p>Definition at line <a class="el" href="_mesh_8h_source.html#l00019">19</a> of file <a class="el" href="_mesh_8h_source.html">Mesh.h</a>.</p>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a2af137f1571af89172b9c102302c416b"></a><!-- doxytag: member="Mesh::Mesh" ref="a2af137f1571af89172b9c102302c416b" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Mesh::Mesh </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_mesh_8h_source.html#l00021">21</a> of file <a class="el" href="_mesh_8h_source.html">Mesh.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adb9316d7dace57df26ff1fe78b8f8c0a"></a><!-- doxytag: member="Mesh::Mesh" ref="adb9316d7dace57df26ff1fe78b8f8c0a" args="(const std::vector&lt; Vertex &gt; &amp;v)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Mesh::Mesh </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="class_vertex.html">Vertex</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_mesh_8h_source.html#l00022">22</a> of file <a class="el" href="_mesh_8h_source.html">Mesh.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a341fbc5393e30d8f391961e57d27f01f"></a><!-- doxytag: member="Mesh::Mesh" ref="a341fbc5393e30d8f391961e57d27f01f" args="(const std::vector&lt; Vertex &gt; &amp;v, const std::vector&lt; Triangle &gt; &amp;t)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Mesh::Mesh </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="class_vertex.html">Vertex</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>v</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::vector&lt; <a class="el" href="class_triangle.html">Triangle</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>t</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_mesh_8h_source.html#l00024">24</a> of file <a class="el" href="_mesh_8h_source.html">Mesh.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad0260249329b621d4d91c66293baef8d"></a><!-- doxytag: member="Mesh::Mesh" ref="ad0260249329b621d4d91c66293baef8d" args="(const Mesh &amp;mesh)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Mesh::Mesh </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="class_mesh.html">Mesh</a> &amp;&#160;</td>
+          <td class="paramname"><em>mesh</em></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_mesh_8h_source.html#l00027">27</a> of file <a class="el" href="_mesh_8h_source.html">Mesh.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad6a041191ed55c693254e945ce2869ff"></a><!-- doxytag: member="Mesh::~Mesh" ref="ad6a041191ed55c693254e945ce2869ff" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual Mesh::~Mesh </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline, virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_mesh_8h_source.html#l00031">31</a> of file <a class="el" href="_mesh_8h_source.html">Mesh.h</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a7008e23cbaacd2878b7e81a01ac5d96b"></a><!-- doxytag: member="Mesh::clear" ref="a7008e23cbaacd2878b7e81a01ac5d96b" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Mesh::clear </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_mesh_8cpp_source.html#l00022">22</a> of file <a class="el" href="_mesh_8cpp_source.html">Mesh.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1f53f5b1ea374096e87549bb34527627"></a><!-- doxytag: member="Mesh::clearGeometry" ref="a1f53f5b1ea374096e87549bb34527627" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Mesh::clearGeometry </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_mesh_8cpp_source.html#l00027">27</a> of file <a class="el" href="_mesh_8cpp_source.html">Mesh.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa23a3186392b0285ff3cd5577a58a7eb"></a><!-- doxytag: member="Mesh::clearTopology" ref="aa23a3186392b0285ff3cd5577a58a7eb" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Mesh::clearTopology </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_mesh_8cpp_source.html#l00031">31</a> of file <a class="el" href="_mesh_8cpp_source.html">Mesh.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad615ce139902c658b6afa192e04e60a0"></a><!-- doxytag: member="Mesh::collectOneRing" ref="ad615ce139902c658b6afa192e04e60a0" args="(std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &amp;oneRing) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Mesh::collectOneRing </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>oneRing</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_mesh_8cpp_source.html#l00079">79</a> of file <a class="el" href="_mesh_8cpp_source.html">Mesh.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="abd301b4995d59fdd09b631c1162d97f1"></a><!-- doxytag: member="Mesh::collectOrderedOneRing" ref="abd301b4995d59fdd09b631c1162d97f1" args="(std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &amp;oneRing) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Mesh::collectOrderedOneRing </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; std::vector&lt; unsigned int &gt; &gt; &amp;&#160;</td>
+          <td class="paramname"><em>oneRing</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_mesh_8cpp_source.html#l00094">94</a> of file <a class="el" href="_mesh_8cpp_source.html">Mesh.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2734381378be9cb9c8349e7bbfb6f2e9"></a><!-- doxytag: member="Mesh::computeDualEdgeMap" ref="a2734381378be9cb9c8349e7bbfb6f2e9" args="(EdgeMapIndex &amp;dualVMap1, EdgeMapIndex &amp;dualVMap2)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Mesh::computeDualEdgeMap </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_edge_8h.html#abe548ff04bebd42f343defbeac98fa2d">EdgeMapIndex</a> &amp;&#160;</td>
+          <td class="paramname"><em>dualVMap1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="_edge_8h.html#abe548ff04bebd42f343defbeac98fa2d">EdgeMapIndex</a> &amp;&#160;</td>
+          <td class="paramname"><em>dualVMap2</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_mesh_8cpp_source.html#l00122">122</a> of file <a class="el" href="_mesh_8cpp_source.html">Mesh.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="adb597894886af67deefb9abce6833c95"></a><!-- doxytag: member="Mesh::computeTriangleNormals" ref="adb597894886af67deefb9abce6833c95" args="(std::vector&lt; Vec3Df &gt; &amp;triangleNormals)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Mesh::computeTriangleNormals </td>
+          <td>(</td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="class_vec3_d.html">Vec3Df</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>triangleNormals</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_mesh_8cpp_source.html#l00040">40</a> of file <a class="el" href="_mesh_8cpp_source.html">Mesh.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a0ed54e18cd41d1464e9856870c0517af"></a><!-- doxytag: member="Mesh::getTriangles" ref="a0ed54e18cd41d1464e9856870c0517af" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt;<a class="el" href="class_triangle.html">Triangle</a>&gt;&amp; Mesh::getTriangles </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_mesh_8h_source.html#l00035">35</a> of file <a class="el" href="_mesh_8h_source.html">Mesh.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad8028e3925807b895700685d20d8d068"></a><!-- doxytag: member="Mesh::getTriangles" ref="ad8028e3925807b895700685d20d8d068" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="class_triangle.html">Triangle</a>&gt;&amp; Mesh::getTriangles </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_mesh_8h_source.html#l00034">34</a> of file <a class="el" href="_mesh_8h_source.html">Mesh.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a012af8d734e4b24c9e4455460a309f39"></a><!-- doxytag: member="Mesh::getVertices" ref="a012af8d734e4b24c9e4455460a309f39" args="() const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::vector&lt;<a class="el" href="class_vertex.html">Vertex</a>&gt;&amp; Mesh::getVertices </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const<code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_mesh_8h_source.html#l00033">33</a> of file <a class="el" href="_mesh_8h_source.html">Mesh.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a42f498162d3a1c2dc33673aaf0e13bbe"></a><!-- doxytag: member="Mesh::getVertices" ref="a42f498162d3a1c2dc33673aaf0e13bbe" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="class_vertex.html">Vertex</a>&gt;&amp; Mesh::getVertices </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_mesh_8h_source.html#l00032">32</a> of file <a class="el" href="_mesh_8h_source.html">Mesh.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a1b9cb544aed0779cd165703979b83315"></a><!-- doxytag: member="Mesh::loadOFF" ref="a1b9cb544aed0779cd165703979b83315" args="(const std::string &amp;filename)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Mesh::loadOFF </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_mesh_8cpp_source.html#l00227">227</a> of file <a class="el" href="_mesh_8cpp_source.html">Mesh.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad440dee62af2c492a89255310d8068bd"></a><!-- doxytag: member="Mesh::loadOFF" ref="ad440dee62af2c492a89255310d8068bd" args="(const std::string &amp;filename, Vec3Df &amp;translatedVector, float &amp;grandissement, RotationMatrix &amp;rotMat)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Mesh::loadOFF </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_vec3_d.html">Vec3Df</a> &amp;&#160;</td>
+          <td class="paramname"><em>translatedVector</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float &amp;&#160;</td>
+          <td class="paramname"><em>grandissement</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_rotation_matrix.html">RotationMatrix</a> &amp;&#160;</td>
+          <td class="paramname"><em>rotMat</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_mesh_8cpp_source.html#l00189">189</a> of file <a class="el" href="_mesh_8cpp_source.html">Mesh.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a4113a6c26d167af163593217b3cdb4f9"></a><!-- doxytag: member="Mesh::loadOFF" ref="a4113a6c26d167af163593217b3cdb4f9" args="(const std::string &amp;filename, float &amp;grandissement)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Mesh::loadOFF </td>
+          <td>(</td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>filename</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float &amp;&#160;</td>
+          <td class="paramname"><em>grandissement</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_mesh_8cpp_source.html#l00234">234</a> of file <a class="el" href="_mesh_8cpp_source.html">Mesh.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a04d240f35402702c60e742adf0b22bbc"></a><!-- doxytag: member="Mesh::loadOFFF" ref="a04d240f35402702c60e742adf0b22bbc" args="(const std::string filename)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Mesh::loadOFFF </td>
+          <td>(</td>
+          <td class="paramtype">const std::string&#160;</td>
+          <td class="paramname"><em>filename</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_mesh_8cpp_source.html#l00239">239</a> of file <a class="el" href="_mesh_8cpp_source.html">Mesh.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ac461b001aa91580cc939e0ad15d7bdb6"></a><!-- doxytag: member="Mesh::markBorderEdges" ref="ac461b001aa91580cc939e0ad15d7bdb6" args="(EdgeMapIndex &amp;edgeMap)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Mesh::markBorderEdges </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="_edge_8h.html#abe548ff04bebd42f343defbeac98fa2d">EdgeMapIndex</a> &amp;&#160;</td>
+          <td class="paramname"><em>edgeMap</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_mesh_8cpp_source.html#l00135">135</a> of file <a class="el" href="_mesh_8cpp_source.html">Mesh.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a9cb470310ac2300d068cace3b9ddf222"></a><!-- doxytag: member="Mesh::recomputeSmoothVertexNormals" ref="a9cb470310ac2300d068cace3b9ddf222" args="(unsigned int weight)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Mesh::recomputeSmoothVertexNormals </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramname"><em>weight</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_mesh_8cpp_source.html#l00052">52</a> of file <a class="el" href="_mesh_8cpp_source.html">Mesh.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a454105bfe72190b81331641be2edf3ec"></a><!-- doxytag: member="Mesh::renderGL" ref="a454105bfe72190b81331641be2edf3ec" args="(bool flat) const " -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Mesh::renderGL </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>flat</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_mesh_8cpp_source.html#l00166">166</a> of file <a class="el" href="_mesh_8cpp_source.html">Mesh.cpp</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5bf95f9557c71f7397b5d468e8c081e1"></a><!-- doxytag: member="Mesh::unmarkAllVertices" ref="a5bf95f9557c71f7397b5d468e8c081e1" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Mesh::unmarkAllVertices </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="_mesh_8cpp_source.html#l00035">35</a> of file <a class="el" href="_mesh_8cpp_source.html">Mesh.cpp</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>raymini/<a class="el" href="_mesh_8h_source.html">Mesh.h</a></li>
-<li>raymini/Mesh.cpp</li>
+<li>raymini/<a class="el" href="_mesh_8cpp_source.html">Mesh.cpp</a></li>
 </ul>
 </div>
 <!-- window showing the filter options -->
@@ -124,7 +613,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>loadOFF</b> (const st
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -133,7 +622,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>loadOFF</b> (const st
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Mon May 2 2011 01:51:51 for Projet3D by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Sun May 8 2011 16:02:10 for Ray Tracer by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

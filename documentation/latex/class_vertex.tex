@@ -2,105 +2,339 @@
 \section{Vertex Class Reference}
 \label{class_vertex}\index{Vertex@{Vertex}}
 }
+
+
+{\ttfamily \#include $<$Vertex.h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{class_vertex_af7a13faf027010bf791afeab4b7e5334}{
-{\bfseries Vertex} (const \hyperlink{class_vec3_d}{Vec3Df} \&pos)}
-\label{class_vertex_af7a13faf027010bf791afeab4b7e5334}
-
+\hyperlink{class_vertex_a97488994a2482d70da74e1b91d40e169}{Vertex} ()
 \item 
-\hypertarget{class_vertex_a27a83fd914a9c3356e1a91175af9dcb2}{
-{\bfseries Vertex} (const \hyperlink{class_vec3_d}{Vec3Df} \&pos, const \hyperlink{class_vec3_d}{Vec3Df} \&normal)}
-\label{class_vertex_a27a83fd914a9c3356e1a91175af9dcb2}
-
+\hyperlink{class_vertex_af7a13faf027010bf791afeab4b7e5334}{Vertex} (const \hyperlink{class_vec3_d}{Vec3Df} \&pos)
 \item 
-\hypertarget{class_vertex_a2cd575cac73be8dba0f87dfc38fe20e7}{
-{\bfseries Vertex} (const \hyperlink{class_vertex}{Vertex} \&v)}
-\label{class_vertex_a2cd575cac73be8dba0f87dfc38fe20e7}
-
+\hyperlink{class_vertex_a27a83fd914a9c3356e1a91175af9dcb2}{Vertex} (const \hyperlink{class_vec3_d}{Vec3Df} \&pos, const \hyperlink{class_vec3_d}{Vec3Df} \&normal)
 \item 
-\hypertarget{class_vertex_a0a25587d8b6e15e799bd4384a9f443cf}{
-\hyperlink{class_vertex}{Vertex} \& {\bfseries operator=} (const \hyperlink{class_vertex}{Vertex} \&vertex)}
-\label{class_vertex_a0a25587d8b6e15e799bd4384a9f443cf}
-
+\hyperlink{class_vertex_a2cd575cac73be8dba0f87dfc38fe20e7}{Vertex} (const \hyperlink{class_vertex}{Vertex} \&v)
 \item 
-\hypertarget{class_vertex_abc85a4fa1297c23dbb5bd99c3b410943}{
-const \hyperlink{class_vec3_d}{Vec3Df} \& {\bfseries getPos} () const }
-\label{class_vertex_abc85a4fa1297c23dbb5bd99c3b410943}
-
+virtual \hyperlink{class_vertex_abc07e7e9ea84be7a07dd1b0e70de579e}{$\sim$Vertex} ()
 \item 
-\hypertarget{class_vertex_ad35a48e6284848d838dc57fe8876beea}{
-const \hyperlink{class_vec3_d}{Vec3Df} \& {\bfseries getNormal} () const }
-\label{class_vertex_ad35a48e6284848d838dc57fe8876beea}
-
+\hyperlink{class_vertex}{Vertex} \& \hyperlink{class_vertex_a0a25587d8b6e15e799bd4384a9f443cf}{operator=} (const \hyperlink{class_vertex}{Vertex} \&vertex)
 \item 
-\hypertarget{class_vertex_afa6b3258a4e1702a9335c1bd65dc1f39}{
-bool {\bfseries isMarked} () const }
-\label{class_vertex_afa6b3258a4e1702a9335c1bd65dc1f39}
-
+const \hyperlink{class_vec3_d}{Vec3Df} \& \hyperlink{class_vertex_abc85a4fa1297c23dbb5bd99c3b410943}{getPos} () const 
 \item 
-\hypertarget{class_vertex_aa61ee83bfe1b0c80f0b554663bdbd2da}{
-int {\bfseries getId} () const }
-\label{class_vertex_aa61ee83bfe1b0c80f0b554663bdbd2da}
-
+const \hyperlink{class_vec3_d}{Vec3Df} \& \hyperlink{class_vertex_ad35a48e6284848d838dc57fe8876beea}{getNormal} () const 
 \item 
-\hypertarget{class_vertex_a2e70cf74099095e6dcbf1cb0b6c36a60}{
-void {\bfseries setPos} (const \hyperlink{class_vec3_d}{Vec3Df} \&newPos)}
-\label{class_vertex_a2e70cf74099095e6dcbf1cb0b6c36a60}
-
+bool \hyperlink{class_vertex_afa6b3258a4e1702a9335c1bd65dc1f39}{isMarked} () const 
 \item 
-\hypertarget{class_vertex_a8a7525b1dbd634e704d298cb4b49a6e8}{
-void {\bfseries setNormal} (const \hyperlink{class_vec3_d}{Vec3Df} \&newNormal)}
-\label{class_vertex_a8a7525b1dbd634e704d298cb4b49a6e8}
-
+int \hyperlink{class_vertex_aa61ee83bfe1b0c80f0b554663bdbd2da}{getId} () const 
 \item 
-\hypertarget{class_vertex_a35c96268d32fe84af664a2d3beb0c6ca}{
-void {\bfseries mark} ()}
-\label{class_vertex_a35c96268d32fe84af664a2d3beb0c6ca}
-
+void \hyperlink{class_vertex_a2e70cf74099095e6dcbf1cb0b6c36a60}{setPos} (const \hyperlink{class_vec3_d}{Vec3Df} \&newPos)
 \item 
-\hypertarget{class_vertex_a0b8c2a69595f86592e9538386d82125b}{
-void {\bfseries unmark} ()}
-\label{class_vertex_a0b8c2a69595f86592e9538386d82125b}
-
+void \hyperlink{class_vertex_a8a7525b1dbd634e704d298cb4b49a6e8}{setNormal} (const \hyperlink{class_vec3_d}{Vec3Df} \&newNormal)
 \item 
-\hypertarget{class_vertex_a022e5d3151c7525ca5663b9fcd62ea52}{
-void {\bfseries setId} (int newId)}
-\label{class_vertex_a022e5d3151c7525ca5663b9fcd62ea52}
-
+void \hyperlink{class_vertex_a35c96268d32fe84af664a2d3beb0c6ca}{mark} ()
 \item 
-\hypertarget{class_vertex_a50c7b9747e7c6eb761d0559dbfd9847d}{
-bool {\bfseries operator==} (const \hyperlink{class_vertex}{Vertex} \&v)}
-\label{class_vertex_a50c7b9747e7c6eb761d0559dbfd9847d}
-
+void \hyperlink{class_vertex_a0b8c2a69595f86592e9538386d82125b}{unmark} ()
 \item 
-\hypertarget{class_vertex_ac00a06d538fca792d8aa14b559ed21b0}{
-void {\bfseries interpolate} (const \hyperlink{class_vertex}{Vertex} \&u, const \hyperlink{class_vertex}{Vertex} \&v, float alpha=0.5)}
-\label{class_vertex_ac00a06d538fca792d8aa14b559ed21b0}
-
+void \hyperlink{class_vertex_a022e5d3151c7525ca5663b9fcd62ea52}{setId} (int newId)
+\item 
+bool \hyperlink{class_vertex_a50c7b9747e7c6eb761d0559dbfd9847d}{operator==} (const \hyperlink{class_vertex}{Vertex} \&v)
+\item 
+void \hyperlink{class_vertex_ac00a06d538fca792d8aa14b559ed21b0}{interpolate} (const \hyperlink{class_vertex}{Vertex} \&u, const \hyperlink{class_vertex}{Vertex} \&v, float alpha=0.5)
 \end{DoxyCompactItemize}
 \subsection*{Static Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+static void \hyperlink{class_vertex_ab7d3c50b63d26fcaa3b473ff9635e8d1}{computeAveragePosAndRadius} (std::vector$<$ \hyperlink{class_vertex}{Vertex} $>$ \&vertices, \hyperlink{class_vec3_d}{Vec3Df} \&center, float \&radius)
+\item 
+static void \hyperlink{class_vertex_a3d88aa3bcab9a1e745694725a65214bc}{scaleToUnitBox} (std::vector$<$ \hyperlink{class_vertex}{Vertex} $>$ \&vertices, \hyperlink{class_vec3_d}{Vec3Df} \&center, float \&scaleToUnitBox)
+\item 
+static void \hyperlink{class_vertex_ac71b7a76430abbb2ce0ae8d4af706881}{normalizeNormals} (std::vector$<$ \hyperlink{class_vertex}{Vertex} $>$ \&vertices)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 16 of file Vertex.h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_vertex_a97488994a2482d70da74e1b91d40e169}{
+\index{Vertex@{Vertex}!Vertex@{Vertex}}
+\index{Vertex@{Vertex}!Vertex@{Vertex}}
+\subsubsection[{Vertex}]{\setlength{\rightskip}{0pt plus 5cm}Vertex::Vertex (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_vertex_a97488994a2482d70da74e1b91d40e169}
+
+
+Definition at line 18 of file Vertex.h.
+
+\hypertarget{class_vertex_af7a13faf027010bf791afeab4b7e5334}{
+\index{Vertex@{Vertex}!Vertex@{Vertex}}
+\index{Vertex@{Vertex}!Vertex@{Vertex}}
+\subsubsection[{Vertex}]{\setlength{\rightskip}{0pt plus 5cm}Vertex::Vertex (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vec3Df} \&}]{pos}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_vertex_af7a13faf027010bf791afeab4b7e5334}
+
+
+Definition at line 21 of file Vertex.h.
+
+\hypertarget{class_vertex_a27a83fd914a9c3356e1a91175af9dcb2}{
+\index{Vertex@{Vertex}!Vertex@{Vertex}}
+\index{Vertex@{Vertex}!Vertex@{Vertex}}
+\subsubsection[{Vertex}]{\setlength{\rightskip}{0pt plus 5cm}Vertex::Vertex (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vec3Df} \&}]{pos, }
+\item[{const {\bf Vec3Df} \&}]{normal}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_vertex_a27a83fd914a9c3356e1a91175af9dcb2}
+
+
+Definition at line 24 of file Vertex.h.
+
+\hypertarget{class_vertex_a2cd575cac73be8dba0f87dfc38fe20e7}{
+\index{Vertex@{Vertex}!Vertex@{Vertex}}
+\index{Vertex@{Vertex}!Vertex@{Vertex}}
+\subsubsection[{Vertex}]{\setlength{\rightskip}{0pt plus 5cm}Vertex::Vertex (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vertex} \&}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_vertex_a2cd575cac73be8dba0f87dfc38fe20e7}
+
+
+Definition at line 27 of file Vertex.h.
+
+\hypertarget{class_vertex_abc07e7e9ea84be7a07dd1b0e70de579e}{
+\index{Vertex@{Vertex}!$\sim$Vertex@{$\sim$Vertex}}
+\index{$\sim$Vertex@{$\sim$Vertex}!Vertex@{Vertex}}
+\subsubsection[{$\sim$Vertex}]{\setlength{\rightskip}{0pt plus 5cm}virtual Vertex::$\sim$Vertex (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}
+\label{class_vertex_abc07e7e9ea84be7a07dd1b0e70de579e}
+
+
+Definition at line 29 of file Vertex.h.
+
+
+
+\subsection{Member Function Documentation}
 \hypertarget{class_vertex_ab7d3c50b63d26fcaa3b473ff9635e8d1}{
-static void {\bfseries computeAveragePosAndRadius} (std::vector$<$ \hyperlink{class_vertex}{Vertex} $>$ \&vertices, \hyperlink{class_vec3_d}{Vec3Df} \&center, float \&radius)}
+\index{Vertex@{Vertex}!computeAveragePosAndRadius@{computeAveragePosAndRadius}}
+\index{computeAveragePosAndRadius@{computeAveragePosAndRadius}!Vertex@{Vertex}}
+\subsubsection[{computeAveragePosAndRadius}]{\setlength{\rightskip}{0pt plus 5cm}void Vertex::computeAveragePosAndRadius (
+\begin{DoxyParamCaption}
+\item[{std::vector$<$ {\bf Vertex} $>$ \&}]{vertices, }
+\item[{{\bf Vec3Df} \&}]{center, }
+\item[{float \&}]{radius}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
 \label{class_vertex_ab7d3c50b63d26fcaa3b473ff9635e8d1}
 
-\item 
-\hypertarget{class_vertex_a3d88aa3bcab9a1e745694725a65214bc}{
-static void {\bfseries scaleToUnitBox} (std::vector$<$ \hyperlink{class_vertex}{Vertex} $>$ \&vertices, \hyperlink{class_vec3_d}{Vec3Df} \&center, float \&scaleToUnitBox)}
-\label{class_vertex_a3d88aa3bcab9a1e745694725a65214bc}
 
-\item 
+Definition at line 33 of file Vertex.cpp.
+
+\hypertarget{class_vertex_aa61ee83bfe1b0c80f0b554663bdbd2da}{
+\index{Vertex@{Vertex}!getId@{getId}}
+\index{getId@{getId}!Vertex@{Vertex}}
+\subsubsection[{getId}]{\setlength{\rightskip}{0pt plus 5cm}int Vertex::getId (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_vertex_aa61ee83bfe1b0c80f0b554663bdbd2da}
+
+
+Definition at line 40 of file Vertex.h.
+
+\hypertarget{class_vertex_ad35a48e6284848d838dc57fe8876beea}{
+\index{Vertex@{Vertex}!getNormal@{getNormal}}
+\index{getNormal@{getNormal}!Vertex@{Vertex}}
+\subsubsection[{getNormal}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Vec3Df}\& Vertex::getNormal (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_vertex_ad35a48e6284848d838dc57fe8876beea}
+
+
+Definition at line 38 of file Vertex.h.
+
+\hypertarget{class_vertex_abc85a4fa1297c23dbb5bd99c3b410943}{
+\index{Vertex@{Vertex}!getPos@{getPos}}
+\index{getPos@{getPos}!Vertex@{Vertex}}
+\subsubsection[{getPos}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf Vec3Df}\& Vertex::getPos (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_vertex_abc85a4fa1297c23dbb5bd99c3b410943}
+
+
+Definition at line 37 of file Vertex.h.
+
+\hypertarget{class_vertex_ac00a06d538fca792d8aa14b559ed21b0}{
+\index{Vertex@{Vertex}!interpolate@{interpolate}}
+\index{interpolate@{interpolate}!Vertex@{Vertex}}
+\subsubsection[{interpolate}]{\setlength{\rightskip}{0pt plus 5cm}void Vertex::interpolate (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vertex} \&}]{u, }
+\item[{const {\bf Vertex} \&}]{v, }
+\item[{float}]{alpha = {\ttfamily 0.5}}
+\end{DoxyParamCaption}
+)}}
+\label{class_vertex_ac00a06d538fca792d8aa14b559ed21b0}
+
+
+Definition at line 22 of file Vertex.cpp.
+
+\hypertarget{class_vertex_afa6b3258a4e1702a9335c1bd65dc1f39}{
+\index{Vertex@{Vertex}!isMarked@{isMarked}}
+\index{isMarked@{isMarked}!Vertex@{Vertex}}
+\subsubsection[{isMarked}]{\setlength{\rightskip}{0pt plus 5cm}bool Vertex::isMarked (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_vertex_afa6b3258a4e1702a9335c1bd65dc1f39}
+
+
+Definition at line 39 of file Vertex.h.
+
+\hypertarget{class_vertex_a35c96268d32fe84af664a2d3beb0c6ca}{
+\index{Vertex@{Vertex}!mark@{mark}}
+\index{mark@{mark}!Vertex@{Vertex}}
+\subsubsection[{mark}]{\setlength{\rightskip}{0pt plus 5cm}void Vertex::mark (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_vertex_a35c96268d32fe84af664a2d3beb0c6ca}
+
+
+Definition at line 43 of file Vertex.h.
+
 \hypertarget{class_vertex_ac71b7a76430abbb2ce0ae8d4af706881}{
-static void {\bfseries normalizeNormals} (std::vector$<$ \hyperlink{class_vertex}{Vertex} $>$ \&vertices)}
+\index{Vertex@{Vertex}!normalizeNormals@{normalizeNormals}}
+\index{normalizeNormals@{normalizeNormals}!Vertex@{Vertex}}
+\subsubsection[{normalizeNormals}]{\setlength{\rightskip}{0pt plus 5cm}void Vertex::normalizeNormals (
+\begin{DoxyParamCaption}
+\item[{std::vector$<$ {\bf Vertex} $>$ \&}]{vertices}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
 \label{class_vertex_ac71b7a76430abbb2ce0ae8d4af706881}
 
-\end{DoxyCompactItemize}
+
+Definition at line 54 of file Vertex.cpp.
+
+\hypertarget{class_vertex_a0a25587d8b6e15e799bd4384a9f443cf}{
+\index{Vertex@{Vertex}!operator=@{operator=}}
+\index{operator=@{operator=}!Vertex@{Vertex}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Vertex}\& Vertex::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vertex} \&}]{vertex}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_vertex_a0a25587d8b6e15e799bd4384a9f443cf}
+
+
+Definition at line 30 of file Vertex.h.
+
+\hypertarget{class_vertex_a50c7b9747e7c6eb761d0559dbfd9847d}{
+\index{Vertex@{Vertex}!operator==@{operator==}}
+\index{operator==@{operator==}!Vertex@{Vertex}}
+\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}bool Vertex::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vertex} \&}]{v}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_vertex_a50c7b9747e7c6eb761d0559dbfd9847d}
+
+
+Definition at line 46 of file Vertex.h.
+
+\hypertarget{class_vertex_a3d88aa3bcab9a1e745694725a65214bc}{
+\index{Vertex@{Vertex}!scaleToUnitBox@{scaleToUnitBox}}
+\index{scaleToUnitBox@{scaleToUnitBox}!Vertex@{Vertex}}
+\subsubsection[{scaleToUnitBox}]{\setlength{\rightskip}{0pt plus 5cm}void Vertex::scaleToUnitBox (
+\begin{DoxyParamCaption}
+\item[{std::vector$<$ {\bf Vertex} $>$ \&}]{vertices, }
+\item[{{\bf Vec3Df} \&}]{center, }
+\item[{float \&}]{scaleToUnitBox}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}static\mbox{]}}}}
+\label{class_vertex_a3d88aa3bcab9a1e745694725a65214bc}
+
+
+Definition at line 47 of file Vertex.cpp.
+
+\hypertarget{class_vertex_a022e5d3151c7525ca5663b9fcd62ea52}{
+\index{Vertex@{Vertex}!setId@{setId}}
+\index{setId@{setId}!Vertex@{Vertex}}
+\subsubsection[{setId}]{\setlength{\rightskip}{0pt plus 5cm}void Vertex::setId (
+\begin{DoxyParamCaption}
+\item[{int}]{newId}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_vertex_a022e5d3151c7525ca5663b9fcd62ea52}
+
+
+Definition at line 45 of file Vertex.h.
+
+\hypertarget{class_vertex_a8a7525b1dbd634e704d298cb4b49a6e8}{
+\index{Vertex@{Vertex}!setNormal@{setNormal}}
+\index{setNormal@{setNormal}!Vertex@{Vertex}}
+\subsubsection[{setNormal}]{\setlength{\rightskip}{0pt plus 5cm}void Vertex::setNormal (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vec3Df} \&}]{newNormal}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_vertex_a8a7525b1dbd634e704d298cb4b49a6e8}
+
+
+Definition at line 42 of file Vertex.h.
+
+\hypertarget{class_vertex_a2e70cf74099095e6dcbf1cb0b6c36a60}{
+\index{Vertex@{Vertex}!setPos@{setPos}}
+\index{setPos@{setPos}!Vertex@{Vertex}}
+\subsubsection[{setPos}]{\setlength{\rightskip}{0pt plus 5cm}void Vertex::setPos (
+\begin{DoxyParamCaption}
+\item[{const {\bf Vec3Df} \&}]{newPos}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_vertex_a2e70cf74099095e6dcbf1cb0b6c36a60}
+
+
+Definition at line 41 of file Vertex.h.
+
+\hypertarget{class_vertex_a0b8c2a69595f86592e9538386d82125b}{
+\index{Vertex@{Vertex}!unmark@{unmark}}
+\index{unmark@{unmark}!Vertex@{Vertex}}
+\subsubsection[{unmark}]{\setlength{\rightskip}{0pt plus 5cm}void Vertex::unmark (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{class_vertex_a0b8c2a69595f86592e9538386d82125b}
+
+
+Definition at line 44 of file Vertex.h.
+
 
 
 The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
 \item 
-raymini/Vertex.h\item 
-raymini/Vertex.cpp\end{DoxyCompactItemize}
+raymini/\hyperlink{_vertex_8h}{Vertex.h}\item 
+raymini/\hyperlink{_vertex_8cpp}{Vertex.cpp}\end{DoxyCompactItemize}

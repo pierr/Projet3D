@@ -2,27 +2,76 @@
 \section{kdtree Class Reference}
 \label{classkdtree}\index{kdtree@{kdtree}}
 }
+
+
+{\ttfamily \#include $<$kdtree.h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\hyperlink{classkdtree_a38aacc294beed5947ad5e668da4b92a8}{kdtree} (std::vector$<$ \hyperlink{class_object}{Object} $>$ objects, \hyperlink{class_vec3_d}{Vec3Df} camPos, \hyperlink{class_bounding_box}{BoundingBox} \&scenebox)
+\item 
+void \hyperlink{classkdtree_a05ea05935fe6595da4be7ee3e90bd99b}{split} (float propdeep)
+\item 
+\hyperlink{classkdnode}{kdnode} $\ast$ \hyperlink{classkdtree_a7e7fbee37714c8110147cd49fe8d0d68}{get\_\-root} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 12 of file kdtree.h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
 \hypertarget{classkdtree_a38aacc294beed5947ad5e668da4b92a8}{
-{\bfseries kdtree} (std::vector$<$ \hyperlink{class_object}{Object} $>$ objects, \hyperlink{class_vec3_d}{Vec3Df} camPos, \hyperlink{class_bounding_box}{BoundingBox} \&scenebox)}
+\index{kdtree@{kdtree}!kdtree@{kdtree}}
+\index{kdtree@{kdtree}!kdtree@{kdtree}}
+\subsubsection[{kdtree}]{\setlength{\rightskip}{0pt plus 5cm}kdtree::kdtree (
+\begin{DoxyParamCaption}
+\item[{std::vector$<$ {\bf Object} $>$}]{objects, }
+\item[{{\bf Vec3Df}}]{camPos, }
+\item[{{\bf BoundingBox} \&}]{scenebox}
+\end{DoxyParamCaption}
+)}}
 \label{classkdtree_a38aacc294beed5947ad5e668da4b92a8}
 
-\item 
-\hypertarget{classkdtree_a05ea05935fe6595da4be7ee3e90bd99b}{
-void {\bfseries split} (float propdeep)}
-\label{classkdtree_a05ea05935fe6595da4be7ee3e90bd99b}
 
-\item 
+Definition at line 5 of file kdtree.cpp.
+
+
+
+\subsection{Member Function Documentation}
 \hypertarget{classkdtree_a7e7fbee37714c8110147cd49fe8d0d68}{
-\hyperlink{classkdnode}{kdnode} $\ast$ {\bfseries get\_\-root} ()}
+\index{kdtree@{kdtree}!get\_\-root@{get\_\-root}}
+\index{get\_\-root@{get\_\-root}!kdtree@{kdtree}}
+\subsubsection[{get\_\-root}]{\setlength{\rightskip}{0pt plus 5cm}{\bf kdnode}$\ast$ kdtree::get\_\-root (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
 \label{classkdtree_a7e7fbee37714c8110147cd49fe8d0d68}
 
-\end{DoxyCompactItemize}
+
+Definition at line 17 of file kdtree.h.
+
+\hypertarget{classkdtree_a05ea05935fe6595da4be7ee3e90bd99b}{
+\index{kdtree@{kdtree}!split@{split}}
+\index{split@{split}!kdtree@{kdtree}}
+\subsubsection[{split}]{\setlength{\rightskip}{0pt plus 5cm}void kdtree::split (
+\begin{DoxyParamCaption}
+\item[{float}]{propdeep}
+\end{DoxyParamCaption}
+)}}
+\label{classkdtree_a05ea05935fe6595da4be7ee3e90bd99b}
+
+
+Definition at line 30 of file kdtree.cpp.
+
 
 
 The documentation for this class was generated from the following files:\begin{DoxyCompactItemize}
 \item 
-raymini/kdtree.h\item 
-raymini/kdtree.cpp\end{DoxyCompactItemize}
+raymini/\hyperlink{kdtree_8h}{kdtree.h}\item 
+raymini/\hyperlink{kdtree_8cpp}{kdtree.cpp}\end{DoxyCompactItemize}

@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>Projet3D: kdnode Class Reference</title>
+<title>Ray Tracer: kdnode Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Projet3D</div>
+   <div id="projectname">Ray Tracer</div>
   </td>
  </tr>
  </tbody>
@@ -65,28 +65,191 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </div>
 <div class="contents">
 <!-- doxytag: class="kdnode" -->
+<p><code>#include &lt;<a class="el" href="kdnode_8h_source.html">kdnode.h</a>&gt;</code></p>
+
 <p><a href="classkdnode-members.html">List of all members.</a></p>
 <table class="memberdecls">
 <tr><td colspan="2"><h2><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2532657ec48279c0a88612802725f537"></a><!-- doxytag: member="kdnode::kdnode" ref="a2532657ec48279c0a88612802725f537" args="(int deep, std::vector&lt; kdleaf &gt; &amp;leafs, BoundingBox &amp;box)" -->
-&#160;</td><td class="memItemRight" valign="bottom"><b>kdnode</b> (int deep, std::vector&lt; <a class="el" href="classkdleaf.html">kdleaf</a> &gt; &amp;leafs, <a class="el" href="class_bounding_box.html">BoundingBox</a> &amp;box)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a49bdc6fb34ef685e555404a19805946f"></a><!-- doxytag: member="kdnode::split" ref="a49bdc6fb34ef685e555404a19805946f" args="(int max_deep)" -->
-void&#160;</td><td class="memItemRight" valign="bottom"><b>split</b> (int max_deep)</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ad7ef1f57c055c196fcb29b0fd005b4dc"></a><!-- doxytag: member="kdnode::get_deepest" ref="ad7ef1f57c055c196fcb29b0fd005b4dc" args="()" -->
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>get_deepest</b> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a8cabbc55f36a391030e9ea4260d8a261"></a><!-- doxytag: member="kdnode::get_leafs" ref="a8cabbc55f36a391030e9ea4260d8a261" args="()" -->
-std::vector&lt; <a class="el" href="classkdleaf.html">kdleaf</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>get_leafs</b> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a102eca21308077d05d24ffa2d6d89106"></a><!-- doxytag: member="kdnode::get_box" ref="a102eca21308077d05d24ffa2d6d89106" args="()" -->
-<a class="el" href="class_bounding_box.html">BoundingBox</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><b>get_box</b> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa853003afe7a7883b6243f27b02102dc"></a><!-- doxytag: member="kdnode::get_supnode" ref="aa853003afe7a7883b6243f27b02102dc" args="()" -->
-<a class="el" href="classkdnode.html">kdnode</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>get_supnode</b> ()</td></tr>
-<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a5e58bb6724b2bab5c092c04b58276daa"></a><!-- doxytag: member="kdnode::get_infnode" ref="a5e58bb6724b2bab5c092c04b58276daa" args="()" -->
-<a class="el" href="classkdnode.html">kdnode</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>get_infnode</b> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classkdnode.html#a3aec676536bed609f0badb4caed8589b">kdnode</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classkdnode.html#a2532657ec48279c0a88612802725f537">kdnode</a> (int deep, std::vector&lt; <a class="el" href="classkdleaf.html">kdleaf</a> &gt; &amp;leafs, <a class="el" href="class_bounding_box.html">BoundingBox</a> &amp;box)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classkdnode.html#a49bdc6fb34ef685e555404a19805946f">split</a> (int max_deep)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classkdnode.html#ad7ef1f57c055c196fcb29b0fd005b4dc">get_deepest</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classkdleaf.html">kdleaf</a> &gt; &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classkdnode.html#a8cabbc55f36a391030e9ea4260d8a261">get_leafs</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_bounding_box.html">BoundingBox</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classkdnode.html#a102eca21308077d05d24ffa2d6d89106">get_box</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classkdnode.html">kdnode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classkdnode.html#aa853003afe7a7883b6243f27b02102dc">get_supnode</a> ()</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="el" href="classkdnode.html">kdnode</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classkdnode.html#a5e58bb6724b2bab5c092c04b58276daa">get_infnode</a> ()</td></tr>
 </table>
+<hr/><a name="details" id="details"></a><h2>Detailed Description</h2>
+<div class="textblock">
+<p>Definition at line <a class="el" href="kdnode_8h_source.html#l00012">12</a> of file <a class="el" href="kdnode_8h_source.html">kdnode.h</a>.</p>
+</div><hr/><h2>Constructor &amp; Destructor Documentation</h2>
+<a class="anchor" id="a3aec676536bed609f0badb4caed8589b"></a><!-- doxytag: member="kdnode::kdnode" ref="a3aec676536bed609f0badb4caed8589b" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">kdnode::kdnode </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="kdnode_8h_source.html#l00015">15</a> of file <a class="el" href="kdnode_8h_source.html">kdnode.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a2532657ec48279c0a88612802725f537"></a><!-- doxytag: member="kdnode::kdnode" ref="a2532657ec48279c0a88612802725f537" args="(int deep, std::vector&lt; kdleaf &gt; &amp;leafs, BoundingBox &amp;box)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">kdnode::kdnode </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>deep</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::vector&lt; <a class="el" href="classkdleaf.html">kdleaf</a> &gt; &amp;&#160;</td>
+          <td class="paramname"><em>leafs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="class_bounding_box.html">BoundingBox</a> &amp;&#160;</td>
+          <td class="paramname"><em>box</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="kdnode_8h_source.html#l00016">16</a> of file <a class="el" href="kdnode_8h_source.html">kdnode.h</a>.</p>
+
+</div>
+</div>
+<hr/><h2>Member Function Documentation</h2>
+<a class="anchor" id="a102eca21308077d05d24ffa2d6d89106"></a><!-- doxytag: member="kdnode::get_box" ref="a102eca21308077d05d24ffa2d6d89106" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_bounding_box.html">BoundingBox</a>&amp; kdnode::get_box </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="kdnode_8h_source.html#l00020">20</a> of file <a class="el" href="kdnode_8h_source.html">kdnode.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="ad7ef1f57c055c196fcb29b0fd005b4dc"></a><!-- doxytag: member="kdnode::get_deepest" ref="ad7ef1f57c055c196fcb29b0fd005b4dc" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool kdnode::get_deepest </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="kdnode_8h_source.html#l00018">18</a> of file <a class="el" href="kdnode_8h_source.html">kdnode.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a5e58bb6724b2bab5c092c04b58276daa"></a><!-- doxytag: member="kdnode::get_infnode" ref="a5e58bb6724b2bab5c092c04b58276daa" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classkdnode.html">kdnode</a>* kdnode::get_infnode </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="kdnode_8h_source.html#l00022">22</a> of file <a class="el" href="kdnode_8h_source.html">kdnode.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a8cabbc55f36a391030e9ea4260d8a261"></a><!-- doxytag: member="kdnode::get_leafs" ref="a8cabbc55f36a391030e9ea4260d8a261" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;<a class="el" href="classkdleaf.html">kdleaf</a>&gt;&amp; kdnode::get_leafs </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="kdnode_8h_source.html#l00019">19</a> of file <a class="el" href="kdnode_8h_source.html">kdnode.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="aa853003afe7a7883b6243f27b02102dc"></a><!-- doxytag: member="kdnode::get_supnode" ref="aa853003afe7a7883b6243f27b02102dc" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classkdnode.html">kdnode</a>* kdnode::get_supnode </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td><code> [inline]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="kdnode_8h_source.html#l00021">21</a> of file <a class="el" href="kdnode_8h_source.html">kdnode.h</a>.</p>
+
+</div>
+</div>
+<a class="anchor" id="a49bdc6fb34ef685e555404a19805946f"></a><!-- doxytag: member="kdnode::split" ref="a49bdc6fb34ef685e555404a19805946f" args="(int max_deep)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void kdnode::split </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>max_deep</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>Definition at line <a class="el" href="kdnode_8cpp_source.html#l00008">8</a> of file <a class="el" href="kdnode_8cpp_source.html">kdnode.cpp</a>.</p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>raymini/<a class="el" href="kdnode_8h_source.html">kdnode.h</a></li>
-<li>raymini/kdnode.cpp</li>
+<li>raymini/<a class="el" href="kdnode_8cpp_source.html">kdnode.cpp</a></li>
 </ul>
 </div>
 <!-- window showing the filter options -->
@@ -94,7 +257,7 @@ std::vector&lt; <a class="el" href="classkdleaf.html">kdleaf</a> &gt; &amp;&#160
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -103,7 +266,7 @@ std::vector&lt; <a class="el" href="classkdleaf.html">kdleaf</a> &gt; &amp;&#160
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Mon May 2 2011 01:51:51 for Projet3D by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Sun May 8 2011 16:02:10 for Ray Tracer by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

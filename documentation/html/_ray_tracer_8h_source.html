@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>Projet3D: raymini/RayTracer.h Source File</title>
+<title>Ray Tracer: raymini/RayTracer.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Projet3D</div>
+   <div id="projectname">Ray Tracer</div>
   </td>
  </tr>
  </tbody>
@@ -51,6 +51,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 <div class="header">
@@ -58,7 +59,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">raymini/RayTracer.h</div>  </div>
 </div>
 <div class="contents">
-<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">// *********************************************************</span>
+<a href="_ray_tracer_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">// *********************************************************</span>
 <a name="l00002"></a>00002 <span class="comment">// Ray Tracer Class</span>
 <a name="l00003"></a>00003 <span class="comment">// Author : Tamy Boubekeur (boubek@gmail.com).</span>
 <a name="l00004"></a>00004 <span class="comment">// Copyright (C) 2010 Tamy Boubekeur.</span>
@@ -73,23 +74,23 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00013"></a>00013 <span class="preprocessor">#include &lt;QImage&gt;</span>
 <a name="l00014"></a>00014 <span class="preprocessor">#include &lt;QPushButton&gt;</span>
 <a name="l00015"></a>00015 
-<a name="l00016"></a>00016 <span class="preprocessor">#include &quot;Vec3D.h&quot;</span>
-<a name="l00017"></a>00017 <span class="preprocessor">#include &quot;Ray.h&quot;</span>
-<a name="l00018"></a>00018 <span class="preprocessor">#include &quot;Scene.h&quot;</span>
-<a name="l00019"></a>00019 <span class="preprocessor">#include &quot;kdtree.h&quot;</span>
-<a name="l00020"></a>00020 <span class="preprocessor">#include &quot;Parametres.h&quot;</span>
+<a name="l00016"></a>00016 <span class="preprocessor">#include &quot;<a class="code" href="_vec3_d_8h.html">Vec3D.h</a>&quot;</span>
+<a name="l00017"></a>00017 <span class="preprocessor">#include &quot;<a class="code" href="_ray_8h.html">Ray.h</a>&quot;</span>
+<a name="l00018"></a>00018 <span class="preprocessor">#include &quot;<a class="code" href="_scene_8h.html">Scene.h</a>&quot;</span>
+<a name="l00019"></a>00019 <span class="preprocessor">#include &quot;<a class="code" href="kdtree_8h.html">kdtree.h</a>&quot;</span>
+<a name="l00020"></a>00020 <span class="preprocessor">#include &quot;<a class="code" href="_parametres_8h.html">Parametres.h</a>&quot;</span>
 <a name="l00021"></a>00021 
 <a name="l00022"></a><a class="code" href="class_ray_tracer.html">00022</a> <span class="keyword">class </span><a class="code" href="class_ray_tracer.html">RayTracer</a> {
 <a name="l00023"></a>00023 <span class="keyword">public</span>:
-<a name="l00024"></a>00024     <span class="keyword">static</span> <a class="code" href="class_ray_tracer.html">RayTracer</a> * getInstance ();
-<a name="l00025"></a>00025     <span class="keyword">static</span> <span class="keywordtype">void</span> destroyInstance ();
+<a name="l00024"></a>00024     <span class="keyword">static</span> <a class="code" href="class_ray_tracer.html">RayTracer</a> * <a class="code" href="class_ray_tracer.html#af849b82f2b2c0cfe5a29e1f63c91aa8b">getInstance</a> ();
+<a name="l00025"></a>00025     <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code" href="class_ray_tracer.html#a18c26a7f9a11ddef3af7dc9431fa240b">destroyInstance</a> ();
 <a name="l00026"></a>00026 
-<a name="l00027"></a>00027     <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; getBackgroundColor ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> backgroundColor;}
-<a name="l00028"></a>00028     <span class="keyword">inline</span> <span class="keywordtype">void</span> setBackgroundColor (<span class="keyword">const</span> <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; c) { backgroundColor = c; }
-<a name="l00029"></a>00029     <span class="keyword">inline</span> <span class="keywordtype">void</span> setParametres (<a class="code" href="class_parametres.html">Parametres</a> * param) { this-&gt;param = param; }
-<a name="l00030"></a>00030     <span class="keyword">inline</span> <span class="keywordtype">void</span> setRayButton(QPushButton * rayButton) { this-&gt;rayButton = rayButton; }
+<a name="l00027"></a><a class="code" href="class_ray_tracer.html#a8232047f622bcad4c4bcc2e9b3f994e8">00027</a>     <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; <a class="code" href="class_ray_tracer.html#a8232047f622bcad4c4bcc2e9b3f994e8">getBackgroundColor</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> backgroundColor;}
+<a name="l00028"></a><a class="code" href="class_ray_tracer.html#a78c48fc5448e6fdbaaa2dacc00c1f52d">00028</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_ray_tracer.html#a78c48fc5448e6fdbaaa2dacc00c1f52d">setBackgroundColor</a> (<span class="keyword">const</span> <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; c) { backgroundColor = c; }
+<a name="l00029"></a><a class="code" href="class_ray_tracer.html#a7fb36466bbdc06e9084c2af6393e71f6">00029</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_ray_tracer.html#a7fb36466bbdc06e9084c2af6393e71f6">setParametres</a> (<a class="code" href="class_parametres.html">Parametres</a> * param) { this-&gt;param = param; }
+<a name="l00030"></a><a class="code" href="class_ray_tracer.html#a0fefb72c52244a0b4785d4dc595b6a04">00030</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_ray_tracer.html#a0fefb72c52244a0b4785d4dc595b6a04">setRayButton</a>(QPushButton * rayButton) { this-&gt;rayButton = rayButton; }
 <a name="l00031"></a>00031     
-<a name="l00032"></a>00032     QImage render (<span class="keyword">const</span> <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; camPos,
+<a name="l00032"></a>00032     QImage <a class="code" href="class_ray_tracer.html#a514cb132e6f69be5658c5afb5651809b">render</a> (<span class="keyword">const</span> <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; camPos,
 <a name="l00033"></a>00033                    <span class="keyword">const</span> <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; viewDirection,
 <a name="l00034"></a>00034                    <span class="keyword">const</span> <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; upVector,
 <a name="l00035"></a>00035                    <span class="keyword">const</span> <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; rightVector,
@@ -99,10 +100,10 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00039"></a>00039                    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> screenHeight);
 <a name="l00040"></a>00040     
 <a name="l00041"></a>00041 <span class="keyword">protected</span>:
-<a name="l00042"></a>00042     <span class="keyword">inline</span> <a class="code" href="class_ray_tracer.html">RayTracer</a> () {
+<a name="l00042"></a><a class="code" href="class_ray_tracer.html#a7f59fcfc6b645680b6c5723df307e6e9">00042</a>     <span class="keyword">inline</span> <a class="code" href="class_ray_tracer.html#a7f59fcfc6b645680b6c5723df307e6e9">RayTracer</a> () {
 <a name="l00043"></a>00043         kdt = 0;
 <a name="l00044"></a>00044     }
-<a name="l00045"></a>00045     <span class="keyword">inline</span> <span class="keyword">virtual</span> ~<a class="code" href="class_ray_tracer.html">RayTracer</a> () {}
+<a name="l00045"></a><a class="code" href="class_ray_tracer.html#ae4df044d612275c3923d5adabea538f5">00045</a>     <span class="keyword">inline</span> <span class="keyword">virtual</span> <a class="code" href="class_ray_tracer.html#ae4df044d612275c3923d5adabea538f5">~RayTracer</a> () {}
 <a name="l00046"></a>00046     
 <a name="l00047"></a>00047 <span class="keyword">private</span>:
 <a name="l00048"></a>00048     <a class="code" href="class_vec3_d.html">Vec3Df</a> backgroundColor;
@@ -127,7 +128,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -136,7 +137,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Mon May 2 2011 01:51:51 for Projet3D by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Sun May 8 2011 16:02:09 for Ray Tracer by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

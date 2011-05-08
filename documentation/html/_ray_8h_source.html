@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>Projet3D: raymini/Ray.h Source File</title>
+<title>Ray Tracer: raymini/Ray.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Projet3D</div>
+   <div id="projectname">Ray Tracer</div>
   </td>
  </tr>
  </tbody>
@@ -51,6 +51,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 <div class="header">
@@ -58,7 +59,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">raymini/Ray.h</div>  </div>
 </div>
 <div class="contents">
-<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">// *********************************************************</span>
+<a href="_ray_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">// *********************************************************</span>
 <a name="l00002"></a>00002 <span class="comment">// Ray Class</span>
 <a name="l00003"></a>00003 <span class="comment">// Author : Tamy Boubekeur (boubek@gmail.com).</span>
 <a name="l00004"></a>00004 <span class="comment">// Copyright (C) 2010 Tamy Boubekeur.</span>
@@ -71,52 +72,56 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00011"></a>00011 <span class="preprocessor">#include &lt;iostream&gt;</span>
 <a name="l00012"></a>00012 <span class="preprocessor">#include &lt;vector&gt;</span>
 <a name="l00013"></a>00013 
-<a name="l00014"></a>00014 <span class="preprocessor">#include &quot;Vec3D.h&quot;</span>
-<a name="l00015"></a>00015 <span class="preprocessor">#include &quot;BoundingBox.h&quot;</span>
-<a name="l00016"></a>00016 <span class="preprocessor">#include &quot;Triangle.h&quot;</span>
-<a name="l00017"></a>00017 <span class="preprocessor">#include &quot;Material.h&quot;</span>
-<a name="l00018"></a>00018 <span class="preprocessor">#include &quot;Scene.h&quot;</span>
-<a name="l00019"></a>00019 <span class="preprocessor">#include &quot;Light.h&quot;</span>
-<a name="l00020"></a>00020 <span class="preprocessor">#include &quot;kdnode.h&quot;</span>
-<a name="l00021"></a>00021 <span class="preprocessor">#include &quot;Parametres.h&quot;</span>
+<a name="l00014"></a>00014 <span class="preprocessor">#include &quot;<a class="code" href="_vec3_d_8h.html">Vec3D.h</a>&quot;</span>
+<a name="l00015"></a>00015 <span class="preprocessor">#include &quot;<a class="code" href="_bounding_box_8h.html">BoundingBox.h</a>&quot;</span>
+<a name="l00016"></a>00016 <span class="preprocessor">#include &quot;<a class="code" href="_triangle_8h.html">Triangle.h</a>&quot;</span>
+<a name="l00017"></a>00017 <span class="preprocessor">#include &quot;<a class="code" href="_material_8h.html">Material.h</a>&quot;</span>
+<a name="l00018"></a>00018 <span class="preprocessor">#include &quot;<a class="code" href="_scene_8h.html">Scene.h</a>&quot;</span>
+<a name="l00019"></a>00019 <span class="preprocessor">#include &quot;<a class="code" href="_light_8h.html">Light.h</a>&quot;</span>
+<a name="l00020"></a>00020 <span class="preprocessor">#include &quot;<a class="code" href="kdnode_8h.html">kdnode.h</a>&quot;</span>
+<a name="l00021"></a>00021 <span class="preprocessor">#include &quot;<a class="code" href="_parametres_8h.html">Parametres.h</a>&quot;</span>
 <a name="l00022"></a>00022 
 <a name="l00023"></a><a class="code" href="class_ray.html">00023</a> <span class="keyword">class </span><a class="code" href="class_ray.html">Ray</a> {
 <a name="l00024"></a>00024 <span class="keyword">public</span>:
-<a name="l00025"></a>00025     <span class="keyword">inline</span> <a class="code" href="class_ray.html">Ray</a> () {}
-<a name="l00026"></a>00026     <a class="code" href="class_ray.html">Ray</a> (<span class="keyword">const</span> <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; origin, <span class="keyword">const</span> <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; direction, <span class="keyword">const</span> <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; bgColor, <a class="code" href="class_parametres.html">Parametres</a> * param);
-<a name="l00027"></a>00027     <span class="keyword">inline</span> <span class="keyword">virtual</span> ~<a class="code" href="class_ray.html">Ray</a> () {}
+<a name="l00025"></a><a class="code" href="class_ray.html#a2e3d2c29f2df4ab3da10da79d4acb852">00025</a>     <span class="keyword">inline</span> <a class="code" href="class_ray.html#a2e3d2c29f2df4ab3da10da79d4acb852">Ray</a> () {}
+<a name="l00026"></a>00026     <a class="code" href="class_ray.html#a2e3d2c29f2df4ab3da10da79d4acb852">Ray</a> (<span class="keyword">const</span> <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; origin, <span class="keyword">const</span> <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; direction, <span class="keyword">const</span> <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; bgColor, <a class="code" href="class_parametres.html">Parametres</a> * param);
+<a name="l00027"></a><a class="code" href="class_ray.html#ad8b0802f3178cb3cec5b45ea5b5a042e">00027</a>     <span class="keyword">inline</span> <span class="keyword">virtual</span> <a class="code" href="class_ray.html#ad8b0802f3178cb3cec5b45ea5b5a042e">~Ray</a> () {}
 <a name="l00028"></a>00028 
-<a name="l00029"></a>00029     <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; getOrigin ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> origin; }
-<a name="l00030"></a>00030     <span class="keyword">inline</span> <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; getOrigin () { <span class="keywordflow">return</span> origin; }
-<a name="l00031"></a>00031     <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; getDirection ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> direction; }
-<a name="l00032"></a>00032     <span class="keyword">inline</span> <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; getDirection () { <span class="keywordflow">return</span> direction; }
-<a name="l00033"></a>00033     <span class="keyword">inline</span> <span class="keywordtype">void</span> setParam(<a class="code" href="class_parametres.html">Parametres</a> * param) { this-&gt;param = param; }
+<a name="l00029"></a><a class="code" href="class_ray.html#ae4225450cd5f59c1f2e2bc55b1cdcc9f">00029</a>     <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; <a class="code" href="class_ray.html#ae4225450cd5f59c1f2e2bc55b1cdcc9f">getOrigin</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> origin; }
+<a name="l00030"></a><a class="code" href="class_ray.html#a4ffdcfc4d1e7fafe17f4e122856c3f87">00030</a>     <span class="keyword">inline</span> <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; <a class="code" href="class_ray.html#a4ffdcfc4d1e7fafe17f4e122856c3f87">getOrigin</a> () { <span class="keywordflow">return</span> origin; }
+<a name="l00031"></a><a class="code" href="class_ray.html#a1e83e988cfd711743042c49eac092006">00031</a>     <span class="keyword">inline</span> <span class="keyword">const</span> <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; <a class="code" href="class_ray.html#a1e83e988cfd711743042c49eac092006">getDirection</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> direction; }
+<a name="l00032"></a><a class="code" href="class_ray.html#a8005eac632a3960446e3b202a89623cd">00032</a>     <span class="keyword">inline</span> <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; <a class="code" href="class_ray.html#a8005eac632a3960446e3b202a89623cd">getDirection</a> () { <span class="keywordflow">return</span> direction; }
+<a name="l00033"></a><a class="code" href="class_ray.html#a8f49b81dd458de63f8981096d88ef8cd">00033</a>     <span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="class_ray.html#a8f49b81dd458de63f8981096d88ef8cd">setParam</a>(<a class="code" href="class_parametres.html">Parametres</a> * param) { this-&gt;param = param; }
 <a name="l00034"></a>00034 
-<a name="l00035"></a>00035     <span class="keywordtype">bool</span> intersect (<span class="keyword">const</span> <a class="code" href="class_bounding_box.html">BoundingBox</a> &amp; bbox, <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; intersectionPoint) <span class="keyword">const</span>;
-<a name="l00036"></a>00036     <span class="keywordtype">bool</span> intersect ( <span class="keyword">const</span> <a class="code" href="class_triangle.html">Triangle</a> &amp; tri, std::vector&lt;Vertex&gt; &amp; verteces, <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; intersectionPoint) <span class="keyword">const</span>;
-<a name="l00037"></a>00037     <span class="keywordtype">bool</span> intersect(<a class="code" href="class_vertex.html">Vertex</a> &amp; v0 , <a class="code" href="class_vertex.html">Vertex</a> &amp; v1, <a class="code" href="class_vertex.html">Vertex</a> &amp; v2, <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; intersectionPoint) <span class="keyword">const</span>;
-<a name="l00038"></a>00038     <span class="keywordtype">bool</span> intersect (<span class="keyword">const</span> <a class="code" href="class_vertex.html">Vertex</a> &amp; v0, <span class="keyword">const</span> <a class="code" href="class_vertex.html">Vertex</a> &amp; v1, <span class="keyword">const</span> <a class="code" href="class_vertex.html">Vertex</a> &amp; v2, <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; intersectionPoint, <span class="keywordtype">float</span> &amp; ir, <span class="keywordtype">float</span> &amp; iu, <span class="keywordtype">float</span> &amp; iv) <span class="keyword">const</span>;
-<a name="l00045"></a>00045     <span class="keywordtype">void</span> <a class="code" href="class_ray.html#a08e5a153b888c634ffcf6ba48fcaa5d9">calcBRDF</a>(<a class="code" href="class_vertex.html">Vertex</a> &amp; bary,  <a class="code" href="class_material.html">Material</a> &amp; m, <a class="code" href="class_vec3_d.html">Vec3Df</a>&amp; color, <a class="code" href="classkdnode.html">kdnode</a> * root);
-<a name="l00049"></a>00049     <span class="keywordtype">bool</span> <a class="code" href="class_ray.html#acefd27e81e60869cdbb8c2e4e41e930c">kd_intersect</a>(<a class="code" href="classkdnode.html">kdnode</a> * root, <a class="code" href="class_vertex.html">Vertex</a> &amp; isv, <a class="code" href="class_material.html">Material</a> &amp; ism, <span class="keywordtype">float</span> &amp; mindist);
-<a name="l00050"></a>00050 
-<a name="l00051"></a>00051     <a class="code" href="class_vec3_d.html">Vec3Df</a> calcul_radiance( <a class="code" href="classkdnode.html">kdnode</a> * root, <span class="keywordtype">int</span> num);
-<a name="l00052"></a>00052     <span class="keywordtype">float</span> <a class="code" href="class_ray.html#a3ba68b6180f49a8949d54f8e0f70af0a">calcAmbOcclusion</a>(<a class="code" href="classkdnode.html">kdnode</a> * root, <a class="code" href="class_vertex.html">Vertex</a> &amp; v, <span class="keywordtype">float</span> rayonSphere, <span class="keywordtype">float</span> theta);
-<a name="l00053"></a>00053 <span class="keyword">private</span>:
-<a name="l00054"></a>00054     <a class="code" href="class_vec3_d.html">Vec3Df</a> origin;
-<a name="l00055"></a>00055     <a class="code" href="class_vec3_d.html">Vec3Df</a> direction;
-<a name="l00056"></a>00056     <a class="code" href="class_vec3_d.html">Vec3Df</a> bgColor;
-<a name="l00057"></a>00057     <a class="code" href="class_parametres.html">Parametres</a> * param;
-<a name="l00058"></a>00058 };
-<a name="l00059"></a>00059 
-<a name="l00060"></a>00060 
-<a name="l00061"></a>00061 <span class="preprocessor">#endif // RAY_H</span>
-<a name="l00062"></a>00062 <span class="preprocessor"></span>
-<a name="l00063"></a>00063 <span class="comment">// Some Emacs-Hints -- please don&#39;t remove:</span>
-<a name="l00064"></a>00064 <span class="comment">//</span>
-<a name="l00065"></a>00065 <span class="comment">//  Local Variables:</span>
-<a name="l00066"></a>00066 <span class="comment">//  mode:C++</span>
-<a name="l00067"></a>00067 <span class="comment">//  tab-width:4</span>
-<a name="l00068"></a>00068 <span class="comment">//  End:</span>
+<a name="l00035"></a>00035     <span class="keywordtype">bool</span> <a class="code" href="class_ray.html#a85653d7f19e1b15783417898152d4ab9">intersect</a> (<span class="keyword">const</span> <a class="code" href="class_bounding_box.html">BoundingBox</a> &amp; bbox, <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; intersectionPoint) <span class="keyword">const</span>;
+<a name="l00036"></a>00036     <span class="keywordtype">bool</span> <a class="code" href="class_ray.html#a85653d7f19e1b15783417898152d4ab9">intersect</a> ( <span class="keyword">const</span> <a class="code" href="class_triangle.html">Triangle</a> &amp; tri, std::vector&lt;Vertex&gt; &amp; verteces, <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; intersectionPoint) <span class="keyword">const</span>;
+<a name="l00037"></a>00037     <span class="keywordtype">bool</span> <a class="code" href="class_ray.html#a85653d7f19e1b15783417898152d4ab9">intersect</a>(<a class="code" href="class_vertex.html">Vertex</a> &amp; v0 , <a class="code" href="class_vertex.html">Vertex</a> &amp; v1, <a class="code" href="class_vertex.html">Vertex</a> &amp; v2, <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; intersectionPoint) <span class="keyword">const</span>;
+<a name="l00047"></a>00047     <span class="keywordtype">bool</span> <a class="code" href="class_ray.html#a85653d7f19e1b15783417898152d4ab9">intersect</a> (<span class="keyword">const</span> <a class="code" href="class_vertex.html">Vertex</a> &amp; v0, <span class="keyword">const</span> <a class="code" href="class_vertex.html">Vertex</a> &amp; v1, <span class="keyword">const</span> <a class="code" href="class_vertex.html">Vertex</a> &amp; v2, <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; intersectionPoint, <span class="keywordtype">float</span> &amp; ir, <span class="keywordtype">float</span> &amp; iu, <span class="keywordtype">float</span> &amp; iv) <span class="keyword">const</span>;
+<a name="l00057"></a>00057     <span class="keywordtype">float</span> <a class="code" href="class_ray.html#a4c7c49a9863d8a92a231f4564ada7eed">retBRDF</a>(<a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; wn, <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; wi, <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; wo, <span class="keywordtype">float</span> intensity, <a class="code" href="class_material.html">Material</a> &amp; m);
+<a name="l00065"></a>00065     <span class="keywordtype">void</span> <a class="code" href="class_ray.html#a08e5a153b888c634ffcf6ba48fcaa5d9">calcBRDF</a>(<a class="code" href="class_vertex.html">Vertex</a> &amp; bary,  <a class="code" href="class_material.html">Material</a> &amp; m, <a class="code" href="class_vec3_d.html">Vec3Df</a>&amp; color, <a class="code" href="classkdnode.html">kdnode</a> * root);
+<a name="l00069"></a>00069     <span class="keywordtype">bool</span> <a class="code" href="class_ray.html#ad14dce7566be2b6eee57f4785fcb06c1">kd_intersect</a>(<a class="code" href="classkdnode.html">kdnode</a> * root, <a class="code" href="class_vertex.html">Vertex</a> &amp; isv, <a class="code" href="class_material.html">Material</a> &amp; ism, <span class="keywordtype">float</span> &amp; mindist, <span class="keywordtype">float</span> maxdist);
+<a name="l00076"></a>00076     <a class="code" href="class_vec3_d.html">Vec3Df</a> <a class="code" href="class_ray.html#a62c0f1bccd99236e718ff3b5d1dc755d">calcul_radiance</a>( <a class="code" href="classkdnode.html">kdnode</a> * root, <span class="keywordtype">int</span> num);
+<a name="l00084"></a>00084     <span class="keywordtype">float</span> <a class="code" href="class_ray.html#abbe70b4fc986cbc7fb0973dc782b3e5f">calcAmbOcclusion</a>(<a class="code" href="classkdnode.html">kdnode</a> * root, <a class="code" href="class_vertex.html">Vertex</a> &amp; v, <span class="keywordtype">float</span> rayonSphere, <span class="keywordtype">float</span> angle);
+<a name="l00093"></a>00093     <span class="keywordtype">void</span> <a class="code" href="class_ray.html#a6404a6b60943eb40eb9c9abb148ab845">calcPathTracing</a>(<a class="code" href="classkdnode.html">kdnode</a> * root,<span class="keywordtype">int</span> num,<a class="code" href="class_vertex.html">Vertex</a> &amp; isV,<a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; radiance, <a class="code" href="class_material.html">Material</a> &amp; m);
+<a name="l00100"></a>00100     <a class="code" href="class_vec3_d.html">Vec3Df</a> <a class="code" href="class_ray.html#abd42f2dc0700c906987a6ca4aa99435b">rotateVector</a>(<span class="keyword">const</span> <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; originVecor, <span class="keywordtype">float</span> anglephi, <span class="keywordtype">float</span> angletheta);
+<a name="l00107"></a>00107     <a class="code" href="class_vec3_d.html">Vec3Df</a> <a class="code" href="class_ray.html#a08998f4ef12dfd36ca82653a2c438f04">perturbateVector</a>(<span class="keyword">const</span> <a class="code" href="class_vec3_d.html">Vec3Df</a> &amp; originVecor, <span class="keywordtype">float</span> angle);
+<a name="l00108"></a>00108 
+<a name="l00109"></a>00109 <span class="keyword">private</span>:
+<a name="l00110"></a>00110     <a class="code" href="class_vec3_d.html">Vec3Df</a> origin;
+<a name="l00111"></a>00111     <a class="code" href="class_vec3_d.html">Vec3Df</a> direction;
+<a name="l00112"></a>00112     <a class="code" href="class_vec3_d.html">Vec3Df</a> bgColor;
+<a name="l00113"></a>00113     <a class="code" href="class_parametres.html">Parametres</a> * param;
+<a name="l00114"></a>00114 };
+<a name="l00115"></a>00115 
+<a name="l00116"></a>00116 
+<a name="l00117"></a>00117 <span class="preprocessor">#endif // RAY_H</span>
+<a name="l00118"></a>00118 <span class="preprocessor"></span>
+<a name="l00119"></a>00119 <span class="comment">// Some Emacs-Hints -- please don&#39;t remove:</span>
+<a name="l00120"></a>00120 <span class="comment">//</span>
+<a name="l00121"></a>00121 <span class="comment">//  Local Variables:</span>
+<a name="l00122"></a>00122 <span class="comment">//  mode:C++</span>
+<a name="l00123"></a>00123 <span class="comment">//  tab-width:4</span>
+<a name="l00124"></a>00124 <span class="comment">//  End:</span>
 </pre></div></div>
 </div>
 <!-- window showing the filter options -->
@@ -124,7 +129,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -133,7 +138,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Mon May 2 2011 01:51:51 for Projet3D by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Sun May 8 2011 16:02:09 for Ray Tracer by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

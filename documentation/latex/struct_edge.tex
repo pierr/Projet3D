@@ -2,49 +2,151 @@
 \section{Edge Struct Reference}
 \label{struct_edge}\index{Edge@{Edge}}
 }
+
+
+{\ttfamily \#include $<$Edge.h$>$}
+
 \subsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\hypertarget{struct_edge_ae799059b5cf7b3a658f5a1f1aae9ac9c}{
-{\bfseries Edge} (unsigned int v0, unsigned int v1)}
-\label{struct_edge_ae799059b5cf7b3a658f5a1f1aae9ac9c}
-
+\hyperlink{struct_edge_ae799059b5cf7b3a658f5a1f1aae9ac9c}{Edge} (unsigned int v0, unsigned int v1)
 \item 
-\hypertarget{struct_edge_a70ed9f4d5f93c9cc5273a34361781532}{
-{\bfseries Edge} (const \hyperlink{struct_edge}{Edge} \&e)}
-\label{struct_edge_a70ed9f4d5f93c9cc5273a34361781532}
-
+\hyperlink{struct_edge_a70ed9f4d5f93c9cc5273a34361781532}{Edge} (const \hyperlink{struct_edge}{Edge} \&e)
 \item 
-\hypertarget{struct_edge_a2fba79ccfba97323171b31c7f395c969}{
-\hyperlink{struct_edge}{Edge} \& {\bfseries operator=} (const \hyperlink{struct_edge}{Edge} \&e)}
-\label{struct_edge_a2fba79ccfba97323171b31c7f395c969}
-
+virtual \hyperlink{struct_edge_a9f21951543c1c48c6e23e36eac61671f}{$\sim$Edge} ()
 \item 
-\hypertarget{struct_edge_ae7d4e4cdbf2023b9dfa1c8162ace412f}{
-bool {\bfseries operator==} (const \hyperlink{struct_edge}{Edge} \&e)}
-\label{struct_edge_ae7d4e4cdbf2023b9dfa1c8162ace412f}
-
+\hyperlink{struct_edge}{Edge} \& \hyperlink{struct_edge_a2fba79ccfba97323171b31c7f395c969}{operator=} (const \hyperlink{struct_edge}{Edge} \&e)
 \item 
-\hypertarget{struct_edge_a1f5f87db716a267d8c7243d42d00fb66}{
-bool {\bfseries operator$<$} (const \hyperlink{struct_edge}{Edge} \&e)}
-\label{struct_edge_a1f5f87db716a267d8c7243d42d00fb66}
-
+bool \hyperlink{struct_edge_ae7d4e4cdbf2023b9dfa1c8162ace412f}{operator==} (const \hyperlink{struct_edge}{Edge} \&e)
 \item 
-\hypertarget{struct_edge_a9299b6cacd09cfb078165e512ccd756d}{
-bool {\bfseries contains} (unsigned int i) const }
-\label{struct_edge_a9299b6cacd09cfb078165e512ccd756d}
-
+bool \hyperlink{struct_edge_a1f5f87db716a267d8c7243d42d00fb66}{operator$<$} (const \hyperlink{struct_edge}{Edge} \&e)
+\item 
+bool \hyperlink{struct_edge_a9299b6cacd09cfb078165e512ccd756d}{contains} (unsigned int i) const 
 \end{DoxyCompactItemize}
 \subsection*{Public Attributes}
 \begin{DoxyCompactItemize}
 \item 
+unsigned int \hyperlink{struct_edge_aa4a9380430efd1ae82616f7ef75a281c}{v} \mbox{[}2\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+
+
+Definition at line 17 of file Edge.h.
+
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{struct_edge_ae799059b5cf7b3a658f5a1f1aae9ac9c}{
+\index{Edge@{Edge}!Edge@{Edge}}
+\index{Edge@{Edge}!Edge@{Edge}}
+\subsubsection[{Edge}]{\setlength{\rightskip}{0pt plus 5cm}Edge::Edge (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{v0, }
+\item[{unsigned int}]{v1}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{struct_edge_ae799059b5cf7b3a658f5a1f1aae9ac9c}
+
+
+Definition at line 19 of file Edge.h.
+
+\hypertarget{struct_edge_a70ed9f4d5f93c9cc5273a34361781532}{
+\index{Edge@{Edge}!Edge@{Edge}}
+\index{Edge@{Edge}!Edge@{Edge}}
+\subsubsection[{Edge}]{\setlength{\rightskip}{0pt plus 5cm}Edge::Edge (
+\begin{DoxyParamCaption}
+\item[{const {\bf Edge} \&}]{e}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{struct_edge_a70ed9f4d5f93c9cc5273a34361781532}
+
+
+Definition at line 22 of file Edge.h.
+
+\hypertarget{struct_edge_a9f21951543c1c48c6e23e36eac61671f}{
+\index{Edge@{Edge}!$\sim$Edge@{$\sim$Edge}}
+\index{$\sim$Edge@{$\sim$Edge}!Edge@{Edge}}
+\subsubsection[{$\sim$Edge}]{\setlength{\rightskip}{0pt plus 5cm}virtual Edge::$\sim$Edge (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline, virtual\mbox{]}}}}
+\label{struct_edge_a9f21951543c1c48c6e23e36eac61671f}
+
+
+Definition at line 23 of file Edge.h.
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{struct_edge_a9299b6cacd09cfb078165e512ccd756d}{
+\index{Edge@{Edge}!contains@{contains}}
+\index{contains@{contains}!Edge@{Edge}}
+\subsubsection[{contains}]{\setlength{\rightskip}{0pt plus 5cm}bool Edge::contains (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{i}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{struct_edge_a9299b6cacd09cfb078165e512ccd756d}
+
+
+Definition at line 27 of file Edge.h.
+
+\hypertarget{struct_edge_a1f5f87db716a267d8c7243d42d00fb66}{
+\index{Edge@{Edge}!operator$<$@{operator$<$}}
+\index{operator$<$@{operator$<$}!Edge@{Edge}}
+\subsubsection[{operator$<$}]{\setlength{\rightskip}{0pt plus 5cm}bool Edge::operator$<$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Edge} \&}]{e}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{struct_edge_a1f5f87db716a267d8c7243d42d00fb66}
+
+
+Definition at line 26 of file Edge.h.
+
+\hypertarget{struct_edge_a2fba79ccfba97323171b31c7f395c969}{
+\index{Edge@{Edge}!operator=@{operator=}}
+\index{operator=@{operator=}!Edge@{Edge}}
+\subsubsection[{operator=}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Edge}\& Edge::operator= (
+\begin{DoxyParamCaption}
+\item[{const {\bf Edge} \&}]{e}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{struct_edge_a2fba79ccfba97323171b31c7f395c969}
+
+
+Definition at line 24 of file Edge.h.
+
+\hypertarget{struct_edge_ae7d4e4cdbf2023b9dfa1c8162ace412f}{
+\index{Edge@{Edge}!operator==@{operator==}}
+\index{operator==@{operator==}!Edge@{Edge}}
+\subsubsection[{operator==}]{\setlength{\rightskip}{0pt plus 5cm}bool Edge::operator== (
+\begin{DoxyParamCaption}
+\item[{const {\bf Edge} \&}]{e}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily  \mbox{[}inline\mbox{]}}}}
+\label{struct_edge_ae7d4e4cdbf2023b9dfa1c8162ace412f}
+
+
+Definition at line 25 of file Edge.h.
+
+
+
+\subsection{Member Data Documentation}
 \hypertarget{struct_edge_aa4a9380430efd1ae82616f7ef75a281c}{
-unsigned int {\bfseries v} \mbox{[}2\mbox{]}}
+\index{Edge@{Edge}!v@{v}}
+\index{v@{v}!Edge@{Edge}}
+\subsubsection[{v}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int {\bf Edge::v}\mbox{[}2\mbox{]}}}
 \label{struct_edge_aa4a9380430efd1ae82616f7ef75a281c}
 
-\end{DoxyCompactItemize}
+
+Definition at line 28 of file Edge.h.
+
 
 
 The documentation for this struct was generated from the following file:\begin{DoxyCompactItemize}
 \item 
-raymini/Edge.h\end{DoxyCompactItemize}
+raymini/\hyperlink{_edge_8h}{Edge.h}\end{DoxyCompactItemize}

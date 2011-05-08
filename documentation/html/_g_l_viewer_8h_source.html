@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
-<title>Projet3D: raymini/GLViewer.h Source File</title>
+<title>Ray Tracer: raymini/GLViewer.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
@@ -19,7 +19,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">Projet3D</div>
+   <div id="projectname">Ray Tracer</div>
   </td>
  </tr>
  </tbody>
@@ -51,6 +51,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>File&#160;Members</span></a></li>
     </ul>
   </div>
 <div class="header">
@@ -58,7 +59,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">raymini/GLViewer.h</div>  </div>
 </div>
 <div class="contents">
-<div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">// *********************************************************</span>
+<a href="_g_l_viewer_8h.html">Go to the documentation of this file.</a><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">// *********************************************************</span>
 <a name="l00002"></a>00002 <span class="comment">// OpenGL Viewer Class, based on LibQGLViewer, compatible</span>
 <a name="l00003"></a>00003 <span class="comment">// with most hardware (OpenGL 1.2).</span>
 <a name="l00004"></a>00004 <span class="comment">// Author : Tamy Boubekeur (boubek@gmail.com).</span>
@@ -73,44 +74,44 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <a name="l00013"></a>00013 <span class="preprocessor">#include &lt;vector&gt;</span>
 <a name="l00014"></a>00014 <span class="preprocessor">#include &lt;string&gt;</span>
 <a name="l00015"></a>00015 
-<a name="l00016"></a>00016 <span class="preprocessor">#include &quot;Scene.h&quot;</span>
+<a name="l00016"></a>00016 <span class="preprocessor">#include &quot;<a class="code" href="_scene_8h.html">Scene.h</a>&quot;</span>
 <a name="l00017"></a>00017 
 <a name="l00018"></a><a class="code" href="class_g_l_viewer.html">00018</a> <span class="keyword">class </span><a class="code" href="class_g_l_viewer.html">GLViewer</a> : <span class="keyword">public</span> QGLViewer  {
 <a name="l00019"></a>00019     Q_OBJECT
 <a name="l00020"></a>00020 <span class="keyword">public</span>:
 <a name="l00021"></a>00021     
-<a name="l00022"></a>00022     <span class="keyword">typedef</span> <span class="keyword">enum</span> {Flat=0, Smooth=1} RenderingMode;
+<a name="l00022"></a><a class="code" href="class_g_l_viewer.html#ae1added1addae5cd67c55931bf9f4ceaa71da216e75efdb35c2ee7d0ccea57ef4">00022</a>     <span class="keyword">typedef</span> <span class="keyword">enum</span> {<a class="code" href="class_g_l_viewer.html#ae1added1addae5cd67c55931bf9f4ceaac5113eebea585439fcd768b6044c17aa">Flat</a>=0, <a class="code" href="class_g_l_viewer.html#ae1added1addae5cd67c55931bf9f4ceaa71da216e75efdb35c2ee7d0ccea57ef4">Smooth</a>=1} <a class="code" href="class_g_l_viewer.html#ae1added1addae5cd67c55931bf9f4cea">RenderingMode</a>;
 <a name="l00023"></a>00023     
-<a name="l00024"></a>00024     <a class="code" href="class_g_l_viewer.html">GLViewer</a> ();
-<a name="l00025"></a>00025     <span class="keyword">virtual</span> ~<a class="code" href="class_g_l_viewer.html">GLViewer</a> ();
+<a name="l00024"></a>00024     <a class="code" href="class_g_l_viewer.html#a5d434ee8e5ab893c9f97d64f2db3b986">GLViewer</a> ();
+<a name="l00025"></a>00025     <span class="keyword">virtual</span> <a class="code" href="class_g_l_viewer.html#a3e91b413994c3f3d819275f44fd73dd2">~GLViewer</a> ();
 <a name="l00026"></a>00026     
-<a name="l00027"></a>00027     <span class="keyword">inline</span> <span class="keywordtype">bool</span> isWireframe ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> wireframe; }
-<a name="l00028"></a>00028     <span class="keyword">inline</span> <span class="keywordtype">int</span> getRenderingMode ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> renderingMode; }
+<a name="l00027"></a><a class="code" href="class_g_l_viewer.html#a5ea5425e2ad3333b90a82032d71bbaea">00027</a>     <span class="keyword">inline</span> <span class="keywordtype">bool</span> <a class="code" href="class_g_l_viewer.html#a5ea5425e2ad3333b90a82032d71bbaea">isWireframe</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> wireframe; }
+<a name="l00028"></a><a class="code" href="class_g_l_viewer.html#affe3dc7c0ffc0a626ddfd7fa46c49b00">00028</a>     <span class="keyword">inline</span> <span class="keywordtype">int</span> <a class="code" href="class_g_l_viewer.html#affe3dc7c0ffc0a626ddfd7fa46c49b00">getRenderingMode</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> renderingMode; }
 <a name="l00029"></a>00029     
 <a name="l00030"></a><a class="code" href="class_g_l_viewer_1_1_exception.html">00030</a>     <span class="keyword">class </span><a class="code" href="class_g_l_viewer_1_1_exception.html">Exception</a>  {
 <a name="l00031"></a>00031     <span class="keyword">public</span>:
-<a name="l00032"></a>00032         <a class="code" href="class_g_l_viewer_1_1_exception.html">Exception</a> (<span class="keyword">const</span> std::string &amp; msg) : message (<span class="stringliteral">&quot;[GLViewer]&quot;</span>+msg) {}
-<a name="l00033"></a>00033         <span class="keyword">virtual</span> ~<a class="code" href="class_g_l_viewer_1_1_exception.html">Exception</a> () {}
-<a name="l00034"></a>00034         <span class="keyword">const</span> std::string &amp; getMessage ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> message; }
+<a name="l00032"></a><a class="code" href="class_g_l_viewer_1_1_exception.html#a4907c5b4b29596527e4c071b407b6a39">00032</a>         <a class="code" href="class_g_l_viewer_1_1_exception.html#a4907c5b4b29596527e4c071b407b6a39">Exception</a> (<span class="keyword">const</span> std::string &amp; msg) : message (<span class="stringliteral">&quot;[GLViewer]&quot;</span>+msg) {}
+<a name="l00033"></a><a class="code" href="class_g_l_viewer_1_1_exception.html#ad6dac44fd43a2908030a48b138237353">00033</a>         <span class="keyword">virtual</span> <a class="code" href="class_g_l_viewer_1_1_exception.html#ad6dac44fd43a2908030a48b138237353">~Exception</a> () {}
+<a name="l00034"></a><a class="code" href="class_g_l_viewer_1_1_exception.html#a11befe3468ae6137a932a4ca32d9ce5e">00034</a>         <span class="keyword">const</span> std::string &amp; <a class="code" href="class_g_l_viewer_1_1_exception.html#a11befe3468ae6137a932a4ca32d9ce5e">getMessage</a> ()<span class="keyword"> const </span>{ <span class="keywordflow">return</span> message; }
 <a name="l00035"></a>00035     <span class="keyword">private</span>:
 <a name="l00036"></a>00036         std::string message;
 <a name="l00037"></a>00037     }; 
 <a name="l00038"></a>00038      
 <a name="l00039"></a>00039 <span class="keyword">public</span> slots :
-<a name="l00040"></a>00040     <span class="keywordtype">void</span> setWireframe (<span class="keywordtype">bool</span> b);
-<a name="l00041"></a>00041     <span class="keywordtype">void</span> setRenderingMode (<span class="keywordtype">bool</span> m);
+<a name="l00040"></a>00040     <span class="keywordtype">void</span> <a class="code" href="class_g_l_viewer.html#a9fb825fd9a6e4ae542018822b16c8eee">setWireframe</a> (<span class="keywordtype">bool</span> b);
+<a name="l00041"></a>00041     <span class="keywordtype">void</span> <a class="code" href="class_g_l_viewer.html#a57f4dc0af322632953bf180d804ecb19">setRenderingMode</a> (<span class="keywordtype">bool</span> m);
 <a name="l00042"></a>00042     
 <a name="l00043"></a>00043 <span class="keyword">protected</span> :
-<a name="l00044"></a>00044     <span class="keywordtype">void</span> init();
-<a name="l00045"></a>00045     <span class="keywordtype">void</span> draw ();
-<a name="l00046"></a>00046     QString helpString() <span class="keyword">const</span>;
+<a name="l00044"></a>00044     <span class="keywordtype">void</span> <a class="code" href="class_g_l_viewer.html#afcc998ee4646a261742b6a70d5827cb1">init</a>();
+<a name="l00045"></a>00045     <span class="keywordtype">void</span> <a class="code" href="class_g_l_viewer.html#ae24326f0acdd4c6ff8b3b97ec863be85">draw</a> ();
+<a name="l00046"></a>00046     QString <a class="code" href="class_g_l_viewer.html#a4d4be1953913ec2025cf856c12c9f506">helpString</a>() <span class="keyword">const</span>;
 <a name="l00047"></a>00047 
-<a name="l00048"></a>00048     <span class="keyword">virtual</span> <span class="keywordtype">void</span> keyPressEvent ( QKeyEvent * event );
-<a name="l00049"></a>00049     <span class="keyword">virtual</span> <span class="keywordtype">void</span> keyReleaseEvent ( QKeyEvent * event );
+<a name="l00048"></a>00048     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_g_l_viewer.html#adb67ff4742ee4aca60688c3cf0f05b13">keyPressEvent</a> ( QKeyEvent * event );
+<a name="l00049"></a>00049     <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_g_l_viewer.html#a654e84b5ce36c34da9f93859afb964b9">keyReleaseEvent</a> ( QKeyEvent * event );
 <a name="l00050"></a>00050 
 <a name="l00051"></a>00051 <span class="keyword">private</span>:
 <a name="l00052"></a>00052     <span class="keywordtype">bool</span> wireframe;
-<a name="l00053"></a>00053     RenderingMode renderingMode; 
+<a name="l00053"></a>00053     <a class="code" href="class_g_l_viewer.html#ae1added1addae5cd67c55931bf9f4cea">RenderingMode</a> renderingMode; 
 <a name="l00054"></a>00054 };
 <a name="l00055"></a>00055 
 <a name="l00056"></a>00056 <span class="preprocessor">#endif // GLVIEWER_H</span>
@@ -128,7 +129,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Typedefs</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(8)"><span class="SelectionMark">&#160;</span>Friends</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(9)"><span class="SelectionMark">&#160;</span>Defines</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -137,7 +138,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<hr class="footer"/><address class="footer"><small>Generated on Mon May 2 2011 01:51:51 for Projet3D by&#160;
+<hr class="footer"/><address class="footer"><small>Generated on Sun May 8 2011 16:02:09 for Ray Tracer by&#160;
 <a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.7.4 </small></address>
 </body>

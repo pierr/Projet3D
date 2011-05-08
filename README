@@ -1,5 +1,20 @@
 Voici le projet de  3D réalisé par Erwan Fruch,Jan del Ojo Balaguer et Pierre Besson.
 
+#Pour Tamy:
+Il y a un fichier rayminiTamy.pro pour que vous puissiez effectuer la compilation du projet.
+Ce fichier est une copie du .pro initial avec juste une mise à jour des fichiers sources et headers.
+
+Pour accéder à la page web du projet:
+http://pierr.github.com/Projet3D/
+Le wiki du projet qui fait office de rapport:
+https://github.com/pierr/Projet3D/wiki
+
+La page gitHub du projet, avec les différents  commits, et le code:
+https://github.com/pierr/Projet3D/commits/master
+
+La documentation doxygen du projet (seules les classes intéressantes ont des commentaires)
+
+
 #Consignes pour la soutenance et le rapport
 Pour le rapport 
 Deux pages qui énumèrent ce qui marche et qui ne marche pas.
@@ -11,7 +26,6 @@ Soutenance le 29 rapport et code sources pour la semaine d'après.Code la semain
 #Ce qui a été fait jusque maintenant:
  Dans raymini
 	#Dans la classe Ray 
-		L'implémentation de l'intersection entre un triangle et un rayon
-		La brdf pour avoir la couleur du pixel
+		L'implémentation des algorithme
 	#Dans les classes kdtree, kdnode et kdleaf
 		L'implémentation du kdtree

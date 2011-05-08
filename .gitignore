@@ -11,5 +11,6 @@ raymini/rayminiPierre.pro.user
 raymini/raymini
 raymini/*.old*
 raymini/models/*.old
+raymini/rendu/*
 Doxyfile
 #documentation/*

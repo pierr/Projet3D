@@ -30,19 +30,15 @@ void Scene::destroyInstance () {
         instance = NULL;
     }
 }
-
+/**
+* Constructeur de scène ici vous pouvez changer la scène à charger.
+*/
 Scene::Scene () {
-//    buildDefaultScene (false);
-//    buildScene2buffleHD();
-//    buildGroundWall();
-   spheresInBox();
+    //spheresInBox();
     //twoPigs();
-    //buildBox();
    //buildSceneSpheres();
-//    buildSceneManyCircles();
-//    simpleScene();
-//    buildNormalGround();
-    updateBoundingBox ();
+   simpleScene();
+   updateBoundingBox ();
 }
 
 Scene::~Scene () {
@@ -58,7 +54,7 @@ void Scene::updateBoundingBox () {
     }
 }
 /**
-  *Méthode pour charger les fichiers sans devoir se souvenir du nom, on l'écrit une fois pour toute dans une enum ainsi c'est plus facile.
+*Méthode pour charger les fichiers sans devoir se souvenir du nom, on l'écrit une fois pour toute dans une enum ainsi c'est plus facile.
 * @param objName est une enum qui peremet de trouver le nom de fichier sans devoir le taper à chaque fois.
 */
 string getFileName(Object::objName objName){
@@ -354,7 +350,9 @@ void Scene::buildGroundWall(){
     //objects.push_back(soll3);
     loadLights(1);
 }
-
+/**
+* @return un nombre aléatoire entre 0 et 1
+*/
 float rand2(){
     return  rand()/(float)RAND_MAX  ;
 }
@@ -392,7 +390,9 @@ void Scene::buildSceneManyCircles(){
 
     loadLights(1);
 }
-
+/**
+* Méthode qui permet de générer la pièce (cube avec une face ouverte).
+*/
 void Scene::buildBox(){
     float grand = 4.f;
     Mesh rightWall;
@@ -430,14 +430,18 @@ void Scene::buildBox(){
     Object roW (roofWall, groundMatRoof);
     objects.push_back(roW);
 }
+
+/**
+* Génère une scène avec beaucoup de sphères un peu partout dans une boîte (utile pour le path Tracing).
+*/
 void Scene::spheresInBox(){
      buildBox();
      Mesh sphereMesh;
      RotationMatrix rot(-90.f,Matrix::X);
      RotationMatrix rot2(90.f,Matrix::X);
-     float g = 1.f;//0.5f;
+     float g = 0.5f;
      Vec3Df t(1.f,0.1f,1.f);
-     string fileSphere = getFileName(Object::ram);
+     string fileSphere = getFileName(Object::sphere);
      sphereMesh.loadOFF(fileSphere,t,g, rot);
      Material ramMat(0.735f,1.656f, Vec3Df (1.f, .795f, .504f));
      Object sphere(sphereMesh,ramMat);
@@ -517,6 +521,9 @@ void Scene::spheresInBox(){
 
      loadLights(2);
 }
+/**
+*Génère une scène avec deux cochons et une boule.
+*/
 void Scene::twoPigs(){
     buildBox();
     Mesh pigMesh;
@@ -558,43 +565,20 @@ void Scene::buildNormalGround(){
     objects.push_back(soll);
     loadLights(1);
 }
-
+/**
+*Génère une scène avec juste une boite englobante et un objet j'aime la 3D.
+*/
 void Scene::simpleScene(){
-    buildNormalGround();
-        Mesh groundMesh;
-        RotationMatrix nulRot(0., Matrix::X);
-
-        /*Ici on récupère ou on défini les paramêtres de chaque objet*/
-        //Param Shape
-        string fileNameShape = getFileName(Object::ram);//Nom du fichier à charger
-        Vec3Df transShape(0.f, 0.f, 0.f);// de combien on le translate
-        float grandShape = 0.01f; // de combien on multiplie la forme
-        //param Ground
-        string fileNameGround = "models/ground.off";
-        Vec3Df transGround;//De combien on veut le translater
-        float grandGround = 0.1f; // de combien on multiplie le fond
-
-//        groundMesh.loadOFF(fileNameShape);
-       groundMesh.loadOFF(fileNameShape,transShape, grandGround,nulRot);
-        Material groundMat(1.f, 1.f, Vec3Df (1.f, 0.f, 0.f));
-        Object ground (groundMesh, groundMat);
-        objects.push_back (ground);
-        Mesh ramMesh;
-
-        ramMesh.loadOFF (fileNameShape, transShape,grandShape,nulRot);
-        //Material ramMat (1.f, 1.f, Vec3Df (1.f, .6f, .2f));//old rammat
-        Material ramMat(0.735f,1.656f, Vec3Df (1.f, .795f, .504f));
-        Object ram (ramMesh, ramMat);
-       // objects.push_back (ram);
-
-        Mesh theiere;
-        string fileTheiere = getFileName(Object::ram);
-        Vec3Df transTheiere = Vec3Df (0.f, 0.f, 1.f);// de combien on le translate
-        float grandTheiere = 1.f; // de combien on multiplie la forme
-        theiere.loadOFF(fileTheiere, transTheiere, grandTheiere, nulRot);
-        Material theiMat(0.235f,0.656f, Vec3Df (0.5f, 0.f, .8f));
-        Object theier(theiere,theiMat);
-       // objects.push_back(theier);
-
-    loadLights(1);
+    buildBox();
+    Mesh threeDMesh;
+    RotationMatrix rot(-90.f,Matrix::X);
+    //RotationMatrix rot2(90.f,Matrix::X);
+    float g = 1.f;
+    Vec3Df t(2.f,0.1f,2.f);
+    string fileThreeD = getFileName(Object::threeD);
+    threeDMesh.loadOFF(fileThreeD,t,g, rot);
+    Material threeMat(0.735f,1.656f, Vec3Df (1.f, .795f, .504f));
+    Object threeD(threeDMesh,threeMat);
+    objects.push_back(threeD);
+    loadLights(2);
  }

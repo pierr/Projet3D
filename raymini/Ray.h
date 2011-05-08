@@ -46,12 +46,22 @@ public:
     */
     bool intersect (const Vertex & v0, const Vertex & v1, const Vertex & v2, Vec3Df & intersectionPoint, float & ir, float & iu, float & iv) const;
     /**
-      Le but de cette fonction est de calculer la brdf pour chacun des triangles pour chacun des rayons qui sont tracés.
-    @param v est le barycentre du triangle
-    @param m est le material du triangle
-    @param radiance est la radiance qu'on va modifier.
+      Le but de cette fonction est de calculer la brdf pour l'intersection avec la scène et pour une lumière.
+    @param wn est un vecteur unitaire qui est la normal à l'intersection
+    @param wi est un vecteur unitaire qui part de la position de l'intersection vers la direction de la lumière.
+    @param wO est un vecteur unitaire qui part de la position de l'intersection vers la direction de l'origine du rayon.
+    @param intensity l'intensité de la lumière concidérée.
+    @param m est le matériau de l'objet intersecté
+    @return la valeur de la BRDF pour la lumière concidérée
     */
     float retBRDF(Vec3Df & wn, Vec3Df & wi, Vec3Df & wo, float intensity, Material & m);
+    /**
+    *Méthode qui permet de calculer la BRDF pour le point d'intersection
+    * @param bary Le vecteur correspondant au point d'intersection
+    * @param m le matériau de l'objet intersecté
+    * @param color la couleur qu'on veut modifier avec le calcul de BRDF
+    * @param root un pointeur vers le KDTree
+    */
     void calcBRDF(Vertex & bary,  Material & m, Vec3Df& color, kdnode * root);
     /**
       Le but de cette méthode est de calculer pour chaque rayon les triangles qui intersectent ce rayon , les triangles sont issus des objets qui composent la scène.
@@ -60,8 +70,8 @@ public:
    /**
     *Fonction qui permet de claculer le résultat pour le rayon concidéré le résultat combiné ,
     * en fonction des paramêtres activés:de la brdf,des ombres,de l'ambiant occlusion, et du path Tracing.
-    *@param root est la racine du kdTree
-    *@param num est le niveau de profondeur (nb de rebond) car cette méthode peut être appellée réccursivement.
+    * @param root est la racine du kdTree
+    * @param num est le niveau de profondeur (nb de rebond) car cette méthode peut être appellée réccursivement.
     */
     Vec3Df calcul_radiance( kdnode * root, int num);
     /**
@@ -81,8 +91,19 @@ public:
      * @param m est le matéerial de l'objet intersecté par le rayon.
     */
     void calcPathTracing(kdnode * root,int num,Vertex & isV,Vec3Df & radiance, Material & m);
-
+    /**
+    *Méthode qui permet de générer un vecteur qui aura tourné d'un angle theta et phi dans le repère propre du vecteur d'origine.
+    * @param  originVecor vecteur d'origine
+    * @param anglePhi coordonnée sphérique
+    * @param angletheta coordonnée sphérique
+    */
     Vec3Df rotateVector(const Vec3Df & originVecor, float anglephi, float angletheta);
+    /**
+    *Méthode qui permet d'appelet rotateVector avec des paramètres aléatoires (les angles teta et phi sont issus
+    * de la multiplication par des nombres aléatoires entre 0 et 1 de angle.
+    * @param originVector vecteur d'origine
+    * @param angle max
+    */
     Vec3Df perturbateVector(const Vec3Df & originVecor, float angle);
 
 private:

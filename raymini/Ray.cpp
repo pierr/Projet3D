@@ -155,6 +155,9 @@ float r = a/b;
     //return intersection(verteces.at(tri.getVertex(0)).getPos(), verteces.at(tri.getVertex(1)).getPos(), verteces.at(tri.getVertex(0)).getPos());
 }
 
+/**
+ * @inheaderfile
+ */
 bool Ray::intersect(Vertex & v0 , Vertex & v1, Vertex & v2, Vec3Df & intersectionPoint) const{
   const float epsilon = 0.00000001; //Un epsilon pour éviter de faire des comparaisons a zero
     //Des vecteurs pour faire des calculs sur le triangle (arrêtes, normales)
@@ -213,6 +216,9 @@ float Ray::retBRDF(Vec3Df & wn, Vec3Df & wi, Vec3Df & wo, float intensity, Mater
     return BRDF;
 }
 
+/**
+ * @inheaderfile
+ */
 void Ray::calcBRDF(Vertex & v,  Material & m, Vec3Df& color, kdnode * root){
     Scene* scene = Scene::getInstance();
     std::vector<Light> lights = scene->getLights();
@@ -274,6 +280,9 @@ void Ray::calcBRDF(Vertex & v,  Material & m, Vec3Df& color, kdnode * root){
 }
 
 //chercher des intersections dans les boites minimales
+/**
+ * @inheaderfile
+ */
 bool Ray::kd_intersect(kdnode * root, Vertex & rootisv, Material & rootism, float & rootmindist, float maxdist){
 
     //si on est dans les nodes intermediaires on passe le message..
@@ -363,6 +372,9 @@ bool Ray::kd_intersect(kdnode * root, Vertex & rootisv, Material & rootism, floa
     }
 }
 
+/**
+ * @inheaderfile
+ */
 Vec3Df Ray::calcul_radiance(kdnode * root, int num){
     Material ism;
     Vertex isv;
@@ -385,6 +397,9 @@ Vec3Df Ray::calcul_radiance(kdnode * root, int num){
     }
 }
 
+/**
+ * @inheaderfile
+ */
 void Ray::calcPathTracing(kdnode * root,int num,Vertex & isV, Vec3Df & radiance, Material & m){
     if(param->get_pathactive() && num<param->get_pathmaxdeep()){
         Vec3Df rad_rayons;
@@ -407,6 +422,9 @@ void Ray::calcPathTracing(kdnode * root,int num,Vertex & isV, Vec3Df & radiance,
     }
 }
 
+/**
+ * @inheaderfile
+ */
 float Ray::calcAmbOcclusion(kdnode * root, Vertex & v, float rayonSphere, float theta){
     float ratioIntersection = 0.f;
     for(int i=0; i<param->get_amboccnumr(); i++){
@@ -426,7 +444,9 @@ float Ray::calcAmbOcclusion(kdnode * root, Vertex & v, float rayonSphere, float 
     return ((float) nray - ratioIntersection)/nray;
 }
 
-
+/**
+ * @inheaderfile
+ */
 Vec3Df Ray::rotateVector(const Vec3Df & originVecor, float anglephi, float angletheta){
     //On definit une base par rapport au vecteur original
     Vec3Df z = originVecor;
@@ -448,7 +468,9 @@ Vec3Df Ray::rotateVector(const Vec3Df & originVecor, float anglephi, float angle
 
     return rotated;
 }
-
+/**
+ * @inheaderfile
+ */
 Vec3Df Ray::perturbateVector(const Vec3Df & originVecor, float angle){
   return rotateVector(originVecor,angle*param->randf(),angle*param->randf());
 }

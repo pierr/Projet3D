@@ -70,7 +70,7 @@ public:
         cubebackWall,
         cubeFaceWall,
         cubeRoof,
-        pig
+        pig,
     };
 private:
     Mesh mesh;

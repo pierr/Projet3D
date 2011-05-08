@@ -35,7 +35,9 @@ Scene::Scene () {
 //    buildDefaultScene (false);
 //    buildScene2buffleHD();
 //    buildGroundWall();
-   buildBox();
+   spheresInBox();
+    //twoPigs();
+    //buildBox();
    //buildSceneSpheres();
 //    buildSceneManyCircles();
 //    simpleScene();
@@ -427,7 +429,96 @@ void Scene::buildBox(){
     Material groundMatRoof(0.5,0.5, Vec3Df (255.f/255,255.f/255, 255.f/255));
     Object roW (roofWall, groundMatRoof);
     objects.push_back(roW);
+}
+void Scene::spheresInBox(){
+     buildBox();
+     Mesh sphereMesh;
+     RotationMatrix rot(-90.f,Matrix::X);
+     RotationMatrix rot2(90.f,Matrix::X);
+     float g = 1.f;//0.5f;
+     Vec3Df t(1.f,0.1f,1.f);
+     string fileSphere = getFileName(Object::ram);
+     sphereMesh.loadOFF(fileSphere,t,g, rot);
+     Material ramMat(0.735f,1.656f, Vec3Df (1.f, .795f, .504f));
+     Object sphere(sphereMesh,ramMat);
+     objects.push_back(sphere);
 
+     Mesh sphereMesh2;
+     Vec3Df tt = t+t;
+     sphereMesh2.loadOFF(fileSphere,tt,g,rot);
+     Material mat2(0.735f,1.656f, Vec3Df (rand2(), rand2(), rand2()));
+     Object sphere2(sphereMesh2,mat2);
+     objects.push_back(sphere2);
+
+     Mesh sphereMesh3;
+     Vec3Df ttt = tt+t;
+     sphereMesh3.loadOFF(fileSphere,ttt,g,rot);
+     Material mat3(0.735f,1.656f, Vec3Df (rand2(), rand2(), rand2()));
+     Object sphere3(sphereMesh3,mat3);
+     objects.push_back(sphere3);
+
+     Mesh sphereMesh4;
+     Vec3Df tx(2.2f,0.1f,1.f);
+     sphereMesh4.loadOFF(fileSphere,tx,g,rot);
+     Material mat4(0.735f,1.656f, Vec3Df (rand2(), rand2(), rand2()));
+     Object sphere4(sphereMesh4,mat4);
+     objects.push_back(sphere4);
+
+     Mesh sphereMesh5;
+     Vec3Df txx(3.3f,0.1f,1.f);
+     sphereMesh5.loadOFF(fileSphere,txx,g,rot);
+     Material mat5(0.735f,1.656f, Vec3Df (rand2(), rand2(), rand2()));
+     Object sphere5(sphereMesh5,mat5);
+     objects.push_back(sphere5);
+
+     Mesh sphereMesh6;
+     Vec3Df ty(1.f,0.1f,2.2f);
+     sphereMesh6.loadOFF(fileSphere,ty,g,rot);
+     Material mat6(0.735f,1.656f, Vec3Df (rand2(), rand2(), rand2()));
+     Object sphere6(sphereMesh6,mat6);
+     objects.push_back(sphere6);
+
+     Mesh sphereMesh7;
+     Vec3Df tyy(1.f,0.1f,3.3f);
+     sphereMesh7.loadOFF(fileSphere,tyy,g,rot);
+     Material mat7(0.735f,1.656f, Vec3Df (rand2(), rand2(), rand2()));
+     Object sphere7(sphereMesh7,mat7);
+     objects.push_back(sphere7);
+
+
+     Mesh sphereMesh8;
+     Vec3Df txz(2.2f,3.1f,1.f);
+     sphereMesh8.loadOFF(fileSphere,txz,g,rot);
+     Material mat8(0.735f,1.656f, Vec3Df (rand2(), rand2(), rand2()));
+     Object sphere8(sphereMesh8,mat8);
+     objects.push_back(sphere8);
+
+     Mesh sphereMesh9;
+     Vec3Df txxz(3.3f,3.1f,1.f);
+     sphereMesh9.loadOFF(fileSphere,txxz,g,rot2);
+     Material mat9(0.735f,1.656f, Vec3Df (rand2(), rand2(), rand2()));
+     Object sphere9(sphereMesh9,mat9);
+     objects.push_back(sphere9);
+
+     Mesh sphereMesh10;
+     Vec3Df tyz(1.f,3.1f,2.2f);
+     sphereMesh10.loadOFF(fileSphere,tyz,g,rot2);
+     Material mat10(0.735f,1.656f, Vec3Df (rand2(), rand2(), rand2()));
+     Object sphere10(sphereMesh10,mat10);
+     objects.push_back(sphere10);
+
+     Mesh sphereMesh11;
+     Vec3Df tyyz(1.f,0.1f,3.3f);
+     sphereMesh11.loadOFF(fileSphere,tyyz,g,rot2);
+     Material mat11(0.735f,1.656f, Vec3Df (rand2(), rand2(), rand2()));
+     Object sphere11(sphereMesh11,mat11);
+     objects.push_back(sphere11);
+
+
+     loadLights(2);
+}
+void Scene::twoPigs(){
+    buildBox();
     Mesh pigMesh;
     Mesh pigMesh2;
     Mesh sphereMesh;

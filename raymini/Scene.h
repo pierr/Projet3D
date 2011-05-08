@@ -45,6 +45,8 @@ private:
     void buildNormalGround();
     void simpleScene();
     void buildBox();
+    void twoPigs();
+    void spheresInBox();
     void loadLights(int type);
     std::vector<Object> objects;
     std::vector<Light> lights;

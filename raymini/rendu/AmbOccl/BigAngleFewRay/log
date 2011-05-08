@@ -1,0 +1,29 @@
+time 11
+RAYS PARAMETERS 
+nombre de pixel par grille1
+is Material 0
+is BRDF 0
+briallance 1
+diff active 0
+spec active
+AMBIANT OCCLUSION PARAMETERS 
+ao active 1
+ao nRay 5
+ao rayon 0.05
+ao teta  90
+
+OMBRES PARAMETERS 
+isOmbres 0
+Ombres numA 2
+Ombres numR2
+KD TREE PARAMETERS
+kD Tree prof max 0.05
+KD done 0.05
+epsilon 0.01
+
+PATH TRACING PARAMETERS
+is Active 0
+path teta cone8
+num Ray1
+path max deep2
+

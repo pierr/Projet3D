@@ -1,0 +1,8 @@
+Image HD buffle
+3 rays per pixel
+Brillance true
+brdf true
+material true
+Shadows true  pt per circle 2 pt pour le rayon 2
+Amb occl falsle
+kd Tree 0,05 tri per box
